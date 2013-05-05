@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthRecords {
+namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
     
     
     public partial class _default {

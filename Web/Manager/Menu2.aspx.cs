@@ -47,7 +47,7 @@ namespace FrameWork.web
                     j = 1;
                     foreach (sys_ModuleTable var2 in lst2)
                     {
-                        sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0} align={0}center{0} width={0}92{0} class={0}topmenuoff2{0} id={0}menu_{1}_{2}{0} OnMouseOver={0}javascript:xImageOverOROut('menu_{1}_{2}','v'){0} OnMouseOut={0}javascript:xImageOverOROut('menu_{1}_{2}','o'){0} OnClick={0}javascript:xNowShow('menu_{1}_{2}','{3}'){0}>&nbsp;&nbsp;{4}&nbsp;&nbsp;</td>","\"",i,j,var2.M_Directory.Replace("\\","\\\\"),var2.M_CName);
+                        sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0} align={0}center{0} width={0}120{0} class={0}topmenuoff2{0} id={0}menu_{1}_{2}{0} OnMouseOver={0}javascript:xImageOverOROut('menu_{1}_{2}','v'){0} OnMouseOut={0}javascript:xImageOverOROut('menu_{1}_{2}','o'){0} OnClick={0}javascript:xNowShow('menu_{1}_{2}','{3}'){0}>&nbsp;&nbsp;{4}&nbsp;&nbsp;</td>","\"",i,j,var2.M_Directory.Replace("\\","\\\\"),var2.M_CName);
                         sb_DownHTMLSrc.Append("\n");
                         if (j != lst2.Count)
                             sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0}><img border={0}0{0} src={0}images/index/top-b4-c.gif{0} width={0}1{0} height={0}19{0}></td>","\"");
@@ -58,7 +58,7 @@ namespace FrameWork.web
                         sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0}><img border={0}0{0} src={0}images/index/top-b4-c.gif{0} width={0}1{0} height={0}19{0}></td>", "\"");
                         for (int x = -1; x < i-j; x++)
                         {
-                            sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0} width={0}1{0}></td><td background={0}images/index/top-b4-b.gif{0} align={0}center{0} width={0}92{0} class={0}topmenuoff2{0}>&nbsp;&nbsp;&nbsp;&nbsp;</td>","\"");
+                            sb_DownHTMLSrc.AppendFormat("<td background={0}images/index/top-b4-b.gif{0} width={0}1{0}></td><td background={0}images/index/top-b4-b.gif{0} align={0}center{0} width={0}120{0} class={0}topmenuoff2{0}>&nbsp;&nbsp;&nbsp;&nbsp;</td>","\"");
                         }
                     }
                     sb_DownHTMLSrc.Append("<td><img border='0' src='images/index/top-b4-2.gif' width='5'></td><td></td></tr></table>");
