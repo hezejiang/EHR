@@ -1,0 +1,7 @@
+E:\项目\Web\EHR\FrameWork\bin\Debug\Supesoft.xml
+E:\项目\Web\EHR\FrameWork\bin\Debug\Supesoft.dll
+E:\项目\Web\EHR\FrameWork\bin\Debug\Supesoft.pdb
+E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.WebControls.AspNetPager.resources
+E:\项目\Web\EHR\FrameWork\obj\Debug\Supesoft.csproj.GenerateResource.Cache
+E:\项目\Web\EHR\FrameWork\obj\Debug\Supesoft.dll
+E:\项目\Web\EHR\FrameWork\obj\Debug\Supesoft.pdb

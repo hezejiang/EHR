@@ -1,0 +1,9 @@
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.DALFactory.dll
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.DALFactory.pdb
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.IDAL.dll
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.Model.dll
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.IDAL.pdb
+E:\项目\Web\EHR\DALFactory\bin\Debug\Maticsoft.Model.pdb
+E:\项目\Web\EHR\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
+E:\项目\Web\EHR\DALFactory\obj\Debug\Maticsoft.DALFactory.dll
+E:\项目\Web\EHR\DALFactory\obj\Debug\Maticsoft.DALFactory.pdb

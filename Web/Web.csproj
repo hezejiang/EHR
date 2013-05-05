@@ -1,0 +1,2079 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B535162-10C2-4238-BC56-193B968E1834}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maticsoft.Web</RootNamespace>
+    <AssemblyName>Maticsoft.Web</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LTP.Accounts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\LTP.Accounts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.UI.WebControls">
+      <HintPath>..\Lib\Microsoft.Web.UI.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LtpPageControl">
+      <HintPath>..\Lib\LtpPageControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Default.css" />
+    <Content Include="App_Themes\Green2Theme\Default.css" />
+    <Content Include="App_Themes\GreenTheme\Default.css" />
+    <Content Include="App_Themes\PurpleTheme\Default.css" />
+    <Content Include="App_Themes\RedTheme\Default.css" />
+    <Content Include="AR_Announcement\Add.aspx" />
+    <Content Include="AR_Announcement\delete.aspx" />
+    <Content Include="AR_Announcement\List.aspx" />
+    <Content Include="AR_Announcement\Modify.aspx" />
+    <Content Include="AR_Announcement\Show.aspx" />
+    <Content Include="AR_Report\Add.aspx" />
+    <Content Include="AR_Report\delete.aspx" />
+    <Content Include="AR_Report\List.aspx" />
+    <Content Include="AR_Report\Modify.aspx" />
+    <Content Include="AR_Report\Show.aspx" />
+    <Content Include="Controls\checkright.ascx" />
+    <Content Include="Controls\copyright.ascx" />
+    <Content Include="default.htm" />
+    <Content Include="education_Activity\Add.aspx" />
+    <Content Include="education_Activity\delete.aspx" />
+    <Content Include="education_Activity\List.aspx" />
+    <Content Include="education_Activity\Modify.aspx" />
+    <Content Include="education_Activity\Show.aspx" />
+    <Content Include="education_Document\Add.aspx" />
+    <Content Include="education_Document\delete.aspx" />
+    <Content Include="education_Document\List.aspx" />
+    <Content Include="education_Document\Modify.aspx" />
+    <Content Include="education_Document\Show.aspx" />
+    <Content Include="education_Prescription\Add.aspx" />
+    <Content Include="education_Prescription\delete.aspx" />
+    <Content Include="education_Prescription\List.aspx" />
+    <Content Include="education_Prescription\Modify.aspx" />
+    <Content Include="education_Prescription\Show.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="js\calendar1.js" />
+    <Content Include="js\CheckBox.js" />
+    <Content Include="Manager\about.aspx" />
+    <Content Include="Manager\Css\Menu1.css" />
+    <Content Include="Manager\Css\Site_Css.css" />
+    <Content Include="Manager\Css\Table\blue\css.css" />
+    <Content Include="Manager\Css\Table\blue\images\header_bg.gif" />
+    <Content Include="Manager\Css\Table\default\css.css" />
+    <Content Include="Manager\Css\Table\Green\css.css" />
+    <Content Include="Manager\Css\Table\red\css.css" />
+    <Content Include="Manager\DataBase\Access\DBBack.mdb" />
+    <Content Include="Manager\DataBase\MsSql\FrameWork.sql" />
+    <Content Include="Manager\DataBase\MsSql\UpdateTo1.0.8.sql" />
+    <Content Include="Manager\DataBase\MsSql\存储过程.sql" />
+    <Content Include="Manager\DataBase\MsSql\数据初始化脚本.sql" />
+    <Content Include="Manager\DataBase\Oracle\Oracle.Sql" />
+    <Content Include="Manager\DataBase\Oracle\UpdateTable1.0.8.sql" />
+    <Content Include="Manager\Default.aspx" />
+    <Content Include="Manager\DownLoadFile.aspx" />
+    <Content Include="Manager\images\about.gif" />
+    <Content Include="Manager\images\allow.gif" />
+    <Content Include="Manager\images\Button_On.GIF" />
+    <Content Include="Manager\images\Button_Over.GIF" />
+    <Content Include="Manager\images\controls4.gif" />
+    <Content Include="Manager\images\disable.gif" />
+    <Content Include="Manager\images\down01.gif" />
+    <Content Include="Manager\images\Help.gif" />
+    <Content Include="Manager\images\house.gif" />
+    <Content Include="Manager\images\icon.ico" />
+    <Content Include="Manager\images\ICON\1.gif" />
+    <Content Include="Manager\images\ICON\10.gif" />
+    <Content Include="Manager\images\ICON\2.gif" />
+    <Content Include="Manager\images\ICON\3.gif" />
+    <Content Include="Manager\images\ICON\4.gif" />
+    <Content Include="Manager\images\ICON\5.gif" />
+    <Content Include="Manager\images\ICON\6.gif" />
+    <Content Include="Manager\images\ICON\7.gif" />
+    <Content Include="Manager\images\ICON\8.gif" />
+    <Content Include="Manager\images\ICON\9.gif" />
+    <Content Include="Manager\images\ICON\a.gif" />
+    <Content Include="Manager\images\ICON\applist.gif" />
+    <Content Include="Manager\images\ICON\Area.png" />
+    <Content Include="Manager\images\ICON\b.gif" />
+    <Content Include="Manager\images\ICON\back.gif" />
+    <Content Include="Manager\images\ICON\bug.gif" />
+    <Content Include="Manager\images\ICON\Colume.png" />
+    <Content Include="Manager\images\ICON\config.gif" />
+    <Content Include="Manager\images\ICON\Custom.gif" />
+    <Content Include="Manager\images\ICON\default.gif" />
+    <Content Include="Manager\images\ICON\delete.gif" />
+    <Content Include="Manager\images\ICON\doc.gif" />
+    <Content Include="Manager\images\ICON\edit.gif" />
+    <Content Include="Manager\images\ICON\FieldManager.gif" />
+    <Content Include="Manager\images\ICON\generic.gif" />
+    <Content Include="Manager\images\ICON\grouplist.gif" />
+    <Content Include="Manager\images\ICON\html2.gif" />
+    <Content Include="Manager\images\ICON\icon.gif" />
+    <Content Include="Manager\images\ICON\Line.png" />
+    <Content Include="Manager\images\ICON\list.gif" />
+    <Content Include="Manager\images\ICON\log.gif" />
+    <Content Include="Manager\images\ICON\look.gif" />
+    <Content Include="Manager\images\ICON\module.gif" />
+    <Content Include="Manager\images\ICON\move.gif" />
+    <Content Include="Manager\images\ICON\new.gif" />
+    <Content Include="Manager\images\ICON\office.gif" />
+    <Content Include="Manager\images\ICON\online.gif" />
+    <Content Include="Manager\images\ICON\orderby.gif" />
+    <Content Include="Manager\images\ICON\paperclip.gif" />
+    <Content Include="Manager\images\ICON\ppt.gif" />
+    <Content Include="Manager\images\ICON\print.gif" />
+    <Content Include="Manager\images\ICON\print_icon.gif" />
+    <Content Include="Manager\images\ICON\rule.gif" />
+    <Content Include="Manager\images\ICON\select.gif" />
+    <Content Include="Manager\images\ICON\sound.gif" />
+    <Content Include="Manager\images\ICON\status.gif" />
+    <Content Include="Manager\images\ICON\txt.gif" />
+    <Content Include="Manager\images\ICON\user.gif" />
+    <Content Include="Manager\images\ICON\xls.gif" />
+    <Content Include="Manager\images\ICON\zip.gif" />
+    <Content Include="Manager\images\Index\menu1bg.gif" />
+    <Content Include="Manager\images\Index\menubg.jpg" />
+    <Content Include="Manager\images\Index\top-2-1.gif" />
+    <Content Include="Manager\images\Index\top-2-2.gif" />
+    <Content Include="Manager\images\Index\top-b-1.gif" />
+    <Content Include="Manager\images\Index\top-b-2-1-2.gif" />
+    <Content Include="Manager\images\Index\top-b-2-2.gif" />
+    <Content Include="Manager\images\Index\top-b-2.gif" />
+    <Content Include="Manager\images\Index\top-b-3-2.gif" />
+    <Content Include="Manager\images\Index\top-b-3.gif" />
+    <Content Include="Manager\images\Index\top-b4-1.gif" />
+    <Content Include="Manager\images\Index\top-b4-2.gif" />
+    <Content Include="Manager\images\Index\top-b4-b.gif" />
+    <Content Include="Manager\images\Index\top-b4-c.gif" />
+    <Content Include="Manager\images\Index\top-b4-yellow.gif" />
+    <Content Include="Manager\images\info.gif" />
+    <Content Include="Manager\images\log.gif" />
+    <Content Include="Manager\images\logon\Logon_1.gif" />
+    <Content Include="Manager\images\logon\Logon_10.gif" />
+    <Content Include="Manager\images\logon\Logon_11.gif" />
+    <Content Include="Manager\images\logon\Logon_18.jpg" />
+    <Content Include="Manager\images\logon\Logon_2.gif" />
+    <Content Include="Manager\images\logon\Logon_3.gif" />
+    <Content Include="Manager\images\logon\Logon_4.gif" />
+    <Content Include="Manager\images\logon\Logon_5.gif" />
+    <Content Include="Manager\images\logon\Logon_6.gif" />
+    <Content Include="Manager\images\logon\Logon_7.gif" />
+    <Content Include="Manager\images\logon\Logon_7no.gif" />
+    <Content Include="Manager\images\logon\Logon_8.gif" />
+    <Content Include="Manager\images\logon\Logon_9.gif" />
+    <Content Include="Manager\images\logout.gif" />
+    <Content Include="Manager\images\Menu\arrow.gif" />
+    <Content Include="Manager\images\Menu\box_bg.gif" />
+    <Content Include="Manager\images\Menu\box_bottom.gif" />
+    <Content Include="Manager\images\Menu\box_topbg.gif" />
+    <Content Include="Manager\images\Menu\box_topleft.gif" />
+    <Content Include="Manager\images\Menu\box_topright.gif" />
+    <Content Include="Manager\images\Menu\close.gif" />
+    <Content Include="Manager\images\Menu\close_on.gif" />
+    <Content Include="Manager\images\Menu\Cshare.gif" />
+    <Content Include="Manager\images\Menu\Delphi.gif" />
+    <Content Include="Manager\images\Menu\folder_add.gif" />
+    <Content Include="Manager\images\Menu\folder_move.gif" />
+    <Content Include="Manager\images\Menu\open.gif" />
+    <Content Include="Manager\images\Menu\open_on.gif" />
+    <Content Include="Manager\images\Menu\Perl.gif" />
+    <Content Include="Manager\images\Menu\PHP.gif" />
+    <Content Include="Manager\images\Menu\tab_active_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_active_left.gif" />
+    <Content Include="Manager\images\Menu\tab_active_right.gif" />
+    <Content Include="Manager\images\Menu\tab_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_top_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_left.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_right.gif" />
+    <Content Include="Manager\images\Menu\twist.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageAlert.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageBody.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageEnd.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageError.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageHead.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageOk.gif" />
+    <Content Include="Manager\images\NotImage.gif" />
+    <Content Include="Manager\images\right.gif" />
+    <Content Include="Manager\images\sort_asc.gif" />
+    <Content Include="Manager\images\sort_desc.gif" />
+    <Content Include="Manager\images\thead_bg.gif" />
+    <Content Include="Manager\images\top-gray.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2blank.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2doc.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2folderclosed.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2folderopen.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2lastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2mlastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2mnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2node.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2plastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2pnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2vertline.gif" />
+    <Content Include="Manager\images\TreeIcon\refurbish.gif" />
+    <Content Include="Manager\images\up01.gif" />
+    <Content Include="Manager\images\userset.gif" />
+    <Content Include="Manager\images\wrong.gif" />
+    <Content Include="Manager\inc\Codeimg.aspx" />
+    <Content Include="Manager\inc\FineMessBox\1.htm" />
+    <Content Include="Manager\inc\FineMessBox\css\subModal.css" />
+    <Content Include="Manager\inc\FineMessBox\Images\left-corners.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\left-right.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\maskBG.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\right-corners.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\tool-sprites.gif" />
+    <Content Include="Manager\inc\FineMessBox\Images\top-bottom.png" />
+    <Content Include="Manager\inc\FineMessBox\js\common.js" />
+    <Content Include="Manager\inc\FineMessBox\js\subModal.js" />
+    <Content Include="Manager\inc\FineMessBox\loading.html" />
+    <Content Include="Manager\inc\Page_Guage.aspx" />
+    <Content Include="Manager\js\checkform.js" />
+    <Content Include="Manager\js\date\date.js" />
+    <Content Include="Manager\js\MoveTree.js" />
+    <Content Include="Manager\js\SelectTree.js" />
+    <Content Include="Manager\js\Tree.js" />
+    <Content Include="Manager\js\Tree\js\lTREE.js" />
+    <Content Include="Manager\js\Tree\js\lTREE.packed.js" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.checkbox.css" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.default.css" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.simple.css" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\base.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\checkbox-checked.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\checkbox.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow-end.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow-line.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-closed.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-last.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-opened.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf-last.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf-normal.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\minus.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\plus.gif" />
+    <Content Include="Manager\js\Tree\tree.html" />
+    <Content Include="Manager\left.aspx" />
+    <Content Include="Manager\Login.aspx" />
+    <Content Include="Manager\LoginOut.aspx" />
+    <Content Include="Manager\Log\20130422AppErrorLog.txt" />
+    <Content Include="Manager\Log\20130423AppErrorLog.txt" />
+    <Content Include="Manager\Log\20130503AppErrorLog.txt" />
+    <Content Include="Manager\Menu1.aspx" />
+    <Content Include="Manager\Menu1_Button.aspx" />
+    <Content Include="Manager\Menu1_Disp.aspx" />
+    <Content Include="Manager\Menu2.aspx" />
+    <Content Include="Manager\menu3.aspx" />
+    <Content Include="Manager\Messages.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx" />
+    <Content Include="Manager\mylogin.aspx" />
+    <Content Include="Manager\Public\UserPhoto\20130425095551843e.jpg" />
+    <Content Include="Manager\Public\UserPhoto\s_20130425095551843e.jpg" />
+    <Content Include="Manager\right.aspx" />
+    <Content Include="Manager\UserSet.aspx" />
+    <Content Include="Nation\Add.aspx" />
+    <Content Include="Nation\delete.aspx" />
+    <Content Include="Nation\List.aspx" />
+    <Content Include="Nation\Modify.aspx" />
+    <Content Include="Nation\Show.aspx" />
+    <Content Include="record_Consultation\Add.aspx" />
+    <Content Include="record_Consultation\delete.aspx" />
+    <Content Include="record_Consultation\List.aspx" />
+    <Content Include="record_Consultation\Modify.aspx" />
+    <Content Include="record_Consultation\Show.aspx" />
+    <Content Include="record_DeathRegistration\Add.aspx" />
+    <Content Include="record_DeathRegistration\delete.aspx" />
+    <Content Include="record_DeathRegistration\List.aspx" />
+    <Content Include="record_DeathRegistration\Modify.aspx" />
+    <Content Include="record_DeathRegistration\Show.aspx" />
+    <Content Include="record_FamilyBaseInfo\Add.aspx" />
+    <Content Include="record_FamilyBaseInfo\delete.aspx" />
+    <Content Include="record_FamilyBaseInfo\List.aspx" />
+    <Content Include="record_FamilyBaseInfo\Modify.aspx" />
+    <Content Include="record_FamilyBaseInfo\Show.aspx" />
+    <Content Include="record_FimaryProblem\Add.aspx" />
+    <Content Include="record_FimaryProblem\delete.aspx" />
+    <Content Include="record_FimaryProblem\List.aspx" />
+    <Content Include="record_FimaryProblem\Modify.aspx" />
+    <Content Include="record_FimaryProblem\Show.aspx" />
+    <Content Include="record_FollowUp\Add.aspx" />
+    <Content Include="record_FollowUp\delete.aspx" />
+    <Content Include="record_FollowUp\List.aspx" />
+    <Content Include="record_FollowUp\Modify.aspx" />
+    <Content Include="record_FollowUp\Show.aspx" />
+    <Content Include="record_HealthCheck\Add.aspx" />
+    <Content Include="record_HealthCheck\delete.aspx" />
+    <Content Include="record_HealthCheck\List.aspx" />
+    <Content Include="record_HealthCheck\Modify.aspx" />
+    <Content Include="record_HealthCheck\Show.aspx" />
+    <Content Include="record_MedicationTime\Add.aspx" />
+    <Content Include="record_MedicationTime\delete.aspx" />
+    <Content Include="record_MedicationTime\List.aspx" />
+    <Content Include="record_MedicationTime\Modify.aspx" />
+    <Content Include="record_MedicationTime\Show.aspx" />
+    <Content Include="record_Medication\Add.aspx" />
+    <Content Include="record_Medication\delete.aspx" />
+    <Content Include="record_Medication\List.aspx" />
+    <Content Include="record_Medication\Modify.aspx" />
+    <Content Include="record_Medication\Show.aspx" />
+    <Content Include="record_UserBaseInfo\Add.aspx" />
+    <Content Include="record_UserBaseInfo\delete.aspx" />
+    <Content Include="record_UserBaseInfo\List.aspx" />
+    <Content Include="record_UserBaseInfo\Modify.aspx" />
+    <Content Include="record_UserBaseInfo\Show.aspx" />
+    <Content Include="Style.css" />
+    <Content Include="supervision_Info\Add.aspx" />
+    <Content Include="supervision_Info\delete.aspx" />
+    <Content Include="supervision_Info\List.aspx" />
+    <Content Include="supervision_Info\Modify.aspx" />
+    <Content Include="supervision_Info\Show.aspx" />
+    <Content Include="supervision_Inspect\Add.aspx" />
+    <Content Include="supervision_Inspect\delete.aspx" />
+    <Content Include="supervision_Inspect\List.aspx" />
+    <Content Include="supervision_Inspect\Modify.aspx" />
+    <Content Include="supervision_Inspect\Show.aspx" />
+    <Content Include="sys_Applications\Add.aspx" />
+    <Content Include="sys_Applications\delete.aspx" />
+    <Content Include="sys_Applications\List.aspx" />
+    <Content Include="sys_Applications\Modify.aspx" />
+    <Content Include="sys_Applications\Show.aspx" />
+    <Content Include="sys_Event\Add.aspx" />
+    <Content Include="sys_Event\delete.aspx" />
+    <Content Include="sys_Event\List.aspx" />
+    <Content Include="sys_Event\Modify.aspx" />
+    <Content Include="sys_Event\Show.aspx" />
+    <Content Include="sys_FieldValue\Add.aspx" />
+    <Content Include="sys_FieldValue\delete.aspx" />
+    <Content Include="sys_FieldValue\List.aspx" />
+    <Content Include="sys_FieldValue\Modify.aspx" />
+    <Content Include="sys_FieldValue\Show.aspx" />
+    <Content Include="sys_Field\Add.aspx" />
+    <Content Include="sys_Field\delete.aspx" />
+    <Content Include="sys_Field\List.aspx" />
+    <Content Include="sys_Field\Modify.aspx" />
+    <Content Include="sys_Field\Show.aspx" />
+    <Content Include="sys_Group\Add.aspx" />
+    <Content Include="sys_Group\delete.aspx" />
+    <Content Include="sys_Group\List.aspx" />
+    <Content Include="sys_Group\Modify.aspx" />
+    <Content Include="sys_Group\Show.aspx" />
+    <Content Include="sys_ModuleExtPermission\Add.aspx" />
+    <Content Include="sys_ModuleExtPermission\delete.aspx" />
+    <Content Include="sys_ModuleExtPermission\List.aspx" />
+    <Content Include="sys_ModuleExtPermission\Modify.aspx" />
+    <Content Include="sys_ModuleExtPermission\Show.aspx" />
+    <Content Include="sys_Module\Add.aspx" />
+    <Content Include="sys_Module\delete.aspx" />
+    <Content Include="sys_Module\List.aspx" />
+    <Content Include="sys_Module\Modify.aspx" />
+    <Content Include="sys_Module\Show.aspx" />
+    <Content Include="sys_Online\Add.aspx" />
+    <Content Include="sys_Online\delete.aspx" />
+    <Content Include="sys_Online\List.aspx" />
+    <Content Include="sys_Online\Modify.aspx" />
+    <Content Include="sys_Online\Show.aspx" />
+    <Content Include="sys_RoleApplication\Add.aspx" />
+    <Content Include="sys_RoleApplication\delete.aspx" />
+    <Content Include="sys_RoleApplication\List.aspx" />
+    <Content Include="sys_RoleApplication\Modify.aspx" />
+    <Content Include="sys_RoleApplication\Show.aspx" />
+    <Content Include="sys_RolePermission\Add.aspx" />
+    <Content Include="sys_RolePermission\delete.aspx" />
+    <Content Include="sys_RolePermission\List.aspx" />
+    <Content Include="sys_RolePermission\Modify.aspx" />
+    <Content Include="sys_RolePermission\Show.aspx" />
+    <Content Include="sys_Roles\Add.aspx" />
+    <Content Include="sys_Roles\delete.aspx" />
+    <Content Include="sys_Roles\List.aspx" />
+    <Content Include="sys_Roles\Modify.aspx" />
+    <Content Include="sys_Roles\Show.aspx" />
+    <Content Include="sys_SystemInfo\Add.aspx" />
+    <Content Include="sys_SystemInfo\delete.aspx" />
+    <Content Include="sys_SystemInfo\List.aspx" />
+    <Content Include="sys_SystemInfo\Modify.aspx" />
+    <Content Include="sys_SystemInfo\Show.aspx" />
+    <Content Include="sys_UserRoles\Add.aspx" />
+    <Content Include="sys_UserRoles\delete.aspx" />
+    <Content Include="sys_UserRoles\List.aspx" />
+    <Content Include="sys_UserRoles\Modify.aspx" />
+    <Content Include="sys_UserRoles\Show.aspx" />
+    <Content Include="sys_User\Add.aspx" />
+    <Content Include="sys_User\delete.aspx" />
+    <Content Include="sys_User\List.aspx" />
+    <Content Include="sys_User\Modify.aspx" />
+    <Content Include="sys_User\Show.aspx" />
+    <Content Include="ValidateCode.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="webctrl_client\1_0\Images\folder.gif" />
+    <Content Include="webctrl_client\1_0\Images\folderopen.gif" />
+    <Content Include="webctrl_client\1_0\Images\html.gif" />
+    <Content Include="webctrl_client\1_0\Images\root.gif" />
+    <Content Include="webctrl_client\1_0\MultiPage.htc" />
+    <Content Include="webctrl_client\1_0\TabStrip.htc" />
+    <Content Include="webctrl_client\1_0\toolbar.htc" />
+    <Content Include="webctrl_client\1_0\TreeImages\f.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\fminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\fplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\i.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\L.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Lminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Lplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\minus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\plus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\r.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Rminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Rplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\F.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Fminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Fplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\I.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\L.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Lminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Lplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\minus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\plus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\r.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Rminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Rplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\T.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Tminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\Tplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\rtl\white.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\T.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Tminus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\Tplus.gif" />
+    <Content Include="webctrl_client\1_0\TreeImages\white.gif" />
+    <Content Include="webctrl_client\1_0\treeview.htc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AR_Announcement\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Announcement\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Announcement\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Announcement\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Announcement\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Announcement\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Announcement\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Announcement\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Announcement\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Announcement\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Report\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Report\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Report\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Report\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Report\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Report\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Report\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Report\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Report\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR_Report\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckRight.ascx.cs">
+      <DependentUpon>checkright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckRight.ascx.designer.cs">
+      <DependentUpon>checkright.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CopyRight.ascx.cs">
+      <DependentUpon>copyright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CopyRight.ascx.designer.cs">
+      <DependentUpon>copyright.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Activity\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Activity\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Activity\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Activity\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Activity\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Activity\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Activity\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Activity\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Activity\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Activity\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Document\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Document\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Document\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Document\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Document\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Document\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Document\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Document\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Document\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Document\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Prescription\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Prescription\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Prescription\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Prescription\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Prescription\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Prescription\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Prescription\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Prescription\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="education_Prescription\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="education_Prescription\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DownLoadFile.aspx.cs">
+      <DependentUpon>DownLoadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\DownLoadFile.aspx.designer.cs">
+      <DependentUpon>DownLoadFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\inc\Codeimg.aspx.cs">
+      <DependentUpon>Codeimg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\LoginOut.aspx.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\LoginOut.aspx.designer.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\MasterPage\PageTemplate.Master.cs">
+      <DependentUpon>PageTemplate.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\MasterPage\PageTemplate.Master.designer.cs">
+      <DependentUpon>PageTemplate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1.aspx.cs">
+      <DependentUpon>Menu1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1.aspx.designer.cs">
+      <DependentUpon>Menu1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1_Button.aspx.cs">
+      <DependentUpon>Menu1_Button.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1_Button.aspx.designer.cs">
+      <DependentUpon>Menu1_Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1_Disp.aspx.cs">
+      <DependentUpon>Menu1_Disp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1_Disp.aspx.designer.cs">
+      <DependentUpon>Menu1_Disp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu2.aspx.cs">
+      <DependentUpon>Menu2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu2.aspx.designer.cs">
+      <DependentUpon>Menu2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\menu3.aspx.cs">
+      <DependentUpon>menu3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\menu3.aspx.designer.cs">
+      <DependentUpon>menu3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx.cs">
+      <DependentUpon>AppManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx.designer.cs">
+      <DependentUpon>AppManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx.designer.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx.cs">
+      <DependentUpon>EventDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx.designer.cs">
+      <DependentUpon>EventDisp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx.cs">
+      <DependentUpon>FieldValueBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx.designer.cs">
+      <DependentUpon>FieldValueBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx.cs">
+      <DependentUpon>FieldValueManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx.designer.cs">
+      <DependentUpon>FieldValueManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx.cs">
+      <DependentUpon>CatIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx.designer.cs">
+      <DependentUpon>CatIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx.cs">
+      <DependentUpon>Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx.designer.cs">
+      <DependentUpon>Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx.designer.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx.designer.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx.designer.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx.cs">
+      <DependentUpon>moduleManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx.designer.cs">
+      <DependentUpon>moduleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx.designer.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx.cs">
+      <DependentUpon>RolePermissionManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx.designer.cs">
+      <DependentUpon>RolePermissionManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx.designer.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx.designer.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\mylogin.aspx.cs">
+      <DependentUpon>mylogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\mylogin.aspx.designer.cs">
+      <DependentUpon>mylogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\right.aspx.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\right.aspx.designer.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserSet.aspx.cs">
+      <DependentUpon>UserSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\UserSet.aspx.designer.cs">
+      <DependentUpon>UserSet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Nation\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nation\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nation\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nation\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nation\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nation\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nation\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nation\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nation\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nation\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="record_Consultation\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Consultation\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Consultation\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Consultation\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Consultation\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Consultation\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Consultation\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Consultation\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Consultation\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Consultation\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_DeathRegistration\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_DeathRegistration\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_DeathRegistration\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_DeathRegistration\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_DeathRegistration\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FamilyBaseInfo\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FimaryProblem\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FimaryProblem\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FimaryProblem\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FimaryProblem\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FimaryProblem\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FollowUp\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FollowUp\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FollowUp\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FollowUp\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FollowUp\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FollowUp\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FollowUp\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FollowUp\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_FollowUp\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_FollowUp\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_HealthCheck\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_HealthCheck\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_HealthCheck\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_HealthCheck\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_HealthCheck\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_HealthCheck\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_HealthCheck\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_HealthCheck\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_HealthCheck\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_HealthCheck\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_MedicationTime\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_MedicationTime\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_MedicationTime\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_MedicationTime\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_MedicationTime\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_MedicationTime\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_MedicationTime\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_MedicationTime\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_MedicationTime\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_MedicationTime\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Medication\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Medication\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Medication\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Medication\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Medication\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Medication\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Medication\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Medication\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_Medication\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_Medication\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="record_UserBaseInfo\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Info\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Info\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Info\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Info\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Info\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Info\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Info\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Info\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Info\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Info\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Inspect\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Inspect\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Inspect\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Inspect\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Inspect\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Inspect\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Inspect\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Inspect\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="supervision_Inspect\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="supervision_Inspect\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Applications\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Applications\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Applications\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Applications\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Applications\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Applications\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Applications\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Applications\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Applications\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Applications\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Event\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Event\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Event\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Event\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Event\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Event\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Event\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Event\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Event\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Event\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_FieldValue\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_FieldValue\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_FieldValue\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_FieldValue\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_FieldValue\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_FieldValue\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_FieldValue\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_FieldValue\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_FieldValue\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_FieldValue\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Field\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Field\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Field\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Field\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Field\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Field\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Field\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Field\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Field\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Field\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Group\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Group\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Group\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Group\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Group\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Group\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Group\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Group\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Group\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Group\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_ModuleExtPermission\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Module\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Module\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Module\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Module\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Module\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Module\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Module\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Module\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Module\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Module\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Online\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Online\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Online\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Online\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Online\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Online\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Online\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Online\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Online\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Online\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RoleApplication\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RoleApplication\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RoleApplication\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RoleApplication\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RoleApplication\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RolePermission\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RolePermission\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RolePermission\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RolePermission\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RolePermission\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RolePermission\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RolePermission\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RolePermission\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_RolePermission\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_RolePermission\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Roles\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Roles\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Roles\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Roles\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Roles\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Roles\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Roles\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Roles\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_Roles\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_Roles\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_SystemInfo\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_SystemInfo\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_SystemInfo\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_SystemInfo\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_SystemInfo\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_UserRoles\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_UserRoles\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_UserRoles\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_UserRoles\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_UserRoles\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_UserRoles\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_UserRoles\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_UserRoles\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_UserRoles\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_UserRoles\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_User\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_User\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_User\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_User\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_User\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidateCode.aspx.cs">
+      <DependentUpon>ValidateCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValidateCode.aspx.designer.cs">
+      <DependentUpon>ValidateCode.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Control.skin" />
+    <Content Include="App_Themes\Green2Theme\Control.skin" />
+    <Content Include="App_Themes\GreenTheme\Control.skin" />
+    <Content Include="App_Themes\PurpleTheme\Control.skin" />
+    <Content Include="App_Themes\RedTheme\Control.skin" />
+    <Content Include="Default.aspx" />
+    <Content Include="MasterPage.master" />
+    <Content Include="Manager\DataBase\Access\FrameWork.config" />
+    <Content Include="App_Themes\Standard\GridView.skin" />
+    <Content Include="App_Themes\Standard\ListBox.skin" />
+    <None Include="Manager\images\ICON\Thumbs.db" />
+    <None Include="Manager\images\Index\Thumbs.db" />
+    <None Include="Manager\images\logon\Thumbs.db" />
+    <None Include="Manager\images\Menu\Thumbs.db" />
+    <None Include="Manager\images\MessageIcon\Thumbs.db" />
+    <None Include="Manager\images\Thumbs.db" />
+    <None Include="Manager\images\TreeIcon\Thumbs.db" />
+    <None Include="Manager\inc\FineMessBox\Images\Thumbs.db" />
+    <None Include="Manager\js\Tree\resources\images\default\tree\Thumbs.db" />
+    <None Include="Manager\js\Tree\resources\images\default\tree\tree-icon.psd" />
+    <Content Include="Manager\MasterPage\PageTemplate.Master" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\Web.config" />
+    <Content Include="Manager\Web.config" />
+    <None Include="webctrl_client\1_0\Images\vssver2.scc" />
+    <None Include="webctrl_client\1_0\TreeImages\rtl\vssver2.scc" />
+    <None Include="webctrl_client\1_0\TreeImages\vssver2.scc" />
+    <None Include="webctrl_client\1_0\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CheckRight.ascx.resx">
+      <DependentUpon>CheckRight.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CopyRight.ascx.resx">
+      <DependentUpon>CopyRight.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{38D7AA58-C95B-449B-86C6-A8073A56E11F}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{E3D8759A-C5EB-402D-9F10-F5C6029A8D1A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameWork\Framework.csproj">
+      <Project>{A3D89A80-19B8-4F6A-9381-8E15D41179AC}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
+      <Project>{AB835BA2-FFD6-49CD-87B0-E216255BB32E}</Project>
+      <Name>SQLServerDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Images\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="obj\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3448</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
