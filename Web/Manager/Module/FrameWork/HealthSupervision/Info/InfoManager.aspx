@@ -20,7 +20,7 @@
                         <asp:TextBox ID="I_FindDate" runat="server" Columns="50" title="请选择发现时间!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
+                <tr runat="server">
                     <td class="table_body">
                         信息类别</td>
                     <td class="table_none">
@@ -43,12 +43,12 @@
                             CssClass="text_input" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
                     </td>
                 </tr>
-                <tr runat="server">
-                    <td class="table_body" >
+                <tr>
+                    <td class="table_body">
                         报告时间</td>
                     <td class="table_none">
-                        <asp:Label ID="I_ReportDate" runat="server"></asp:Label>
-                        <asp:TextBox ID="I_ReportDate_Txt" runat="server" Columns="50" title="请输入报告时间!"
+                        <asp:Label ID="I_ReportDate_Txt" runat="server"></asp:Label>
+                        <asp:TextBox ID="I_ReportDate" runat="server" Columns="50" title="请输入报告时间!"
                             CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
                 </tr>
@@ -56,8 +56,8 @@
                     <td class="table_body" >
                         报告人</td>
                     <td class="table_none">
-                        <asp:Label ID="I_ReportUserID" runat="server"></asp:Label>
-                        <asp:TextBox ID="I_ReportUserID_Txt" runat="server" Columns="50" title="请点击选择报告人!"
+                        <asp:Label ID="I_ReportUserID_Txt" runat="server"></asp:Label>
+                        <asp:TextBox ID="I_ReportUserID" runat="server" Columns="50" title="请点击选择报告人!"
                             CssClass="text_input"></asp:TextBox>
                         <input type=button value="选择报告人" id=button3 name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton">
                         <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />

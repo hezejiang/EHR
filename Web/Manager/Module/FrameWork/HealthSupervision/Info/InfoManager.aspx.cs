@@ -23,10 +23,21 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         protected void Page_Load(object sender, EventArgs e)
         {
             FrameWorkPermission.CheckPagePermission(CMD);
+            BindButton();
             if (!Page.IsPostBack)
             {
                 
             }
+        }
+
+        private void BindButton()
+        {
+            HeadMenuButtonItem bi0 = new HeadMenuButtonItem();
+            bi0.ButtonIcon = "back.gif";
+            bi0.ButtonName = "返回";
+            bi0.ButtonPopedom = PopedomType.List;
+            bi0.ButtonUrl = string.Format("default.aspx");
+            HeadMenuWebControls1.ButtonList.Add(bi0);
         }
 
         private void OnStart()
@@ -111,12 +122,10 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
                 supervision_Info = new Maticsoft.Model.supervision_Info();
             }
 
-            supervision_Info.I_Content = I_Content_Txt.Text;
-            supervision_Info.I_Content = (string)Common.sink(this.I_Content_Txt.UniqueID, MethodType.Get, 0, 0, DataType.Str);
-            supervision_Info.I_FindDate = (DateTime)Common.sink(this.I_FindDate_Txt.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            supervision_Info.I_FindDate = (DateTime)Common.sink(this.I_FindDate.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             supervision_Info.I_Type = this.I_Type.SelectedIndex;
-            
-            supervision_Info.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate_Txt.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            supervision_Info.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            supervision_Info.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             supervision_Info.I_ReportUserID = 2; //暂且设为2
 
             int result = 0;
