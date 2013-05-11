@@ -53,18 +53,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Codematic\Admin\Accounts\add.aspx" />
@@ -719,7 +714,9 @@
     <Content Include="Codematic\sys_User\Modify.aspx" />
     <Content Include="Codematic\sys_User\Show.aspx" />
     <Content Include="Codematic\ValidateCode.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Codematic\webctrl_client\1_0\Images\folder.gif" />
     <Content Include="Codematic\webctrl_client\1_0\Images\folderopen.gif" />
     <Content Include="Codematic\webctrl_client\1_0\Images\html.gif" />
