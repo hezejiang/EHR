@@ -42,7 +42,7 @@ namespace Maticsoft.Web.sys_Group
 			}
 			if(!PageValidate.IsNumber(txtG_ChildCount.Text))
 			{
-				strErr+="当???分类子分类数格式错误！\\n";	
+				strErr+="当前分类子分类数格式错误！\\n";	
 			}
 			if(!PageValidate.IsNumber(txtG_Delete.Text))
 			{

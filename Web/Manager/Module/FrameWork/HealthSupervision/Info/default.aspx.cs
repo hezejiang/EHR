@@ -1,11 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using System.Data;
+using System.Configuration;
+using System.Collections;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using FrameWork.Components;
 
-namespace Maticsoft.Web.Manager.Module.FrameWork.HealthSupervision.Info
+using FrameWork;
+using FrameWork.Components;
+using FrameWork.WebControls;
+
+namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
 {
     public partial class _default : System.Web.UI.Page
     {

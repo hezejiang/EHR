@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.GroupManager {
+namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info {
     
     
-    public partial class New {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,15 +40,6 @@ namespace FrameWork.web.Module.FrameWork.GroupManager {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// CatListTitle 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CatListTitle;
-        
-        /// <summary>
         /// TopTr 控件。
         /// </summary>
         /// <remarks>
@@ -58,58 +49,103 @@ namespace FrameWork.web.Module.FrameWork.GroupManager {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
         
         /// <summary>
-        /// G_ParentID_Txt 控件。
+        /// I_FindDate_Txt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label G_ParentID_Txt;
+        protected global::System.Web.UI.WebControls.Label I_FindDate_Txt;
         
         /// <summary>
-        /// G_CName 控件。
+        /// I_FindDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox G_CName;
+        protected global::System.Web.UI.WebControls.TextBox I_FindDate;
         
         /// <summary>
-        /// Tr1 控件。
+        /// I_Type_Txt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr1;
+        protected global::System.Web.UI.WebControls.Label I_Type_Txt;
         
         /// <summary>
-        /// G_Type 控件。
+        /// I_Type 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox G_Type;
+        protected global::System.Web.UI.WebControls.DropDownList I_Type;
         
         /// <summary>
-        /// Tr2 控件。
+        /// I_Content_Txt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr2;
+        protected global::System.Web.UI.WebControls.Label I_Content_Txt;
         
         /// <summary>
-        /// G_Code 控件。
+        /// I_Content 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox G_Code;
+        protected global::System.Web.UI.WebControls.TextBox I_Content;
+        
+        /// <summary>
+        /// I_ReportDate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label I_ReportDate;
+        
+        /// <summary>
+        /// I_ReportDate_Txt 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox I_ReportDate_Txt;
+        
+        /// <summary>
+        /// tr_username 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_username;
+        
+        /// <summary>
+        /// I_ReportUserID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label I_ReportUserID;
+        
+        /// <summary>
+        /// I_ReportUserID_Txt 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox I_ReportUserID_Txt;
         
         /// <summary>
         /// SubmitTr 控件。

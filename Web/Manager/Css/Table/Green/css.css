@@ -78,3 +78,8 @@ font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
     BACKGROUND-COLOR:#F1F8ED;
     font-size:12px;
 }
+
+.tr_content
+{
+    height:200px;
+}

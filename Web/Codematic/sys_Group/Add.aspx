@@ -39,7 +39,7 @@
 	</td></tr>
 	<tr>
 	<td height="25" width="30%" align="right">
-		当???分类子分类数
+		当前分类子分类数
 	：</td>
 	<td height="25" width="*" align="left">
 		<asp:TextBox id="txtG_ChildCount" runat="server" Width="200px"></asp:TextBox>

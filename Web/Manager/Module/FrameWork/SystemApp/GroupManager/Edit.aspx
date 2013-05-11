@@ -25,6 +25,20 @@
                 <td colspan="2">
                 </td>
             </tr>
+            <tr id="Tr3" runat="server">
+                <td class="table_body" style="height: 25px">
+                    是否医院</td>
+                <td class="table_none" style="height: 25px">
+                    <asp:CheckBox ID="G_Type" title="如果是医院部门，请打钩!" Text="是" runat="server" CssClass="text_input"></asp:CheckBox>
+                </td>
+            </tr>
+            <tr id="Tr4" runat="server">
+                <td class="table_body" style="height: 25px">
+                    行政代码</td>
+                <td class="table_none" style="height: 25px">
+                    <asp:TextBox ID="G_Code" title="请输入行政代码!" runat="server" CssClass="text_input"></asp:TextBox>
+                </td>
+            </tr>
 		<tr id="SubmitTr" runat="server"><td colspan="2" align="right">
             <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
             <input id="Reset1" class="button_bak" type="reset" value="重填" />&nbsp;

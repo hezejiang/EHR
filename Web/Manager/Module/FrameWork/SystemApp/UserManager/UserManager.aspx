@@ -225,19 +225,15 @@
 	        }
 	         
     }
-      function ShowDepartID()
-        {
-            showPopWin('选择部门','SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true)
-        }
-       
+     function ShowDepartID()
+    {
+        showPopWin('选择部门','SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true)
+    }
         
-
-      
-        
-        function ClearSelect()
-        {
-   	        document.all.<%=this.U_GroupID_Txt.ClientID %>.value="";
-            document.all.<%=this.U_GroupID.ClientID %>.value="";
-        }
+    function ClearSelect()
+    {
+   	    document.all.<%=this.U_GroupID_Txt.ClientID %>.value="";
+        document.all.<%=this.U_GroupID.ClientID %>.value="";
+    }
     </script>
 </asp:Content>

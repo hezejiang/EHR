@@ -61,6 +61,12 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
             FrameWorkPermission.CheckPermissionVoid(PopedomType.New);
             sys_GroupTable gt = BusinessFacade.sys_GroupDisp(GroupID);
             gt.G_CName = (string)Common.sink(G_CName.UniqueID, MethodType.Post, 50, 1, DataType.Str);
+            bool g_type = G_Type.Checked;
+            if (g_type)
+                gt.G_Type = 1;
+            else
+                gt.G_Type = 0;
+            gt.G_Code = (string)Common.sink(G_Code.UniqueID, MethodType.Post, 20, 1, DataType.Str);
             if (gt.GroupID == 0)
             {
                 gt.G_Level = 1;

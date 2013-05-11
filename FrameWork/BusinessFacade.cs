@@ -954,6 +954,20 @@ namespace FrameWork
             }
             return DataProvider.Instance().sys_UserList(qp, out RecordCount);
         }
+
+        /// <summary>
+        /// 根据部门ID,获得用户列表
+        /// </summary>
+        /// <param name="groupid">部门id</param>
+        /// <returns>用户实体类列表</returns>
+        public static ArrayList sys_UserList(int groupid)
+        {
+            QueryParam qp = new QueryParam();
+            qp.Where = string.Format(" Where U_GroupID={0} ", groupid);
+            int rInt = 0;
+            return sys_UserList(qp, out rInt);
+        }
+
         /// <summary>
         /// 根据ID返回 sys_UserTable实体类 单笔资料
         /// </summary>
@@ -999,19 +1013,6 @@ namespace FrameWork
             {
                 return false;
             }
-        }
-
-        /// <summary>
-        /// 根据部门ID,获得用户列表
-        /// </summary>
-        /// <param name="groupid">部门id</param>
-        /// <returns>用户实体类列表</returns>
-        public static ArrayList sys_UserList(int groupid)
-        {
-            QueryParam qp = new QueryParam();
-            qp.Where = string.Format(" Where U_GroupID={0} ", groupid);
-            int rInt = 0;
-            return sys_UserList(qp, out rInt);
         }
 
         /// <summary>

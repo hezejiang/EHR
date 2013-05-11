@@ -47,11 +47,6 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
                 //删除当前分类
                 BusinessFacade.Update_Table_Fileds("sys_Group", "G_Delete=1", string.Format("GroupID={0}", GroupID));
                 
-
-
-
-
-
                 if (gt.G_ParentID!=0)
                 {
                     //更新父类子类数
@@ -97,6 +92,12 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
             FrameWorkPermission.CheckPermissionVoid(PopedomType.Edit);
             sys_GroupTable gt = BusinessFacade.sys_GroupDisp(GroupID);
             gt.G_CName = (string)Common.sink(G_CName.UniqueID,MethodType.Post,50,1,DataType.Str);
+            bool g_type = G_Type.Checked;
+            if (g_type)
+                gt.G_Type = 1;
+            else
+                gt.G_Type = 0;
+            gt.G_Code = (string)Common.sink(G_Code.UniqueID, MethodType.Post, 20, 1, DataType.Str);
             gt.DB_Option_Action_ = "Update";
             BusinessFacade.sys_GroupInsertUpdate(gt);
             EventMessage.MessageBox(1, "操作成功", string.Format("修改部门ID({0})成功!", gt.GroupID), Icon_Type.OK, Common.GetHomeBaseUrl(string.Format("GroupList.aspx?GroupID={0}", GroupID)),Common.BuildJs);

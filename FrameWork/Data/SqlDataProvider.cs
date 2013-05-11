@@ -291,6 +291,8 @@ namespace FrameWork.Data
                 cmd.Parameters.Add("@G_Level", SqlDbType.Int).Value = fam.G_Level;  //当前分类所在层数
                 cmd.Parameters.Add("@G_ChildCount", SqlDbType.Int).Value = fam.G_ChildCount;  //当前分类子分类数
                 cmd.Parameters.Add("@G_Delete", SqlDbType.Int).Value = fam.G_Delete;  //是否删除1:是0:否
+                cmd.Parameters.Add("@G_Type", SqlDbType.Int).Value = fam.G_Type;  //部门类型，0表示非医院部门，1表示医院部门
+                cmd.Parameters.Add("@G_Code", SqlDbType.VarChar).Value = fam.G_Code;  //行政代码
                 Conn.Open();
                 rInt = Convert.ToInt32(cmd.ExecuteScalar());
                 cmd.Dispose();

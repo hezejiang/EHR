@@ -297,10 +297,10 @@
     <Content Include="Codematic\AR_Report\List.aspx" />
     <Content Include="Codematic\AR_Report\Modify.aspx" />
     <Content Include="Codematic\AR_Report\Show.aspx" />
-    <Content Include="Codematic\Controls\checkright.ascx" />
-    <Content Include="Codematic\Controls\copyright.ascx" />
+    <Content Include="Controls\checkright.ascx" />
+    <Content Include="Controls\copyright.ascx" />
     <Content Include="Codematic\Default.aspx" />
-    <Content Include="Codematic\default.htm" />
+    <Content Include="default.htm" />
     <Content Include="Codematic\education_Activity\Add.aspx" />
     <Content Include="Codematic\education_Activity\delete.aspx" />
     <Content Include="Codematic\education_Activity\List.aspx" />
@@ -541,6 +541,9 @@
     <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectGroup.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectUser.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx" />
@@ -634,7 +637,7 @@
     <Content Include="Codematic\record_UserBaseInfo\List.aspx" />
     <Content Include="Codematic\record_UserBaseInfo\Modify.aspx" />
     <Content Include="Codematic\record_UserBaseInfo\Show.aspx" />
-    <Content Include="Codematic\Style.css" />
+    <Content Include="Style.css" />
     <Content Include="Codematic\supervision_Info\Add.aspx" />
     <Content Include="Codematic\supervision_Info\delete.aspx" />
     <Content Include="Codematic\supervision_Info\List.aspx" />
@@ -1039,18 +1042,18 @@
     <Compile Include="Codematic\AR_Report\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Codematic\Controls\CheckRight.ascx.cs">
+    <Compile Include="Controls\CheckRight.ascx.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Codematic\Controls\CheckRight.ascx.designer.cs">
+    <Compile Include="Controls\CheckRight.ascx.designer.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Codematic\Controls\CopyRight.ascx.cs">
+    <Compile Include="Controls\CopyRight.ascx.cs">
       <DependentUpon>copyright.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Codematic\Controls\CopyRight.ascx.designer.cs">
+    <Compile Include="Controls\CopyRight.ascx.designer.cs">
       <DependentUpon>copyright.ascx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\Default.aspx.cs">
@@ -1347,6 +1350,27 @@
     <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectGroup.aspx.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectGroup.aspx.designer.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectUser.aspx.cs">
+      <DependentUpon>SelectUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectUser.aspx.designer.cs">
+      <DependentUpon>SelectUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1634,11 +1658,11 @@
     <Compile Include="Manager\UserSet.aspx.designer.cs">
       <DependentUpon>UserSet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Codematic\MasterPage.master.cs">
+    <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Codematic\MasterPage.master.designer.cs">
+    <Compile Include="MasterPage.master.designer.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
     </Compile>
     <Compile Include="Codematic\Nation\Add.aspx.cs">
@@ -2566,7 +2590,7 @@
     <Content Include="App_Themes\GreenTheme\Control.skin" />
     <Content Include="App_Themes\PurpleTheme\Control.skin" />
     <Content Include="App_Themes\RedTheme\Control.skin" />
-    <Content Include="Codematic\MasterPage.master" />
+    <Content Include="MasterPage.master" />
     <Content Include="Manager\DataBase\Access\FrameWork.config" />
     <Content Include="App_Themes\Standard\GridView.skin" />
     <Content Include="App_Themes\Standard\ListBox.skin" />
@@ -2616,7 +2640,9 @@
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\Web.config" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\Web.config" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Document\Web.config" />
-    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\Web.config" />
     <None Include="Codematic\webctrl_client\1_0\Images\vssver2.scc" />
     <None Include="Codematic\webctrl_client\1_0\TreeImages\rtl\vssver2.scc" />
@@ -2714,11 +2740,11 @@
     <EmbeddedResource Include="Codematic\Admin\Top.aspx.resx">
       <DependentUpon>Top.aspx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Codematic\Controls\CheckRight.ascx.resx">
+    <EmbeddedResource Include="Controls\CheckRight.ascx.resx">
       <DependentUpon>CheckRight.ascx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Codematic\Controls\CopyRight.ascx.resx">
+    <EmbeddedResource Include="Controls\CopyRight.ascx.resx">
       <DependentUpon>CopyRight.ascx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

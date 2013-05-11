@@ -3446,6 +3446,13 @@
             <param name="RecordCount">返回记录总数</param>
             <returns>sys_UserTable实体类的ArrayList对象</returns>
         </member>
+        <member name="M:FrameWork.BusinessFacade.sys_UserList(System.Int32)">
+            <summary>
+            根据部门ID,获得用户列表
+            </summary>
+            <param name="groupid">部门id</param>
+            <returns>用户实体类列表</returns>
+        </member>
         <member name="M:FrameWork.BusinessFacade.sys_UserDisp(System.Int32)">
             <summary>
             根据ID返回 sys_UserTable实体类 单笔资料
@@ -3460,13 +3467,6 @@
             <param name="fam">sys_UserTable类</param>
             <param name="pt">PopedomType类型，只对New,Edit有效</param>
             <returns></returns>
-        </member>
-        <member name="M:FrameWork.BusinessFacade.sys_UserList(System.Int32)">
-            <summary>
-            根据部门ID,获得用户列表
-            </summary>
-            <param name="groupid">部门id</param>
-            <returns>用户实体类列表</returns>
         </member>
         <member name="M:FrameWork.BusinessFacade.sys_UserType(System.Int32)">
             <summary>
@@ -6581,6 +6581,16 @@ end
         <member name="P:FrameWork.Components.sys_GroupTable.G_Delete">
             <summary>
             是否删除1:是0:否
+            </summary>
+        </member>
+        <member name="P:FrameWork.Components.sys_GroupTable.G_Type">
+            <summary>
+            部门类型，0表示非医院部门，1表示医院部门
+            </summary>
+        </member>
+        <member name="P:FrameWork.Components.sys_GroupTable.G_Code">
+            <summary>
+            行政代码
             </summary>
         </member>
         <member name="T:FrameWork.FileTxtLogs">

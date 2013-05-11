@@ -3,7 +3,7 @@
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="应用列表" HeadTitleTxt="应用列表管理">
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="应用" ButtonPopedom="New" ButtonUrl="AppManager.aspx?CMD=New"
             ButtonUrlType="Href" ButtonVisible="True" />
-                                <FrameWorkWebControls:HeadMenuButtonItem ButtonName="应用" ButtonPopedom="Orderby" ButtonUrl="Orderby.aspx"
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="应用" ButtonPopedom="Orderby" ButtonUrl="Orderby.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">

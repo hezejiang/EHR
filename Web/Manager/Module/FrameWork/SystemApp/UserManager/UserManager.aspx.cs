@@ -21,6 +21,7 @@ namespace FrameWork.web.Module.FrameWork.UserManager
         public string MaxImgUrl = "";
         int UserID = (int)Common.sink("UserID", MethodType.Get, 50, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             FrameWorkPermission.CheckPagePermission(CMD);

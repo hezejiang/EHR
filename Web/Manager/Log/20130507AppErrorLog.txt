@@ -1,0 +1,12 @@
+﻿2013/05/07 20:53:47|文件不存在:http://localhost:3448/Codematic/sys_Group/Add.aspx|127.0.0.1|/Codematic/sys_Group/Add.aspx
+2013/05/07 20:53:54|文件不存在:http://localhost:3448/Codematic/sys_Group/Add.aspx|127.0.0.1|/Codematic/sys_Group/Add.aspx
+2013/05/07 20:54:21|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico
+2013/05/07 20:55:05|文件不存在:http://localhost:3448/Codematic/sys_Group/Add.aspx|127.0.0.1|/Codematic/sys_Group/Add.aspx
+2013/05/07 20:55:48|文件不存在:http://localhost:3448/style.css|127.0.0.1|/style.css
+2013/05/07 20:56:41|文件不存在:http://localhost:3448/style.css|127.0.0.1|/style.css
+2013/05/07 20:57:57|文件不存在:http://localhost:3448/style.css|127.0.0.1|/style.css
+2013/05/07 21:07:44|文件不存在:http://localhost:3448/js/CheckBox.js|127.0.0.1|/js/CheckBox.js
+2013/05/07 21:45:31|访问路径:/Manager/Module/FrameWork/SystemApp/AppManager/list.aspx<br>System.Web thrown System.Web.HttpParseException<br />标记包含重复的“ButtonName”属性。<br />   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)<br />   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)<br />   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)|127.0.0.1|/Manager/Module/FrameWork/SystemApp/AppManager/list.aspx
+2013/05/07 21:55:34|访问路径:/Manager/Module/FrameWork/SystemApp/AppManager/list.aspx<br>System.Web thrown System.Web.HttpParseException<br />无法从其“ButtonPopedom”属性的字符串表示形式“test”创建“FrameWork.Components.PopedomType”类型的对象。<br />   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)<br />   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)<br />   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)|127.0.0.1|/Manager/Module/FrameWork/SystemApp/AppManager/list.aspx
+2013/05/07 22:16:45|文件不存在:http://localhost:3448/Manager/Module/FrameWork/StatisticalAnalysis/ageStatistical.aspx|127.0.0.1|/Manager/Module/FrameWork/StatisticalAnalysis/ageStatistical.aspx
+2013/05/07 22:48:13|文件不存在:http://localhost:3448/js/CheckBox.js|127.0.0.1|/js/CheckBox.js

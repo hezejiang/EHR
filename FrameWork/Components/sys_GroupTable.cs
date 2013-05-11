@@ -33,6 +33,8 @@ namespace FrameWork.Components
         private int _G_Level = 0;  // 当前分类所在层数
         private int _G_ChildCount = 0;  // 当前分类子分类数
         private int _G_Delete = 0;  // 是否删除1:是0:否
+        private int _G_Type = 0;  // 部门类型，0表示非医院部门，1表示医院部门
+        private string _G_Code;  // 行政代码
         #endregion
 
         #region "Public Variables"
@@ -108,6 +110,23 @@ namespace FrameWork.Components
             get { return this._G_Delete; }
         }
 
+        /// <summary>
+        /// 部门类型，0表示非医院部门，1表示医院部门
+        /// </summary>
+        public int G_Type
+        {
+            set { this._G_Type = value; }
+            get { return this._G_Type; }
+        }
+
+        /// <summary>
+        /// 行政代码
+        /// </summary>
+        public string G_Code
+        {
+            set { this._G_Code = value; }
+            get { return this._G_Code; }
+        }
         #endregion
 	
 	

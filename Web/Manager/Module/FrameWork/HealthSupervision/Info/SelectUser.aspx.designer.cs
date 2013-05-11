@@ -10,15 +10,24 @@
 namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info {
     
     
-    public partial class _default {
+    public partial class SelectUser {
         
         /// <summary>
-        /// HeadMenuWebControls1 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.HeadMenuWebControls HeadMenuWebControls1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// ShowScript 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ShowScript;
     }
 }
