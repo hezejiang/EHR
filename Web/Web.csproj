@@ -540,7 +540,6 @@
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectGroup.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\SelectUser.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx" />
-    <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InspectManager.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\default.aspx" />
@@ -1375,13 +1374,6 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InspectManager.aspx.cs">
-      <DependentUpon>InspectManager.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InspectManager.aspx.designer.cs">
-      <DependentUpon>InspectManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
