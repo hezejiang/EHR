@@ -7,7 +7,7 @@
     <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="信息登记" HeadTitleTxt="信息登记管理">
-        <!--头部按钮选项，根据ButtonPopedom取值不同而代表不同的按钮，如List代表列表，New代表新增...；ButtonUrl代表点击这个按钮之后跳转哪个相对页面-->
+        <!--头部按钮选项，根据ButtonPopedom取值不同而代表不同的按钮，如List代表列表，New代表新增...；ButtonUrl代表点击这个按钮之后跳转哪个相对页面,其中的CMD参数就改为ButtonPopedom属性对应的值-->
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>

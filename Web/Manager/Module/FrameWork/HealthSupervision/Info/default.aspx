@@ -1,11 +1,16 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.HealthSupervision.Info._default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="信息登记列表" HeadTitleTxt="信息登记列表管理">
+         <!--头部按钮选项，根据ButtonPopedom取值不同而代表不同的按钮，如List代表列表，New代表新增...；ButtonUrl代表点击这个按钮之后跳转哪个相对页面,其中的CMD参数就改为ButtonPopedom属性对应的值-->
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
+    <!--通用头部 end-->
+    <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
+        <!--Tab选项控件的第一个子选项 start-->
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="信息登记列表">
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
@@ -79,7 +84,12 @@
                 </tr>
             </table>
         </FrameWorkWebControls:TabOptionItem>
+        <!--Tab选项控件的第一个子选项 end-->
+        <!--Tab选项控件的第二个子选项 start-->
+            <!--如果有多Tab子选项就仿照第一个子选项的写法-->
+        <!--Tab选项控件的第二个子选项 end-->
     </FrameWorkWebControls:TabOptionWebControls>
+    <!--Tab选项控件 end-->
     <script language="javascript">
         rnd.today=new Date(); 
 
