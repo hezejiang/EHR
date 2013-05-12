@@ -12,9 +12,6 @@ namespace Maticsoft.Web.education_Document
 {
     public partial class List : Page
     {
-        
-        
-        
 		Maticsoft.BLL.education_Document bll = new Maticsoft.BLL.education_Document();
 
         protected void Page_Load(object sender, EventArgs e)

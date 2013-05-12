@@ -16,7 +16,8 @@
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="用户资料列表">
-            <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" OnRowCreated="GridView1_RowCreated">
+            <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
+                OnRowCreated="GridView1_RowCreated">
                 <Columns>
                     <asp:BoundField SortExpression="U_UserNO" HeaderText="员工编号" DataField="U_UserNO" />
                     <asp:HyperLinkField SortExpression="U_LoginName" HeaderText="用户名" DataTextField="U_LoginName" DataNavigateUrlFields="UserID"

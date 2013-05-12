@@ -4,13 +4,18 @@
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
+    <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="信息登记" HeadTitleTxt="信息登记管理">
+        <!--头部按钮选项，根据ButtonPopedom取值不同而代表不同的按钮，如List代表列表，New代表新增...；ButtonUrl代表点击这个按钮之后跳转哪个相对页面-->
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
+    <!--通用头部 end-->
+    <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server">
+        <!--Tab选项控件的第一个子选项 start-->
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="信息登记">
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr id="TopTr" runat="server">
                     <td class="table_body">
@@ -30,7 +35,7 @@
                             <asp:ListItem Text="饮用水卫生" Value="2" />
                             <asp:ListItem Text="职业病安全" Value="3" />
                             <asp:ListItem Text="学校卫生" Value="4" />
-                            <asp:ListItem Text="非法行医（采供血）" Value=5" />
+                            <asp:ListItem Text="非法行医（采供血）" Value="5" />
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -71,7 +76,12 @@
                 </tr>
             </table>
         </FrameWorkWebControls:TabOptionItem>
+        <!--Tab选项控件的第一个子选项 end-->
+        <!--Tab选项控件的第二个子选项 start-->
+            <!--如果有多Tab子选项就仿照第一个子选项的写法-->
+        <!--Tab选项控件的第二个子选项 end-->
     </FrameWorkWebControls:TabOptionWebControls>
+    <!--Tab选项控件 end-->
     <script language="javascript">
         rnd.today=new Date(); 
 
