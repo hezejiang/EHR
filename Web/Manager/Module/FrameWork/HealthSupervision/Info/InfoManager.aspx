@@ -2,12 +2,13 @@
     
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
+
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="信息登记" HeadTitleTxt="信息登记管理">
-        <!--头部按钮选项，根据ButtonPopedom取值不同而代表不同的按钮，如List代表列表，New代表新增...；ButtonUrl代表点击这个按钮之后跳转哪个相对页面,其中的CMD参数就改为ButtonPopedom属性对应的值-->
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
@@ -62,8 +63,9 @@
                         报告人</td>
                     <td class="table_none">
                         <asp:Label ID="I_ReportUserID_Txt" runat="server"></asp:Label>
-                        <asp:TextBox ID="I_ReportUserID" runat="server" Columns="50" title="请点击选择报告人!"
-                            CssClass="text_input"></asp:TextBox>
+                        <asp:TextBox ID="I_ReportUserID_TextBox" runat="server" Columns="50" title="请点击选择报告人!"
+                            CssClass="text_input" ReadOnly></asp:TextBox>
+                        <input type="hidden" id="I_ReportUserID" runat="server" />
                         <input type=button value="选择报告人" id=button3 name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton">
                         <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
                     </td>
@@ -109,26 +111,14 @@
 	        var ShValues = file_name.split('||');
 	        if (ShValues[1]!=0)
 	        {
-                showPopWin('选择用户','SelectUser.aspx?rand='+rand(1000000), 215, 255, AlertMessageBox2,true,true);
+                onButtonEdit(ShValues[1]);
 	        }
 	    }   
     }
 
-    function AlertMessageBox2(file_name)
-    {
-	    if (file_name!=undefined){
-	        var ShValues = file_name.split('||');
-	        if (ShValues[1]!=0)
-	        {
-	            document.all.<%=this.I_ReportUserID_Txt.ClientID %>.value=ShValues[0];
-	            document.all.<%=this.I_ReportUserID.ClientID %>.value=ShValues[1];
-	        }          
-	    }
-    }
-
     function ShowDepartID()
     {
-        showPopWin('选择部门','SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox2,true,true);
+        showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
     }
        
     function ClearSelect()
@@ -136,5 +126,25 @@
    	    document.all.<%=this.I_ReportUserID_Txt.ClientID %>.value="";
         document.all.<%=this.I_ReportUserID.ClientID %>.value="";
     }
+
+    mini.parse();
+
+    function onButtonEdit(id) {
+        mini.open({
+            url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+            title: "选择列表",
+            width: 800,
+            height: 380,
+            ondestroy: function (action) {
+                //if (action == "close") return false;
+                var result = action.split("||");
+                if (result[0] == "ok") {
+                    document.all.<%=this.I_ReportUserID.ClientID %>.value=result[1];
+                    document.all.<%=this.I_ReportUserID_TextBox.ClientID %>.value=result[2];
+                }
+            }
+        });            
+    }
+
     </script>
 </asp:Content>

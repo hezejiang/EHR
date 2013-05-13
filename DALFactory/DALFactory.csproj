@@ -109,9 +109,8 @@
       <Name>System.XML</Name>
     </Reference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Name>IDAL</Name>
       <Project>{B0706FA2-977C-4523-B093-F57804756498}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Name>IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Name>Model</Name>

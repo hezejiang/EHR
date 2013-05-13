@@ -139,13 +139,22 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info {
         protected global::System.Web.UI.WebControls.Label I_ReportUserID_Txt;
         
         /// <summary>
+        /// I_ReportUserID_TextBox 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox I_ReportUserID_TextBox;
+        
+        /// <summary>
         /// I_ReportUserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox I_ReportUserID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden I_ReportUserID;
         
         /// <summary>
         /// SubmitTr 控件。

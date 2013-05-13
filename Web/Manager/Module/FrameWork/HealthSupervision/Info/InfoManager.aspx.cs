@@ -97,7 +97,8 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             this.I_ReportDate.Text = this.I_ReportDate.Text = model.I_ReportDate.ToShortDateString();
             Maticsoft.BLL.sys_User user_bll = new Maticsoft.BLL.sys_User();
             Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.I_ReportUserID);
-            this.I_ReportUserID.Text = user_model.U_CName;
+            this.I_ReportUserID.Value = user_model.UserID + "";
+            this.I_ReportUserID_TextBox.Text = user_model.U_CName;
         }
 
         /// <summary>
@@ -169,7 +170,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             supervision_Info.I_Type = Convert.ToInt32(this.I_Type.SelectedValue);
             supervision_Info.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             supervision_Info.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            supervision_Info.I_ReportUserID = 2; //暂且设为2
+            supervision_Info.I_ReportUserID = Convert.ToInt32(this.I_ReportUserID.Value);
 
             switch (CMD)
             {
