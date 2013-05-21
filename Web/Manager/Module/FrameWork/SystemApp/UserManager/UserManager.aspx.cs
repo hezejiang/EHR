@@ -319,7 +319,7 @@ namespace FrameWork.web.Module.FrameWork.UserManager
             string U_EName_Txt = (string)Common.sink(U_EName.UniqueID, MethodType.Post, 50, 0, DataType.Str);
             int U_GroupID_Txt = (int)Common.sink(U_GroupID.UniqueID, MethodType.Post, 50, 0, DataType.Int);
             int U_Sex_Txt = (int)Common.sink(U_Sex.UniqueID, MethodType.Post, 50, 1, DataType.Int);
-            DateTime? U_BirthDay_Txt = (DateTime?)Common.sink(U_BirthDay.UniqueID, MethodType.Post, 50, 0, DataType.Dat);
+            DateTime U_BirthDay_Txt = (DateTime)Common.sink(U_BirthDay.UniqueID, MethodType.Post, 50, 0, DataType.Dat);
             int U_Title_Txt = (int)Common.sink("U_Title", MethodType.Post, 50, 0, DataType.Int);
             string U_IDCard_Txt = (string)Common.sink(U_IDCard.UniqueID, MethodType.Post, 30, 0, DataType.Str);
             string U_HomeTel_Txt = (string)Common.sink(U_HomeTel.UniqueID, MethodType.Post, 20, 0, DataType.Str);
@@ -327,7 +327,7 @@ namespace FrameWork.web.Module.FrameWork.UserManager
             string U_CompanyMail_Txt = (string)Common.sink(U_CompanyMail.UniqueID, MethodType.Post, 100, 0, DataType.Email);
             string U_Email_Txt = (string)Common.sink(U_Email.UniqueID, MethodType.Post, 100, 0, DataType.Email);
             string U_Extension_Txt = (string)Common.sink(U_Extension.UniqueID, MethodType.Post, 10, 0, DataType.Str);
-            DateTime? U_WorkStartDate_Txt = (DateTime?)Common.sink(U_WorkStartDate.UniqueID, MethodType.Post, 50, 0, DataType.Dat);
+            DateTime U_WorkStartDate_Txt = (DateTime)Common.sink(U_WorkStartDate.UniqueID, MethodType.Post, 50, 0, DataType.Dat);
             string U_Remark_Txt = (string)Common.sink(U_Remark.UniqueID, MethodType.Post, 2000, 0, DataType.Str);
 
             PopedomType pt = PopedomType.New;

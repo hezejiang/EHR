@@ -98,7 +98,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             Maticsoft.BLL.sys_User user_bll = new Maticsoft.BLL.sys_User();
             Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.I_ReportUserID);
             this.I_ReportUserID.Value = user_model.UserID + "";
-            this.I_ReportUserID_TextBox.Text = user_model.U_CName;
+            this.I_ReportUserID_input.Text = user_model.U_CName;
         }
 
         /// <summary>

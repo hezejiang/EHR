@@ -123,6 +123,12 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="extend_Disability.cs" />
+    <Compile Include="extend_DiseaseHistory.cs" />
+    <Compile Include="extend_DiseaseOther.cs" />
+    <Compile Include="extend_Environment.cs" />
+    <Compile Include="extend_FamilyHistory.cs" />
+    <Compile Include="extend_GeneticDisease.cs" />
     <Compile Include="SysNode.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -157,6 +163,7 @@
     <Compile Include="sys_SystemInfo.cs" />
     <Compile Include="sys_User.cs" />
     <Compile Include="sys_UserRoles.cs" />
+    <Compile Include="sys_UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

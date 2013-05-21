@@ -52,7 +52,7 @@ namespace Maticsoft.Web.record_UserBaseInfo
 		this.lblU_MedicalNO.Text=model.U_MedicalNO;
 		this.lblU_FamilyCode.Text=model.U_FamilyCode;
 		this.lblU_RelationShip.Text=model.U_RelationShip.ToString();
-		this.lblU_Status.Text=model.U_Status.ToString();
+		this.lblU_Status.Text=model.U_AuditStatus.ToString();
 
 	}
 

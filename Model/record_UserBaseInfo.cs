@@ -21,17 +21,17 @@ namespace Maticsoft.Model
 		private string _u_workingunits="";
 		private string _u_workingcontactname="";
 		private string _u_workingcontacttel="";
-		private int? _u_bloodtype=0;
-		private int? _u_nationid;
-		private int? _u_marriagestatus=0;
-		private int? _u_permanenttype=0;
-		private int? _u_education=0;
+		private int _u_bloodtype=0;
+		private int _u_nationid;
+		private int _u_marriagestatus=0;
+		private int _u_permanenttype=0;
+		private int _u_education=0;
 		private string _u_paymenttype="";
 		private string _u_socialno="";
 		private string _u_medicalno;
 		private string _u_familycode= "0";
 		private int _u_relationship;
-		private int? _u_status;
+        private int _u_auditstatus;
 		/// <summary>
 		/// 用户ID号
 		/// </summary>
@@ -123,7 +123,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 血型 1:A型，2:B型，3:AB型，4:O型，0:不详
 		/// </summary>
-		public int? U_BloodType
+		public int U_BloodType
 		{
 			set{ _u_bloodtype=value;}
 			get{return _u_bloodtype;}
@@ -131,7 +131,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 民族，对应民族表NationID
 		/// </summary>
-		public int? U_NationID
+		public int U_NationID
 		{
 			set{ _u_nationid=value;}
 			get{return _u_nationid;}
@@ -139,7 +139,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 婚姻状态 1:未婚，2:已婚，3:丧偶，4:离婚
 		/// </summary>
-		public int? U_MarriageStatus
+		public int U_MarriageStatus
 		{
 			set{ _u_marriagestatus=value;}
 			get{return _u_marriagestatus;}
@@ -147,7 +147,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 常住类型 1:户籍，2:非户籍
 		/// </summary>
-		public int? U_PermanentType
+		public int U_PermanentType
 		{
 			set{ _u_permanenttype=value;}
 			get{return _u_permanenttype;}
@@ -155,7 +155,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 文化程度 1:文盲及半文盲，2:小学，3:中学，4:高中/技校/中专，5:大学专科，6:大学本科，7:研究生及以上，8:不详
 		/// </summary>
-		public int? U_Education
+		public int U_Education
 		{
 			set{ _u_education=value;}
 			get{return _u_education;}
@@ -203,10 +203,10 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 档案状态，1：正常，2：审核中（迁出迁入需要审核）
 		/// </summary>
-		public int? U_Status
+        public int U_AuditStatus
 		{
-			set{ _u_status=value;}
-			get{return _u_status;}
+            set { _u_auditstatus = value; }
+            get { return _u_auditstatus; }
 		}
 		#endregion Model
 

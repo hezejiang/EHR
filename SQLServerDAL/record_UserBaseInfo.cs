@@ -47,9 +47,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_UserBaseInfo(");
-			strSql.Append("U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_Status)");
+			strSql.Append("UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_auditStatus)");
 			strSql.Append(" values (");
-			strSql.Append("@U_Hometown,@U_CurrentAddress,@U_FilingUnits,@U_FilingUserID,@U_ResponsibilityUserID,@U_Committee,@U_FlingTime,@U_WorkingUnits,@U_WorkingContactName,@U_WorkingContactTel,@U_BloodType,@U_NationID,@U_MarriageStatus,@U_PermanentType,@U_Education,@U_PaymentType,@U_SocialNO,@U_MedicalNO,@U_FamilyCode,@U_RelationShip,@U_Status)");
+			strSql.Append("@UserID,@U_Hometown,@U_CurrentAddress,@U_FilingUnits,@U_FilingUserID,@U_ResponsibilityUserID,@U_Committee,@U_FlingTime,@U_WorkingUnits,@U_WorkingContactName,@U_WorkingContactTel,@U_BloodType,@U_NationID,@U_MarriageStatus,@U_PermanentType,@U_Education,@U_PaymentType,@U_SocialNO,@U_MedicalNO,@U_FamilyCode,@U_RelationShip,@U_auditStatus)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@U_Hometown", SqlDbType.NVarChar,255),
@@ -69,10 +69,11 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@U_Education", SqlDbType.TinyInt,1),
 					new SqlParameter("@U_PaymentType", SqlDbType.VarChar,20),
 					new SqlParameter("@U_SocialNO", SqlDbType.VarChar,30),
-					new SqlParameter("@U_MedicalNO", SqlDbType.NChar,10),
+					new SqlParameter("@U_MedicalNO", SqlDbType.VarChar,10),
 					new SqlParameter("@U_FamilyCode", SqlDbType.VarChar,22),
 					new SqlParameter("@U_RelationShip", SqlDbType.TinyInt,1),
-					new SqlParameter("@U_Status", SqlDbType.TinyInt,1)};
+					new SqlParameter("@U_auditStatus", SqlDbType.TinyInt,1),
+                    new SqlParameter("@UserID", SqlDbType.Int,4)};
 			parameters[0].Value = model.U_Hometown;
 			parameters[1].Value = model.U_CurrentAddress;
 			parameters[2].Value = model.U_FilingUnits;
@@ -93,7 +94,8 @@ namespace Maticsoft.SQLServerDAL
 			parameters[17].Value = model.U_MedicalNO;
 			parameters[18].Value = model.U_FamilyCode;
 			parameters[19].Value = model.U_RelationShip;
-			parameters[20].Value = model.U_Status;
+			parameters[20].Value = model.U_AuditStatus;
+            parameters[21].Value = model.UserID;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -132,7 +134,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("U_MedicalNO=@U_MedicalNO,");
 			strSql.Append("U_FamilyCode=@U_FamilyCode,");
 			strSql.Append("U_RelationShip=@U_RelationShip,");
-			strSql.Append("U_Status=@U_Status");
+			strSql.Append("U_auditStatus=@U_auditStatus");
 			strSql.Append(" where UserID=@UserID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@U_Hometown", SqlDbType.NVarChar,255),
@@ -152,10 +154,10 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@U_Education", SqlDbType.TinyInt,1),
 					new SqlParameter("@U_PaymentType", SqlDbType.VarChar,20),
 					new SqlParameter("@U_SocialNO", SqlDbType.VarChar,30),
-					new SqlParameter("@U_MedicalNO", SqlDbType.NChar,10),
+					new SqlParameter("@U_MedicalNO", SqlDbType.VarChar,10),
 					new SqlParameter("@U_FamilyCode", SqlDbType.VarChar,22),
 					new SqlParameter("@U_RelationShip", SqlDbType.TinyInt,1),
-					new SqlParameter("@U_Status", SqlDbType.TinyInt,1),
+					new SqlParameter("@U_auditStatus", SqlDbType.TinyInt,1),
 					new SqlParameter("@UserID", SqlDbType.Int,4)};
 			parameters[0].Value = model.U_Hometown;
 			parameters[1].Value = model.U_CurrentAddress;
@@ -177,7 +179,7 @@ namespace Maticsoft.SQLServerDAL
 			parameters[17].Value = model.U_MedicalNO;
 			parameters[18].Value = model.U_FamilyCode;
 			parameters[19].Value = model.U_RelationShip;
-			parameters[20].Value = model.U_Status;
+			parameters[20].Value = model.U_AuditStatus;
 			parameters[21].Value = model.UserID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -242,7 +244,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_Status from record_UserBaseInfo ");
+			strSql.Append("select  top 1 UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_auditStatus from record_UserBaseInfo ");
 			strSql.Append(" where UserID=@UserID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@UserID", SqlDbType.Int,4)
@@ -354,9 +356,9 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.U_RelationShip=int.Parse(row["U_RelationShip"].ToString());
 				}
-				if(row["U_Status"]!=null && row["U_Status"].ToString()!="")
+				if(row["U_auditStatus"]!=null && row["U_auditStatus"].ToString()!="")
 				{
-					model.U_Status=int.Parse(row["U_Status"].ToString());
+					model.U_AuditStatus=int.Parse(row["U_auditStatus"].ToString());
 				}
 			}
 			return model;
@@ -368,7 +370,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_Status ");
+			strSql.Append("select UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_auditStatus ");
 			strSql.Append(" FROM record_UserBaseInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -388,7 +390,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_Status ");
+			strSql.Append(" UserID,U_Hometown,U_CurrentAddress,U_FilingUnits,U_FilingUserID,U_ResponsibilityUserID,U_Committee,U_FlingTime,U_WorkingUnits,U_WorkingContactName,U_WorkingContactTel,U_BloodType,U_NationID,U_MarriageStatus,U_PermanentType,U_Education,U_PaymentType,U_SocialNO,U_MedicalNO,U_FamilyCode,U_RelationShip,U_auditStatus ");
 			strSql.Append(" FROM record_UserBaseInfo ");
 			if(strWhere.Trim()!="")
 			{

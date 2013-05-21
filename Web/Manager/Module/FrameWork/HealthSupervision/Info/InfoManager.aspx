@@ -63,10 +63,10 @@
                         报告人</td>
                     <td class="table_none">
                         <asp:Label ID="I_ReportUserID_Txt" runat="server"></asp:Label>
-                        <asp:TextBox ID="I_ReportUserID_TextBox" runat="server" Columns="50" title="请点击选择报告人!"
+                        <asp:TextBox ID="I_ReportUserID_input" runat="server" Columns="50" title="请点击选择报告人!"
                             CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="I_ReportUserID" runat="server" />
-                        <input type=button value="选择报告人" id=button3 name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton">
+                        <input type=button value="选择报告人" name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton">
                         <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
                     </td>
                 </tr>
@@ -98,15 +98,11 @@
     }; 
 
     function rand(number) { 
-
 　　　　return Math.ceil(rnd()*number); 
-
     }; 
-    
     
     function AlertMessageBox(file_name)
     {
-
 	    if (file_name!=undefined){
 	        var ShValues = file_name.split('||');
 	        if (ShValues[1]!=0)
@@ -123,7 +119,7 @@
        
     function ClearSelect()
     {
-   	    document.all.<%=this.I_ReportUserID_Txt.ClientID %>.value="";
+   	    document.all.<%=this.I_ReportUserID_input.ClientID %>.value="";
         document.all.<%=this.I_ReportUserID.ClientID %>.value="";
     }
 
@@ -140,7 +136,7 @@
                 var result = action.split("||");
                 if (result[0] == "ok") {
                     document.all.<%=this.I_ReportUserID.ClientID %>.value=result[1];
-                    document.all.<%=this.I_ReportUserID_TextBox.ClientID %>.value=result[2];
+                    document.all.<%=this.I_ReportUserID_input.ClientID %>.value=result[2];
                 }
             }
         });            

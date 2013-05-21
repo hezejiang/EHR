@@ -53,7 +53,7 @@ namespace Maticsoft.Web.record_UserBaseInfo
 		this.txtU_MedicalNO.Text=model.U_MedicalNO;
 		this.txtU_FamilyCode.Text=model.U_FamilyCode;
 		this.txtU_RelationShip.Text=model.U_RelationShip.ToString();
-		this.txtU_Status.Text=model.U_Status.ToString();
+		this.txtU_Status.Text=model.U_AuditStatus.ToString();
 
 	}
 
@@ -172,7 +172,7 @@ namespace Maticsoft.Web.record_UserBaseInfo
 			string U_MedicalNO=this.txtU_MedicalNO.Text;
 			string U_FamilyCode=this.txtU_FamilyCode.Text;
 			int U_RelationShip=int.Parse(this.txtU_RelationShip.Text);
-			int U_Status=int.Parse(this.txtU_Status.Text);
+            int U_AuditStatus = int.Parse(this.txtU_Status.Text);
 
 
 			Maticsoft.Model.record_UserBaseInfo model=new Maticsoft.Model.record_UserBaseInfo();
@@ -197,7 +197,7 @@ namespace Maticsoft.Web.record_UserBaseInfo
 			model.U_MedicalNO=U_MedicalNO;
 			model.U_FamilyCode=U_FamilyCode;
 			model.U_RelationShip=U_RelationShip;
-			model.U_Status=U_Status;
+            model.U_AuditStatus = U_AuditStatus;
 
 			Maticsoft.BLL.record_UserBaseInfo bll=new Maticsoft.BLL.record_UserBaseInfo();
 			bll.Update(model);

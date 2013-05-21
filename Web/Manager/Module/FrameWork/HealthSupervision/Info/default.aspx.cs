@@ -88,12 +88,13 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public Maticsoft.Model.sys_User getUserNameById(int userID)
+        public Maticsoft.Model.sys_User getUserModelById(int userID)
         {
             Maticsoft.BLL.sys_User bll = new Maticsoft.BLL.sys_User();
             Maticsoft.Model.sys_User model = bll.GetModel(userID);
             return model;
         }
+
         /// <summary>
         /// 点击查询（需要更改）
         /// </summary>

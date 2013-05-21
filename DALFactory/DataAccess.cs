@@ -437,6 +437,17 @@ namespace Maticsoft.DALFactory
 			return (Maticsoft.IDAL.Isys_User)objType;
 		}
 
+        /// <summary>
+        /// 创建sys_User数据层接口。用户的两个表连接
+        /// </summary>
+        public static Maticsoft.IDAL.Isys_UserInfo Createsys_UserInfo()
+        {
+
+            string ClassNamespace = AssemblyPath + ".sys_UserInfo";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Isys_UserInfo)objType;
+        }
+
 
 		/// <summary>
 		/// 创建sys_UserRoles数据层接口。用户角色表
@@ -449,5 +460,75 @@ namespace Maticsoft.DALFactory
 			return (Maticsoft.IDAL.Isys_UserRoles)objType;
 		}
 
-}
+        /// <summary>
+        /// 创建extend_Disability数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_Disability Createextend_Disability()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_Disability";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_Disability)objType;
+        }
+
+
+        /// <summary>
+        /// 创建extend_DiseaseHistory数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_DiseaseHistory Createextend_DiseaseHistory()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_DiseaseHistory";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_DiseaseHistory)objType;
+        }
+
+
+        /// <summary>
+        /// 创建extend_DiseaseOther数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_DiseaseOther Createextend_DiseaseOther()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_DiseaseOther";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_DiseaseOther)objType;
+        }
+
+
+        /// <summary>
+        /// 创建extend_Environment数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_Environment Createextend_Environment()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_Environment";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_Environment)objType;
+        }
+
+
+        /// <summary>
+        /// 创建extend_FamilyHistory数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_FamilyHistory Createextend_FamilyHistory()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_FamilyHistory";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_FamilyHistory)objType;
+        }
+
+
+        /// <summary>
+        /// 创建extend_GeneticDisease数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_GeneticDisease Createextend_GeneticDisease()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_GeneticDisease";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_GeneticDisease)objType;
+        }
+    }
 }

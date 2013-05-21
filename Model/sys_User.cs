@@ -23,23 +23,23 @@ namespace Maticsoft.Model
 		private string _u_mac;
 		private string _u_remark;
 		private string _u_idcard;
-		private int? _u_sex;
-		private DateTime? _u_birthday;
+		private int _u_sex;
+		private DateTime _u_birthday;
 		private string _u_mobileno;
 		private string _u_userno;
-		private DateTime? _u_workstartdate;
-		private DateTime? _u_workenddate;
+		private DateTime _u_workstartdate;
+		private DateTime _u_workenddate;
 		private string _u_companymail;
-		private int? _u_title;
+		private int _u_title;
 		private string _u_extension;
 		private string _u_hometel;
 		private string _u_photourl;
-		private DateTime? _u_datetime;
+		private DateTime _u_datetime;
 		private string _u_lastip;
-		private DateTime? _u_lastdatetime;
+		private DateTime _u_lastdatetime;
 		private string _u_extendfield;
 		private string _u_logintype;
-		private int? _u_hospitalgroupid=0;
+		private int _u_hospitalgroupid=0;
 		/// <summary>
 		/// 用户ID号
 		/// </summary>
@@ -147,7 +147,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 性别1:男0:女
 		/// </summary>
-		public int? U_Sex
+		public int U_Sex
 		{
 			set{ _u_sex=value;}
 			get{return _u_sex;}
@@ -155,7 +155,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 出生日期
 		/// </summary>
-		public DateTime? U_BirthDay
+		public DateTime U_BirthDay
 		{
 			set{ _u_birthday=value;}
 			get{return _u_birthday;}
@@ -179,7 +179,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 到职日期
 		/// </summary>
-		public DateTime? U_WorkStartDate
+		public DateTime U_WorkStartDate
 		{
 			set{ _u_workstartdate=value;}
 			get{return _u_workstartdate;}
@@ -187,7 +187,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 离职日期
 		/// </summary>
-		public DateTime? U_WorkEndDate
+		public DateTime U_WorkEndDate
 		{
 			set{ _u_workenddate=value;}
 			get{return _u_workenddate;}
@@ -203,7 +203,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 职称与应用字段关联
 		/// </summary>
-		public int? U_Title
+		public int U_Title
 		{
 			set{ _u_title=value;}
 			get{return _u_title;}
@@ -235,7 +235,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 操作时间
 		/// </summary>
-		public DateTime? U_DateTime
+		public DateTime U_DateTime
 		{
 			set{ _u_datetime=value;}
 			get{return _u_datetime;}
@@ -251,7 +251,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 最后访问时间
 		/// </summary>
-		public DateTime? U_LastDateTime
+		public DateTime U_LastDateTime
 		{
 			set{ _u_lastdatetime=value;}
 			get{return _u_lastdatetime;}
@@ -275,7 +275,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 医院部门ID号与sys_Group表中GroupID关联，这里是选择所在医院部门，默认为0，即表示该用户是非医院工作人员
 		/// </summary>
-		public int? U_HospitalGroupID
+		public int U_HospitalGroupID
 		{
 			set{ _u_hospitalgroupid=value;}
 			get{return _u_hospitalgroupid;}
