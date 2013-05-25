@@ -1,9 +1,28 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="InfoManager.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.PersonalRecords.InfoManager" %>
     
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-    <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
+    <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" /> 
+    <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/Css/base.css" />
     <style type="text/css">
         legend.big_title{ font-style:oblique; font-weight:bold;}
+        
+        .w10{width:10%; text-align:center;}
+        .w90{width:90%; text-align:center;}
+        .w50{width:50%;}
+        .w25{width:25%;}
+        .border_right{ border-right:1px solid #ccc;}
+        .mr5{margin:5px;}
+        .ul50{width:50%; float:left;}
+        .ul50 li{float:left;line-height: 30px;text-align: left; width:45%;}
+        .float_left{float:left;}
+        
+        .add{width:100%;}
+        .list{width:60%; height:0; overflow:hidden; border:1px solid #ccc;}
+        .list ul.list_head{width:100%;}
+        .list ul.list_head li{float:left; width:15%; height:20px; line-height:20px; text-align:center;  font-weight:bold;}
+        .list ul.list_body{width:100%;}
+        .list ul.list_body li{float:left; width:15%;  height:20px; line-height:20px; text-align:center; }
     </style>
     <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
@@ -20,13 +39,11 @@
                     <td class="table_body">
                         个人健康档案编号（身份证）</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_IDCard_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_IDCard" runat="server" Columns="50" title="请填写个人身份证号" CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         姓名</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_CName_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_CName" runat="server" Columns="50" title="请填真实姓名" CssClass="text_input"></asp:TextBox>
                     </td>
                 </tr>
@@ -34,13 +51,11 @@
                     <td class="table_body">
                         籍贯</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_Hometown_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_Hometown" runat="server" Columns="50" title="请填籍贯" CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         现住址</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_CurrentAddress_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_CurrentAddress" runat="server" Columns="50" title="请填现住址" CssClass="text_input"></asp:TextBox>
                     </td>
                 </tr>
@@ -48,7 +63,6 @@
                     <td class="table_body">
                         性别</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_Sex_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_Sex" title="请选择性别">
                             <asp:ListItem Text="女" Value="0" />
                             <asp:ListItem Text="男" Value="1" />
@@ -57,7 +71,6 @@
                     <td class="table_body">
                         民族</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_NationID_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_NationID" title="请选择民族">
                             <asp:ListItem Text="女" Value="0" />
                             <asp:ListItem Text="男" Value="1" />
@@ -68,7 +81,6 @@
                     <td class="table_body">
                         婚姻状态</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_MarriageStatus_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_MarriageStatus" title="请选择性别">
                             <asp:ListItem Text="未婚" Value="1" />
                             <asp:ListItem Text="已婚" Value="2" />
@@ -79,7 +91,6 @@
                     <td class="table_body">
                         血型</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_BloodType_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_BloodType" title="请选择民族">
                             <asp:ListItem Text="A型" Value="1" />
                             <asp:ListItem Text="B型" Value="2" />
@@ -93,13 +104,11 @@
                     <td class="table_body">
                         联系方式</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_MobileNo_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:TextBox ID="U_MobileNo" runat="server" Columns="50" title="请填写联系方式" CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         居(村)委会</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_Committee_Txt" runat="server"></asp:Label>
                         <input type="hidden" runat="server" name="U_Committee" id="U_Committee" value=""/>
                         <input runat="server" name="U_Committee_input" id="U_Committee_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
@@ -111,7 +120,6 @@
                     <td class="table_body">
                         常住类型</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_PermanentType_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_PermanentType" title="请选择常住类型">
                             <asp:ListItem Text="户籍" Value="1" />
                             <asp:ListItem Text="非户籍" Value="2" />
@@ -120,7 +128,6 @@
                     <td class="table_body">
                         文化程度</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_Education_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_Education" title="请选择文化程度">
                             <asp:ListItem Text="文盲及半文盲" Value="1" />
                             <asp:ListItem Text="小学" Value="2" />
@@ -137,13 +144,11 @@
                     <td class="table_body">
                         工作单位</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_WorkingUnits_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_WorkingUnits" runat="server" Columns="50" title="请输入工作单位" CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         职位联系人姓名</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_WorkingContactName_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_WorkingContactName" runat="server" Columns="50" title="请输入职位联系人姓名"
                             CssClass="text_input"></asp:TextBox>
                     </td>
@@ -152,14 +157,12 @@
                     <td class="table_body">
                         职位联系人号码</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_WorkingContactTel_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_WorkingContactTel" runat="server" Columns="50" title="请输入职位联系人号码"
                             CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         付费类型</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_PaymentType_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_PaymentType" title="请选择付费类型">
                             <asp:ListItem Text="城镇职工基本医疗保险" Value="1" />
                             <asp:ListItem Text="城镇居民基本医疗保险" Value="2" />
@@ -176,14 +179,12 @@
                     <td class="table_body">
                         社保号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_SocialNO_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_SocialNO" runat="server" Columns="50" title="请输入社保号"
                             CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
                         医保号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_MedicalNO_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="U_MedicalNO" runat="server" Columns="50" title="请输入医保号"
                             CssClass="text_input"></asp:TextBox>
                     </td>
@@ -192,7 +193,6 @@
                     <td class="table_body">
                         家庭编号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_FamilyCode_Txt" runat="server"></asp:Label>
                         <input runat="server" id="U_FamilyCode" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
                             class="cbutton"/>
@@ -201,7 +201,6 @@
                     <td class="table_body">
                         与户主关系</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_RelationShip_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_RelationShip" title="请选择与户主关系">
                             <asp:ListItem Text="户主" Value="0" />
                             <asp:ListItem Text="父亲" Value="1" />
@@ -217,7 +216,6 @@
                     <td class="table_body">
                         责任医生</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_ResponsibilityUserID_Txt" runat="server"></asp:Label>
                         <input type="hidden" runat="server" name="U_ResponsibilityUserID" id="U_ResponsibilityUserID" value=""/>
                         <input runat="server" name="U_ResponsibilityUserID_input" id="U_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
@@ -227,7 +225,6 @@
                     <td class="table_body">
                         档案状态</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_AuditStatus_Txt" runat="server" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="U_AuditStatus" title="请选择档案状态">
                             <asp:ListItem Text="正常" Value="1" />
                             <asp:ListItem Text="审核中" Value="2" />
@@ -238,7 +235,6 @@
                     <td class="table_body">
                         建档单位</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_FilingUnits_Txt" runat="server"></asp:Label>
                         <input type="hidden" runat="server" name="U_FilingUnits" id="U_FilingUnits" value=""/>
                         <input runat="server" name="U_FilingUnits_input" id="U_FilingUnits_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3)"
@@ -248,7 +244,6 @@
                     <td class="table_body">
                         建档人</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:Label ID="U_FilingUserID_Txt" runat="server"></asp:Label>
                         <input type="hidden" runat="server" name="U_FilingUserID" id="U_FilingUserID" value=""/>
                         <input runat="server" name="U_FilingUserID_input" id="U_FilingUserID_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4)"
@@ -269,45 +264,233 @@
                <legend class="big_title">既往史</legend>
                <fieldset>
                     <legend>疾病史</legend>
-
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" class="table_check_wrap">
+                        <tr>
+                            <td class="w10 border_right"><input type="checkbox" id="DH_Type_0" runat="server" value="0" class="none" />无</td>
+                            <td class="w90">
+                                <div style="width:100%;">
+                                    <asp:Repeater runat="server" ID="DiseaseHistory_repeater">
+                                        <ItemTemplate>
+                                            <ul class="ul50">
+                                                <li>
+                                                    <input type="checkbox" id=DH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                </li>
+                                                <li class=" w25">
+                                                     确诊时间<input id=DH_DiagnosisDate_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
+                                                </li>
+                                            </ul>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <ul class="ul50">
+                                                <li>
+                                                    <input type="checkbox" id=DH_Type_11 runat="server" class="mr5" value=11 />其他
+                                                    <input id=DH_Type_11_note runat="server" class="text_input"/>
+                                                </li>
+                                                <li class=" w25">
+                                                     确诊时间<input id=DH_DiagnosisDate_11 runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
+                                                </li>
+                                            </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                </fieldset>
                <fieldset>
                     <legend>手术史</legend>
-
+                    <div style="width:100%">
+                        <div class="add">
+                                手术名称<input id=Text3 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input id=Text4 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               <input type="button" value="确定" />
+                         </div>
+                         <div class="list">
+                            <ul class="list_head">
+                                <li>编号</li>
+                                <li style="width:50%;">手术名称</li>
+                                <li>日期</li>
+                                <li>操作</li>
+                            </ul>
+                            <ul class="list_body">
+                                <li>1</li>
+                                <li style="width:50%;">手术名称1</li>
+                                <li>2013-05-01</li>
+                                <li>删除</li>
+                            </ul>
+                         </div>
+                    </div>
                </fieldset>
                <fieldset>
                     <legend>外伤史</legend>
-
+                    <div style="width:100%">
+                        <div class="add">
+                                外伤名称<input id=Text5 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input id=Text6 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               <input type="button" value="确定" />
+                         </div>
+                         <div class="list">
+                            <ul class="list_head">
+                                <li>编号</li>
+                                <li style="width:50%;">外伤名称</li>
+                                <li>日期</li>
+                                <li>操作</li>
+                            </ul>
+                            <ul class="list_body">
+                                <li>1</li>
+                                <li style="width:50%;">外伤名称1</li>
+                                <li>2013-05-01</li>
+                                <li>删除</li>
+                            </ul>
+                         </div>
+                    </div>
                </fieldset>
                <fieldset>
                     <legend>输血史</legend>
-
+                    <div style="width:100%">
+                        <div class="add">
+                                输血名称<input id=Text7 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input id=Text8 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
+                               <input type="button" value="确定" />
+                         </div>
+                         <div class="list">
+                            <ul class="list_head">
+                                <li>编号</li>
+                                <li style="width:50%;">输血名称</li>
+                                <li>日期</li>
+                                <li>操作</li>
+                            </ul>
+                            <ul class="list_body">
+                                <li>1</li>
+                                <li style="width:50%;">输血名称1</li>
+                                <li>2013-05-01</li>
+                                <li>删除</li>
+                            </ul>
+                         </div>
+                    </div>
                </fieldset>
                <fieldset>
                     <legend>遗传病史</legend>
-
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left" class="table_check_wrap">
+                        <tr>
+                            <td class="w10 border_right"><input type="checkbox" id="Checkbox1" runat="server" value="0" class="none" />无</td>
+                            <td class="w90" style=" text-align:left;">
+                                <input type="checkbox" id="Checkbox3" runat="server" class="mr5" />有&nbsp;&nbsp;&nbsp;&nbsp;
+                                疾病名称: <input id="Text2" runat="server" class="text_input" />
+                            </td>
+                        </tr>
+                    </table>
                </fieldset>
                <fieldset>
                     <legend>残疾情况</legend>
-
+                   <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal" CellPadding="10" CssClass="float_left">
+                       <asp:ListItem Text="无残疾" Value="0" />
+                       <asp:ListItem Text="视力残疾" Value="1" />
+                       <asp:ListItem Text="听力残疾" Value="2" />
+                       <asp:ListItem Text="言语残疾" Value="3" />
+                       <asp:ListItem Text="体残疾" Value="4" />
+                       <asp:ListItem Text="智力残疾" Value="5" />
+                       <asp:ListItem Text="精神残疾" Value="6" />
+                       <asp:ListItem Text="其他" Value="7" />
+                   </asp:CheckBoxList>
+                   <input id="D_Type_note" style="float:left"/>
                </fieldset>
             </fieldset>
             <fieldset>
                <legend class="big_title">家族史</legend>
-
+               <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                        <tr>
+                            <td class="w10 border_right">父亲</td>
+                            <td class="w90">
+                                <div style="width:100%;">
+                                    <asp:Repeater runat="server" ID="fatherDisease_repeater">
+                                        <ItemTemplate>
+                                            <ul class="ul50">
+                                                <li>
+                                                    <input type="checkbox" id=DH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                </li>
+                                            </ul>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <ul class="ul50">
+                                                <li>
+                                                    <input type="checkbox" id=Checkbox2 runat="server" class="mr5" value=11 />其他
+                                                    <input id=Text1 runat="server" class="text_input"/>
+                                                </li>
+                                            </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
             </fieldset>
             <fieldset>
                <legend class="big_title">生活环境</legend>
-
+               <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left">
+                    <tr>
+                        <td class="w10 border_right">厨房排风设施</td>
+                            <td class="w90">
+                                <asp:CheckBoxList ID="CheckBoxList2" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                   <asp:ListItem Text="无" Value="1" />
+                                   <asp:ListItem Text="油烟机" Value="2" />
+                                   <asp:ListItem Text="换气扇" Value="3" />
+                                   <asp:ListItem Text="烟囱" Value="4" />
+                               </asp:CheckBoxList>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="w10 border_right">燃料类型</td>
+                            <td class="w90">
+                                <asp:CheckBoxList ID="CheckBoxList3" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                   <asp:ListItem Text="液化气" Value="1" />
+                                   <asp:ListItem Text="煤气" Value="2" />
+                                   <asp:ListItem Text="天然气" Value="3" />
+                                   <asp:ListItem Text="沼气" Value="4" />
+                                   <asp:ListItem Text="柴火" Value="5" />
+                                   <asp:ListItem Text="其他" Value="6" />
+                               </asp:CheckBoxList>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="w10 border_right">饮水</td>
+                            <td class="w90">
+                                <asp:CheckBoxList ID="CheckBoxList4" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                   <asp:ListItem Text="自来水" Value="1" />
+                                   <asp:ListItem Text="经净化过滤的水" Value="2" />
+                                   <asp:ListItem Text="井水" Value="3" />
+                                   <asp:ListItem Text="河湖水" Value="4" />
+                                   <asp:ListItem Text="糖水" Value="5" />
+                                   <asp:ListItem Text="其他" Value="6" />
+                               </asp:CheckBoxList>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="w10 border_right">厕所</td>
+                            <td class="w90">
+                                <asp:CheckBoxList ID="CheckBoxList5" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                   <asp:ListItem Text="卫生厕所" Value="1" />
+                                   <asp:ListItem Text="一格或两格粪池式" Value="2" />
+                                   <asp:ListItem Text="马桶" Value="3" />
+                                   <asp:ListItem Text="露天粪坑" Value="4" />
+                                   <asp:ListItem Text="简易棚厕" Value="5" />
+                               </asp:CheckBoxList>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="w10 border_right">禽畜栏</td>
+                            <td class="w90">
+                                <asp:CheckBoxList ID="CheckBoxList6" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                   <asp:ListItem Text="单设" Value="1" />
+                                   <asp:ListItem Text="室内" Value="2" />
+                                   <asp:ListItem Text="室外" Value="3" />
+                               </asp:CheckBoxList>
+                            </td>
+                    </tr>
+                </table>
             </fieldset>
             <fieldset>
                <legend class="big_title">备注</legend>
                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
-                    <tr runat="server">
-                        <td class="table_body">
-                            备注</td>
-                        <td class="table_none">
-                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                    <tr>
+                        <td  class="w10 border_right">备注</td>
+                        <td  class="w90">
                             <textarea id="TextBox1" runat="server" title="请填备注" class="text_input" style="height:100px; width:100%;"></textarea>
                         </td>
                     </tr>
@@ -399,5 +582,16 @@
         });            
     }
 
+    $(function(){
+        $(".table_check_wrap .none").click(function(){
+            $(this).parents(".table_check_wrap").find(".mr5").attr("checked","checked");
+        });
+
+        $(".table_check_wrap .mr5").click(function(){
+            $(this).parents(".table_check_wrap").find(".none").attr("checked","");
+        });
+    });
+
     </script>
 </asp:Content>
+

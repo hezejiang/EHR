@@ -117,6 +117,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="commonDiseases.cs" />
     <Compile Include="extend_Disability.cs" />
     <Compile Include="extend_DiseaseHistory.cs" />
     <Compile Include="extend_DiseaseOther.cs" />

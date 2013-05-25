@@ -120,6 +120,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IcommonDiseases.cs" />
     <Compile Include="Iextend_Disability.cs" />
     <Compile Include="Iextend_DiseaseHistory.cs" />
     <Compile Include="Iextend_DiseaseOther.cs" />

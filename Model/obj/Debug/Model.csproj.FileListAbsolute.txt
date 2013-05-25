@@ -2,3 +2,4 @@ E:\项目\Web\EHR\Model\bin\Debug\Maticsoft.Model.dll
 E:\项目\Web\EHR\Model\bin\Debug\Maticsoft.Model.pdb
 E:\项目\Web\EHR\Model\obj\Debug\Maticsoft.Model.dll
 E:\项目\Web\EHR\Model\obj\Debug\Maticsoft.Model.pdb
+E:\项目\Web\EHR\Model\obj\Debug\ResolveAssemblyReference.cache

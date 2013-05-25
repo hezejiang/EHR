@@ -292,6 +292,11 @@
     <Content Include="Codematic\AR_Report\List.aspx" />
     <Content Include="Codematic\AR_Report\Modify.aspx" />
     <Content Include="Codematic\AR_Report\Show.aspx" />
+    <Content Include="Codematic\commonDiseases\Add.aspx" />
+    <Content Include="Codematic\commonDiseases\delete.aspx" />
+    <Content Include="Codematic\commonDiseases\List.aspx" />
+    <Content Include="Codematic\commonDiseases\Modify.aspx" />
+    <Content Include="Codematic\commonDiseases\Show.aspx" />
     <Content Include="Codematic\extend_Disability\Add.aspx" />
     <Content Include="Codematic\extend_Disability\delete.aspx" />
     <Content Include="Codematic\extend_Disability\List.aspx" />
@@ -345,6 +350,8 @@
     <Content Include="Codematic\js\calendar1.js" />
     <Content Include="Codematic\js\CheckBox.js" />
     <Content Include="Manager\about.aspx" />
+    <Content Include="Manager\Css\base.css" />
+    <Content Include="Manager\Css\extend.css" />
     <Content Include="Manager\Css\Menu1.css" />
     <Content Include="Manager\Css\Site_Css.css" />
     <Content Include="Manager\Css\Table\blue\css.css" />
@@ -1549,182 +1556,247 @@
     <Compile Include="Codematic\AR_Report\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Codematic\commonDiseases\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\Modify.aspx.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\Modify.aspx.designer.cs">
+      <DependentUpon>Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Codematic\commonDiseases\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Codematic\extend_Disability\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Disability\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Disability\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Disability\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Disability\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Disability\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Disability\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Disability\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Disability\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Disability\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseHistory\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_DiseaseOther\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Environment\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Environment\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Environment\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Environment\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_Environment\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_FamilyHistory\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\delete.aspx.cs">
       <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\delete.aspx.designer.cs">
       <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Modify.aspx.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Modify.aspx.designer.cs">
       <DependentUpon>Modify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Codematic\extend_GeneticDisease\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>

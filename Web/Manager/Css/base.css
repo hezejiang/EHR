@@ -1,0 +1,50 @@
+﻿/* css reset */
+html{overflow-y:scroll;}
+body{font-family:微软雅黑,宋体;}
+body,div,h1,h2,h3,h4,h5,h6,form,input,textarea,p,ul,li,input,textarea{margin:0; padding:0; outline:none;}
+table{ border-collapse:collapse; border-spacing:0;}
+ul{list-style:none;}
+a{text-decoration:none; cursor:pointer;}
+h1,h2,h3,h4,h5,h6{font-size: 100%; font-weight: normal;}
+img{border:0;}
+/**/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+.color1{color:#0066FF;}
+.color2{color:#999;}
+.f11{font-size:11px;}
+.f14{font-size:14px;}
+.w130{width:130px;}
+.w100{width:100px;}
+.w80{width:80px;}
+.w50{width:50px;}
+.fl{float:left;}
+.fr{float:right;}
+.ml15{margin-left:15px;}
+.mt15{margin-top:15px;}
+.mr30{margin-right:30px;}
+.mr40{margin-right:40px;}
+.none{display:none;}
+.a_block{width:100%; height:100%; display:block; cursor:pointer;}
+.op50{opacity:0.5;filter:alpha(opacity=50);}
+.op60{opacity:0.6;filter:alpha(opacity=60);}
+.op80{opacity:0.8;filter:alpha(opacity=80);}

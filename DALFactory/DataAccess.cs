@@ -530,5 +530,16 @@ namespace Maticsoft.DALFactory
             object objType = CreateObject(AssemblyPath, ClassNamespace);
             return (Maticsoft.IDAL.Iextend_GeneticDisease)objType;
         }
+
+        /// <summary>
+        /// 创建commonDiseases数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.IcommonDiseases CreatecommonDiseases()
+        {
+
+            string ClassNamespace = AssemblyPath + ".commonDiseases";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.IcommonDiseases)objType;
+        }
     }
 }

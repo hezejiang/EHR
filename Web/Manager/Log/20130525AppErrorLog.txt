@@ -1,0 +1,4 @@
+﻿2013/05/25 11:39:50|文件不存在:http://localhost:3448/Default.aspx|127.0.0.1|/Default.aspx
+2013/05/25 11:39:56|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico
+2013/05/25 14:06:33|文件不存在:http://localhost:3448/Default.aspx|127.0.0.1|/Default.aspx
+2013/05/25 14:06:41|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico

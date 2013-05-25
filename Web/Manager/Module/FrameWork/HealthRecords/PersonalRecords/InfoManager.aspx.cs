@@ -19,6 +19,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
         string CMD_Txt = "查看";
         string App_Txt = "健康档案";
         string All_Title_Txt = "";
+        private List<Maticsoft.Model.commonDiseases> commonDiseases_list;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,7 +64,6 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
 
             if (CMD == "New")
             {
-                HiddenDisp();
             }
             else if (CMD == "Edit")
             {
@@ -74,7 +74,6 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
                 bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&UserID={0}')", UserID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
 
-                HiddenDisp();
                 InputData();
             }
             else if (CMD == "Delete")
@@ -92,7 +91,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
         }
 
         /// <summary>
-        /// 在编辑的时候将对应的值绑定到Label上
+        /// 在编辑的时候将对应的值绑定
         /// </summary>
         private void InputData()
         {
@@ -143,6 +142,14 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
 
             this.U_FilingUserID_input.Value = getUserModelById(record_UserBaseInfo_model.U_FilingUserID).U_CName;
             this.U_FilingUserID.Value = record_UserBaseInfo_model.U_FilingUserID + "";
+
+            Maticsoft.BLL.commonDiseases commonDiseases_bll = new Maticsoft.BLL.commonDiseases();
+            commonDiseases_list = commonDiseases_bll.GetModelList("CommonDiseaseID < 11");
+            DiseaseHistory_repeater.DataSource = commonDiseases_list;
+            DiseaseHistory_repeater.DataBind();
+
+            fatherDisease_repeater.DataSource = commonDiseases_list;
+            fatherDisease_repeater.DataBind();
         }
 
         /// <summary>
@@ -269,67 +276,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             }
             return name;
         }
-        /// <summary>
-        /// 隐藏Label（需要更改）
-        /// </summary>
-        private void HiddenDisp()
-        {
-            this.U_IDCard_Txt.Visible = false;
-            this.U_CName_Txt.Visible = false;
-            this.U_Hometown_Txt.Visible = false;
-            this.U_CurrentAddress_Txt.Visible = false;
-            this.U_Sex_Txt.Visible = false;
-            this.U_NationID_Txt.Visible = false;
-            this.U_MarriageStatus_Txt.Visible = false;
-            this.U_BloodType_Txt.Visible = false;
-            this.U_MobileNo_Txt.Visible = false;
-            this.U_Committee_Txt.Visible = false;
-            this.U_PermanentType_Txt.Visible = false;
-            this.U_Education_Txt.Visible = false;
-            this.U_WorkingUnits_Txt.Visible = false;
-            this.U_WorkingContactName_Txt.Visible = false;
-            this.U_WorkingContactTel_Txt.Visible = false;
-            this.U_PaymentType_Txt.Visible = false;
-            this.U_SocialNO_Txt.Visible = false;
-            this.U_MedicalNO_Txt.Visible = false;
-            this.U_FamilyCode_Txt.Visible = false;
-            this.U_RelationShip_Txt.Visible = false;
-            this.U_AuditStatus_Txt.Visible = false;
-            this.U_ResponsibilityUserID_Txt.Visible = false;
-            this.U_FilingUnits_Txt.Visible = false;
-            this.U_FilingUserID_Txt.Visible = false;
-        }
 
-        /// <summary>
-        /// 隐藏输入框（需要更改）
-        /// </summary>
-        private void HiddenInput()
-        {
-            this.U_IDCard.Visible = false;
-            this.U_CName.Visible = false;
-            this.U_Hometown.Visible = false;
-            this.U_CurrentAddress.Visible = false;
-            this.U_Sex.Visible = false;
-            this.U_NationID.Visible = false;
-            this.U_MarriageStatus.Visible = false;
-            this.U_BloodType.Visible = false;
-            this.U_MobileNo.Visible = false;
-            this.U_Committee.Visible = false;
-            this.U_PermanentType.Visible = false;
-            this.U_Education.Visible = false;
-            this.U_WorkingUnits.Visible = false;
-            this.U_WorkingContactName.Visible = false;
-            this.U_WorkingContactTel.Visible = false;
-            this.U_PaymentType.Visible = false;
-            this.U_SocialNO.Visible = false;
-            this.U_MedicalNO.Visible = false;
-            this.U_FamilyCode.Visible = false;
-            this.U_RelationShip.Visible = false;
-            this.U_AuditStatus.Visible = false;
-            this.U_ResponsibilityUserID.Visible = false;
-            this.U_FilingUnits.Visible = false;
-            this.U_FilingUserID.Visible = false;
-        }
         /// <summary>
         /// 点击确定按钮执行的方法
         /// </summary>

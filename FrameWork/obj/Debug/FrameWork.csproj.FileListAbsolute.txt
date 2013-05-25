@@ -7,7 +7,7 @@ E:\C#\权限\51CTO下载-ASP.NET权限管理系统\FrameWorkSrc1.8\FrameWork\obj
 E:\项目\Web\EHR\FrameWork\bin\Debug\FrameWork.dll
 E:\项目\Web\EHR\FrameWork\bin\Debug\FrameWork.pdb
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.WebControls.AspNetPager.resources
-E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.csproj.GenerateResource.Cache
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.dll
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.pdb
 E:\项目\Web\EHR\FrameWork\bin\Debug\Framework.xml
+E:\项目\Web\EHR\FrameWork\obj\Debug\ResolveAssemblyReference.cache
