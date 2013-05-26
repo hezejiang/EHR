@@ -58,4 +58,6 @@ E:\项目\Web\EHR\Web\obj\Debug\Maticsoft.Web.Controls.CopyRight1.resources
 E:\项目\Web\EHR\Web\obj\Debug\Maticsoft.Web.Global.resources
 E:\项目\Web\EHR\Web\obj\Debug\Maticsoft.Web.dll
 E:\项目\Web\EHR\Web\obj\Debug\Maticsoft.Web.pdb
-E:\项目\Web\EHR\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\Web\EHR\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+E:\项目\Web\EHR\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\项目\Web\EHR\Web\bin\LitJSON.dll

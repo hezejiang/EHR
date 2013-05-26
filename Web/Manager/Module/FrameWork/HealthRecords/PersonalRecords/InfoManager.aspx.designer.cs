@@ -373,6 +373,15 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords {
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox DH_Type_0;
         
         /// <summary>
+        /// DiseaseHistory_data 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden DiseaseHistory_data;
+        
+        /// <summary>
         /// DiseaseHistory_repeater 控件。
         /// </summary>
         /// <remarks>
@@ -463,40 +472,58 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Text8;
         
         /// <summary>
-        /// Checkbox1 控件。
+        /// GeneticDisease_none 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox GeneticDisease_none;
         
         /// <summary>
-        /// Checkbox3 控件。
+        /// GeneticDisease_check 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox GeneticDisease_check;
         
         /// <summary>
-        /// Text2 控件。
+        /// GD_Name 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText GD_Name;
         
         /// <summary>
-        /// CheckBoxList1 控件。
+        /// DisabilityList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        protected global::System.Web.UI.WebControls.CheckBoxList DisabilityList;
+        
+        /// <summary>
+        /// D_Note 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText D_Note;
+        
+        /// <summary>
+        /// fatherDisease_data 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden fatherDisease_data;
         
         /// <summary>
         /// fatherDisease_repeater 控件。
@@ -508,75 +535,192 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords {
         protected global::System.Web.UI.WebControls.Repeater fatherDisease_repeater;
         
         /// <summary>
-        /// Checkbox2 控件。
+        /// father_FH_Type11 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Checkbox2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox father_FH_Type11;
         
         /// <summary>
-        /// Text1 控件。
+        /// father_note 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText father_note;
         
         /// <summary>
-        /// CheckBoxList2 控件。
+        /// matherDisease_data 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden matherDisease_data;
         
         /// <summary>
-        /// CheckBoxList3 控件。
+        /// matherDisease_repeater 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList3;
+        protected global::System.Web.UI.WebControls.Repeater matherDisease_repeater;
         
         /// <summary>
-        /// CheckBoxList4 控件。
+        /// mather_FH_Type11 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox mather_FH_Type11;
         
         /// <summary>
-        /// CheckBoxList5 控件。
+        /// mather_note 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText mather_note;
         
         /// <summary>
-        /// CheckBoxList6 控件。
+        /// brothersDisease_data 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList6;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden brothersDisease_data;
         
         /// <summary>
-        /// TextBox1 控件。
+        /// brothersDisease_repeater 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextBox1;
+        protected global::System.Web.UI.WebControls.Repeater brothersDisease_repeater;
+        
+        /// <summary>
+        /// brothers_FH_Type11 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox brothers_FH_Type11;
+        
+        /// <summary>
+        /// brothers_note 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText brothers_note;
+        
+        /// <summary>
+        /// childrenDisease_data 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden childrenDisease_data;
+        
+        /// <summary>
+        /// childrenDisease_repeater 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater childrenDisease_repeater;
+        
+        /// <summary>
+        /// children_FH_Type11 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox children_FH_Type11;
+        
+        /// <summary>
+        /// children_note 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText children_note;
+        
+        /// <summary>
+        /// E_Kind1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList E_Kind1;
+        
+        /// <summary>
+        /// E_Kind2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList E_Kind2;
+        
+        /// <summary>
+        /// E_Kind3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList E_Kind3;
+        
+        /// <summary>
+        /// E_Kind4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList E_Kind4;
+        
+        /// <summary>
+        /// E_Kind5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList E_Kind5;
+        
+        /// <summary>
+        /// U_Note 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea U_Note;
+        
+        /// <summary>
+        /// extendBtn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button extendBtn;
     }
 }

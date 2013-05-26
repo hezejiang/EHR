@@ -9,5 +9,4 @@ E:\项目\Web\EHR\FrameWork\bin\Debug\FrameWork.pdb
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.WebControls.AspNetPager.resources
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.dll
 E:\项目\Web\EHR\FrameWork\obj\Debug\FrameWork.pdb
-E:\项目\Web\EHR\FrameWork\bin\Debug\Framework.xml
-E:\项目\Web\EHR\FrameWork\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\Web\EHR\FrameWork\obj\Debug\Framework.csproj.GenerateResource.Cache

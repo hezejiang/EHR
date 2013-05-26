@@ -13,4 +13,4 @@ E:\项目\Web\EHR\SQLServerDAL\bin\Debug\Maticsoft.IDAL.pdb
 E:\项目\Web\EHR\SQLServerDAL\bin\Debug\Maticsoft.Model.pdb
 E:\项目\Web\EHR\SQLServerDAL\obj\Debug\Maticsoft.SQLServerDAL.dll
 E:\项目\Web\EHR\SQLServerDAL\obj\Debug\Maticsoft.SQLServerDAL.pdb
-E:\项目\Web\EHR\SQLServerDAL\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\Web\EHR\SQLServerDAL\obj\Debug\SQLServerDAL.csprojResolveAssemblyReference.cache

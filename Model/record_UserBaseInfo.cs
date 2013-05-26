@@ -32,6 +32,8 @@ namespace Maticsoft.Model
 		private string _u_familycode= "0";
 		private int _u_relationship;
         private int _u_auditstatus;
+        private String _u_note="";
+
 		/// <summary>
 		/// 用户ID号
 		/// </summary>
@@ -208,6 +210,15 @@ namespace Maticsoft.Model
             set { _u_auditstatus = value; }
             get { return _u_auditstatus; }
 		}
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public String U_Note
+        {
+            set { _u_note = value; }
+            get { return _u_note; }
+        }
 		#endregion Model
 
 	}

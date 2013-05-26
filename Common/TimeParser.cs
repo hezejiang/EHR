@@ -62,5 +62,25 @@ namespace Maticsoft.Common
             return dateDiff;
         }
         #endregion
+
+        /// <summary>
+        /// Unix时间戳转成时间
+        /// </summary>
+        /// <param name="timeStamp"></param>
+        /// <returns></returns>
+        public static DateTime FROM_UNIXTIME(long timeStamp)
+        {
+            return DateTime.Parse("1970-01-01 00:00:00").AddSeconds(timeStamp);
+        }
+
+        /// <summary>
+        /// 时间转成Unix时间戳
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static long UNIX_TIMESTAMP(DateTime dateTime)
+        {
+            return (dateTime.Ticks - DateTime.Parse("1970-01-01 00:00:00").Ticks) / 10000;
+        }
     }
 }

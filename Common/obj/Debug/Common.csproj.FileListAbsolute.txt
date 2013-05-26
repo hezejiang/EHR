@@ -5,4 +5,4 @@ E:\项目\Web\EHR\Common\bin\Debug\OpenSmtp.dll
 E:\项目\Web\EHR\Common\bin\Debug\OWC10Chart.dll
 E:\项目\Web\EHR\Common\obj\Debug\Maticsoft.Common.dll
 E:\项目\Web\EHR\Common\obj\Debug\Maticsoft.Common.pdb
-E:\项目\Web\EHR\Common\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\Web\EHR\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

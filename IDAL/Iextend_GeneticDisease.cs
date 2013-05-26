@@ -49,6 +49,7 @@ namespace Maticsoft.IDAL
 		/// 得到一个对象实体
 		/// </summary>
 		Maticsoft.Model.extend_GeneticDisease GetModel(int GeneticDiseaseID);
+        Maticsoft.Model.extend_GeneticDisease GetModel(string strWhere);
 		Maticsoft.Model.extend_GeneticDisease DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

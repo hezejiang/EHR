@@ -90,6 +90,14 @@ namespace Maticsoft.BLL
 			return dal.GetModel(DiseaseHistoryID);
 		}
 
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public Maticsoft.Model.extend_DiseaseHistory GetModel(string strWhere)
+        {
+            return dal.GetModel(strWhere);
+        }
+
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>

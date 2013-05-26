@@ -38,6 +38,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LitJSON">
+      <HintPath>..\Lib\LitJSON.dll</HintPath>
+    </Reference>
     <Reference Include="LTP.Accounts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\LTP.Accounts.dll</HintPath>
@@ -528,6 +531,7 @@
     <Content Include="Manager\js\checkform.js" />
     <Content Include="Manager\js\core.js" />
     <Content Include="Manager\js\date\date.js" />
+    <Content Include="Manager\js\date\dateFormat.js" />
     <Content Include="Manager\js\jquery-1.9.1.min.js" />
     <Content Include="Manager\js\miniui\locale\en_US.js" />
     <Content Include="Manager\js\miniui\locale\zh_CN.js" />

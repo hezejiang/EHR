@@ -5,28 +5,36 @@
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" /> 
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/Css/base.css" />
     <style type="text/css">
-        legend.big_title{ font-style:oblique; font-weight:bold;}
+        legend.big_title{ font-style:oblique;  font-size:18px; font-weight:bold;}
+        legend.small_title{ font-style:italic; font-size:16px;}
         
         .w10{width:10%; text-align:center;}
         .w90{width:90%; text-align:center;}
         .w50{width:50%;}
         .w25{width:25%;}
         .border_right{ border-right:1px solid #ccc;}
+        .border-bottom{ border-bottom:1px solid #ccc; }
         .mr5{margin:5px;}
         .ul50{width:50%; float:left;}
         .ul50 li{float:left;line-height: 30px;text-align: left; width:45%;}
         .float_left{float:left;}
+        .ul100{width:100%; float:left;}
+        .ul100 li{float:left;line-height: 30px;text-align: left; width:25%;}
         
         .add{width:100%;}
-        .list{width:60%; height:0; overflow:hidden; border:1px solid #ccc;}
-        .list ul.list_head{width:100%;}
+        .list{width:60%; overflow:hidden; border:1px solid #ccc;}
+        .list ul.list_head{width:100%; height:25px;}
         .list ul.list_head li{float:left; width:15%; height:20px; line-height:20px; text-align:center;  font-weight:bold;}
-        .list ul.list_body{width:100%;}
+        .list ul.list_body{width:100%; height:20px;}
+        .list ul.list_body:hover{background-color:#CADEE8;}
         .list ul.list_body li{float:left; width:15%;  height:20px; line-height:20px; text-align:center; }
+        
+        .extend_submit{width:100%; text-align:right; margin-top:2px;}
     </style>
     <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
-    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>\
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/date/dateFormat.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="个人健康档案" HeadTitleTxt="个人健康档案管理">
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="个人健康档案" ButtonPopedom="List" ButtonUrl="Default.aspx"
@@ -263,31 +271,32 @@
             <fieldset>
                <legend class="big_title">既往史</legend>
                <fieldset>
-                    <legend>疾病史</legend>
+                    <legend  class="small_title">疾病史</legend>
                     <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" class="table_check_wrap">
                         <tr>
-                            <td class="w10 border_right"><input type="checkbox" id="DH_Type_0" runat="server" value="0" class="none" />无</td>
+                            <td class="w10 border_right"><input type="checkbox" id="DH_Type_0" runat="server" value="0" class="no" />无</td>
                             <td class="w90">
+                                <input type="hidden" id="DiseaseHistory_data" runat="server" class="data DiseaseHistory_data"/>
                                 <div style="width:100%;">
                                     <asp:Repeater runat="server" ID="DiseaseHistory_repeater">
                                         <ItemTemplate>
                                             <ul class="ul50">
                                                 <li>
-                                                    <input type="checkbox" id=DH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                    <input type="checkbox" id=DH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="yes mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
                                                 </li>
                                                 <li class=" w25">
-                                                     确诊时间<input id=DH_DiagnosisDate_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
+                                                     确诊时间 <input id=DH_DiagnosisDate_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
                                                 </li>
                                             </ul>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <ul class="ul50">
                                                 <li>
-                                                    <input type="checkbox" id=DH_Type_11 runat="server" class="mr5" value=11 />其他
+                                                    <input type="checkbox" id=DH_Type_11 runat="server" class="mr5 yes" value=11 />其他
                                                     <input id=DH_Type_11_note runat="server" class="text_input"/>
                                                 </li>
                                                 <li class=" w25">
-                                                     确诊时间<input id=DH_DiagnosisDate_11 runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
+                                                     确诊时间 <input id=DH_DiagnosisDate_11 runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
                                                 </li>
                                             </ul>
                                 </div>
@@ -296,12 +305,12 @@
                     </table>
                </fieldset>
                <fieldset>
-                    <legend>手术史</legend>
+                    <legend class="small_title">手术史</legend>
                     <div style="width:100%">
                         <div class="add">
                                 手术名称<input id=Text3 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
                                日期<input id=Text4 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="确定" />
+                               <input type="button" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -320,12 +329,12 @@
                     </div>
                </fieldset>
                <fieldset>
-                    <legend>外伤史</legend>
+                    <legend class="small_title">外伤史</legend>
                     <div style="width:100%">
                         <div class="add">
                                 外伤名称<input id=Text5 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
                                日期<input id=Text6 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="确定" />
+                               <input type="button" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -344,12 +353,12 @@
                     </div>
                </fieldset>
                <fieldset>
-                    <legend>输血史</legend>
+                    <legend class="small_title">输血史</legend>
                     <div style="width:100%">
                         <div class="add">
                                 输血名称<input id=Text7 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
                                日期<input id=Text8 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="确定" />
+                               <input type="button" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -367,21 +376,21 @@
                          </div>
                     </div>
                </fieldset>
-               <fieldset>
+               <fieldset class="small_title">
                     <legend>遗传病史</legend>
                     <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left" class="table_check_wrap">
                         <tr>
-                            <td class="w10 border_right"><input type="checkbox" id="Checkbox1" runat="server" value="0" class="none" />无</td>
+                            <td class="w10 border_right"><input type="checkbox" id="GeneticDisease_none" runat="server" value="0" class="no" />无</td>
                             <td class="w90" style=" text-align:left;">
-                                <input type="checkbox" id="Checkbox3" runat="server" class="mr5" />有&nbsp;&nbsp;&nbsp;&nbsp;
-                                疾病名称: <input id="Text2" runat="server" class="text_input" />
+                                <input type="checkbox" id="GeneticDisease_check" runat="server" class="mr5" />有&nbsp;&nbsp;&nbsp;&nbsp;
+                                疾病名称: <input id="GD_Name" runat="server" class="text_input" />
                             </td>
                         </tr>
                     </table>
                </fieldset>
                <fieldset>
-                    <legend>残疾情况</legend>
-                   <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal" CellPadding="10" CssClass="float_left">
+                    <legend class="small_title">残疾情况</legend>
+                   <asp:CheckBoxList runat="server" ID="DisabilityList" RepeatDirection="Horizontal" CellPadding="10" CssClass="table_check_wrap float_left">
                        <asp:ListItem Text="无残疾" Value="0" />
                        <asp:ListItem Text="视力残疾" Value="1" />
                        <asp:ListItem Text="听力残疾" Value="2" />
@@ -391,31 +400,93 @@
                        <asp:ListItem Text="精神残疾" Value="6" />
                        <asp:ListItem Text="其他" Value="7" />
                    </asp:CheckBoxList>
-                   <input id="D_Type_note" style="float:left"/>
+                   <input id="D_Note" runat="server" class="text_input" style="float:left; margin-top:5px;"/>
                </fieldset>
             </fieldset>
             <fieldset>
                <legend class="big_title">家族史</legend>
                <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
-                        <tr>
+                        <tr class="border-bottom family">
                             <td class="w10 border_right">父亲</td>
                             <td class="w90">
+                                <input type="hidden" id="fatherDisease_data" runat="server"  class="data fatherDisease_data" />
                                 <div style="width:100%;">
+                                    <ul class="ul100">
                                     <asp:Repeater runat="server" ID="fatherDisease_repeater">
                                         <ItemTemplate>
-                                            <ul class="ul50">
                                                 <li>
-                                                    <input type="checkbox" id=DH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                    <input type="checkbox" id=father_FH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="yes mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
                                                 </li>
-                                            </ul>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <ul class="ul50">
+                                        <li>
+                                            <input type="checkbox" id="father_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input id="father_note" runat="server" class="text_input"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr  class="border-bottom family">
+                            <td class="w10 border_right">母亲</td>
+                            <td class="w90">
+                                <input type="hidden" id="matherDisease_data" runat="server" class="data matherDisease_data" />
+                                <div style="width:100%;">
+                                    <ul class="ul100">
+                                    <asp:Repeater runat="server" ID="matherDisease_repeater">
+                                        <ItemTemplate>
                                                 <li>
-                                                    <input type="checkbox" id=Checkbox2 runat="server" class="mr5" value=11 />其他
-                                                    <input id=Text1 runat="server" class="text_input"/>
+                                                    <input type="checkbox" id=mather_FH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="yes mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
                                                 </li>
-                                            </ul>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                        <li>
+                                            <input type="checkbox" id="mather_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input id="mather_note" runat="server" class="text_input"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr  class="border-bottom family">
+                            <td class="w10 border_right">兄弟姐妹</td>
+                            <td class="w90">
+                                <input type="hidden" id="brothersDisease_data" runat="server"  class="data brothersDisease_data"/>
+                                <div style="width:100%;">
+                                    <ul class="ul100">
+                                    <asp:Repeater runat="server" ID="brothersDisease_repeater">
+                                        <ItemTemplate>
+                                                <li>
+                                                    <input type="checkbox" id=brothers_FH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="yes mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                        <li>
+                                            <input type="checkbox" id=brothers_FH_Type11 runat="server" class="mr5" value=11 />其他
+                                            <input id="brothers_note" runat="server" class="text_input"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-bottom family">
+                            <td class="w10 border_right">子女</td>
+                            <td class="w90">
+                                <input type="hidden" id="childrenDisease_data" runat="server" class="data childrenDisease_data" />
+                                <div style="width:100%;">
+                                    <ul class="ul100">
+                                    <asp:Repeater runat="server" ID="childrenDisease_repeater">
+                                        <ItemTemplate>
+                                                <li>
+                                                    <input type="checkbox" id=children_FH_Type_<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> runat="server" class="yes mr5" value=<%#((Maticsoft.Model.commonDiseases)Container.DataItem).CommonDiseaseID%> /><%#((Maticsoft.Model.commonDiseases)Container.DataItem).CD_Name%>
+                                                </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                        <li>
+                                            <input type="checkbox" id="children_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input id="children_note" runat="server" class="text_input"/>
+                                        </li>
+                                    </ul>
                                 </div>
                             </td>
                         </tr>
@@ -427,7 +498,7 @@
                     <tr>
                         <td class="w10 border_right">厨房排风设施</td>
                             <td class="w90">
-                                <asp:CheckBoxList ID="CheckBoxList2" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                <asp:CheckBoxList ID="E_Kind1" runat="server" RepeatDirection="Horizontal" CellPadding="10">
                                    <asp:ListItem Text="无" Value="1" />
                                    <asp:ListItem Text="油烟机" Value="2" />
                                    <asp:ListItem Text="换气扇" Value="3" />
@@ -438,7 +509,7 @@
                     <tr>
                         <td class="w10 border_right">燃料类型</td>
                             <td class="w90">
-                                <asp:CheckBoxList ID="CheckBoxList3" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                <asp:CheckBoxList ID="E_Kind2" runat="server" RepeatDirection="Horizontal" CellPadding="10">
                                    <asp:ListItem Text="液化气" Value="1" />
                                    <asp:ListItem Text="煤气" Value="2" />
                                    <asp:ListItem Text="天然气" Value="3" />
@@ -451,7 +522,7 @@
                     <tr>
                         <td class="w10 border_right">饮水</td>
                             <td class="w90">
-                                <asp:CheckBoxList ID="CheckBoxList4" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                <asp:CheckBoxList ID="E_Kind3" runat="server" RepeatDirection="Horizontal" CellPadding="10">
                                    <asp:ListItem Text="自来水" Value="1" />
                                    <asp:ListItem Text="经净化过滤的水" Value="2" />
                                    <asp:ListItem Text="井水" Value="3" />
@@ -464,7 +535,7 @@
                     <tr>
                         <td class="w10 border_right">厕所</td>
                             <td class="w90">
-                                <asp:CheckBoxList ID="CheckBoxList5" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                <asp:CheckBoxList ID="E_Kind4" runat="server" RepeatDirection="Horizontal" CellPadding="10">
                                    <asp:ListItem Text="卫生厕所" Value="1" />
                                    <asp:ListItem Text="一格或两格粪池式" Value="2" />
                                    <asp:ListItem Text="马桶" Value="3" />
@@ -476,7 +547,7 @@
                     <tr>
                         <td class="w10 border_right">禽畜栏</td>
                             <td class="w90">
-                                <asp:CheckBoxList ID="CheckBoxList6" runat="server" RepeatDirection="Horizontal" CellPadding="10">
+                                <asp:CheckBoxList ID="E_Kind5" runat="server" RepeatDirection="Horizontal" CellPadding="10">
                                    <asp:ListItem Text="单设" Value="1" />
                                    <asp:ListItem Text="室内" Value="2" />
                                    <asp:ListItem Text="室外" Value="3" />
@@ -491,11 +562,16 @@
                     <tr>
                         <td  class="w10 border_right">备注</td>
                         <td  class="w90">
-                            <textarea id="TextBox1" runat="server" title="请填备注" class="text_input" style="height:100px; width:100%;"></textarea>
+                            <textarea id="U_Note" runat="server" title="请填备注" class="text_input" style="height:100px; width:100%;"></textarea>
                         </td>
                     </tr>
                </table>
             </fieldset>
+            <div class="extend_submit">
+                    <asp:Button ID="extendBtn" runat="server" CssClass="button_bak" Text="确定" 
+                        onclick="extendBtn_Click"/>
+                    <input id="extendReset" class="button_bak" type="reset" value="重填" />&nbsp;
+            </div>
         </FrameWorkWebControls:TabOptionItem>
     </FrameWorkWebControls:TabOptionWebControls>
         <script language="javascript">
@@ -583,13 +659,87 @@
     }
 
     $(function(){
-        $(".table_check_wrap .none").click(function(){
-            $(this).parents(".table_check_wrap").find(".mr5").attr("checked","checked");
+        $(".table_check_wrap .no").click(function(){
+            $(this).parents(".table_check_wrap").find(".yes").attr("checked",false);
         });
 
         $(".table_check_wrap .mr5").click(function(){
-            $(this).parents(".table_check_wrap").find(".none").attr("checked","");
+            $(this).parents(".table_check_wrap").find(".no").attr("checked",false);
         });
+
+       $(".table_check_wrap .yes").click(function(){
+            var parent_w90 = $(this).parents(".w90");
+            var data = "[";
+            $(parent_w90).find(".yes").each(function(index){
+                if($(this).is(":checked")){
+                    var ul50 = $(this).parents("ul50");
+                    var date_val = parseInt((new Date($(ul50).find("text_input").val())));
+                    data = data + "{'type':" + $(this).val() +",'date':" + date_val + "},";
+                }
+            });
+            if(data.indexOf(",") > -1)
+                data = data.substr(0,data.length - 1);
+            data = data + "]";
+            $(parent_w90).find(".data").val(data);
+        });
+
+        $(".family .yes").click(function(){
+            var parent_w90 = $(this).parents(".w90");
+            var data = "[";
+            $(parent_w90).find(".yes").each(function(){
+                if($(this).is(":checked")){
+                    data = data + "{'type':" + $(this).val() +"},";
+                }
+            });
+            if(data.indexOf(",") > -1)
+                data = data.substr(0,data.length - 1);
+            data = data + "]";
+            $(parent_w90).find(".data").val(data);
+        });
+
+
+        //疾病史
+        var DiseaseHistory_data = $(".DiseaseHistory_data").val();
+        var DiseaseHistory_data_jsonobject = eval("("+DiseaseHistory_data+")"); //转换为json对象
+        $(DiseaseHistory_data_jsonobject).each(function( index ){
+            var data = DiseaseHistory_data_jsonobject[index];
+            $("#DH_Type_"+data.type).attr("checked",true);
+            $("#DH_DiagnosisDate_"+data.type).val(toDate(data.date));
+        });
+        
+        //家族史
+        //父亲
+        var fatherDisease_data = $(".fatherDisease_data").val();
+        var fatherDisease_data_jsonobject = eval("("+fatherDisease_data+")"); //转换为json对象
+        $(fatherDisease_data_jsonobject).each(function( index ){
+            var data = fatherDisease_data_jsonobject[index];
+            $("#father_FH_Type_"+data.type).attr("checked",true);
+        });
+
+         //母亲
+        var matherDisease_data = $(".matherDisease_data").val();
+        var matherDisease_data_jsonobject = eval("("+matherDisease_data+")"); //转换为json对象
+        $(matherDisease_data_jsonobject).each(function( index ){
+            var data = matherDisease_data_jsonobject[index];
+            $("#mather_FH_Type_"+data.type).attr("checked",true);
+        });
+
+         //兄弟姐妹
+        var brothersDisease_data = $(".brothersDisease_data").val();
+        var brothersDisease_data_jsonobject = eval("("+brothersDisease_data+")"); //转换为json对象
+        $(brothersDisease_data_jsonobject).each(function( index ){
+            var data = brothersDisease_data_jsonobject[index];
+            $("#brothers_FH_Type_"+data.type).attr("checked",true);
+        });
+
+         //子女
+        var childrenDisease_data = $(".childrenDisease_data").val();
+        var childrenDisease_data_jsonobject = eval("("+childrenDisease_data+")"); //转换为json对象
+        $(childrenDisease_data_jsonobject).each(function( index ){
+            var data = childrenDisease_data_jsonobject[index];
+            $("#children_FH_Type_"+data.type).attr("checked",true);
+        });
+
     });
 
     </script>
