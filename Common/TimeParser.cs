@@ -70,7 +70,7 @@ namespace Maticsoft.Common
         /// <returns></returns>
         public static DateTime FROM_UNIXTIME(long timeStamp)
         {
-            return DateTime.Parse("1970-01-01 00:00:00").AddSeconds(timeStamp);
+            return DateTime.Parse("1970-01-01 00:00:00").AddMilliseconds(timeStamp);
         }
 
         /// <summary>

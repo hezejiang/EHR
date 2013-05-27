@@ -136,7 +136,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("U_MedicalNO=@U_MedicalNO,");
 			strSql.Append("U_FamilyCode=@U_FamilyCode,");
 			strSql.Append("U_RelationShip=@U_RelationShip,");
-			strSql.Append("U_auditStatus=@U_auditStatus");
+			strSql.Append("U_auditStatus=@U_auditStatus,");
             strSql.Append("U_Note=@U_Note");
 			strSql.Append(" where UserID=@UserID");
 			SqlParameter[] parameters = {

@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" /> 
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/Css/base.css" />
+    <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/Css/jPaginate.css" />
     <style type="text/css">
         legend.big_title{ font-style:oblique;  font-size:18px; font-weight:bold;}
         legend.small_title{ font-style:italic; font-size:16px;}
@@ -23,18 +24,17 @@
         
         .add{width:100%;}
         .list{width:60%; overflow:hidden; border:1px solid #ccc;}
-        .list ul.list_head{width:100%; height:25px;}
-        .list ul.list_head li{float:left; width:15%; height:20px; line-height:20px; text-align:center;  font-weight:bold;}
-        .list ul.list_body{width:100%; height:20px;}
-        .list ul.list_body:hover{background-color:#CADEE8;}
-        .list ul.list_body li{float:left; width:15%;  height:20px; line-height:20px; text-align:center; }
+        .list .list_head{width:100%; height:25px;}
+        .list .list_head li{float:left; width:15%; height:20px; line-height:20px; text-align:center;  font-weight:bold;}
+        .list .list_body{width:100%;}
+        .list .list_body ul{width:100%; height:20px;}
+        .list .list_body ul:hover{background-color:#CADEE8;}
+        .list .list_body ul li{float:left; width:15%;  height:20px; line-height:20px; text-align:center; }
+        .list .list_body ul li a{color:Blue;}
         
         .extend_submit{width:100%; text-align:right; margin-top:2px;}
     </style>
-    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
-    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>\
-    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/date/dateFormat.js"></script>
+
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="个人健康档案" HeadTitleTxt="个人健康档案管理">
         <FrameWorkWebControls:HeadMenuButtonItem ButtonName="个人健康档案" ButtonPopedom="List" ButtonUrl="Default.aspx"
@@ -290,13 +290,13 @@
                                             </ul>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <ul class="ul50">
+                                        <ul class="ul50">
                                                 <li>
-                                                    <input type="checkbox" id=DH_Type_11 runat="server" class="mr5 yes" value=11 />其他
-                                                    <input id=DH_Type_11_note runat="server" class="text_input"/>
+                                                    <input type="checkbox" id="DH_Type_11" runat="server" class="mr5 yes" value="11" />其他
+                                                    <input id="DH_Type_11_note" runat="server" class="other" style="border-color: #DDDDDD;border-width: 1px;color: #000000;height: 22px;padding: 3px 2px 2px;"/>
                                                 </li>
                                                 <li class=" w25">
-                                                     确诊时间 <input id=DH_DiagnosisDate_11 runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
+                                                     确诊时间 <input id="DH_DiagnosisDate_11" runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
                                                 </li>
                                             </ul>
                                 </div>
@@ -306,11 +306,11 @@
                </fieldset>
                <fieldset>
                     <legend class="small_title">手术史</legend>
-                    <div style="width:100%">
+                    <div style="width:100%" DO_Type="1" id="DO_Type_list1">
                         <div class="add">
-                                手术名称<input id=Text3 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               日期<input id=Text4 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="增加" />
+                                手术名称<input runat="server" class="text_input DO_Name" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input  runat="server" class="text_input DO_Date" style=" margin-left:2px; margin-right:10px;" onfocus="javascript:HS_setDate(this);"/>
+                               <input type="button" class="addBtn" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -319,22 +319,20 @@
                                 <li>日期</li>
                                 <li>操作</li>
                             </ul>
-                            <ul class="list_body">
-                                <li>1</li>
-                                <li style="width:50%;">手术名称1</li>
-                                <li>2013-05-01</li>
-                                <li>删除</li>
-                            </ul>
+                            <div class="list_body">
+                                
+                            </div>
                          </div>
+                         <div id="page1" style="width:60%;"></div>
                     </div>
                </fieldset>
                <fieldset>
                     <legend class="small_title">外伤史</legend>
-                    <div style="width:100%">
+                    <div style="width:100%" DO_Type="2" id="DO_Type_list2">
                         <div class="add">
-                                外伤名称<input id=Text5 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               日期<input id=Text6 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="增加" />
+                                外伤名称<input runat="server" class="text_input DO_Name" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input runat="server" class="text_input DO_Date" style=" margin-left:2px; margin-right:10px;" onfocus="javascript:HS_setDate(this);"/>
+                               <input type="button" class="addBtn" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -343,22 +341,20 @@
                                 <li>日期</li>
                                 <li>操作</li>
                             </ul>
-                            <ul class="list_body">
-                                <li>1</li>
-                                <li style="width:50%;">外伤名称1</li>
-                                <li>2013-05-01</li>
-                                <li>删除</li>
-                            </ul>
+                            <div class="list_body">
+                                
+                            </div>
                          </div>
+                         <div id="page2" style="width:60%;"></div>
                     </div>
                </fieldset>
                <fieldset>
                     <legend class="small_title">输血史</legend>
-                    <div style="width:100%">
+                    <div style="width:100%" DO_Type="3" id="DO_Type_list3">
                         <div class="add">
-                                输血名称<input id=Text7 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               日期<input id=Text8 runat="server" class="text_input" style=" margin-left:2px; margin-right:10px;"/>
-                               <input type="button" value="增加" />
+                                输血名称<input runat="server" class="text_input DO_Name" style=" margin-left:2px; margin-right:10px;"/>
+                               日期<input runat="server" class="text_input DO_Date" style=" margin-left:2px; margin-right:10px;" onfocus="javascript:HS_setDate(this);"/>
+                               <input type="button" class="addBtn" value="增加" />
                          </div>
                          <div class="list">
                             <ul class="list_head">
@@ -367,22 +363,20 @@
                                 <li>日期</li>
                                 <li>操作</li>
                             </ul>
-                            <ul class="list_body">
-                                <li>1</li>
-                                <li style="width:50%;">输血名称1</li>
-                                <li>2013-05-01</li>
-                                <li>删除</li>
-                            </ul>
+                            <div class="list_body">
+                                
+                            </div>
                          </div>
+                         <div id="page3" style="width:60%;"></div>
                     </div>
                </fieldset>
                <fieldset class="small_title">
                     <legend>遗传病史</legend>
-                    <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left" class="table_check_wrap">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" align="left" class="gendisease">
                         <tr>
                             <td class="w10 border_right"><input type="checkbox" id="GeneticDisease_none" runat="server" value="0" class="no" />无</td>
                             <td class="w90" style=" text-align:left;">
-                                <input type="checkbox" id="GeneticDisease_check" runat="server" class="mr5" />有&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="GeneticDisease_check" runat="server" class="mr5 yes" />有&nbsp;&nbsp;&nbsp;&nbsp;
                                 疾病名称: <input id="GD_Name" runat="server" class="text_input" />
                             </td>
                         </tr>
@@ -420,7 +414,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                         <li>
-                                            <input type="checkbox" id="father_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input type="checkbox" id="father_FH_Type11" runat="server" class="mr5 yes other" value=11 />其他
                                             <input id="father_note" runat="server" class="text_input"/>
                                         </li>
                                     </ul>
@@ -441,7 +435,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                         <li>
-                                            <input type="checkbox" id="mather_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input type="checkbox" id="mather_FH_Type11" runat="server" class="mr5  yes other" value=11 />其他
                                             <input id="mather_note" runat="server" class="text_input"/>
                                         </li>
                                     </ul>
@@ -462,7 +456,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                         <li>
-                                            <input type="checkbox" id=brothers_FH_Type11 runat="server" class="mr5" value=11 />其他
+                                            <input type="checkbox" id=brothers_FH_Type11 runat="server" class="mr5 yes other" value=11 />其他
                                             <input id="brothers_note" runat="server" class="text_input"/>
                                         </li>
                                     </ul>
@@ -483,7 +477,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                         <li>
-                                            <input type="checkbox" id="children_FH_Type11" runat="server" class="mr5" value=11 />其他
+                                            <input type="checkbox" id="children_FH_Type11" runat="server" class="mr5 yes other" value=11 />其他
                                             <input id="children_note" runat="server" class="text_input"/>
                                         </li>
                                     </ul>
@@ -574,113 +568,167 @@
             </div>
         </FrameWorkWebControls:TabOptionItem>
     </FrameWorkWebControls:TabOptionWebControls>
-        <script language="javascript">
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/date/dateFormat.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/jquery.paginate.js"></script>
+    <script type="text/javascript">
         rnd.today=new Date(); 
-
-    rnd.seed=rnd.today.getTime(); 
+        rnd.seed=rnd.today.getTime(); 
     
-    function rnd() { 
-　　　　rnd.seed = (rnd.seed*9301+49297) % 233280; 
-　　　　return rnd.seed/(233280.0); 
-    }; 
+        function rnd() { 
+　　　　    rnd.seed = (rnd.seed*9301+49297) % 233280; 
+　　　　    return rnd.seed/(233280.0); 
+        }; 
 
-    function rand(number) { 
-　　　　return Math.ceil(rnd()*number); 
-    }; 
+        function rand(number) { 
+　　　　    return Math.ceil(rnd()*number); 
+        }; 
     
-    var type;
+        var type;
 
-    function AlertMessageBox(file_name)
-    {
-	    if (file_name!=undefined){
-	        var ShValues = file_name.split('||');
-	        if (ShValues[1]!=0)
-	        {
-                if(type == 1){ //选择居委会
-                    document.all.<%=this.U_Committee.ClientID %>.value=ShValues[1];
-                    document.all.<%=this.U_Committee_input.ClientID %>.value=ShValues[0];
-                }else if(type == 2){ //选择责任医生
-                    onButtonEdit(ShValues[1]);
-                }else if(type == 3){ //选择建档单位
-                    document.all.<%=this.U_FilingUnits.ClientID %>.value=ShValues[1];
-                    document.all.<%=this.U_FilingUnits_input.ClientID %>.value=ShValues[0];
-                }else if(type == 4){ //选择建档人
-                    onButtonEdit(ShValues[1]);
-                }
-	        }
-	    }   
-    }
-
-    function ShowDepartID(t)
-    {
-        type = t;
-        showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
-    }
-    
-    function ClearSelect(t)
-    {
-        if(t == 1){
-   	        document.all.<%=this.U_Committee_input.ClientID %>.value="";
-            document.all.<%=this.U_Committee.ClientID %>.value="";
-        }else if(t == 2){
-            document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value="";
-            document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value="";
-        }else if(t == 3){
-            document.all.<%=this.U_FilingUnits.ClientID %>.value="";
-            document.all.<%=this.U_FilingUnits_input.ClientID %>.value="";
-        }else if(t == 4){
-            document.all.<%=this.U_FilingUserID.ClientID %>.value="";
-            document.all.<%=this.U_FilingUserID_input.ClientID %>.value="";
+        function AlertMessageBox(file_name)
+        {
+	        if (file_name!=undefined){
+	            var ShValues = file_name.split('||');
+	            if (ShValues[1]!=0)
+	            {
+                    if(type == 1){ //选择居委会
+                        document.all.<%=this.U_Committee.ClientID %>.value=ShValues[1];
+                        document.all.<%=this.U_Committee_input.ClientID %>.value=ShValues[0];
+                    }else if(type == 2){ //选择责任医生
+                        onButtonEdit(ShValues[1]);
+                    }else if(type == 3){ //选择建档单位
+                        document.all.<%=this.U_FilingUnits.ClientID %>.value=ShValues[1];
+                        document.all.<%=this.U_FilingUnits_input.ClientID %>.value=ShValues[0];
+                    }else if(type == 4){ //选择建档人
+                        onButtonEdit(ShValues[1]);
+                    }
+	            }
+	        }   
         }
-    }
 
-    mini.parse();
+        function ShowDepartID(t)
+        {
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+        }
+    
+        function ClearSelect(t)
+        {
+            if(t == 1){
+   	            document.all.<%=this.U_Committee_input.ClientID %>.value="";
+                document.all.<%=this.U_Committee.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value="";
+                document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value="";
+            }else if(t == 3){
+                document.all.<%=this.U_FilingUnits.ClientID %>.value="";
+                document.all.<%=this.U_FilingUnits_input.ClientID %>.value="";
+            }else if(t == 4){
+                document.all.<%=this.U_FilingUserID.ClientID %>.value="";
+                document.all.<%=this.U_FilingUserID_input.ClientID %>.value="";
+            }
+        }
 
-    function onButtonEdit(id) {
-        mini.open({
-            url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
-            title: "选择列表",
-            width: 800,
-            height: 380,
-            ondestroy: function (action) {
-                //if (action == "close") return false;
-                var result = action.split("||");
-                if (result[0] == "ok") {
-                    if(type == 2){
-                        document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value=result[1];
-                        document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value=result[2];
-                    }else if(type == 4){
-                        document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
-                        document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
+        mini.parse();
+
+        function onButtonEdit(id) {
+            mini.open({
+                url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") {
+                        if(type == 2){
+                            document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 4){
+                            document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
+                        }
                     }
                 }
-            }
-        });            
-    }
+            });            
+        }
 
-    $(function(){
+        function checkForm(obj){
+            var returnVal = true;
+            var data = "[";
+            $(".table_check_wrap .yes").each(function(index){
+                    if($(this).is(":checked")){
+                        var ul50 = $(this).parents(".ul50");
+                        var date_val = $(ul50).find(".text_input").val();
+                        if(!date_val){
+                            alert("疾病史有疾病未填写确诊日期");
+                            if(returnVal)
+                                returnVal = false;
+                            return false;
+                        }
+                        date_val = date_val.replace(/\b(\w)\b/g, '0$1');
+                        var dateObj = new Date(date_val.toString());
+                        data = data + "{'type':" + $(this).val() +",'date':" + dateObj.getTime() + "},";
+                    }
+                });
+                if(data.indexOf(",") > -1)
+                    data = data.substr(0,data.length - 1);
+                data = data + "]";
+                $(".table_check_wrap").find(".data").val(data);
+                $(".other").each(function(){
+                    if($(this).is(":checked")){
+                        if(!$(this).siblings(".text_input").val()){
+                            alert("家族史选择了其他，但是没填写疾病名称");
+                            if(returnVal)
+                                returnVal = false;
+                         }
+                    }
+                });
+                return returnVal;
+        }
+
+        $(function(){
         $(".table_check_wrap .no").click(function(){
             $(this).parents(".table_check_wrap").find(".yes").attr("checked",false);
+            $(this).parents(".table_check_wrap").find(".text_input").val("");
         });
 
-        $(".table_check_wrap .mr5").click(function(){
+        $(".table_check_wrap .yes").click(function(){
             $(this).parents(".table_check_wrap").find(".no").attr("checked",false);
         });
 
+        $(".gendisease .no").click(function(){
+            $(this).parents(".gendisease").find(".yes").attr("checked",false);
+            $(this).parents(".gendisease").find(".text_input").val("");
+        });
+
+        $(".gendisease .yes").click(function(){
+            $(this).parents(".gendisease").find(".no").attr("checked",false);
+        });
+
        $(".table_check_wrap .yes").click(function(){
-            var parent_w90 = $(this).parents(".w90");
+            /*var parent_w90 = $(this).parents(".w90");
             var data = "[";
             $(parent_w90).find(".yes").each(function(index){
                 if($(this).is(":checked")){
-                    var ul50 = $(this).parents("ul50");
-                    var date_val = parseInt((new Date($(ul50).find("text_input").val())));
-                    data = data + "{'type':" + $(this).val() +",'date':" + date_val + "},";
+                    var ul50 = $(this).parents(".ul50");
+                    var date_val = $(ul50).find(".text_input").val();
+                    date_val = date_val.replace(/\b(\w)\b/g, '0$1');
+                    var dateObj = new Date(date_val.toString());
+                    data = data + "{'type':" + $(this).val() +",'date':" + dateObj.getTime() + "},";
                 }
             });
             if(data.indexOf(",") > -1)
                 data = data.substr(0,data.length - 1);
             data = data + "]";
-            $(parent_w90).find(".data").val(data);
+            $(parent_w90).find(".data").val(data);*/
+            if(!$(this).is(":checked")){
+                var ul50 = $(this).parents(".ul50");
+                $(ul50).find(".text_input").val("");
+            }
         });
 
         $(".family .yes").click(function(){
@@ -697,6 +745,11 @@
             $(parent_w90).find(".data").val(data);
         });
 
+        $(".other").click(function(){
+                if(!$(this).is(":checked")){
+                    $(this).siblings(".text_input").val("");
+                }
+            });
 
         //疾病史
         var DiseaseHistory_data = $(".DiseaseHistory_data").val();
@@ -740,8 +793,182 @@
             $("#children_FH_Type_"+data.type).attr("checked",true);
         });
 
-    });
+        //手术史
+        jQuery.ajax({
+            type: 'POST',
+            url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+            data: {Op:'paging', Page: 1, DO_Type: 1, DO_UserID: <%=UserID %>},
+            success: function (data) {
+                if (data) {
+                     $("#DO_Type_list1 .list_body").html(data);
+                     var pagecount = parseInt($("#DO_Type_list1 .list_body").find(".page1_info").attr("page-count"));
+                     if(pagecount > 1)
+                     {
+                            $("#page1").paginate({
+                            count: pagecount,
+                            start: 1,
+                            display: 8,
+                            border_color: '#BEF8B8',
+                            text_color: '#68BA64',
+                            background_color: '#E3F2E1',
+                            border_hover_color: '#68BA64',
+                            text_hover_color: 'black',
+                            background_hover_color: '#CAE6C6',
+                            rotate: false,
+                            images: false,
+                            mouse: 'press',
+                            onChange: function (page) {
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+                                    data: {Op:'paging', Page: page, DO_Type: 1, DO_UserID: <%=UserID %>},
+                                    success: function (data) {
+                                        if (data) {
+                                              $("#DO_Type_list1 .list_body").html(data);
+                                        }
+                                    },
+                                    dataType: 'html'
+                                });
+                            }
+                        });
+                    }
+                }
+            },
+            dataType: 'html'
+        });
 
+        //外伤史
+        jQuery.ajax({
+            type: 'POST',
+            url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+            data: {Op:'paging', Page: 1, DO_Type: 2, DO_UserID: <%=UserID %>},
+            success: function (data) {
+                if (data) {
+                     $("#DO_Type_list2 .list_body").html(data);
+                     var pagecount = parseInt($("#DO_Type_list2 .list_body").find(".page_info").attr("page-count"));
+                     if(pagecount > 1)
+                     {
+                            $("#page2").paginate({
+                            count: pagecount,
+                            start: 1,
+                            display: 8,
+                            border_color: '#BEF8B8',
+                            text_color: '#68BA64',
+                            background_color: '#E3F2E1',
+                            border_hover_color: '#68BA64',
+                            text_hover_color: 'black',
+                            background_hover_color: '#CAE6C6',
+                            rotate: false,
+                            images: false,
+                            mouse: 'press',
+                            onChange: function (page) {
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+                                    data: {Op:'paging', Page: page, DO_Type: 2, DO_UserID: <%=UserID %>},
+                                    success: function (data) {
+                                        if (data) {
+                                              $("#DO_Type_list2 .list_body").html(data);
+                                        }
+                                    },
+                                    dataType: 'html'
+                                });
+                            }
+                        });
+                    }
+                }
+            },
+            dataType: 'html'
+        });
+
+        //输血史
+        jQuery.ajax({
+            type: 'POST',
+            url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+            data: {Op:'paging', Page: 1, DO_Type: 3, DO_UserID: <%=UserID %>},
+            success: function (data) {
+                if (data) {
+                     $("#DO_Type_list3 .list_body").html(data);
+                     var pagecount = parseInt($("#DO_Type_list3 .list_body").find(".page1_info").attr("page-count"));
+                     if(pagecount > 1)
+                     {
+                            $("#page3").paginate({
+                            count: pagecount,
+                            start: 1,
+                            display: 8,
+                            border_color: '#BEF8B8',
+                            text_color: '#68BA64',
+                            background_color: '#E3F2E1',
+                            border_hover_color: '#68BA64',
+                            text_hover_color: 'black',
+                            background_hover_color: '#CAE6C6',
+                            rotate: false,
+                            images: false,
+                            mouse: 'press',
+                            onChange: function (page) {
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+                                    data: {Op:'paging', Page: page, DO_Type: 3, DO_UserID: <%=UserID %>},
+                                    success: function (data) {
+                                        if (data) {
+                                              $("#DO_Type_list3 .list_body").html(data);
+                                        }
+                                    },
+                                    dataType: 'html'
+                                });
+                            }
+                        });
+                    }
+                }
+            },
+            dataType: 'html'
+        });
+
+        $('.addBtn').live('click',function () {
+            var _this=this;
+            var DO_Type = $(_this).parents(".add").parent().attr("DO_Type");
+            var DO_Date = $(_this).siblings(".DO_Date").val();
+            DO_Date = DO_Date.replace(/\b(\w)\b/g, '0$1');
+            var dateObj = new Date(DO_Date.toString());
+            var DO_Name = $(_this).siblings(".DO_Name").val();
+            var DO_UserID = <%=UserID %>;
+            jQuery.ajax({
+                type: 'POST',
+                url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+                data: {Op:'add',DO_Type:DO_Type , DO_Date:dateObj.getTime(), DO_Name:DO_Name, DO_UserID:DO_UserID},
+                success: function (data) {
+                    if (data) {
+                        $(_this).parents(".add").find(".text_input").val("");
+                        $(_this).parents(".add").siblings(".list").find(".list_body").html(data);
+                    }
+                }
+            });
+        });
+
+        $('.delete').live('click',function () {
+            var _this=this;
+            var diseaseOtherID = $(this).parent().siblings('.first').html();
+            var result = confirm("确定删除？");
+            if (result) {
+                jQuery.ajax({
+                    type: 'POST',
+                    url: '<%=Page.ResolveUrl("~/") %>Manager/Ajax/DiseaseOther.ashx',
+                    data: {Op:'delete',DiseaseOtherID:diseaseOtherID},
+                    success: function (data) {
+                        if (data) {
+                            var jsonData = eval("(" + data + ")"); //转换为json对象
+                            if(jsonData['success']){
+                                $(_this).parent().parent().remove();
+                            }
+                            else
+                                alert(jsonData['fail']);
+                        }
+                    }
+                });
+            }
+        });
+    });
     </script>
 </asp:Content>
 

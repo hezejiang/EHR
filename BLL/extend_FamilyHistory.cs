@@ -90,6 +90,15 @@ namespace Maticsoft.BLL
 			return dal.GetModel(FamilyHistoryID);
 		}
 
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public Maticsoft.Model.extend_FamilyHistory GetModel(string strWhere)
+        {
+
+            return dal.GetModel(strWhere);
+        }
+
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>

@@ -355,6 +355,7 @@
     <Content Include="Manager\about.aspx" />
     <Content Include="Manager\Css\base.css" />
     <Content Include="Manager\Css\extend.css" />
+    <Content Include="Manager\Css\jPaginate.css" />
     <Content Include="Manager\Css\Menu1.css" />
     <Content Include="Manager\Css\Site_Css.css" />
     <Content Include="Manager\Css\Table\blue\css.css" />
@@ -532,7 +533,8 @@
     <Content Include="Manager\js\core.js" />
     <Content Include="Manager\js\date\date.js" />
     <Content Include="Manager\js\date\dateFormat.js" />
-    <Content Include="Manager\js\jquery-1.9.1.min.js" />
+    <Content Include="Manager\js\jquery-1.7.1.min.js" />
+    <Content Include="Manager\js\jquery.paginate.js" />
     <Content Include="Manager\js\miniui\locale\en_US.js" />
     <Content Include="Manager\js\miniui\locale\zh_CN.js" />
     <Content Include="Manager\js\miniui\miniui.js" />
@@ -1010,6 +1012,7 @@
     <Content Include="Manager\js\miniui\themes\olive2003\images\window\header.gif" />
     <Content Include="Manager\js\miniui\themes\olive2003\skin.css" />
     <Content Include="Manager\js\MoveTree.js" />
+    <Content Include="Manager\js\module\personRecord.js" />
     <Content Include="Manager\js\SelectTree.js" />
     <Content Include="Manager\js\Tree.js" />
     <Content Include="Manager\js\Tree\js\lTREE.js" />
@@ -3366,6 +3369,7 @@
     <Content Include="App_Themes\Standard\ListBox.skin" />
     <None Include="Codematic\Admin\Images\MenuImg\Thumbs.db" />
     <None Include="Codematic\Admin\Images\Thumbs.db" />
+    <Content Include="Manager\Ajax\DiseaseOther.ashx" />
     <None Include="Manager\images\ICON\Thumbs.db" />
     <None Include="Manager\images\Index\Thumbs.db" />
     <None Include="Manager\images\logon\Thumbs.db" />

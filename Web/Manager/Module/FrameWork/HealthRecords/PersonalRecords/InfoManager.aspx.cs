@@ -17,7 +17,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
 {
     public partial class InfoManager : System.Web.UI.Page
     {
-        int UserID = (int)Common.sink("UserID", MethodType.Get, 255, 0, DataType.Int);
+        public int UserID = (int)Common.sink("UserID", MethodType.Get, 255, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
         string App_Txt = "健康档案";
@@ -54,10 +54,10 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             HeadMenuWebControls1.ButtonList.Add(bi2);
 
             HeadMenuButtonItem bi3 = new HeadMenuButtonItem();
-            bi2.ButtonPopedom = PopedomType.Delete;
-            bi2.ButtonName = "健康档案";
-            bi2.ButtonUrlType = UrlType.JavaScript;
-            bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&UserID={0}')", UserID);
+            bi3.ButtonPopedom = PopedomType.Delete;
+            bi3.ButtonName = "健康档案";
+            bi3.ButtonUrlType = UrlType.JavaScript;
+            bi3.ButtonUrl = string.Format("DelData('?CMD=Delete&UserID={0}')", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi3);
         }
 
@@ -80,12 +80,92 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {
                 Maticsoft.BLL.sys_User sysUser_bll = new Maticsoft.BLL.sys_User();
                 Maticsoft.Model.sys_User sysUser_model = sysUser_bll.GetModel(UserID);
+                sysUser_bll.Delete(UserID);
 
                 Maticsoft.BLL.record_UserBaseInfo record_UserBaseInfo_bll = new Maticsoft.BLL.record_UserBaseInfo();
                 Maticsoft.Model.record_UserBaseInfo record_UserBaseInfo_model = record_UserBaseInfo_bll.GetModel(UserID);
-
-                sysUser_bll.Delete(UserID);
                 record_UserBaseInfo_bll.Delete(UserID);
+
+                Maticsoft.BLL.extend_DiseaseHistory extend_DiseaseHistory_bll = new Maticsoft.BLL.extend_DiseaseHistory();
+                List<Maticsoft.Model.extend_DiseaseHistory> extend_DiseaseHistory_models = extend_DiseaseHistory_bll.GetModelList("DH_UserID = " + UserID);
+                for (int i = 0; i < extend_DiseaseHistory_models.Count; i++)
+                {
+                    extend_DiseaseHistory_bll.Delete(extend_DiseaseHistory_models[i].DiseaseHistoryID);
+                }
+
+                Maticsoft.BLL.extend_GeneticDisease extend_GeneticDisease_bll = new Maticsoft.BLL.extend_GeneticDisease();
+                Maticsoft.Model.extend_GeneticDisease extend_GeneticDisease_model = extend_GeneticDisease_bll.GetModel("GD_UserID=" + UserID);
+                if (extend_GeneticDisease_model != null)
+                {
+                    extend_GeneticDisease_bll.Delete(extend_GeneticDisease_model.GeneticDiseaseID);
+                }
+
+                Maticsoft.BLL.extend_Disability extend_Disability_bll = new Maticsoft.BLL.extend_Disability();
+                List<Maticsoft.Model.extend_Disability> extend_Disability_models = extend_Disability_bll.GetModelList("D_UserID=" + UserID);
+                for (int i = 0; i < extend_DiseaseHistory_models.Count; i++)
+                {
+                    extend_Disability_bll.Delete(extend_Disability_models[i].DisabilityID);
+                }
+
+                Maticsoft.BLL.extend_FamilyHistory extend_FamilyHistory_bll = new Maticsoft.BLL.extend_FamilyHistory();
+
+                List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_father_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 1);
+                for (int i = 0; i < extend_FamilyHistory_father_models.Count; i++)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_father_models[i].FamilyHistoryID);
+                }
+
+                List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_mather_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 2);
+                for (int i = 0; i < extend_FamilyHistory_mather_models.Count; i++)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_mather_models[i].FamilyHistoryID);
+                }
+
+                List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_bothers_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 3);
+                for (int i = 0; i < extend_FamilyHistory_bothers_models.Count; i++)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_bothers_models[i].FamilyHistoryID);
+                }
+
+                List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_children_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 4);
+                for (int i = 0; i < extend_FamilyHistory_children_models.Count; i++)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_children_models[i].FamilyHistoryID);
+                }
+
+                //生活环境
+                Maticsoft.BLL.extend_Environment extend_Environment_bll = new Maticsoft.BLL.extend_Environment();
+                //厨房排风设施
+                List<Maticsoft.Model.extend_Environment> extend_Environment_kind1_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 1));
+                for (int i = 0; i < extend_Environment_kind1_models.Count; i++)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind1_models[i].EnvironmentID);
+                }
+                //燃料类型
+                List<Maticsoft.Model.extend_Environment> extend_Environment_kind2_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 2));
+                for (int i = 0; i < extend_Environment_kind2_models.Count; i++)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind2_models[i].EnvironmentID);
+                }
+                //饮水
+                List<Maticsoft.Model.extend_Environment> extend_Environment_kind3_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 3));
+                for (int i = 0; i < extend_Environment_kind3_models.Count; i++)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind3_models[i].EnvironmentID);
+                }
+                //厕所
+                List<Maticsoft.Model.extend_Environment> extend_Environment_kind4_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 4));
+                for (int i = 0; i < extend_Environment_kind4_models.Count; i++)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind4_models[i].EnvironmentID);
+                }
+                //禽畜栏
+                List<Maticsoft.Model.extend_Environment> extend_Environment_kind5_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 5));
+                for (int i = 0; i < extend_Environment_kind5_models.Count; i++)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind5_models[i].EnvironmentID);
+                }
+
                 EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", UserID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
             }
         }
@@ -152,11 +232,8 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {
                 for (int i = 0; i < extend_DiseaseHistory_models.Count; i++)
                 {
-                    if (extend_DiseaseHistory_models[i].DH_Type != 11)
-                    {
-                        DiseaseHistory_data.Value = DiseaseHistory_data.Value + "{'type':" + extend_DiseaseHistory_models[i].DH_Type + ",'date':" + TimeParser.UNIX_TIMESTAMP(extend_DiseaseHistory_models[i].DH_DiagnosisDate) + "},";  //以json的方式
-                    }
-                    else //其他
+                    DiseaseHistory_data.Value = DiseaseHistory_data.Value + "{'type':" + extend_DiseaseHistory_models[i].DH_Type + ",'date':" + TimeParser.UNIX_TIMESTAMP(extend_DiseaseHistory_models[i].DH_DiagnosisDate) + "},";  //以json的方式
+                    if (extend_DiseaseHistory_models[i].DH_Type == 11)
                     {
                         DH_Type_11.Checked = true;
                         DH_Type_11_note.Value = extend_DiseaseHistory_models[i].DH_Note;
@@ -190,7 +267,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             for (int i = 0; i < extend_Disability_models.Count; i++)
             {
                 int D_Type = extend_Disability_models[i].D_Type;
-                DisabilityList.Items[D_Type - 1].Selected = true;
+                DisabilityList.Items[D_Type].Selected = true;
                 if (D_Type == 7)
                     D_Note.Value = extend_Disability_models[i].D_Note;
             }
@@ -204,11 +281,8 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {
                 for (int i = 0; i < extend_FamilyHistory_father_models.Count; i++)
                 {
-                    if (extend_FamilyHistory_father_models[i].FH_Type != 11)
-                    {
-                        fatherDisease_data.Value = fatherDisease_data.Value + "{'type':" + extend_FamilyHistory_father_models[i].FH_Type + "},";  //以json的方式
-                    }
-                    else //其他
+                    fatherDisease_data.Value = fatherDisease_data.Value + "{'type':" + extend_FamilyHistory_father_models[i].FH_Type + "},";  //以json的方式
+                    if (extend_FamilyHistory_father_models[i].FH_Type == 11)
                     {
                         father_FH_Type11.Checked = true;
                         father_note.Value = extend_FamilyHistory_father_models[i].FH_Note;
@@ -225,11 +299,8 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {
                 for (int i = 0; i < extend_FamilyHistory_mather_models.Count; i++)
                 {
-                    if (extend_FamilyHistory_mather_models[i].FH_Type != 11)
-                    {
-                        matherDisease_data.Value = matherDisease_data.Value + "{'type':" + extend_FamilyHistory_mather_models[i].FH_Type + "},";  //以json的方式
-                    }
-                    else //其他
+                    matherDisease_data.Value = matherDisease_data.Value + "{'type':" + extend_FamilyHistory_mather_models[i].FH_Type + "},";  //以json的方式
+                    if (extend_FamilyHistory_mather_models[i].FH_Type == 11)
                     {
                         mather_FH_Type11.Checked = true;
                         mather_note.Value = extend_FamilyHistory_mather_models[i].FH_Note;
@@ -246,11 +317,8 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {
                 for (int i = 0; i < extend_FamilyHistory_brothers_models.Count; i++)
                 {
-                    if (extend_FamilyHistory_brothers_models[i].FH_Type != 11)
-                    {
-                        brothersDisease_data.Value = brothersDisease_data.Value + "{'type':" + extend_FamilyHistory_brothers_models[i].FH_Type + "},";  //以json的方式
-                    }
-                    else //其他
+                    brothersDisease_data.Value = brothersDisease_data.Value + "{'type':" + extend_FamilyHistory_brothers_models[i].FH_Type + "},";  //以json的方式
+                    if (extend_FamilyHistory_brothers_models[i].FH_Type == 11)
                     {
                         brothers_FH_Type11.Checked = true;
                         brothers_note.Value = extend_FamilyHistory_brothers_models[i].FH_Note;
@@ -267,11 +335,8 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             {  
                 for (int i = 0; i < extend_FamilyHistory_children_models.Count; i++)
                 {
-                    if (extend_FamilyHistory_children_models[i].FH_Type != 11)
-                    {
-                        childrenDisease_data.Value = childrenDisease_data.Value + "{'type':" + extend_FamilyHistory_children_models[i].FH_Type + "},";  //以json的方式
-                    }
-                    else //其他
+                    childrenDisease_data.Value = childrenDisease_data.Value + "{'type':" + extend_FamilyHistory_children_models[i].FH_Type + "},";  //以json的方式
+                    if (extend_FamilyHistory_children_models[i].FH_Type == 11)
                     {
                         children_FH_Type11.Checked = true;
                         children_note.Value = extend_FamilyHistory_children_models[i].FH_Note;
@@ -282,37 +347,40 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             childrenDisease_data.Value = childrenDisease_data.Value + "]";
 
             //生活环境
-            Maticsoft.BLL.extend_Environment extend_Environment = new Maticsoft.BLL.extend_Environment();
+            Maticsoft.BLL.extend_Environment extend_Environment_bll = new Maticsoft.BLL.extend_Environment();
             //厨房排风设施
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind1_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 1));
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind1_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 1));
             for (int i = 0; i < extend_Environment_kind1_models.Count; i++)
             {
                 E_Kind1.Items[extend_Environment_kind1_models[i].E_Type - 1].Selected = true;
             }
             //燃料类型
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind2_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 2));
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind2_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 2));
             for (int i = 0; i < extend_Environment_kind2_models.Count; i++)
             {
                 E_Kind2.Items[extend_Environment_kind2_models[i].E_Type - 1].Selected = true;
             }
             //饮水
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind3_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 3));
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind3_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 3));
             for (int i = 0; i < extend_Environment_kind3_models.Count; i++)
             {
                 E_Kind3.Items[extend_Environment_kind3_models[i].E_Type - 1].Selected = true;
             }
             //厕所
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind4_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 4));
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind4_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 4));
             for (int i = 0; i < extend_Environment_kind4_models.Count; i++)
             {
                 E_Kind4.Items[extend_Environment_kind4_models[i].E_Type - 1].Selected = true;
             }
             //禽畜栏
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind5_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 5));
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind5_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 5));
             for (int i = 0; i < extend_Environment_kind5_models.Count; i++)
             {
                 E_Kind5.Items[extend_Environment_kind5_models[i].E_Type - 1].Selected = true;
             }
+
+            //备注
+            U_Note.Value = record_UserBaseInfo_model.U_Note;
         }
         /// <summary>
         /// 绑定下拉列表
@@ -452,9 +520,10 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
                 }
                 extend_DiseaseHistory_model.DH_Type = DH_Type;
                 extend_DiseaseHistory_model.DH_UserID = UserID;
-                extend_DiseaseHistory_model.DH_DiagnosisDate = Convert.ToDateTime(item["date"].ToString());
+                long time = (long)item["date"];
+                extend_DiseaseHistory_model.DH_DiagnosisDate = TimeParser.FROM_UNIXTIME(time);
                 if (DH_Type == 11)
-                    extend_DiseaseHistory_model.DH_Note = Request.Form["DH_Type_11_note"];
+                    extend_DiseaseHistory_model.DH_Note = DH_Type_11_note.Value;
                 if (extend_DiseaseHistory_model.DiseaseHistoryID == 0)
                     extend_DiseaseHistory_model.DiseaseHistoryID = extend_DiseaseHistory_bll.Add(extend_DiseaseHistory_model);
                 else
@@ -531,7 +600,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
                 bool flag = false;
                 for (int j = 0; j < DisabilityIDs.Count; j++)
                 {
-                    if (extend_Disability_old_models[i].DisabilityID == DiseaseHistoryIDs[j])
+                    if (extend_Disability_old_models[i].DisabilityID == DisabilityIDs[j])
                         flag = true;
                 }
                 if (!flag)
@@ -543,49 +612,371 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             //家族史
             Maticsoft.BLL.extend_FamilyHistory extend_FamilyHistory_bll = new Maticsoft.BLL.extend_FamilyHistory();
             //父亲
-            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_father_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 1);
-
+            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_father_old_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 1);
+            List<int> FamilyHistoryIDs = new List<int>();
+            jsonData = JsonMapper.ToObject(fatherDisease_data.Value);
+            foreach (JsonData item in jsonData)
+            {
+                int FH_Type = (int)item["type"];
+                Maticsoft.Model.extend_FamilyHistory extend_FamilyHistory_model = extend_FamilyHistory_bll.GetModel(string.Format("FH_Type={0} and FH_UserID={1} and FH_Who={2}", FH_Type, UserID, 1));
+                if (extend_FamilyHistory_model == null)
+                {
+                    extend_FamilyHistory_model = new Maticsoft.Model.extend_FamilyHistory();
+                    extend_FamilyHistory_model.FamilyHistoryID = 0;
+                }
+                extend_FamilyHistory_model.FH_Type = FH_Type;
+                extend_FamilyHistory_model.FH_Who = 1;
+                extend_FamilyHistory_model.FH_UserID = UserID;
+                if (FH_Type == 11)
+                    extend_FamilyHistory_model.FH_Note = father_note.Value;
+                if (extend_FamilyHistory_model.FamilyHistoryID == 0)
+                    extend_FamilyHistory_model.FamilyHistoryID = extend_FamilyHistory_bll.Add(extend_FamilyHistory_model);
+                else
+                    extend_FamilyHistory_bll.Update(extend_FamilyHistory_model);
+                FamilyHistoryIDs.Add(extend_FamilyHistory_model.FamilyHistoryID);
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_FamilyHistory_father_old_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < FamilyHistoryIDs.Count; j++)
+                {
+                    if (extend_FamilyHistory_father_old_models[i].FamilyHistoryID == FamilyHistoryIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_father_old_models[i].FamilyHistoryID);
+                }
+            }
 
             //母亲
-            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_mather_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 2);
-
+            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_mather_old_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 2);
+            FamilyHistoryIDs = new List<int>();
+            jsonData = JsonMapper.ToObject(matherDisease_data.Value);
+            foreach (JsonData item in jsonData)
+            {
+                int FH_Type = (int)item["type"];
+                Maticsoft.Model.extend_FamilyHistory extend_FamilyHistory_model = extend_FamilyHistory_bll.GetModel(string.Format("FH_Type={0} and FH_UserID={1} and FH_Who={2}", FH_Type, UserID, 2));
+                if (extend_FamilyHistory_model == null)
+                {
+                    extend_FamilyHistory_model = new Maticsoft.Model.extend_FamilyHistory();
+                    extend_FamilyHistory_model.FamilyHistoryID = 0;
+                }
+                extend_FamilyHistory_model.FH_Type = FH_Type;
+                extend_FamilyHistory_model.FH_Who = 2;
+                extend_FamilyHistory_model.FH_UserID = UserID;
+                if (FH_Type == 11)
+                    extend_FamilyHistory_model.FH_Note = mather_note.Value;
+                if (extend_FamilyHistory_model.FamilyHistoryID == 0)
+                    extend_FamilyHistory_model.FamilyHistoryID = extend_FamilyHistory_bll.Add(extend_FamilyHistory_model);
+                else
+                    extend_FamilyHistory_bll.Update(extend_FamilyHistory_model);
+                FamilyHistoryIDs.Add(extend_FamilyHistory_model.FamilyHistoryID);
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_FamilyHistory_mather_old_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < FamilyHistoryIDs.Count; j++)
+                {
+                    if (extend_FamilyHistory_mather_old_models[i].FamilyHistoryID == FamilyHistoryIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_mather_old_models[i].FamilyHistoryID);
+                }
+            }
 
             //兄弟姐妹
-            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_brothers_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 3);
-
+            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_brothers_old_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 3);
+            FamilyHistoryIDs = new List<int>();
+            jsonData = JsonMapper.ToObject(brothersDisease_data.Value);
+            foreach (JsonData item in jsonData)
+            {
+                int FH_Type = (int)item["type"];
+                Maticsoft.Model.extend_FamilyHistory extend_FamilyHistory_model = extend_FamilyHistory_bll.GetModel(string.Format("FH_Type={0} and FH_UserID={1} and FH_Who={2}", FH_Type, UserID, 3));
+                if (extend_FamilyHistory_model == null)
+                {
+                    extend_FamilyHistory_model = new Maticsoft.Model.extend_FamilyHistory();
+                    extend_FamilyHistory_model.FamilyHistoryID = 0;
+                }
+                extend_FamilyHistory_model.FH_Type = FH_Type;
+                extend_FamilyHistory_model.FH_Who = 3;
+                extend_FamilyHistory_model.FH_UserID = UserID;
+                if (FH_Type == 11)
+                    extend_FamilyHistory_model.FH_Note = brothers_note.Value;
+                if (extend_FamilyHistory_model.FamilyHistoryID == 0)
+                    extend_FamilyHistory_model.FamilyHistoryID = extend_FamilyHistory_bll.Add(extend_FamilyHistory_model);
+                else
+                    extend_FamilyHistory_bll.Update(extend_FamilyHistory_model);
+                FamilyHistoryIDs.Add(extend_FamilyHistory_model.FamilyHistoryID);
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_FamilyHistory_brothers_old_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < FamilyHistoryIDs.Count; j++)
+                {
+                    if (extend_FamilyHistory_brothers_old_models[i].FamilyHistoryID == FamilyHistoryIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_brothers_old_models[i].FamilyHistoryID);
+                }
+            }
 
             //子女
-            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_children_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 4);
-
+            List<Maticsoft.Model.extend_FamilyHistory> extend_FamilyHistory_children_old_models = extend_FamilyHistory_bll.GetModelList("FH_Who = " + 4);
+            FamilyHistoryIDs = new List<int>();
+            jsonData = JsonMapper.ToObject(childrenDisease_data.Value);
+            foreach (JsonData item in jsonData)
+            {
+                int FH_Type = (int)item["type"];
+                Maticsoft.Model.extend_FamilyHistory extend_FamilyHistory_model = extend_FamilyHistory_bll.GetModel(string.Format("FH_Type={0} and FH_UserID={1} and FH_Who={2}", FH_Type, UserID, 4));
+                if (extend_FamilyHistory_model == null)
+                {
+                    extend_FamilyHistory_model = new Maticsoft.Model.extend_FamilyHistory();
+                    extend_FamilyHistory_model.FamilyHistoryID = 0;
+                }
+                extend_FamilyHistory_model.FH_Type = FH_Type;
+                extend_FamilyHistory_model.FH_Who = 4;
+                extend_FamilyHistory_model.FH_UserID = UserID;
+                if (FH_Type == 11)
+                    extend_FamilyHistory_model.FH_Note = children_note.Value;
+                if (extend_FamilyHistory_model.FamilyHistoryID == 0)
+                    extend_FamilyHistory_model.FamilyHistoryID = extend_FamilyHistory_bll.Add(extend_FamilyHistory_model);
+                else
+                    extend_FamilyHistory_bll.Update(extend_FamilyHistory_model);
+                FamilyHistoryIDs.Add(extend_FamilyHistory_model.FamilyHistoryID);
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_FamilyHistory_children_old_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < FamilyHistoryIDs.Count; j++)
+                {
+                    if (extend_FamilyHistory_children_old_models[i].FamilyHistoryID == FamilyHistoryIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_FamilyHistory_bll.Delete(extend_FamilyHistory_children_old_models[i].FamilyHistoryID);
+                }
+            }
 
             //生活环境
-            Maticsoft.BLL.extend_Environment extend_Environment = new Maticsoft.BLL.extend_Environment();
+            Maticsoft.BLL.extend_Environment extend_Environment_bll = new Maticsoft.BLL.extend_Environment();
             //厨房排风设施
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind1_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 1));
+            int kind1 = 1;
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind1_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, kind1));
+            List<int> kindIDs = new List<int>();
+            for (int i = 0; i < E_Kind1.Items.Count; i++)
+            {
+                Maticsoft.Model.extend_Environment extend_Environment_model = null;
+                if (E_Kind1.Items[i].Selected)
+                {
+                    extend_Environment_model = extend_Environment_bll.GetModel(string.Format("E_Kind = {0} and E_Type={1} and E_UserID={2}", kind1, E_Kind1.Items[i].Value, UserID));
+                    if (extend_Environment_model == null)
+                    {
+                        extend_Environment_model = new Maticsoft.Model.extend_Environment();
+                        extend_Environment_model.EnvironmentID = 0;
+                    }
+                    extend_Environment_model.E_Kind = kind1;
+                    extend_Environment_model.E_Type = Convert.ToInt32(E_Kind1.Items[i].Value);
+                    extend_Environment_model.E_UserID = UserID;
+                    if (extend_Environment_model.EnvironmentID == 0)
+                        extend_Environment_model.EnvironmentID = extend_Environment_bll.Add(extend_Environment_model);
+                    else
+                        extend_Environment_bll.Update(extend_Environment_model);
+                    kindIDs.Add(extend_Environment_model.EnvironmentID);
+                }
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_Environment_kind1_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < kindIDs.Count; j++)
+                {
+                    if (extend_Environment_kind1_models[i].EnvironmentID == kindIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind1_models[i].EnvironmentID);
+                }
+            }
 
             //燃料类型
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind2_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 2));
+            int kind2 = 2;
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind2_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, kind2));
+            kindIDs = new List<int>();
+            for (int i = 0; i < E_Kind2.Items.Count; i++)
+            {
+                Maticsoft.Model.extend_Environment extend_Environment_model = null;
+                if (E_Kind2.Items[i].Selected)
+                {
+                    extend_Environment_model = extend_Environment_bll.GetModel(string.Format("E_Kind = {0} and E_Type={1} and E_UserID={2}", kind2, E_Kind2.Items[i].Value, UserID));
+                    if (extend_Environment_model == null)
+                    {
+                        extend_Environment_model = new Maticsoft.Model.extend_Environment();
+                        extend_Environment_model.EnvironmentID = 0;
+                    }
+                    extend_Environment_model.E_Kind = kind2;
+                    extend_Environment_model.E_Type = Convert.ToInt32(E_Kind2.Items[i].Value);
+                    extend_Environment_model.E_UserID = UserID;
+                    if (extend_Environment_model.EnvironmentID == 0)
+                        extend_Environment_model.EnvironmentID = extend_Environment_bll.Add(extend_Environment_model);
+                    else
+                        extend_Environment_bll.Update(extend_Environment_model);
+                    kindIDs.Add(extend_Environment_model.EnvironmentID);
+                }
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_Environment_kind2_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < kindIDs.Count; j++)
+                {
+                    if (extend_Environment_kind2_models[i].EnvironmentID == kindIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind2_models[i].EnvironmentID);
+                }
+            }
 
             //饮水
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind3_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 3));
+            int kind3 = 3;
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind3_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, kind3));
+            kindIDs = new List<int>();
+            for (int i = 0; i < E_Kind3.Items.Count; i++)
+            {
+                Maticsoft.Model.extend_Environment extend_Environment_model = null;
+                if (E_Kind3.Items[i].Selected)
+                {
+                    extend_Environment_model = extend_Environment_bll.GetModel(string.Format("E_Kind = {0} and E_Type={1} and E_UserID={2}", kind3, E_Kind3.Items[i].Value, UserID));
+                    if (extend_Environment_model == null)
+                    {
+                        extend_Environment_model = new Maticsoft.Model.extend_Environment();
+                        extend_Environment_model.EnvironmentID = 0;
+                    }
+                    extend_Environment_model.E_Kind = kind3;
+                    extend_Environment_model.E_Type = Convert.ToInt32(E_Kind3.Items[i].Value);
+                    extend_Environment_model.E_UserID = UserID;
+                    if (extend_Environment_model.EnvironmentID == 0)
+                        extend_Environment_model.EnvironmentID = extend_Environment_bll.Add(extend_Environment_model);
+                    else
+                        extend_Environment_bll.Update(extend_Environment_model);
+                    kindIDs.Add(extend_Environment_model.EnvironmentID);
+                }
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_Environment_kind3_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < kindIDs.Count; j++)
+                {
+                    if (extend_Environment_kind3_models[i].EnvironmentID == kindIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind3_models[i].EnvironmentID);
+                }
+            }
 
             //厕所
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind4_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 4));
+            int kind4 = 4;
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind4_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, kind4));
+            kindIDs = new List<int>();
+            for (int i = 0; i < E_Kind4.Items.Count; i++)
+            {
+                Maticsoft.Model.extend_Environment extend_Environment_model = null;
+                if (E_Kind4.Items[i].Selected)
+                {
+                    extend_Environment_model = extend_Environment_bll.GetModel(string.Format("E_Kind = {0} and E_Type={1} and E_UserID={2}", kind4, E_Kind4.Items[i].Value, UserID));
+                    if (extend_Environment_model == null)
+                    {
+                        extend_Environment_model = new Maticsoft.Model.extend_Environment();
+                        extend_Environment_model.EnvironmentID = 0;
+                    }
+                    extend_Environment_model.E_Kind = kind4;
+                    extend_Environment_model.E_Type = Convert.ToInt32(E_Kind4.Items[i].Value);
+                    extend_Environment_model.E_UserID = UserID;
+                    if (extend_Environment_model.EnvironmentID == 0)
+                        extend_Environment_model.EnvironmentID = extend_Environment_bll.Add(extend_Environment_model);
+                    else
+                        extend_Environment_bll.Update(extend_Environment_model);
+                    kindIDs.Add(extend_Environment_model.EnvironmentID);
+                }
+            }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_Environment_kind4_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < kindIDs.Count; j++)
+                {
+                    if (extend_Environment_kind4_models[i].EnvironmentID == kindIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind4_models[i].EnvironmentID);
+                }
+            }
 
             //禽畜栏
-            List<Maticsoft.Model.extend_Environment> extend_Environment_kind5_models = extend_Environment.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, 5));
-
-            switch (CMD)
+            int kind5 = 5;
+            List<Maticsoft.Model.extend_Environment> extend_Environment_kind5_models = extend_Environment_bll.GetModelList(string.Format("E_UserID = {0} and E_Kind={1}", UserID, kind5));
+            kindIDs = new List<int>();
+            for (int i = 0; i < E_Kind5.Items.Count; i++)
             {
-                case "New":
-                    CMD_Txt = "增加";
-
-                    break;
-                case "Edit":
-                    CMD_Txt = "修改";
-
-                    break;
+                Maticsoft.Model.extend_Environment extend_Environment_model = null;
+                if (E_Kind5.Items[i].Selected)
+                {
+                    extend_Environment_model = extend_Environment_bll.GetModel(string.Format("E_Kind = {0} and E_Type={1} and E_UserID={2}", kind5, E_Kind5.Items[i].Value, UserID));
+                    if (extend_Environment_model == null)
+                    {
+                        extend_Environment_model = new Maticsoft.Model.extend_Environment();
+                        extend_Environment_model.EnvironmentID = 0;
+                    }
+                    extend_Environment_model.E_Kind = kind5;
+                    extend_Environment_model.E_Type = Convert.ToInt32(E_Kind5.Items[i].Value);
+                    extend_Environment_model.E_UserID = UserID;
+                    if (extend_Environment_model.EnvironmentID == 0)
+                        extend_Environment_model.EnvironmentID = extend_Environment_bll.Add(extend_Environment_model);
+                    else
+                        extend_Environment_bll.Update(extend_Environment_model);
+                    kindIDs.Add(extend_Environment_model.EnvironmentID);
+                }
             }
+            //如果是取消的则要删除
+            for (int i = 0; i < extend_Environment_kind5_models.Count; i++)
+            {
+                bool flag = false;
+                for (int j = 0; j < kindIDs.Count; j++)
+                {
+                    if (extend_Environment_kind5_models[i].EnvironmentID == kindIDs[j])
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    extend_Environment_bll.Delete(extend_Environment_kind5_models[i].EnvironmentID);
+                }
+            }
+
+            Maticsoft.BLL.record_UserBaseInfo record_UserBaseInfo_bll = new Maticsoft.BLL.record_UserBaseInfo();
+            Maticsoft.Model.record_UserBaseInfo record_UserBaseInfo_model = record_UserBaseInfo_bll.GetModel(UserID);
+            if (record_UserBaseInfo_model != null)
+            {
+                record_UserBaseInfo_model.U_Note = U_Note.Value;
+                record_UserBaseInfo_bll.Update(record_UserBaseInfo_model);
+            }
+            
             All_Title_Txt = CMD_Txt + App_Txt;
             EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", UserID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
         }

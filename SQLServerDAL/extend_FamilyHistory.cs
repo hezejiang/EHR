@@ -192,6 +192,21 @@ namespace Maticsoft.SQLServerDAL
 			}
 		}
 
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public Maticsoft.Model.extend_FamilyHistory GetModel(string strWhere)
+        {
+            DataSet ds = GetList(strWhere);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 		/// <summary>
 		/// 得到一个对象实体
