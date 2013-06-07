@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 using System.Configuration;
-using System.Collections;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -96,43 +96,55 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            /*string I_FindDate_Value = Convert.ToString(Common.sink(I_FindDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
-            string I_Type_Value = I_Type.SelectedValue;
-            string I_ReportDate_Value = Convert.ToString(Common.sink(I_ReportDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
-            string I_ReportUserID_Value = (string)Common.sink(I_ReportUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
-            string I_Content_Value = (string)Common.sink(I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            string U_IDCard_Value = (string)Common.sink(U_IDCard.UniqueID, MethodType.Post, 20, 0, DataType.Str);
+            string U_CName_Value = U_CName.Text;
+            string U_Sex_Value = U_Sex.SelectedValue;
+            string U_Committee_Value = (string)Common.sink(U_Committee.UniqueID, MethodType.Post, 20, 0, DataType.Str);
+            string U_MobileNo_Value = (string)Common.sink(U_MobileNo.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            string U_ResponsibilityUserID_Value = Convert.ToString(Common.sink(U_ResponsibilityUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
+            string U_FilingUserID_Value = Convert.ToString(Common.sink(U_FilingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
-            if (I_FindDate_Value != "" || I_Type_Value != "" || I_ReportDate_Value != "" || I_ReportUserID_Value != "" || I_Content_Value != "")
+            if (U_IDCard_Value != "" || U_CName_Value != "" || U_Sex_Value != "-1" || U_Committee_Value != "" || U_MobileNo_Value != "" || U_FilingUserID_Value != "" || U_ResponsibilityUserID_Value != "")
             {
-                if (I_FindDate_Value != "")
+                if (U_IDCard_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_FindDate = '" + Common.inSQL(I_FindDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " U_IDCard like '%" + Common.inSQL(U_IDCard_Value) + "%' and ";
                 }
 
-                if (I_Type_Value != "" && I_Type_Value !="0")
+                if (U_CName_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_Type = " + Common.inSQL(I_Type_Value) + " and ";
+                    SqlSearch = SqlSearch + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' and ";
                 }
 
-                if (I_ReportDate_Value != "")
+                if (U_Sex_Value != "" && U_Sex_Value != "-1")
                 {
-                    SqlSearch = SqlSearch + " I_ReportDate = '" + Common.inSQL(I_ReportDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " U_Sex = " + Common.inSQL(U_Sex_Value) + " and ";
                 }
 
-                if (I_ReportUserID_Value != "")
+                if (U_Committee_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_ReportUserID = " + Common.inSQL(I_ReportUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " U_Committee = " + Common.inSQL(U_Committee_Value) + " and ";
                 }
 
-                if (I_Content_Value != "")
+                if (U_MobileNo_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_Content like '%" + Common.inSQL(I_Content_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " U_MobileNo like '%" + Common.inSQL(U_MobileNo_Value) + "%'" + " and ";
+                }
+
+                if (U_ResponsibilityUserID_Value != "")
+                {
+                    SqlSearch = SqlSearch + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " and ";
+                }
+
+                if (U_FilingUserID_Value != "")
+                {
+                    SqlSearch = SqlSearch + " U_FilingUserID = " + Common.inSQL(U_FilingUserID_Value) + " and ";
                 }
                 SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
-            ViewState["SearchTerms"] = SqlSearch;*/
+            ViewState["SearchTerms"] = SqlSearch;
             AspNetPager1.CurrentPageIndex = 1;
             BindData();
             TabOptionWebControls1.SelectIndex = 0;

@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_Consultation.cs
+*
+* 功 能： N/A
+* 类 名： record_Consultation
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/5/28 18:55:23   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,21 +63,21 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_Consultation(");
-			strSql.Append("C_UserID,C_Cause,C_Comments,C_InstitutionDoctor,C_Time)");
+			strSql.Append("C_UserID,C_Cause,C_Comments,C_Time,C_Dortor)");
 			strSql.Append(" values (");
-			strSql.Append("@C_UserID,@C_Cause,@C_Comments,@C_InstitutionDoctor,@C_Time)");
+			strSql.Append("@C_UserID,@C_Cause,@C_Comments,@C_Time,@C_Dortor)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@C_UserID", SqlDbType.Int,4),
 					new SqlParameter("@C_Cause", SqlDbType.Text),
 					new SqlParameter("@C_Comments", SqlDbType.Text),
-					new SqlParameter("@C_InstitutionDoctor", SqlDbType.Text),
-					new SqlParameter("@C_Time", SqlDbType.DateTime)};
+					new SqlParameter("@C_Time", SqlDbType.DateTime),
+					new SqlParameter("@C_Dortor", SqlDbType.Int,4)};
 			parameters[0].Value = model.C_UserID;
 			parameters[1].Value = model.C_Cause;
 			parameters[2].Value = model.C_Comments;
-			parameters[3].Value = model.C_InstitutionDoctor;
-			parameters[4].Value = model.C_Time;
+			parameters[3].Value = model.C_Time;
+			parameters[4].Value = model.C_Dortor;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -83,21 +99,21 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("C_UserID=@C_UserID,");
 			strSql.Append("C_Cause=@C_Cause,");
 			strSql.Append("C_Comments=@C_Comments,");
-			strSql.Append("C_InstitutionDoctor=@C_InstitutionDoctor,");
-			strSql.Append("C_Time=@C_Time");
+			strSql.Append("C_Time=@C_Time,");
+			strSql.Append("C_Dortor=@C_Dortor");
 			strSql.Append(" where ConsultationID=@ConsultationID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@C_UserID", SqlDbType.Int,4),
 					new SqlParameter("@C_Cause", SqlDbType.Text),
 					new SqlParameter("@C_Comments", SqlDbType.Text),
-					new SqlParameter("@C_InstitutionDoctor", SqlDbType.Text),
 					new SqlParameter("@C_Time", SqlDbType.DateTime),
+					new SqlParameter("@C_Dortor", SqlDbType.Int,4),
 					new SqlParameter("@ConsultationID", SqlDbType.Int,4)};
 			parameters[0].Value = model.C_UserID;
 			parameters[1].Value = model.C_Cause;
 			parameters[2].Value = model.C_Comments;
-			parameters[3].Value = model.C_InstitutionDoctor;
-			parameters[4].Value = model.C_Time;
+			parameters[3].Value = model.C_Time;
+			parameters[4].Value = model.C_Dortor;
 			parameters[5].Value = model.ConsultationID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -162,7 +178,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ConsultationID,C_UserID,C_Cause,C_Comments,C_InstitutionDoctor,C_Time from record_Consultation ");
+			strSql.Append("select  top 1 ConsultationID,C_UserID,C_Cause,C_Comments,C_Time,C_Dortor from record_Consultation ");
 			strSql.Append(" where ConsultationID=@ConsultationID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ConsultationID", SqlDbType.Int,4)
@@ -206,13 +222,13 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.C_Comments=row["C_Comments"].ToString();
 				}
-				if(row["C_InstitutionDoctor"]!=null)
-				{
-					model.C_InstitutionDoctor=row["C_InstitutionDoctor"].ToString();
-				}
 				if(row["C_Time"]!=null && row["C_Time"].ToString()!="")
 				{
 					model.C_Time=DateTime.Parse(row["C_Time"].ToString());
+				}
+				if(row["C_Dortor"]!=null && row["C_Dortor"].ToString()!="")
+				{
+					model.C_Dortor=int.Parse(row["C_Dortor"].ToString());
 				}
 			}
 			return model;
@@ -224,7 +240,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ConsultationID,C_UserID,C_Cause,C_Comments,C_InstitutionDoctor,C_Time ");
+			strSql.Append("select ConsultationID,C_UserID,C_Cause,C_Comments,C_Time,C_Dortor ");
 			strSql.Append(" FROM record_Consultation ");
 			if(strWhere.Trim()!="")
 			{
@@ -244,7 +260,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ConsultationID,C_UserID,C_Cause,C_Comments,C_InstitutionDoctor,C_Time ");
+			strSql.Append(" ConsultationID,C_UserID,C_Cause,C_Comments,C_Time,C_Dortor ");
 			strSql.Append(" FROM record_Consultation ");
 			if(strWhere.Trim()!="")
 			{

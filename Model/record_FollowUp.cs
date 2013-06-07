@@ -12,9 +12,9 @@ namespace Maticsoft.Model
 		#region Model
 		private int _followupid;
 		private int _f_patientid=0;
-		private int? _f_type;
-		private DateTime? _f_date;
-		private int? _f_status=0;
+		private int _f_type;
+		private DateTime _f_date;
+		private int _f_status=0;
 		/// <summary>
 		/// 工作ID
 		/// </summary>
@@ -34,7 +34,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 随访类型，1：高血压，2：糖尿病患者，3：儿童防疫，4：老年人保健
 		/// </summary>
-		public int? F_Type
+		public int F_Type
 		{
 			set{ _f_type=value;}
 			get{return _f_type;}
@@ -42,7 +42,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 下次随访日期
 		/// </summary>
-		public DateTime? F_Date
+		public DateTime F_Date
 		{
 			set{ _f_date=value;}
 			get{return _f_date;}
@@ -50,7 +50,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 随访状态 1：为完成，2：已完成，3：已到期
 		/// </summary>
-		public int? F_Status
+		public int F_Status
 		{
 			set{ _f_status=value;}
 			get{return _f_status;}

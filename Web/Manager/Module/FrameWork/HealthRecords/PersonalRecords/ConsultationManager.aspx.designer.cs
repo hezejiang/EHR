@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
+namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
     
     
-    public partial class _default {
+    public partial class ConsultationManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,67 +40,49 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// C_UserID_Txt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label C_UserID_Txt;
         
         /// <summary>
-        /// AspNetPager1 控件。
+        /// C_Cause 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.TextBox C_Cause;
         
         /// <summary>
-        /// TabOptionItem2 控件。
+        /// C_Comments 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.WebControls.TextBox C_Comments;
         
         /// <summary>
-        /// A_DateTime 控件。
+        /// C_Time 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_DateTime;
+        protected global::System.Web.UI.WebControls.TextBox C_Time;
         
         /// <summary>
-        /// A_Location 控件。
+        /// SubmitTr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Location;
-        
-        /// <summary>
-        /// A_Crowd 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Crowd;
-        
-        /// <summary>
-        /// A_Theme 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Theme;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
         
         /// <summary>
         /// Button1 控件。

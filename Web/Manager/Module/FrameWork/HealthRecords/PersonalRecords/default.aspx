@@ -14,7 +14,7 @@
     <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
         <!--Tab选项控件的第一个子选项 start-->
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="信息登记列表">
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="个人健康档案列表">
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
@@ -34,6 +34,11 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="电话" DataField="U_MobileNo"/>
+                    <asp:TemplateField HeaderText="责任医生">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("U_ResponsibilityUserID"))).U_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="建档人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("U_FilingUserID"))).U_CName%>
@@ -67,25 +72,13 @@
                         </asp:DropDownList>
                     </td>
                     <td class="table_body table_body_NoWidth">
-                        现住址</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="U_CurrentAddress" runat="server" CssClass="text_input"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td class="table_body table_body_NoWidth">
-                        出生日期</td>
-                    <td class="table_none table_none_NoWidth">
-                        <input id="startTime" runat="server" class="text_input" onfocus="javascript:HS_setDate(this);" style="margin-right:20px;"/>
-                        <input id="Text1" runat="server" class="text_input" onfocus="javascript:HS_setDate(this);"/>
-                        </td>
-                    <td class="table_body table_body_NoWidth">
                     居(村)委会</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="U_GroupID" id="U_GroupID" value=""/>
-                        <input runat="server" name="U_GroupID_input" id="U_GroupID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择居(村)委会" name="buttonselect" onclick="javascript:ShowDepartID()"
+                        <input type="hidden" runat="server" id="U_Committee"/>
+                        <input runat="server" id="U_Committee_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
                 <tr>
@@ -96,98 +89,112 @@
                     <td class="table_body table_body_NoWidth">
                         建档人</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="U_FilingUserID" id="U_FilingUserID" value=""/>
-                        <input runat="server" name="U_FilingUserID_input" id="U_FilingUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择建档人" id="button3" name="buttonselect" onclick="javascript:ShowDepartID2()"
+                        <input type="hidden" runat="server" id="U_FilingUserID" value=""/>
+                        <input runat="server" id="U_FilingUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(4)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
                     </td>
                 </tr>
                 <tr>
+                   <td class="table_body table_body_NoWidth">
+                        责任医生</td>
+                   <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="U_ResponsibilityUserID"/>
+                        <input runat="server" id="U_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
+                    </td>
                     <td colspan="4" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
                 </tr>
             </table>
         </FrameWorkWebControls:TabOptionItem>
-        <!--Tab选项控件的第一个子选项 end-->
-        <!--Tab选项控件的第二个子选项 start-->
-            <!--如果有多Tab子选项就仿照第一个子选项的写法-->
-        <!--Tab选项控件的第二个子选项 end-->
+        
     </FrameWorkWebControls:TabOptionWebControls>
     <!--Tab选项控件 end-->
     <script language="javascript">
+
         rnd.today=new Date(); 
-
-    rnd.seed=rnd.today.getTime(); 
-
-    function rnd() { 
-　　　　rnd.seed = (rnd.seed*9301+49297) % 233280; 
-　　　　return rnd.seed/(233280.0); 
-    }; 
-
-    function rand(number) { 
-　　　　return Math.ceil(rnd()*number); 
-    }; 
+        rnd.seed=rnd.today.getTime(); 
     
-    function AlertMessageBox(file_name)
-    {
-	    if (file_name!=undefined){
-	        var ShValues = file_name.split('||');
-	        if (ShValues[1]!=0)
-	        {
-                document.all.<%=this.U_GroupID.ClientID %>.value=ShValues[1];
-                document.all.<%=this.U_GroupID_input.ClientID %>.value=ShValues[0];
-	        }
-	    }   
-    }
+        function rnd() { 
+　　　　    rnd.seed = (rnd.seed*9301+49297) % 233280; 
+　　　　    return rnd.seed/(233280.0); 
+        }; 
 
-    function ShowDepartID()
-    {
-        showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
-    }
+        function rand(number) { 
+　　　　    return Math.ceil(rnd()*number); 
+        }; 
     
-    function ClearSelect()
-    {
-   	    document.all.<%=this.U_GroupID_input.ClientID %>.value="";
-        document.all.<%=this.U_GroupID.ClientID %>.value="";
-        document.all.<%=this.U_FilingUserID.ClientID %>.value="";
-        document.all.<%=this.U_FilingUserID_input.ClientID %>.value="";
-    }
+        var type;
 
-    function AlertMessageBox2(file_name)
-    {
-	    if (file_name!=undefined){
-	        var ShValues = file_name.split('||');
-	        if (ShValues[1]!=0)
-	        {
-                onButtonEdit(ShValues[1]);
-	        }
-	    }
-    }
+        function AlertMessageBox(file_name)
+        {
+	        if (file_name!=undefined){
+	            var ShValues = file_name.split('||');
+	            if (ShValues[1]!=0)
+	            {
+                    if(type == 1){ //选择居委会
+                        document.all.<%=this.U_Committee.ClientID %>.value=ShValues[1];
+                        document.all.<%=this.U_Committee_input.ClientID %>.value=ShValues[0];
+                    }else if(type == 2){ //选择责任医生
+                        onButtonEdit(ShValues[1]);
+                    }else if(type == 3){ //选择建档单位
+                        
+                    }else if(type == 4){ //选择建档人
+                        onButtonEdit(ShValues[1]);
+                    }
+	            }
+	        }   
+        }
 
-    function ShowDepartID2()
-    {
-        showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox2,true,true);
-    }
-
-    mini.parse();
-
-    function onButtonEdit(id) {
-        mini.open({
-            url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
-            title: "选择列表",
-            width: 800,
-            height: 380,
-            ondestroy: function (action) {
-                //if (action == "close") return false;
-                var result = action.split("||");
-                if (result[0] == "ok") {
-                    document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
-                    document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
-                }
+        function ShowDepartID(t)
+        {
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+        }
+    
+        function ClearSelect(t)
+        {
+            if(t == 1){
+   	            document.all.<%=this.U_Committee_input.ClientID %>.value="";
+                document.all.<%=this.U_Committee.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value="";
+                document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value="";
+            }else if(t == 3){
+               
+            }else if(t == 4){
+                document.all.<%=this.U_FilingUserID.ClientID %>.value="";
+                document.all.<%=this.U_FilingUserID_input.ClientID %>.value="";
             }
-        });            
-    }
+        }
+
+        mini.parse();
+
+        function onButtonEdit(id) {
+            mini.open({
+                url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") {
+                        if(type == 2){
+                            document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 4){
+                            document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
+                        }
+                    }
+                }
+            });            
+        }
 
     </script>
 </asp:Content>

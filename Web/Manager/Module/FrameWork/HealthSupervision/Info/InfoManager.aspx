@@ -22,7 +22,6 @@
                     <td class="table_body">
                         发现时间</td>
                     <td class="table_none">
-                        <asp:Label ID="I_FindDate_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="I_FindDate" runat="server" Columns="50" title="请选择发现时间!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
                 </tr>
@@ -30,7 +29,6 @@
                     <td class="table_body">
                         信息类别</td>
                     <td class="table_none">
-                        <asp:Label ID="I_Type_Txt" runat="server" title="请选择信息类别!" CssClass="text_input"></asp:Label>
                         <asp:DropDownList runat="server" ID="I_Type">
                             <asp:ListItem Text="食品安全" Value="1" />
                             <asp:ListItem Text="饮用水卫生" Value="2" />
@@ -44,7 +42,6 @@
                     <td class="table_body">
                         信息内容</td>
                     <td class="table_none">
-                        <asp:Label ID="I_Content_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="I_Content" runat="server" Columns="50" title="请输入信息内容!"
                             CssClass="text_input" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
                     </td>
@@ -53,7 +50,6 @@
                     <td class="table_body">
                         报告时间</td>
                     <td class="table_none">
-                        <asp:Label ID="I_ReportDate_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="I_ReportDate" runat="server" Columns="50" title="请输入报告时间!"
                             CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
@@ -62,7 +58,6 @@
                     <td class="table_body" >
                         报告人</td>
                     <td class="table_none">
-                        <asp:Label ID="I_ReportUserID_Txt" runat="server"></asp:Label>
                         <asp:TextBox ID="I_ReportUserID_input" runat="server" Columns="50" title="请点击选择报告人!"
                             CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="I_ReportUserID" runat="server" />

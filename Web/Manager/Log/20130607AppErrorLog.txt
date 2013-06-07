@@ -1,0 +1,4 @@
+﻿2013/06/07 00:51:29|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico
+2013/06/07 00:51:29|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico
+2013/06/07 09:17:06|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico
+2013/06/07 09:17:07|文件不存在:http://localhost:3448/favicon.ico|127.0.0.1|/favicon.ico

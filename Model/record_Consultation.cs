@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_Consultation.cs
+*
+* 功 能： N/A
+* 类 名： record_Consultation
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/5/28 18:55:22   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -14,8 +30,8 @@ namespace Maticsoft.Model
 		private int _c_userid;
 		private string _c_cause="";
 		private string _c_comments="";
-		private string _c_institutiondoctor="";
 		private DateTime _c_time;
+		private int _c_dortor;
 		/// <summary>
 		/// 会诊流水号
 		/// </summary>
@@ -49,20 +65,20 @@ namespace Maticsoft.Model
 			get{return _c_comments;}
 		}
 		/// <summary>
-		/// 会诊医生及其所在机构名称
-		/// </summary>
-		public string C_InstitutionDoctor
-		{
-			set{ _c_institutiondoctor=value;}
-			get{return _c_institutiondoctor;}
-		}
-		/// <summary>
 		/// 会诊日期
 		/// </summary>
 		public DateTime C_Time
 		{
 			set{ _c_time=value;}
 			get{return _c_time;}
+		}
+		/// <summary>
+		/// 会诊医生
+		/// </summary>
+		public int C_Dortor
+		{
+			set{ _c_dortor=value;}
+			get{return _c_dortor;}
 		}
 		#endregion Model
 

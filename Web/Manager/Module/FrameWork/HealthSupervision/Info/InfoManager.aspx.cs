@@ -53,7 +53,6 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         {
             if (CMD == "New")
             {
-                HiddenDisp();
             }
             else if (CMD == "Edit")
             {
@@ -64,7 +63,6 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
                 bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&InfoID={0}')", InfoID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
 
-                HiddenDisp();
                 InputData();
             }
             else if (CMD == "Delete")
@@ -85,20 +83,19 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         /// </summary>
         private void InputData()
         {
-            //这两句和73、75作用一样
+            //这两句和71、73作用一样
             Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
             Maticsoft.Model.supervision_Info model = bll.GetModel(InfoID);
 
             //以下几行需要更改
-            this.I_FindDate.Text = this.I_FindDate_Txt.Text = model.I_FindDate.ToShortDateString();
-            this.I_Type.SelectedValue = model.I_Type+"";
-            this.I_Type_Txt.Text = getSuperisionNameByType(model.I_Type);
-            this.I_Content.Text = this.I_Content_Txt.Text = model.I_Content;
-            this.I_ReportDate.Text = this.I_ReportDate.Text = model.I_ReportDate.ToShortDateString();
+            I_FindDate.Text = model.I_FindDate.ToShortDateString();
+            I_Type.SelectedValue = model.I_Type+"";
+            I_Content.Text = model.I_Content;
+            I_ReportDate.Text = model.I_ReportDate.ToShortDateString();
             Maticsoft.BLL.sys_User user_bll = new Maticsoft.BLL.sys_User();
             Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.I_ReportUserID);
-            this.I_ReportUserID.Value = user_model.UserID + "";
-            this.I_ReportUserID_input.Text = user_model.U_CName;
+            I_ReportUserID.Value = user_model.UserID + "";
+            I_ReportUserID_input.Text = user_model.U_CName;
         }
 
         /// <summary>
@@ -128,29 +125,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             }
             return superision_name;
         }
-
-        /// <summary>
-        /// 隐藏Label（需要更改）
-        /// </summary>
-        private void HiddenDisp()
-        {
-            this.I_FindDate_Txt.Visible = false;
-            this.I_Type_Txt.Visible = false;
-            this.I_Content_Txt.Visible = false;
-            this.I_ReportDate_Txt.Visible = false;
-        }
-
-        /// <summary>
-        /// 隐藏输入框（需要更改）
-        /// </summary>
-        private void HiddenInput()
-        {
-            this.I_FindDate.Visible = false;
-            this.I_Type.Visible = false;
-            this.I_Content.Visible = false;
-            this.I_ReportDate.Visible = false;
-            this.SubmitTr.Visible = false;
-        }
+        
         /// <summary>
         /// 点击确定按钮执行的方法
         /// </summary>

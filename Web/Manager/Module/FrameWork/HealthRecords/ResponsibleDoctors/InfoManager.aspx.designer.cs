@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
+namespace FrameWork.web.Module.FrameWork.HealthRecords.ResponsibleDoctors {
     
     
-    public partial class _default {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,75 +40,57 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// U_IDCard 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label U_IDCard;
         
         /// <summary>
-        /// AspNetPager1 控件。
+        /// U_CName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.Label U_CName;
         
         /// <summary>
-        /// TabOptionItem2 控件。
+        /// U_ResponsibilityUserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.WebControls.Label U_ResponsibilityUserID;
         
         /// <summary>
-        /// A_DateTime 控件。
+        /// U_ResponsibilityUserID_New 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_DateTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_ResponsibilityUserID_New;
         
         /// <summary>
-        /// A_Location 控件。
+        /// U_ResponsibilityUserID_New_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Location;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText U_ResponsibilityUserID_New_input;
         
         /// <summary>
-        /// A_Crowd 控件。
+        /// save 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Crowd;
-        
-        /// <summary>
-        /// A_Theme 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Theme;
-        
-        /// <summary>
-        /// Button1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button save;
     }
 }

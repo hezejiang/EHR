@@ -332,12 +332,17 @@ namespace Maticsoft.SQLServerDAL
 				strSql.Append("order by T.UserID desc");
 			}
 			strSql.Append(")AS Row, T.*  from sys_User T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
+			
             strSql.Append(" ) TT join record_UserBaseInfo TTT on TT.UserID=TTT.UserID ");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+                strSql.AppendFormat(" and TT.Row between {0} and {1}", startIndex, endIndex);
+            }
+            else
+            {
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            }
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

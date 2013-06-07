@@ -155,9 +155,8 @@ namespace Maticsoft.SQLServerDAL
 		/// </summary>
 		public Maticsoft.Model.record_FollowUp GetModel(int FollowUpID)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 FollowUpID,F_PatientID,F_Type,F_Date,F_Status from record_FollowUp ");
+            strSql.Append("select  top 1 * from record_FollowUp TT  join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
 			strSql.Append(" where FollowUpID=@FollowUpID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@FollowUpID", SqlDbType.Int,4)
@@ -251,7 +250,7 @@ namespace Maticsoft.SQLServerDAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM record_FollowUp ");
+            strSql.Append("select count(1) FROM record_FollowUp TT join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -283,12 +282,16 @@ namespace Maticsoft.SQLServerDAL
 				strSql.Append("order by T.FollowUpID desc");
 			}
 			strSql.Append(")AS Row, T.*  from record_FollowUp T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
-			strSql.Append(" ) TT");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            strSql.Append(" ) TT join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+                strSql.AppendFormat(" and TT.Row between {0} and {1}", startIndex, endIndex);
+            }
+            else
+            {
+                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            }
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

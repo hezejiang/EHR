@@ -94,49 +94,22 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
         protected global::System.Web.UI.WebControls.DropDownList U_Sex;
         
         /// <summary>
-        /// U_CurrentAddress 控件。
+        /// U_Committee 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox U_CurrentAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_Committee;
         
         /// <summary>
-        /// startTime 控件。
+        /// U_Committee_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText startTime;
-        
-        /// <summary>
-        /// Text1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// U_GroupID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_GroupID;
-        
-        /// <summary>
-        /// U_GroupID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText U_GroupID_input;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText U_Committee_input;
         
         /// <summary>
         /// U_MobileNo 控件。
@@ -164,6 +137,24 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText U_FilingUserID_input;
+        
+        /// <summary>
+        /// U_ResponsibilityUserID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_ResponsibilityUserID;
+        
+        /// <summary>
+        /// U_ResponsibilityUserID_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText U_ResponsibilityUserID_input;
         
         /// <summary>
         /// Button1 控件。

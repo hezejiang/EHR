@@ -10,7 +10,7 @@
 namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
     
     
-    public partial class _default {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,33 +40,6 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// AspNetPager1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
-        
-        /// <summary>
-        /// TabOptionItem2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
-        
-        /// <summary>
         /// A_DateTime 控件。
         /// </summary>
         /// <remarks>
@@ -85,6 +58,24 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
         protected global::System.Web.UI.WebControls.TextBox A_Location;
         
         /// <summary>
+        /// A_Object_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Object_input;
+        
+        /// <summary>
+        /// A_Object 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden A_Object;
+        
+        /// <summary>
         /// A_Crowd 控件。
         /// </summary>
         /// <remarks>
@@ -92,6 +83,60 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox A_Crowd;
+        
+        /// <summary>
+        /// A_Form 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Form;
+        
+        /// <summary>
+        /// A_Duration 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Duration;
+        
+        /// <summary>
+        /// A_Organizers 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Organizers;
+        
+        /// <summary>
+        /// A_Partners 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Partners;
+        
+        /// <summary>
+        /// A_Missionary 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Missionary;
+        
+        /// <summary>
+        /// A_Number 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Number;
         
         /// <summary>
         /// A_Theme 控件。
