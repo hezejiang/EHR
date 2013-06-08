@@ -47,9 +47,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_HealthCheck(");
-			strSql.Append("H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID)");
+			strSql.Append("H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID,H_UserID)");
 			strSql.Append(" values (");
-			strSql.Append("@H_BodyTemperature,@H_PulseRate,@H_RespiratoryRate,@H_LeftDiastolic,@H_LeftSystolic,@H_RightDiastolic,@H_RightSystolic,@H_Height,@H_Weight,@H_Result,@H_Suggestion,@H_CheckTime,@H_MedicalInstitutions,@H_CheckUserID)");
+            strSql.Append("@H_BodyTemperature,@H_PulseRate,@H_RespiratoryRate,@H_LeftDiastolic,@H_LeftSystolic,@H_RightDiastolic,@H_RightSystolic,@H_Height,@H_Weight,@H_Result,@H_Suggestion,@H_CheckTime,@H_MedicalInstitutions,@H_CheckUserID,@H_UserID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@H_BodyTemperature", SqlDbType.Float,8),
@@ -65,7 +65,8 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@H_Suggestion", SqlDbType.Text),
 					new SqlParameter("@H_CheckTime", SqlDbType.DateTime),
 					new SqlParameter("@H_MedicalInstitutions", SqlDbType.Int,4),
-					new SqlParameter("@H_CheckUserID", SqlDbType.Int,4)};
+					new SqlParameter("@H_CheckUserID", SqlDbType.Int,4),
+                    new SqlParameter("@H_UserID", SqlDbType.Int,4)};
 			parameters[0].Value = model.H_BodyTemperature;
 			parameters[1].Value = model.H_PulseRate;
 			parameters[2].Value = model.H_RespiratoryRate;
@@ -80,7 +81,7 @@ namespace Maticsoft.SQLServerDAL
 			parameters[11].Value = model.H_CheckTime;
 			parameters[12].Value = model.H_MedicalInstitutions;
 			parameters[13].Value = model.H_CheckUserID;
-
+            parameters[14].Value = model.H_UserID;
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
@@ -112,6 +113,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("H_CheckTime=@H_CheckTime,");
 			strSql.Append("H_MedicalInstitutions=@H_MedicalInstitutions,");
 			strSql.Append("H_CheckUserID=@H_CheckUserID");
+            strSql.Append("H_UserID=@H_UserID");
 			strSql.Append(" where HealthID=@HealthID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@H_BodyTemperature", SqlDbType.Float,8),
@@ -128,6 +130,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@H_CheckTime", SqlDbType.DateTime),
 					new SqlParameter("@H_MedicalInstitutions", SqlDbType.Int,4),
 					new SqlParameter("@H_CheckUserID", SqlDbType.Int,4),
+                    new SqlParameter("@H_UserID", SqlDbType.Int,4),
 					new SqlParameter("@HealthID", SqlDbType.Int,4)};
 			parameters[0].Value = model.H_BodyTemperature;
 			parameters[1].Value = model.H_PulseRate;
@@ -143,7 +146,8 @@ namespace Maticsoft.SQLServerDAL
 			parameters[11].Value = model.H_CheckTime;
 			parameters[12].Value = model.H_MedicalInstitutions;
 			parameters[13].Value = model.H_CheckUserID;
-			parameters[14].Value = model.HealthID;
+            parameters[14].Value = model.H_UserID;
+			parameters[15].Value = model.HealthID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -207,7 +211,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 HealthID,H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID from record_HealthCheck ");
+            strSql.Append("select  top 1 HealthID,H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID,H_UserID from record_HealthCheck ");
 			strSql.Append(" where HealthID=@HealthID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@HealthID", SqlDbType.Int,4)
@@ -295,6 +299,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.H_CheckUserID=int.Parse(row["H_CheckUserID"].ToString());
 				}
+                if (row["H_UserID"] != null && row["H_UserID"].ToString() != "")
+                {
+                    model.H_UserID = int.Parse(row["H_UserID"].ToString());
+                }
 			}
 			return model;
 		}
@@ -325,7 +333,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" HealthID,H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID ");
+            strSql.Append(" HealthID,H_BodyTemperature,H_PulseRate,H_RespiratoryRate,H_LeftDiastolic,H_LeftSystolic,H_RightDiastolic,H_RightSystolic,H_Height,H_Weight,H_Result,H_Suggestion,H_CheckTime,H_MedicalInstitutions,H_CheckUserID,H_UserID ");
 			strSql.Append(" FROM record_HealthCheck ");
 			if(strWhere.Trim()!="")
 			{
