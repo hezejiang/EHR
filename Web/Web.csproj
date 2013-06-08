@@ -770,6 +770,7 @@
     <Content Include="Manager\menu3.aspx" />
     <Content Include="Manager\Messages.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx" />
@@ -957,6 +958,13 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

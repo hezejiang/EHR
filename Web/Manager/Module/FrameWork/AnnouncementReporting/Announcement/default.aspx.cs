@@ -57,7 +57,7 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
                     name = "普通公告";
                     break;
                 case 2:
-                    name = "重大疫情公告";
+                    name = "紧急公告";
                     break;
             }
             return name;
