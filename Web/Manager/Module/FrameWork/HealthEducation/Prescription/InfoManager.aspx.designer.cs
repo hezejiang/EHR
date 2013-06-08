@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
+namespace Maticsoft.Web.Manager.Module.FrameWork.HealthEducation.Prescription {
     
     
-    public partial class _default {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,85 +40,112 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// A_DateTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox A_DateTime;
         
         /// <summary>
-        /// AspNetPager1 控件。
+        /// A_Location 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.TextBox A_Location;
         
         /// <summary>
-        /// TabOptionItem2 控件。
+        /// A_Object_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.WebControls.TextBox A_Object_input;
         
         /// <summary>
-        /// P_Date 控件。
+        /// A_Object 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox P_Date;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden A_Object;
         
         /// <summary>
-        /// P_Name 控件。
+        /// A_Crowd 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox P_Name;
+        protected global::System.Web.UI.WebControls.TextBox A_Crowd;
         
         /// <summary>
-        /// P_Object_input 控件。
+        /// A_Form 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox P_Object_input;
+        protected global::System.Web.UI.WebControls.TextBox A_Form;
         
         /// <summary>
-        /// P_Object 控件。
+        /// A_Duration 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Object;
+        protected global::System.Web.UI.WebControls.TextBox A_Duration;
         
         /// <summary>
-        /// P_Doctor_input 控件。
+        /// A_Organizers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox P_Doctor_input;
+        protected global::System.Web.UI.WebControls.TextBox A_Organizers;
         
         /// <summary>
-        /// P_Doctor 控件。
+        /// A_Partners 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Doctor;
+        protected global::System.Web.UI.WebControls.TextBox A_Partners;
+        
+        /// <summary>
+        /// A_Missionary 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Missionary;
+        
+        /// <summary>
+        /// A_Number 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Number;
+        
+        /// <summary>
+        /// A_Theme 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox A_Theme;
         
         /// <summary>
         /// Button1 控件。

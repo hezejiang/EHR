@@ -52,7 +52,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("@P_Object,@P_Name,@P_Content,@P_Doctor,@P_Date)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@P_Object", SqlDbType.Money,8),
+					new SqlParameter("@P_Object", SqlDbType.Int,8),
 					new SqlParameter("@P_Name", SqlDbType.NVarChar,100),
 					new SqlParameter("@P_Content", SqlDbType.Text),
 					new SqlParameter("@P_Doctor", SqlDbType.Int,4),
@@ -87,7 +87,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("P_Date=@P_Date");
 			strSql.Append(" where PrescriptionID=@PrescriptionID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@P_Object", SqlDbType.Money,8),
+					new SqlParameter("@P_Object", SqlDbType.Int,8),
 					new SqlParameter("@P_Name", SqlDbType.NVarChar,100),
 					new SqlParameter("@P_Content", SqlDbType.Text),
 					new SqlParameter("@P_Doctor", SqlDbType.Int,4),
@@ -196,7 +196,7 @@ namespace Maticsoft.SQLServerDAL
 				}
 				if(row["P_Object"]!=null && row["P_Object"].ToString()!="")
 				{
-					model.P_Object=decimal.Parse(row["P_Object"].ToString());
+					model.P_Object=int.Parse(row["P_Object"].ToString());
 				}
 				if(row["P_Name"]!=null)
 				{

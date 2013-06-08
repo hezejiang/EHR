@@ -1,7 +1,0 @@
-E:\项目\Web\EHR\DBUtility\bin\Debug\Maticsoft.DBUtility.dll
-E:\项目\Web\EHR\DBUtility\bin\Debug\Maticsoft.DBUtility.pdb
-E:\项目\Web\EHR\DBUtility\bin\Debug\MySql.Data.dll
-E:\项目\Web\EHR\DBUtility\bin\Debug\System.Data.SQLite.DLL
-E:\项目\Web\EHR\DBUtility\obj\Debug\Maticsoft.DBUtility.dll
-E:\项目\Web\EHR\DBUtility\obj\Debug\Maticsoft.DBUtility.pdb
-E:\项目\Web\EHR\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache

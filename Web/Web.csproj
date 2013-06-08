@@ -776,6 +776,7 @@
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\InfoManager.aspx" />
@@ -999,6 +1000,13 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
