@@ -43,13 +43,13 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             bi1.ButtonIcon = "back.gif";
             bi1.ButtonName = "健康体检记录";
             bi1.ButtonPopedom = PopedomType.List;
-            bi1.ButtonUrl = string.Format("default.aspx");
+            bi1.ButtonUrl = string.Format("HealthCheckList.aspx?UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi1);
 
             HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
             bi2.ButtonIcon = "back.gif";
             bi2.ButtonName = "会诊记录";
-            bi2.ButtonPopedom = PopedomType.List;
+            bi2.ButtonPopedom = PopedomType.B;
             bi2.ButtonUrl = string.Format("ConsultationList.aspx?UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi2);
 

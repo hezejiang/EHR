@@ -1,0 +1,4 @@
+E:\EHR\Model\bin\Debug\Maticsoft.Model.dll
+E:\EHR\Model\bin\Debug\Maticsoft.Model.pdb
+E:\EHR\Model\obj\Debug\Maticsoft.Model.dll
+E:\EHR\Model\obj\Debug\Maticsoft.Model.pdb

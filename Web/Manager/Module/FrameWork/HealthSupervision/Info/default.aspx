@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <!--通用头部 start-->
@@ -40,13 +41,15 @@
             <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">
             </FrameWorkWebControls:AspNetPager>
         </FrameWorkWebControls:TabOptionItem>
+
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="查询">
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
                         发现时间</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="I_FindDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox></td>
+                        <asp:TextBox ID="I_FindDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
+                    </td>
                     <td class="table_body table_body_NoWidth">
                         信息类别</td>
                     <td class="table_none table_none_NoWidth">
@@ -99,17 +102,12 @@
     rnd.seed=rnd.today.getTime(); 
 
     function rnd() { 
-
 　　　　rnd.seed = (rnd.seed*9301+49297) % 233280; 
-
 　　　　return rnd.seed/(233280.0); 
-
     }; 
 
     function rand(number) { 
-
 　　　　return Math.ceil(rnd()*number); 
-
     }; 
     
     

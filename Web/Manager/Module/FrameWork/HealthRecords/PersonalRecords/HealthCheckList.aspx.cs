@@ -1,51 +1,57 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
+using System.Collections.Generic;
+
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using FrameWork.Components;
+using System.Data;
 
 using FrameWork;
+using FrameWork.Components;
 using FrameWork.WebControls;
 
-namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
+namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class HealthCheckList : System.Web.UI.Page
     {
+        public int UserID = (int)Common.sink("UserID", MethodType.Get, 255, 0, DataType.Int);
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindButton();
             if (!Page.IsPostBack)
             {
                 BindData();
             }
         }
+
+        /// <summary>
+        /// 绑定返回按钮(直接复制)
+        /// </summary>
+        private void BindButton()
+        {
+            HeadMenuButtonItem bi0 = new HeadMenuButtonItem();
+            bi0.ButtonIcon = "New.gif";
+            bi0.ButtonName = "新增健康体检记录";
+            bi0.ButtonPopedom = PopedomType.New;
+            bi0.ButtonUrl = string.Format("ConsultationManager.aspx?CMD=New&UserID={0}", UserID);
+            HeadMenuWebControls1.ButtonList.Add(bi0);
+        }
+
         /// <summary>
         /// 绑定列表数据
         /// </summary>
         private void BindData()
         {
-            //排序
             string orderby = OrderType == 0 ? Orderfld + " asc" : Orderfld + " desc";
-            //这一页开始的记录索引
             int startIndex = (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize + 1;
-            //这一页结束的记录索引
             int endIndex = this.AspNetPager1.CurrentPageIndex * this.AspNetPager1.PageSize;
-            //需要更改
-            Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
-
-            //bll通过调用GetListByPage方法返回分页数据
+            Maticsoft.BLL.record_HealthCheck bll = new Maticsoft.BLL.record_HealthCheck();
             DataSet datas = bll.GetListByPage(SearchTerms, orderby, startIndex, endIndex);
             GridView1.DataSource = datas;
             GridView1.DataBind();
-            //获取总记录数
             this.AspNetPager1.RecordCount = bll.GetRecordCount(SearchTerms);
         }
-
         /// <summary>
         /// 跳转分页时调用的方法
         /// </summary>
@@ -54,35 +60,6 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         protected void AspNetPager1_PageChanged(object sender, EventArgs e)
         {
             BindData();
-        }
-
-        /// <summary>
-        /// 根据信息类型返回对应的信息名称（这个方法是在有下拉框的时候需要）
-        /// </summary>
-        /// <param name="superision_type"></param>
-        /// <returns></returns>
-        public string getSuperisionNameByType(int superision_type)
-        {
-            string superision_name = "";
-            switch (superision_type)
-            {
-                case 1:
-                    superision_name = "食品安全";
-                    break;
-                case 2:
-                    superision_name = "饮用水卫生";
-                    break;
-                case 3:
-                    superision_name = "职业病安全";
-                    break;
-                case 4:
-                    superision_name = "学校卫生";
-                    break;
-                case 5:
-                    superision_name = "非法行医（采供血）";
-                    break;
-            }
-            return superision_name;
         }
 
         /// <summary>
@@ -98,47 +75,42 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         }
 
         /// <summary>
-        /// 点击查询（需要更改）
+        /// 点击查询
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string I_FindDate_Value = Convert.ToString(Common.sink(I_FindDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
-            string I_Type_Value = I_Type.SelectedValue;
-            string I_ReportDate_Value = Convert.ToString(Common.sink(I_ReportDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
-            string I_ReportUserID_Value = (string)Common.sink(I_ReportUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
-            string I_Content_Value = (string)Common.sink(I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            string H_Result_Value = Convert.ToString(Common.sink(H_Result.UniqueID, MethodType.Post, 20, 0, DataType.Str));
+            string H_Suggestion_Value = Convert.ToString(Common.sink(H_Suggestion.UniqueID, MethodType.Post, 20, 0, DataType.Str));
+            string H_CheckUserID_Value = (string)Common.sink(H_CheckUserID.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            string H_CheckTime_Value = Convert.ToString(Common.sink(H_CheckTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
 
-            string SqlSearch = " ";
-            if (I_FindDate_Value != "" || I_Type_Value != "0" || I_ReportDate_Value != "" || I_ReportUserID_Value != "" || I_Content_Value != "")
+            string SqlSearch = "";
+            if (H_Result_Value != "" || H_Suggestion_Value != "" || H_CheckUserID_Value != "" || H_CheckTime_Value != "")
             {
-                if (I_FindDate_Value != "")
+                if (H_Result_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_FindDate = '" + Common.inSQL(I_FindDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " H_Result like '%" + Common.inSQL(H_Result_Value) + "%'" + " and ";
                 }
 
-                if (I_Type_Value !="0")
+                if (H_Suggestion_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_Type = " + Common.inSQL(I_Type_Value) + " and ";
+                    SqlSearch = SqlSearch + " H_Suggestion like '%" + Common.inSQL(H_Suggestion_Value) + "%'" + " and ";
                 }
 
-                if (I_ReportDate_Value != "")
+                if (H_CheckUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_ReportDate = '" + Common.inSQL(I_ReportDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " H_CheckUserID = " + Common.inSQL(H_CheckUserID_Value) + " and ";
                 }
 
-                if (I_ReportUserID_Value != "")
+                if (H_CheckTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_ReportUserID = " + Common.inSQL(I_ReportUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " H_CheckTime = '" + Common.inSQL(H_CheckTime_Value) + "' and ";
                 }
-
-                if (I_Content_Value != "")
-                {
-                    SqlSearch = SqlSearch + " I_Content like '%" + Common.inSQL(I_Content_Value) + "%'" + " and ";
-                }
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
+
+            SqlSearch = SqlSearch + string.Format("H_UserID={0} ", UserID);
 
             ViewState["SearchTerms"] = SqlSearch;
             AspNetPager1.CurrentPageIndex = 1;
@@ -154,7 +126,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                    ViewState["SearchTerms"] = string.Format("H_UserID={0} ", UserID);
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }
@@ -187,7 +159,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             {
                 if (ViewState["sortOrderfld"] == null)
 
-                    ViewState["sortOrderfld"] = "InfoID"; //（需要更改）
+                    ViewState["sortOrderfld"] = "HealthID";
 
                 return (string)ViewState["sortOrderfld"];
             }
@@ -202,13 +174,20 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         /// </summary>
         public int OrderType
         {
+
             get
             {
+
                 if (ViewState["sortOrderType"] == null)
                     ViewState["sortOrderType"] = 1;
+
                 return (int)ViewState["sortOrderType"];
+
+
             }
+
             set { ViewState["sortOrderType"] = value; }
+
         }
         /// <summary>
         /// 排序事件

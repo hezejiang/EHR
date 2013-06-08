@@ -25,6 +25,7 @@ namespace Maticsoft.Model
 		private DateTime _h_checktime;
 		private int _h_medicalinstitutions;
 		private int _h_checkuserid;
+        private int _h_userid;
 		/// <summary>
 		/// 健康体检ID
 		/// </summary>
@@ -145,6 +146,11 @@ namespace Maticsoft.Model
 			set{ _h_checkuserid=value;}
 			get{return _h_checkuserid;}
 		}
+        public int H_UserID
+        {
+            set { _h_userid = value; }
+            get { return _h_userid; }
+        }
 		#endregion Model
 
 	}
