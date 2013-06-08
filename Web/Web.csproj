@@ -783,6 +783,7 @@
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\InfoManager.aspx" />
@@ -1048,6 +1049,13 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx.cs">
+      <DependentUpon>HealthCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx.designer.cs">
+      <DependentUpon>HealthCheckList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
