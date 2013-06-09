@@ -1,0 +1,9 @@
+E:\EHR\DALFactory\bin\Debug\Maticsoft.DALFactory.dll
+E:\EHR\DALFactory\bin\Debug\Maticsoft.DALFactory.pdb
+E:\EHR\DALFactory\bin\Debug\Maticsoft.IDAL.dll
+E:\EHR\DALFactory\bin\Debug\Maticsoft.Model.dll
+E:\EHR\DALFactory\bin\Debug\Maticsoft.IDAL.pdb
+E:\EHR\DALFactory\bin\Debug\Maticsoft.Model.pdb
+E:\EHR\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
+E:\EHR\DALFactory\obj\Debug\Maticsoft.DALFactory.dll
+E:\EHR\DALFactory\obj\Debug\Maticsoft.DALFactory.pdb

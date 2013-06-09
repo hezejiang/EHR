@@ -11,7 +11,7 @@ namespace Maticsoft.Model
 		{}
 		#region Model
 		private int _prescriptionid;
-		private decimal _p_object;
+		private int _p_object;
 		private string _p_name;
 		private string _p_content="";
 		private int _p_doctor;
@@ -27,7 +27,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 健康处方对象，与sys_User表的UserID关联
 		/// </summary>
-		public decimal P_Object
+		public int P_Object
 		{
 			set{ _p_object=value;}
 			get{return _p_object;}

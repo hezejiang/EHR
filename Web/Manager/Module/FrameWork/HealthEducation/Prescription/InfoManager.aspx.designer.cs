@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
+namespace FrameWork.Web.Manager.Module.FrameWork.HealthEducation.Prescription {
     
     
-    public partial class _default {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,31 +40,13 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// TopTr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// AspNetPager1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
-        
-        /// <summary>
-        /// TabOptionItem2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
         
         /// <summary>
         /// P_Date 控件。
@@ -76,13 +58,13 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
         protected global::System.Web.UI.WebControls.TextBox P_Date;
         
         /// <summary>
-        /// P_Name 控件。
+        /// tr_username 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox P_Name;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_username;
         
         /// <summary>
         /// P_Object_input 控件。
@@ -103,6 +85,33 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Object;
         
         /// <summary>
+        /// P_Name 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox P_Name;
+        
+        /// <summary>
+        /// P_Content 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox P_Content;
+        
+        /// <summary>
+        /// tr1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr1;
+        
+        /// <summary>
         /// P_Doctor_input 控件。
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Doctor;
+        
+        /// <summary>
+        /// SubmitTr 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
         
         /// <summary>
         /// Button1 控件。

@@ -1,79 +1,82 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.HealthEducation.Prescription._default" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="InfoManager.aspx.cs" Inherits="FrameWork.Web.Manager.Module.FrameWork.HealthEducation.Prescription.InfoManager" %>
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
     <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
-    <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="健康教育处方管理" HeadTitleTxt="健康教育处方管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="健康教育处方" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New" ButtonUrlType="Href" ButtonVisible="True" />
+    <!--通用头部 start-->
+    <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
+        HeadOPTxt="健康教育处方" HeadTitleTxt="健康教育处方管理">
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="健康教育处方" ButtonPopedom="List" ButtonUrl="Default.aspx"
+            ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
+    <!--通用头部 end-->
+    <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
+        <!--Tab选项控件的第一个子选项 start-->
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="健康教育处方">
-            <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
-                OnRowCreated="GridView1_RowCreated">
-                <Columns>
-                    <asp:HyperLinkField HeaderText="健康处方ID" DataTextField="PrescriptionID" SortExpression="PrescriptionID" DataNavigateUrlFields="PrescriptionID"
-                        DataNavigateUrlFormatString="InfoManager.aspx?PrescriptionID={0}&CMD=Edit" />
-                    <asp:TemplateField HeaderText="处方对象">
-                        <ItemTemplate>
-                            <%#getUserModelById(Convert.ToInt32(Eval("P_Object"))).U_CName%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField SortExpression="P_Date" HeaderText="活动日期" DataField="P_Date" DataFormatString="{0:yyyy/MM/dd}"/>
-                    <asp:BoundField HeaderText="处方名称" DataField="P_Name"/>
-                    <asp:BoundField HeaderText="处方内容" DataField="P_Content"/>
-                    <asp:TemplateField HeaderText="处方医生">
-                        <ItemTemplate>
-                            <%#getUserModelById(Convert.ToInt32(Eval("P_Doctor"))).U_CName%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    
-                </Columns>
-            </asp:GridView>
-            <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">
-            </FrameWorkWebControls:AspNetPager>
-        </FrameWorkWebControls:TabOptionItem>
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="查询">
+
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
-                <tr>
-                    <td class="table_body table_body_NoWidth">
+                <tr id="TopTr" runat="server">
+                    <td class="table_body">
                         处方日期</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Date" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox></td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Date" runat="server" Columns="50" title="请选择处方日期!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr id="tr_username" runat="server">
+                    <td class="table_body" >
+                        处方对象</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Object_input" runat="server" Columns="50" title="请点击选择处方对象!"
+                            CssClass="text_input" ReadOnly></asp:TextBox>
+                        <input type="hidden" id="P_Object" runat="server" />
+                        <input type=button value="选择处方对象" name="buttonselect" onClick="javascript:ShowDepartID(1)" class="cbutton">
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
+                    </td>
+                </tr>
+                <tr>
                     <td class="table_body table_body_NoWidth">
                         处方名称</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Name" runat="server" CssClass="text_input"></asp:TextBox></td>
+                        <asp:TextBox ID="P_Name" runat="server" Columns="50" CssClass="text_input"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="table_body">
-                        处方对象</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Object_input" runat="server" title="请点击选择处方对象!" CssClass="text_input" ReadOnly></asp:TextBox>
-                        <input type="hidden" id="P_Object" runat="server" />
-                        <input type="button" value="选择" name="buttonselect" onClick="javascript:ShowDepartID(1)" class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
+                        处方内容</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Content" runat="server" Columns="50" title="请输入信息内容!"
+                            CssClass="text_input" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
                     </td>
-                    <td class="table_body">
+                </tr>
+                <tr id="tr1" runat="server">
+                    <td class="table_body" >
                         处方医生</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Doctor_input" runat="server" title="请点击选择处方医生!" CssClass="text_input" ReadOnly></asp:TextBox>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Doctor_input" runat="server" Columns="50" title="请点击选择处方医生!"
+                            CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="P_Doctor" runat="server" />
-                        <input type="button" value="选择" name="buttonselect" onClick="javascript:ShowDepartID(2)" class="cbutton"/>
+                        <input type=button value="选择处方医生" name="buttonselect" onClick="javascript:ShowDepartID(2)" class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
-                    
                 </tr>
-                <tr>
-                    <td colspan="4" align="right">
-                        <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
+
+                <tr id="SubmitTr" runat="server">
+                    <td colspan="2" align="right">
+                        <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
+                        <input id="Reset1" class="button_bak" type="reset" value="重填" />&nbsp;
+                    </td>
                 </tr>
             </table>
         </FrameWorkWebControls:TabOptionItem>
-        
+        <!--Tab选项控件的第一个子选项 end-->
+        <!--Tab选项控件的第二个子选项 start-->
+            <!--如果有多Tab子选项就仿照第一个子选项的写法-->
+        <!--Tab选项控件的第二个子选项 end-->
     </FrameWorkWebControls:TabOptionWebControls>
+    <!--Tab选项控件 end-->
     <script language="javascript">
         rnd.today=new Date(); 
         rnd.seed=rnd.today.getTime(); 
@@ -141,6 +144,4 @@
             });            
         }
     </script>
-
 </asp:Content>
-
