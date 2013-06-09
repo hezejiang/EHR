@@ -1,6 +1,0 @@
-E:\EHR\DBUtility\bin\Debug\Maticsoft.DBUtility.dll
-E:\EHR\DBUtility\bin\Debug\Maticsoft.DBUtility.pdb
-E:\EHR\DBUtility\bin\Debug\MySql.Data.dll
-E:\EHR\DBUtility\bin\Debug\System.Data.SQLite.DLL
-E:\EHR\DBUtility\obj\Debug\Maticsoft.DBUtility.dll
-E:\EHR\DBUtility\obj\Debug\Maticsoft.DBUtility.pdb

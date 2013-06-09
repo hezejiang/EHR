@@ -1,7 +1,0 @@
-E:\EHR\Common\bin\Debug\Maticsoft.Common.dll
-E:\EHR\Common\bin\Debug\Maticsoft.Common.pdb
-E:\EHR\Common\bin\Debug\COM.Excel.dll
-E:\EHR\Common\bin\Debug\OpenSmtp.dll
-E:\EHR\Common\bin\Debug\OWC10Chart.dll
-E:\EHR\Common\obj\Debug\Maticsoft.Common.dll
-E:\EHR\Common\obj\Debug\Maticsoft.Common.pdb
