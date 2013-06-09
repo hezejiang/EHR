@@ -19,17 +19,14 @@
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
-                    <asp:BoundField SortExpression="U_UserNO" HeaderText="员工编号" DataField="U_UserNO" />
-                    <asp:HyperLinkField SortExpression="U_LoginName" HeaderText="用户名" DataTextField="U_LoginName" DataNavigateUrlFields="UserID"
-                        DataNavigateUrlFormatString="UserManager.aspx?UserID={0}&CMD=List" />
-                    <asp:BoundField SortExpression="U_CName" HeaderText="中文名" DataField="U_CName" />
-                    <asp:TemplateField SortExpression="U_GroupID" HeaderText="部门">
+                    <asp:HyperLinkField SortExpression="U_IDCard" HeaderText="个人健康档案编号" DataTextField="U_IDCard" DataNavigateUrlFields="UserID"
+                        DataNavigateUrlFormatString="UserManager.aspx?UserID={0}&CMD=List"/>
+                    <asp:BoundField SortExpression="U_CName" HeaderText="姓名" DataField="U_CName" />
+                    <asp:TemplateField SortExpression="U_GroupID" HeaderText="管理部门">
                         <ItemTemplate>
                             <%#Get_U_GroupID((int)Eval("U_GroupID")) %>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField SortExpression="U_WorkStartDate" HeaderText="到职日期" DataField="U_WorkStartDate" DataFormatString="{0:yyyy/MM/dd}"
-                        HtmlEncode="false" />
                     <asp:TemplateField SortExpression="U_Type" HeaderText="用户类型">
                         <ItemTemplate>
                             <%#FrameWork.BusinessFacade.sys_UserType((int)Eval("U_Type"))%>
@@ -49,11 +46,11 @@
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
-                        用户名</td>
+                        姓名</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="U_LoginName" runat="server" CssClass="text_input"></asp:TextBox></td>
+                        <asp:TextBox ID="U_CName" runat="server" CssClass="text_input"></asp:TextBox></td>
                     <td class="table_body table_body_NoWidth">
-                        部门</td>
+                        管理部门</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="U_GroupID" id="U_GroupID" value=""><input
                             runat="server" name="U_GroupID_Txt" id="U_GroupID_Txt" size="15" value="" class="text_input"
@@ -62,16 +59,6 @@
                             class="cbutton">
                         <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
                     </td>
-                </tr>
-                <tr>
-                    <td class="table_body table_body_NoWidth">
-                        中文名</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="U_CName" runat="server" CssClass="text_input"></asp:TextBox></td>
-                    <td class="table_body table_body_NoWidth">
-                        员工编号</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="U_UserNO" runat="server" CssClass="text_input"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="table_body table_body_NoWidth">

@@ -4,6 +4,8 @@ using System.Text;
 using System.Data.SqlClient;
 using Maticsoft.IDAL;
 using Maticsoft.DBUtility;//Please add references
+using System.Collections.Generic;
+
 namespace Maticsoft.SQLServerDAL
 {
 	/// <summary>
@@ -355,7 +357,28 @@ namespace Maticsoft.SQLServerDAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID)
+        {
+            List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from sys_Group");
+            strSql.Append(" where G_ParentID=@G_ParentID");
+            SqlParameter[] parameters = {
+					new SqlParameter("@G_ParentID", SqlDbType.Int,4)
+			};
+            parameters[0].Value = GroupID;
 
+            Maticsoft.Model.sys_Group model = new Maticsoft.Model.sys_Group();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            DataTable dt = ds.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                model = (Maticsoft.Model.sys_Group)DataRowToModel(dt.Rows[i]);
+                list.Add(model);
+                list.AddRange(GetLowerLevel(model.GroupID));
+            }
+            return list;
+        }
 		#endregion  ExtensionMethod
 	}
 }

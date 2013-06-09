@@ -29,8 +29,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField SortExpression="I_Content" HeaderText="信息内容" DataField="I_Content"/>
-                    <asp:BoundField SortExpression="I_ReportDate" HeaderText="报告时间" DataField="I_ReportDate" DataFormatString="{0:yyyy/MM/dd}"
-                        HtmlEncode="false" />
+                    <asp:BoundField SortExpression="I_ReportDate" HeaderText="报告时间" DataField="I_ReportDate" DataFormatString="{0:yyyy/MM/dd}" HtmlEncode="false" />
                     <asp:TemplateField SortExpression="I_ReportUserID" HeaderText="报告人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("I_ReportUserID"))).U_CName%>
@@ -71,7 +70,7 @@
                     <td class="table_body table_body_NoWidth">
                         报告人</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="I_ReportUserID" id="I_ReportUserID" value=""/>
+                        <input type="hidden" runat="server" name="I_ReportUserID" id="I_ReportUserID"/>
                         <input runat="server" name="I_ReportUserID_input" id="I_ReportUserID_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择报告人" id="button3" name="buttonselect" onclick="javascript:ShowDepartID()"
                             class="cbutton"/>

@@ -133,36 +133,36 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Maticsoft.BLL.supervision_Info supervision = new Maticsoft.BLL.supervision_Info();
-            Maticsoft.Model.supervision_Info supervision_Info = supervision.GetModel(InfoID);
-            if (supervision_Info == null)
+            Maticsoft.BLL.supervision_Info supervision_bll = new Maticsoft.BLL.supervision_Info();
+            Maticsoft.Model.supervision_Info supervision_Info_model = supervision_bll.GetModel(InfoID);
+            if (supervision_Info_model == null)
             {
-                supervision_Info = new Maticsoft.Model.supervision_Info();
+                supervision_Info_model = new Maticsoft.Model.supervision_Info();
             }
 
             //获取客户端通过Post方式传递过来的值的（需要更改）
-            supervision_Info.I_FindDate = (DateTime)Common.sink(this.I_FindDate.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
-            supervision_Info.I_Type = Convert.ToInt32(this.I_Type.SelectedValue);
-            supervision_Info.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            supervision_Info.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            supervision_Info.I_ReportUserID = Convert.ToInt32(this.I_ReportUserID.Value);
+            supervision_Info_model.I_FindDate = (DateTime)Common.sink(this.I_FindDate.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            supervision_Info_model.I_Type = Convert.ToInt32(this.I_Type.SelectedValue);
+            supervision_Info_model.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            supervision_Info_model.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
+            supervision_Info_model.I_ReportUserID = Convert.ToInt32(this.I_ReportUserID.Value);
 
             switch (CMD)
             {
                 case "New":
                     CMD_Txt = "增加";
                     //如果是增加操作，就调用Add方法
-                    supervision.Add(supervision_Info);
+                    supervision_Info_model.InfoID = supervision_bll.Add(supervision_Info_model);
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
                     //如果是修改操作，就调用Update方法
-                    supervision.Update(supervision_Info);
+                    supervision_bll.Update(supervision_Info_model);
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
             //以下方法的第4个参数需要更改
-                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", InfoID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", supervision_Info_model.InfoID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
         }
     }
 }

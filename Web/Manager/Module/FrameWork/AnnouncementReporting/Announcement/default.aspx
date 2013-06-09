@@ -58,7 +58,7 @@
                         <asp:DropDownList runat="server" ID="A_Type">
                             <asp:ListItem Text="不限" Value="0" />
                             <asp:ListItem Text="普通公告" Value="1" />
-                            <asp:ListItem Text="重大疫情公告" Value="2" />
+                            <asp:ListItem Text="紧急公告" Value="2" />
                         </asp:DropDownList>
                     </td>
                 </tr>

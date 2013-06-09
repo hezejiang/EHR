@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
         <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/jquery-1.7.1.min.js"></script>
+
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
 
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
@@ -30,10 +32,10 @@
                 <td class="table_body table_body_NoWidth" >
                     用户类型</td>
                 <td class="table_none table_none_NoWidth" >
-                    <asp:DropDownList ID="U_Type" runat="server">
+                    <asp:DropDownList ID="U_Type" CssClass="U_Type" runat="server">
                     <asp:ListItem Value="1">普通用户</asp:ListItem>
-                    <asp:ListItem Value="2">管理员</asp:ListItem>
-                    <asp:ListItem Value="0">超级用户</asp:ListItem>
+                    <asp:ListItem Value="2" Enabled="false">管理员</asp:ListItem>
+                    <asp:ListItem Value="0" Enabled="false">超级用户</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="U_Type_Value" runat="server"></asp:Label></td>
                 <td class="table_body table_body_NoWidth" >
@@ -57,130 +59,18 @@
                     (超级用户不受用户角色权限限制,默认所有权限.)
                     </td>
             </tr>
-		</table>      
-        </FrameWorkWebControls:TabOptionItem>
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="用户资料" Tab_Visible="False">
-         <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    员工编号</td>
-                <td class="table_none table_none_NoWidth">
-                    <asp:TextBox ID="U_UserNO" title="请输入员工编号~20:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_UserNO_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" rowspan="4">
-                    照片</td>
-                <td class="table_none table_none_NoWidth" rowspan="4">
-                    <asp:Image ID="U_PhotoUrl_Value" border=0 runat="server" onclick="javascript:window.open(MaxImgUrl)" style="cursor:pointer" title="点击放大" />
-                    
-                    <asp:FileUpload ID="U_PhotoUrl" runat="server" contentEditable=false CssClass="text_input" /></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    中文名</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_CName" title="请输入中文名~20:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_CName_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    英文名</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_EName" title="请输入英文名~50:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_EName_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    部门</td>
-                <td class="table_none table_none_NoWidth" >
+            <tr id="U_GroupID_tr">
+                <td class="table_body table_body_NoWidth">
+                    管理部门</td>
+                    <td class="table_none table_none_NoWidth" colspan="3">
                         <span id="U_GroupID_Span" runat="server">
-                        <input type="hidden" runat="server" name="U_GroupID" id="U_GroupID"><input runat=server name="U_GroupID_Txt" id="U_GroupID_Txt" class="text_input" readonly>
-                        <input type=button value="选择部门" id=button3 name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton">
+                        <input type="hidden" runat="server" name="U_GroupID" id="U_GroupID"><input runat=server name="U_GroupID_Txt" id="U_GroupID_Txt" class="text_input" readonly/>
+                        <input type=button value="选择部门" id=button3 name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
                         </span>
                     <asp:Label ID="U_GroupID_Value" runat="server" Text=""></asp:Label></td>
             </tr>
-		<tr>
-			<td class="table_body table_body_NoWidth" >
-                    性别</td>
-			<td class="table_none table_none_NoWidth" >
-                <asp:DropDownList ID="U_Sex" runat="server">
-                <asp:ListItem Value="1">男</asp:ListItem>
-                <asp:ListItem Value="0">女</asp:ListItem>
-                </asp:DropDownList>
-                <asp:Label ID="U_Sex_Value" runat="server" Text=""></asp:Label></td>
-			<td class="table_body table_body_NoWidth" >
-                    出生年月</td>
-			<td class="table_none table_none_NoWidth" >
-                <asp:TextBox ID="U_BirthDay" title="请输入出生年月~:date" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
-                <asp:Label ID="U_BirthDay_Value" runat="server" Text=""></asp:Label></td>            
-		</tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    职称</td>
-                <td class="table_none table_none_NoWidth" >
-                    <FrameWorkWebControls:FieldWebControls ID="FieldWebControls1" runat="server" F_Key="Title" Field_Name="U_Title" LineNum="2" LineNumOn="True" />
-                    <asp:Label ID="U_Title_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" >
-                    身份证号码
-                </td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_IDCard" title="请输入身份证号码~30:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_IDCard_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    家中电话</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_HomeTel" title="请输入家中电话~20:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_HomeTel_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" >
-                    手机号</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_MobileNo" title="请输入手机号~15:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_MobileNo_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    公司邮件地址</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_CompanyMail" title="请输入公司邮件地址~100:email" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_CompanyMail_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" >
-                    邮件地址</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_Email" title="请输入邮件地址~100:email" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_Email_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    分机号</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_Extension" title="请输入分机号~10:" runat="server" CssClass="text_input"></asp:TextBox>
-                    <asp:Label ID="U_Extension_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" >
-                    到职日期</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:TextBox ID="U_WorkStartDate" title="请输入到职日期~:date" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
-                    <asp:Label ID="U_WorkStartDate_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr>
-                <td class="table_body table_body_NoWidth" >
-                    备注说明</td>
-                <td class="table_none table_none_NoWidth"  colspan="3">
-                    <asp:TextBox ID="U_Remark" title="请输入备注说明~2000:" runat="server" Rows="5" TextMode="MultiLine" CssClass="tex_input"></asp:TextBox>
-                    <asp:Label ID="U_Remark_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-            <tr id="DispTr" runat="server" visible="false">
-                <td class="table_body table_body_NoWidth" >
-                    最后访问IP</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:Label ID="U_LastIP_Value" runat="server" Text=""></asp:Label></td>
-                <td class="table_body table_body_NoWidth" >
-                    最后操作时间</td>
-                <td class="table_none table_none_NoWidth" >
-                    <asp:Label ID="U_LastDateTime_Value" runat="server" Text=""></asp:Label></td>
-            </tr>
-		</table>
+		</table>      
         </FrameWorkWebControls:TabOptionItem>
         </FrameWorkWebControls:TabOptionWebControls>
     <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center" id="PostButton" runat="server">
@@ -198,23 +88,17 @@
     rnd.seed=rnd.today.getTime(); 
 
     function rnd() { 
-
 　　　　rnd.seed = (rnd.seed*9301+49297) % 233280; 
-
 　　　　return rnd.seed/(233280.0); 
-
     }; 
 
     function rand(number) { 
-
 　　　　return Math.ceil(rnd()*number); 
-
     }; 
     
     
     function AlertMessageBox(file_name)
     {
-
 	        if (file_name!=undefined){
 	            var ShValues = file_name.split('||');
 	            if (ShValues[1]!=0)
@@ -223,7 +107,6 @@
 	                document.all.<%=this.U_GroupID.ClientID %>.value=ShValues[1];
 	            }            
 	        }
-	         
     }
      function ShowDepartID()
     {
@@ -235,5 +118,22 @@
    	    document.all.<%=this.U_GroupID_Txt.ClientID %>.value="";
         document.all.<%=this.U_GroupID.ClientID %>.value="";
     }
+
+    function type(){
+        var selectVal = $(".U_Type option:selected").val();
+        if(selectVal){
+            selectVal = parseInt(selectVal);
+            if(selectVal == 2){
+                $("#U_GroupID_tr").show();
+            }else{
+                $("#U_GroupID_tr").hide();
+            }
+        }
+    }
+    type();
+
+    $(".U_Type").change(function(){
+        type();
+    });
     </script>
 </asp:Content>
