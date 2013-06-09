@@ -493,7 +493,7 @@ namespace Maticsoft.DBUtility
             catch (System.Data.SqlClient.SqlException e)
             {
                 throw e;
-            }   
+            }
 
         }
         /// <summary>

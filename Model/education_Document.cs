@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* education_Document.cs
+*
+* 功 能： N/A
+* 类 名： education_Document
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/9 21:44:51   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -13,6 +29,7 @@ namespace Maticsoft.Model
 		private int _documentid;
 		private string _d_name;
 		private string _d_url;
+		private int? _d_userid;
 		/// <summary>
 		/// 健康知识文档ID
 		/// </summary>
@@ -36,6 +53,14 @@ namespace Maticsoft.Model
 		{
 			set{ _d_url=value;}
 			get{return _d_url;}
+		}
+		/// <summary>
+		/// 上传者
+		/// </summary>
+		public int? D_UserID
+		{
+			set{ _d_userid=value;}
+			get{return _d_userid;}
 		}
 		#endregion Model
 

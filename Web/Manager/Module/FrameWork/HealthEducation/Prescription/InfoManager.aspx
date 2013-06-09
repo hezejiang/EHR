@@ -1,92 +1,70 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="InfoManager.aspx.cs" Inherits="Maticsoft.Web.Manager.Module.FrameWork.HealthEducation.Prescription.InfoManager" %>
-
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="InfoManager.aspx.cs" Inherits="FrameWork.Web.Manager.Module.FrameWork.HealthEducation.Prescription.InfoManager" %>
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
+    <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
-        HeadOPTxt="健康教育活动" HeadTitleTxt="健康教育活动管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="活动" ButtonPopedom="List" ButtonUrl="Default.aspx"
+        HeadOPTxt="健康教育处方" HeadTitleTxt="健康教育处方管理">
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="健康教育处方" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
+    <!--通用头部 end-->
+    <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="健康教育活动">
+        <!--Tab选项控件的第一个子选项 start-->
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="健康教育处方">
+
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
-                <tr>
+                <tr id="TopTr" runat="server">
                     <td class="table_body">
-                        活动时间</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_DateTime" runat="server" Columns="50" title="请选择活动时间!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
+                        处方日期</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Date" runat="server" Columns="50" title="请选择处方日期!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
-                    <td class="table_body">
-                        活动地点</td>
-                    <td class="table_none table_none_NoWidth">
-                    <asp:TextBox ID="A_Location" runat="server" Columns="50" title="请选择活动地点!" CssClass="text_input"></asp:TextBox>
+                </tr>
+                <tr id="tr_username" runat="server">
+                    <td class="table_body" >
+                        处方对象</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Object_input" runat="server" Columns="50" title="请点击选择处方对象!"
+                            CssClass="text_input" ReadOnly></asp:TextBox>
+                        <input type="hidden" id="P_Object" runat="server" />
+                        <input type=button value="选择处方对象" name="buttonselect" onClick="javascript:ShowDepartID(1)" class="cbutton">
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="table_body">
-                        活动对象</td>
+                    <td class="table_body table_body_NoWidth">
+                        处方名称</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Object_input" runat="server" Columns="30" title="请点击选择活动对象!" CssClass="text_input" ReadOnly></asp:TextBox>
-                        <input type="hidden" id="A_Object" runat="server" />
-                        <input type="button" value="选择" name="buttonselect" onClick="javascript:ShowDepartID()" class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
-                    </td>
-                    <td class="table_body">
-                        活动人群</td>
-                    <td class="table_none table_none_NoWidth">
-                    <asp:TextBox ID="A_Crowd" runat="server" Columns="50" title="请输入活动人群!" CssClass="text_input"></asp:TextBox>
-                    </td>
+                        <asp:TextBox ID="P_Name" runat="server" Columns="50" CssClass="text_input"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td class="table_body">
-                        活动形式</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Form" runat="server" Columns="50" title="请输入活动形式!" CssClass="text_input"></asp:TextBox>
-                    </td>
-                    <td class="table_body">
-                        持续时间</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Duration" runat="server" Columns="45" title="请输入持续时间!单位是分钟" CssClass="text_input"></asp:TextBox>&nbsp;&nbsp;min
+                        处方内容</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Content" runat="server" Columns="50" title="请输入信息内容!"
+                            CssClass="text_input" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
-                    <td class="table_body">
-                        主办单位</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Organizers" runat="server" Columns="50" title="请输入主办单位!" CssClass="text_input"></asp:TextBox>
-                    </td>
-                    <td class="table_body">
-                        合作伙伴</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Partners" runat="server" Columns="50" title="请输入合作伙伴!" CssClass="text_input"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table_body">
-                        宣教人</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Missionary" runat="server" Columns="50" title="请输入宣教人!" CssClass="text_input"></asp:TextBox>
-                    </td>
-                    <td class="table_body">
-                        参与人数</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Number" runat="server" Columns="50" title="请输入参与人数" CssClass="text_input"></asp:TextBox>
+                <tr id="tr1" runat="server">
+                    <td class="table_body" >
+                        处方医生</td>
+                    <td class="table_none">
+                        <asp:TextBox ID="P_Doctor_input" runat="server" Columns="50" title="请点击选择处方医生!"
+                            CssClass="text_input" ReadOnly></asp:TextBox>
+                        <input type="hidden" id="P_Doctor" runat="server" />
+                        <input type=button value="选择处方医生" name="buttonselect" onClick="javascript:ShowDepartID(2)" class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
                 </tr>
-                <tr>
-                    <td class="table_body">
-                        活动主题</td>
-                    <td class="table_none" colspan="3">
-                        <asp:TextBox ID="A_Theme" runat="server" title="请输入活动主题!"
-                            CssClass="text_input" TextMode="MultiLine" style="height:100px; width:100%;"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="right">
+
+                <tr id="SubmitTr" runat="server">
+                    <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
                         <input id="Reset1" class="button_bak" type="reset" value="重填" />&nbsp;
                     </td>
@@ -102,9 +80,10 @@
     <script language="javascript">
         rnd.today=new Date(); 
         rnd.seed=rnd.today.getTime(); 
+        var type;
 
         function rnd() { 
-　　　　    rnd.seed = (rnd.seed*9301+49297) % 233280; 
+　　　　  rnd.seed = (rnd.seed*9301+49297) % 233280; 
 　　      return rnd.seed/(233280.0); 
         }; 
 
@@ -118,21 +97,51 @@
 	            var ShValues = file_name.split('||');
 	            if (ShValues[1]!=0)
 	            {
-                    document.all.<%=this.A_Object_input.ClientID %>.value=ShValues[0];
-                    document.all.<%=this.A_Object.ClientID %>.value=ShValues[1];
+                    onButtonEdit(ShValues[1]);
 	            }
 	        }   
         }
 
-        function ShowDepartID()
+        function ShowDepartID(t)
         {
+            type = t;
             showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
         }
        
-        function ClearSelect()
+        function ClearSelect(t)
         {
-   	        document.all.<%=this.A_Object_input.ClientID %>.value="";
-            document.all.<%=this.A_Object.ClientID %>.value="";
+            type = t;
+            if(type==1){
+   	            document.all.<%=this.P_Object_input.ClientID %>.value="";
+                document.all.<%=this.P_Object.ClientID %>.value="";
+            }else if(type == 2){
+                document.all.<%=this.P_Doctor_input.ClientID %>.value="";
+                document.all.<%=this.P_Doctor.ClientID %>.value="";
+            }
+        }
+
+        mini.parse();
+
+        function onButtonEdit(id) {
+            mini.open({
+                url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") {
+                        if(type == 1){
+   	                        document.all.<%=this.P_Object_input.ClientID %>.value=result[2];
+                            document.all.<%=this.P_Object.ClientID %>.value=result[1];
+                        }else if(type == 2){
+                            document.all.<%=this.P_Doctor_input.ClientID %>.value=result[2];
+                            document.all.<%=this.P_Doctor.ClientID %>.value=result[1];
+                        }
+                    }
+                }
+            });            
         }
     </script>
 </asp:Content>

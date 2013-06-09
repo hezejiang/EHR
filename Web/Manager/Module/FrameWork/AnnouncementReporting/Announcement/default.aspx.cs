@@ -178,7 +178,7 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
             {
                 if (ViewState["sortOrderfld"] == null)
 
-                    ViewState["sortOrderfld"] = "AnnouncementID";
+                    ViewState["sortOrderfld"] = "A_DateTime";
 
                 return (string)ViewState["sortOrderfld"];
             }

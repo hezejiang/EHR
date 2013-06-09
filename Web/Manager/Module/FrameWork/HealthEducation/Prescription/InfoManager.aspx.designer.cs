@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Maticsoft.Web.Manager.Module.FrameWork.HealthEducation.Prescription {
+namespace FrameWork.Web.Manager.Module.FrameWork.HealthEducation.Prescription {
     
     
     public partial class InfoManager {
@@ -40,112 +40,103 @@ namespace Maticsoft.Web.Manager.Module.FrameWork.HealthEducation.Prescription {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// A_DateTime 控件。
+        /// TopTr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_DateTime;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
         
         /// <summary>
-        /// A_Location 控件。
+        /// P_Date 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Location;
+        protected global::System.Web.UI.WebControls.TextBox P_Date;
         
         /// <summary>
-        /// A_Object_input 控件。
+        /// tr_username 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Object_input;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_username;
         
         /// <summary>
-        /// A_Object 控件。
+        /// P_Object_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden A_Object;
+        protected global::System.Web.UI.WebControls.TextBox P_Object_input;
         
         /// <summary>
-        /// A_Crowd 控件。
+        /// P_Object 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Crowd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Object;
         
         /// <summary>
-        /// A_Form 控件。
+        /// P_Name 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Form;
+        protected global::System.Web.UI.WebControls.TextBox P_Name;
         
         /// <summary>
-        /// A_Duration 控件。
+        /// P_Content 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Duration;
+        protected global::System.Web.UI.WebControls.TextBox P_Content;
         
         /// <summary>
-        /// A_Organizers 控件。
+        /// tr1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Organizers;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr1;
         
         /// <summary>
-        /// A_Partners 控件。
+        /// P_Doctor_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Partners;
+        protected global::System.Web.UI.WebControls.TextBox P_Doctor_input;
         
         /// <summary>
-        /// A_Missionary 控件。
+        /// P_Doctor 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Missionary;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden P_Doctor;
         
         /// <summary>
-        /// A_Number 控件。
+        /// SubmitTr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Number;
-        
-        /// <summary>
-        /// A_Theme 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox A_Theme;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
         
         /// <summary>
         /// Button1 控件。

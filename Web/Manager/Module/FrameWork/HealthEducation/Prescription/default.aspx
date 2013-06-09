@@ -39,7 +39,7 @@
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
-                        活动日期</td>
+                        处方日期</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="P_Date" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox></td>
                     <td class="table_body table_body_NoWidth">
@@ -51,7 +51,7 @@
                     <td class="table_body">
                         处方对象</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Object_input" runat="server" title="请点击选择活动对象!" CssClass="text_input" ReadOnly></asp:TextBox>
+                        <asp:TextBox ID="P_Object_input" runat="server" title="请点击选择处方对象!" CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="P_Object" runat="server" />
                         <input type="button" value="选择" name="buttonselect" onClick="javascript:ShowDepartID(1)" class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
@@ -59,7 +59,7 @@
                     <td class="table_body">
                         处方医生</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="P_Doctor_input" runat="server" title="请点击选择活动对象!" CssClass="text_input" ReadOnly></asp:TextBox>
+                        <asp:TextBox ID="P_Doctor_input" runat="server" title="请点击选择处方医生!" CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="P_Doctor" runat="server" />
                         <input type="button" value="选择" name="buttonselect" onClick="javascript:ShowDepartID(2)" class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
