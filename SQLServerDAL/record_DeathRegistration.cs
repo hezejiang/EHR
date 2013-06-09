@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_DeathRegistration.cs
+*
+* 功 能： N/A
+* 类 名： record_DeathRegistration
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/9 15:49:00   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,23 +63,21 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_DeathRegistration(");
-			strSql.Append("D_DateTime,D_Location,D_Icd10ID,D_Note,D_UserID,D_RegDate)");
+			strSql.Append("D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate)");
 			strSql.Append(" values (");
-			strSql.Append("@D_DateTime,@D_Location,@D_Icd10ID,@D_Note,@D_UserID,@D_RegDate)");
+			strSql.Append("@D_DateTime,@D_Location,@D_Reason,@D_UserID,@D_RegDate)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@D_Location", SqlDbType.NVarChar,50),
-					new SqlParameter("@D_Icd10ID", SqlDbType.Int,4),
-					new SqlParameter("@D_Note", SqlDbType.Text),
+					new SqlParameter("@D_Reason", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
 					new SqlParameter("@D_RegDate", SqlDbType.DateTime)};
 			parameters[0].Value = model.D_DateTime;
 			parameters[1].Value = model.D_Location;
-			parameters[2].Value = model.D_Icd10ID;
-			parameters[3].Value = model.D_Note;
-			parameters[4].Value = model.D_UserID;
-			parameters[5].Value = model.D_RegDate;
+			parameters[2].Value = model.D_Reason;
+			parameters[3].Value = model.D_UserID;
+			parameters[4].Value = model.D_RegDate;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -84,26 +98,23 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("update record_DeathRegistration set ");
 			strSql.Append("D_DateTime=@D_DateTime,");
 			strSql.Append("D_Location=@D_Location,");
-			strSql.Append("D_Icd10ID=@D_Icd10ID,");
-			strSql.Append("D_Note=@D_Note,");
+			strSql.Append("D_Reason=@D_Reason,");
 			strSql.Append("D_UserID=@D_UserID,");
 			strSql.Append("D_RegDate=@D_RegDate");
 			strSql.Append(" where DeathID=@DeathID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@D_Location", SqlDbType.NVarChar,50),
-					new SqlParameter("@D_Icd10ID", SqlDbType.Int,4),
-					new SqlParameter("@D_Note", SqlDbType.Text),
+					new SqlParameter("@D_Reason", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
 					new SqlParameter("@D_RegDate", SqlDbType.DateTime),
 					new SqlParameter("@DeathID", SqlDbType.Int,4)};
 			parameters[0].Value = model.D_DateTime;
 			parameters[1].Value = model.D_Location;
-			parameters[2].Value = model.D_Icd10ID;
-			parameters[3].Value = model.D_Note;
-			parameters[4].Value = model.D_UserID;
-			parameters[5].Value = model.D_RegDate;
-			parameters[6].Value = model.DeathID;
+			parameters[2].Value = model.D_Reason;
+			parameters[3].Value = model.D_UserID;
+			parameters[4].Value = model.D_RegDate;
+			parameters[5].Value = model.DeathID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -167,7 +178,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 DeathID,D_DateTime,D_Location,D_Icd10ID,D_Note,D_UserID,D_RegDate from record_DeathRegistration ");
+			strSql.Append("select  top 1 DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate from record_DeathRegistration ");
 			strSql.Append(" where DeathID=@DeathID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@DeathID", SqlDbType.Int,4)
@@ -207,13 +218,9 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.D_Location=row["D_Location"].ToString();
 				}
-				if(row["D_Icd10ID"]!=null && row["D_Icd10ID"].ToString()!="")
+				if(row["D_Reason"]!=null)
 				{
-					model.D_Icd10ID=int.Parse(row["D_Icd10ID"].ToString());
-				}
-				if(row["D_Note"]!=null)
-				{
-					model.D_Note=row["D_Note"].ToString();
+					model.D_Reason=row["D_Reason"].ToString();
 				}
 				if(row["D_UserID"]!=null && row["D_UserID"].ToString()!="")
 				{
@@ -233,7 +240,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select DeathID,D_DateTime,D_Location,D_Icd10ID,D_Note,D_UserID,D_RegDate ");
+			strSql.Append("select DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate ");
 			strSql.Append(" FROM record_DeathRegistration ");
 			if(strWhere.Trim()!="")
 			{
@@ -253,7 +260,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" DeathID,D_DateTime,D_Location,D_Icd10ID,D_Note,D_UserID,D_RegDate ");
+			strSql.Append(" DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate ");
 			strSql.Append(" FROM record_DeathRegistration ");
 			if(strWhere.Trim()!="")
 			{

@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_DeathRegistration.cs
+*
+* 功 能： N/A
+* 类 名： record_DeathRegistration
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/9 15:49:00   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -13,8 +29,7 @@ namespace Maticsoft.Model
 		private int _deathid;
 		private DateTime _d_datetime;
 		private string _d_location;
-		private int? _d_icd10id=0;
-		private string _d_note="";
+		private string _d_reason="";
 		private int _d_userid=0;
 		private DateTime _d_regdate;
 		/// <summary>
@@ -42,20 +57,12 @@ namespace Maticsoft.Model
 			get{return _d_location;}
 		}
 		/// <summary>
-		/// 疾病icd10编码
+		/// 死亡原因
 		/// </summary>
-		public int? D_Icd10ID
+		public string D_Reason
 		{
-			set{ _d_icd10id=value;}
-			get{return _d_icd10id;}
-		}
-		/// <summary>
-		/// 死亡说明
-		/// </summary>
-		public string D_Note
-		{
-			set{ _d_note=value;}
-			get{return _d_note;}
+			set{ _d_reason=value;}
+			get{return _d_reason;}
 		}
 		/// <summary>
 		/// 登记人,与sys_User表的UserID关联

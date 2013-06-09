@@ -54,7 +54,7 @@
                         信息类别</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:DropDownList runat="server" ID="I_Type">
-                            <asp:ListItem Text="无" Value="0" />
+                            <asp:ListItem Text="不限" Value="0" />
                             <asp:ListItem Text="食品安全" Value="1" />
                             <asp:ListItem Text="饮用水卫生" Value="2" />
                             <asp:ListItem Text="职业病安全" Value="3" />

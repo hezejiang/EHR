@@ -47,23 +47,23 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into supervision_Inspect(");
-			strSql.Append("I_Location,I_Type,I_Date,I_UserID,I_Conent,I_MainProblem,I_Note)");
+			strSql.Append("I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note)");
 			strSql.Append(" values (");
-			strSql.Append("@I_Location,@I_Type,@I_Date,@I_UserID,@I_Conent,@I_MainProblem,@I_Note)");
+			strSql.Append("@I_Location,@I_Type,@I_Date,@I_UserID,@I_Content,@I_MainProblem,@I_Note)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@I_Location", SqlDbType.NVarChar,100),
 					new SqlParameter("@I_Type", SqlDbType.TinyInt,1),
 					new SqlParameter("@I_Date", SqlDbType.DateTime),
 					new SqlParameter("@I_UserID", SqlDbType.Int,4),
-					new SqlParameter("@I_Conent", SqlDbType.Text),
+					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_MainProblem", SqlDbType.Text),
 					new SqlParameter("@I_Note", SqlDbType.Text)};
 			parameters[0].Value = model.I_Location;
 			parameters[1].Value = model.I_Type;
 			parameters[2].Value = model.I_Date;
 			parameters[3].Value = model.I_UserID;
-			parameters[4].Value = model.I_Conent;
+			parameters[4].Value = model.I_Content;
 			parameters[5].Value = model.I_MainProblem;
 			parameters[6].Value = model.I_Note;
 
@@ -88,7 +88,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("I_Type=@I_Type,");
 			strSql.Append("I_Date=@I_Date,");
 			strSql.Append("I_UserID=@I_UserID,");
-			strSql.Append("I_Conent=@I_Conent,");
+			strSql.Append("I_Content=@I_Content,");
 			strSql.Append("I_MainProblem=@I_MainProblem,");
 			strSql.Append("I_Note=@I_Note");
 			strSql.Append(" where InspectID=@InspectID");
@@ -97,7 +97,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@I_Type", SqlDbType.TinyInt,1),
 					new SqlParameter("@I_Date", SqlDbType.DateTime),
 					new SqlParameter("@I_UserID", SqlDbType.Int,4),
-					new SqlParameter("@I_Conent", SqlDbType.Text),
+					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_MainProblem", SqlDbType.Text),
 					new SqlParameter("@I_Note", SqlDbType.Text),
 					new SqlParameter("@InspectID", SqlDbType.Int,4)};
@@ -105,7 +105,7 @@ namespace Maticsoft.SQLServerDAL
 			parameters[1].Value = model.I_Type;
 			parameters[2].Value = model.I_Date;
 			parameters[3].Value = model.I_UserID;
-			parameters[4].Value = model.I_Conent;
+			parameters[4].Value = model.I_Content;
 			parameters[5].Value = model.I_MainProblem;
 			parameters[6].Value = model.I_Note;
 			parameters[7].Value = model.InspectID;
@@ -172,7 +172,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 InspectID,I_Location,I_Type,I_Date,I_UserID,I_Conent,I_MainProblem,I_Note from supervision_Inspect ");
+			strSql.Append("select  top 1 InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note from supervision_Inspect ");
 			strSql.Append(" where InspectID=@InspectID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@InspectID", SqlDbType.Int,4)
@@ -220,9 +220,9 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.I_UserID=int.Parse(row["I_UserID"].ToString());
 				}
-				if(row["I_Conent"]!=null)
+				if(row["I_Content"]!=null)
 				{
-					model.I_Conent=row["I_Conent"].ToString();
+					model.I_Content=row["I_Content"].ToString();
 				}
 				if(row["I_MainProblem"]!=null)
 				{
@@ -242,7 +242,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select InspectID,I_Location,I_Type,I_Date,I_UserID,I_Conent,I_MainProblem,I_Note ");
+			strSql.Append("select InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note ");
 			strSql.Append(" FROM supervision_Inspect ");
 			if(strWhere.Trim()!="")
 			{
@@ -262,7 +262,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" InspectID,I_Location,I_Type,I_Date,I_UserID,I_Conent,I_MainProblem,I_Note ");
+			strSql.Append(" InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note ");
 			strSql.Append(" FROM supervision_Inspect ");
 			if(strWhere.Trim()!="")
 			{
