@@ -10,7 +10,7 @@
 namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
     
     
-    public partial class _default {
+    public partial class WebForm1 {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,85 +40,94 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// TopTr 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
         
         /// <summary>
-        /// AspNetPager1 控件。
+        /// I_FindDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.TextBox I_FindDate;
         
         /// <summary>
-        /// TabOptionItem2 控件。
+        /// Tr1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr1;
         
         /// <summary>
-        /// D_DateTime 控件。
+        /// I_Type 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox D_DateTime;
+        protected global::System.Web.UI.WebControls.DropDownList I_Type;
         
         /// <summary>
-        /// D_RegDate 控件。
+        /// I_Content 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox D_RegDate;
+        protected global::System.Web.UI.WebControls.TextBox I_Content;
         
         /// <summary>
-        /// D_Location 控件。
+        /// I_ReportDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox D_Location;
+        protected global::System.Web.UI.WebControls.TextBox I_ReportDate;
         
         /// <summary>
-        /// D_UserID 控件。
+        /// tr_username 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_UserID;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_username;
         
         /// <summary>
-        /// D_UserID_input 控件。
+        /// I_ReportUserID_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText D_UserID_input;
+        protected global::System.Web.UI.WebControls.TextBox I_ReportUserID_input;
         
         /// <summary>
-        /// D_Reason 控件。
+        /// I_ReportUserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox D_Reason;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden I_ReportUserID;
+        
+        /// <summary>
+        /// SubmitTr 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
         
         /// <summary>
         /// Button1 控件。

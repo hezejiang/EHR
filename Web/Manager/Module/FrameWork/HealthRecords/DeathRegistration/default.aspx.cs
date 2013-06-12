@@ -53,34 +53,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             BindData();
         }
 
-        /// <summary>
-        /// 根据信息类型返回对应的信息名称（这个方法是在有下拉框的时候需要）
-        /// </summary>
-        /// <param name="superision_type"></param>
-        /// <returns></returns>
-        public string getSuperisionNameByType(int superision_type)
-        {
-            string superision_name = "";
-            switch (superision_type)
-            {
-                case 1:
-                    superision_name = "食品安全";
-                    break;
-                case 2:
-                    superision_name = "饮用水卫生";
-                    break;
-                case 3:
-                    superision_name = "职业病安全";
-                    break;
-                case 4:
-                    superision_name = "学校卫生";
-                    break;
-                case 5:
-                    superision_name = "非法行医（采供血）";
-                    break;
-            }
-            return superision_name;
-        }
+        
 
         /// <summary>
         /// 通过用户id得到用户信息
@@ -102,6 +75,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
         protected void Button1_Click(object sender, EventArgs e)
         {
             string D_DateTime_Value = Convert.ToString(Common.sink(D_DateTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
+            string D_RegDate_Value = Convert.ToString(Common.sink(D_RegDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
             string D_UserID_Value = (string)Common.sink(D_UserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string D_Reason_Value = (string)Common.sink(D_Reason.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             string D_Location_Value = D_Location.Text;
@@ -112,6 +86,11 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
                 if (D_DateTime_Value != "")
                 {
                     SqlSearch = SqlSearch + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' and ";
+                }
+
+                if (D_RegDate_Value != "")
+                {
+                    SqlSearch = SqlSearch + " D_RegDate = '" + Common.inSQL(D_RegDate_Value) + "' and ";
                 }
 
                 if (D_Location_Value != "")
