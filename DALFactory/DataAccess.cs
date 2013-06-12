@@ -532,6 +532,17 @@ namespace Maticsoft.DALFactory
         }
 
         /// <summary>
+        /// 创建extend_UserDisease数据层接口。
+        /// </summary>
+        public static Maticsoft.IDAL.Iextend_UserDisease Createextend_UserDisease()
+        {
+
+            string ClassNamespace = AssemblyPath + ".extend_UserDisease";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (Maticsoft.IDAL.Iextend_UserDisease)objType;
+        }
+
+        /// <summary>
         /// 创建commonDiseases数据层接口。
         /// </summary>
         public static Maticsoft.IDAL.IcommonDiseases CreatecommonDiseases()

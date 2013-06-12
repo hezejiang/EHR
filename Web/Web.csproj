@@ -80,6 +80,7 @@
     <Content Include="Manager\Css\jPaginate.css" />
     <Content Include="Manager\Css\Menu1.css" />
     <Content Include="Manager\Css\Site_Css.css" />
+    <Content Include="Manager\Css\statistical.css" />
     <Content Include="Manager\Css\Table\blue\css.css" />
     <Content Include="Manager\Css\Table\blue\images\header_bg.gif" />
     <Content Include="Manager\Css\Table\default\css.css" />
@@ -257,6 +258,29 @@
     <Content Include="Manager\js\date\dateFormat.js" />
     <Content Include="Manager\js\jquery-1.7.1.min.js" />
     <Content Include="Manager\js\jquery.paginate.js" />
+    <Content Include="Manager\js\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="Manager\js\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="Manager\js\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="Manager\js\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="Manager\js\highcharts\highcharts-more.js" />
+    <Content Include="Manager\js\highcharts\highcharts-more.src.js" />
+    <Content Include="Manager\js\highcharts\highcharts.js" />
+    <Content Include="Manager\js\highcharts\highcharts.src.js" />
+    <Content Include="Manager\js\highcharts\modules\annotations.js" />
+    <Content Include="Manager\js\highcharts\modules\annotations.src.js" />
+    <Content Include="Manager\js\highcharts\modules\canvas-tools.js" />
+    <Content Include="Manager\js\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Manager\js\highcharts\modules\data.js" />
+    <Content Include="Manager\js\highcharts\modules\data.src.js" />
+    <Content Include="Manager\js\highcharts\modules\exporting.js" />
+    <Content Include="Manager\js\highcharts\modules\exporting.src.js" />
+    <Content Include="Manager\js\highcharts\modules\funnel.js" />
+    <Content Include="Manager\js\highcharts\modules\funnel.src.js" />
+    <Content Include="Manager\js\highcharts\themes\dark-blue.js" />
+    <Content Include="Manager\js\highcharts\themes\dark-green.js" />
+    <Content Include="Manager\js\highcharts\themes\gray.js" />
+    <Content Include="Manager\js\highcharts\themes\grid.js" />
+    <Content Include="Manager\js\highcharts\themes\skies.js" />
     <Content Include="Manager\js\miniui\locale\en_US.js" />
     <Content Include="Manager\js\miniui\locale\zh_CN.js" />
     <Content Include="Manager\js\miniui\miniui.js" />
@@ -798,11 +822,9 @@
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\default.aspx" />
-    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\NationTypeStatistical.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx" />
-    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DifferentAgesPatientsStatistica\default.aspx" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx" />
-    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NeighborhoodCommitteesStatistical\default.aspx" />
     <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx" />
     <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx" />
     <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx" />
@@ -1157,12 +1179,12 @@
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\NationTypeStatistical.aspx.cs">
-      <DependentUpon>NationTypeStatistical.aspx</DependentUpon>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\NationTypeStatistical.aspx.designer.cs">
-      <DependentUpon>NationTypeStatistical.aspx</DependentUpon>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -1171,25 +1193,11 @@
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\DifferentAgesPatientsStatistica\default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\DifferentAgesPatientsStatistica\default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NeighborhoodCommitteesStatistical\default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NeighborhoodCommitteesStatistical\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx.cs">
@@ -1465,10 +1473,8 @@
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\Web.config" />
-    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NeighborhoodCommitteesStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\Web.config" />
-    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DifferentAgesPatientsStatistica\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\Web.config" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\Web.config" />

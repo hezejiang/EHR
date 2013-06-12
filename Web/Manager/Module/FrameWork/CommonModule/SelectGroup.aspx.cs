@@ -31,19 +31,16 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
         {
             int GroupID = currentUser.U_GroupID;
             int G_Type = 0;
-            /*if (UserData.Get_sys_UserTable(currentUser.UserID).U_Type == 0) //判断用户是否为超级用户
-                G_Level = 1;*/
-            
             int TotalRecord = 0;
             string strLink = "";
             int intCount = 0;
             Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
-            string GroupIDs  = sys_Group_bll.GetLowerLevelString(GroupID);
             Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(GroupID);
-            if (GroupIDs != "")
-                GroupIDs = GroupIDs + "," + sys_Group_model.GroupID;
+            string GroupIDs = "";
+            if (UserData.Get_sys_UserTable(currentUser.UserID).U_Type == 0) //判断用户是否为超级用户
+                GroupIDs = "";
             else
-                GroupIDs = sys_Group_model.GroupID + "";
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(GroupID);
             QueryParam qp = new QueryParam();
             if (GroupIDs != "")
             {
