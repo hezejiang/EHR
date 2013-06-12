@@ -159,6 +159,7 @@
     <Compile Include="sys_User.cs" />
     <Compile Include="sys_UserRoles.cs" />
     <Compile Include="sys_UserInfo.cs" />
+    <Compile Include="extend_UserDisease.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
