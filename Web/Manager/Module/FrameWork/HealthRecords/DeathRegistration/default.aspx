@@ -1,6 +1,185 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration._default"  %>
-<asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
 
-    <span>居民死亡登记</span>
+<asp:Content ID="Content2" ContentPlaceHolderID="PageBody" runat="server">
+    <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
+    <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="居民死亡登记列表" HeadTitleTxt="居民死亡登记列表管理">
+    </FrameWorkWebControls:HeadMenuWebControls>
+    <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="居民死亡登记列表">
+            <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
+                OnRowCreated="GridView1_RowCreated">
+                <Columns>
+                    <asp:TemplateField SortExpression="DeathID" HeaderText="死者">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("DeathID"))).U_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField SortExpression="D_UserID" HeaderText="登记人">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("D_UserID"))).U_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField SortExpression="D_DateTime" HeaderText="死亡日期" DataField="D_DateTime" DataFormatString="{0:yyyy/MM/dd}"/>
+                    <asp:BoundField SortExpression="D_Location" HeaderText="死亡地点" DataField="D_Location"/>
+                    <asp:BoundField SortExpression="D_Note" HeaderText="死亡说明" DataField="D_Note"/>
+                    <asp:BoundField SortExpression="D_RegDate" HeaderText="登记日期" DataField="D_RegDate" DataFormatString="{0:yyyy/MM/dd}"/>
+                    <asp:TemplateField SortExpression="F_ResponsibilityUserID" HeaderText="责任人">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("F_ResponsibilityUserID"))).U_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+                    </asp:GridView>
+            <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">
+            </FrameWorkWebControls:AspNetPager>
+        </FrameWorkWebControls:TabOptionItem>
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="查询">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
+                <tr>
+                    <td class="table_body table_body_NoWidth">
+                        家庭编号</td>
+                    <td class="table_none table_none_NoWidth">
+                        <asp:TextBox ID="F_FimaryCode" runat="server" CssClass="text_input"></asp:TextBox></td>
+                    <td class="table_body table_body_NoWidth">
+                        建档人</td>
+                    <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="F_UserID" value=""/>
+                        <input runat="server" id="F_UserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button4" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table_body table_body_NoWidth">
+                        家庭电话</td>
+                    <td class="table_none table_none_NoWidth">
+                        <asp:TextBox ID="F_FimaryTel" runat="server" CssClass="text_input"></asp:TextBox></td>
+                    <td class="table_body table_body_NoWidth">
+                    居(村)委会</td>
+                    <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="F_GroupID"/>
+                        <input runat="server" id="F_GroupID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
+                    </td>
+                </tr>
+                <tr>
+                   <td class="table_body table_body_NoWidth">
+                        责任人</td>
+                   <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="F_ResponsibilityUserID"/>
+                        <input runat="server" id="F_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
+                    </td>
+                    <td class="table_body table_body_NoWidth">
+                        建档人</td>
+                    <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="F_FillingUserID" value=""/>
+                        <input runat="server" id="F_FillingUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
+                    </td>
+                </tr>
+                <tr>
+
+                    <td colspan="4" align="right">
+                        <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
+                </tr>
+            </table>
+        </FrameWorkWebControls:TabOptionItem>
+        
+    </FrameWorkWebControls:TabOptionWebControls>
+    <!--Tab选项控件 end-->
+    <script language="javascript">
+
+        rnd.today=new Date(); 
+        rnd.seed=rnd.today.getTime(); 
+    
+        function rnd() { 
+　　　　    rnd.seed = (rnd.seed*9301+49297) % 233280; 
+　　　　    return rnd.seed/(233280.0); 
+        }; 
+
+        function rand(number) { 
+　　　　    return Math.ceil(rnd()*number); 
+        }; 
+    
+        var type;
+
+        function AlertMessageBox(file_name)
+        {
+	        if (file_name!=undefined){
+	            var ShValues = file_name.split('||');
+	            if (ShValues[1]!=0)
+	            {
+                    if(type == 1){ //选择居委会
+                        document.all.<%=this.F_GroupID.ClientID %>.value=ShValues[1];
+                        document.all.<%=this.F_GroupID_input.ClientID %>.value=ShValues[0];
+                    }else if(type == 2){ //选择责任医生
+                        onButtonEdit(ShValues[1]);
+                    }else if(type == 3){ //选择建档单位
+                        
+                    }else if(type == 4){ //选择建档人
+                        onButtonEdit(ShValues[1]);
+                    }
+	            }
+	        }   
+        }
+
+        function ShowDepartID(t)
+        {
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+        }
+    
+        function ClearSelect(t)
+        {
+            if(t == 1){
+   	            document.all.<%=this.F_GroupID_input.ClientID %>.value="";
+                document.all.<%=this.F_GroupID.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value="";
+                document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value="";
+            }else if(t == 3){
+               
+            }else if(t == 4){
+                document.all.<%=this.F_FillingUserID.ClientID %>.value="";
+                document.all.<%=this.F_FillingUserID_input.ClientID %>.value="";
+            }
+        }
+
+        mini.parse();
+
+        function onButtonEdit(id) {
+            mini.open({
+                url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") {
+                        if(type == 2){
+                            document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 4){
+                            document.all.<%=this.F_FillingUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_FillingUserID_input.ClientID %>.value=result[2];
+                        }
+                    }
+                }
+            });            
+        }
+
+    </script>
 </asp:Content>
