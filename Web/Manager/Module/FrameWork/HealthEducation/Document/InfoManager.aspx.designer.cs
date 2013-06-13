@@ -10,7 +10,7 @@
 namespace FrameWork.web.Module.FrameWork.HealthEducation.Document {
     
     
-    public partial class _default {
+    public partial class InfoManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,33 +40,6 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// AspNetPager1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
-        
-        /// <summary>
-        /// TabOptionItem2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
-        
-        /// <summary>
         /// D_Name 控件。
         /// </summary>
         /// <remarks>
@@ -76,13 +49,22 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document {
         protected global::System.Web.UI.WebControls.TextBox D_Name;
         
         /// <summary>
-        /// D_DateTime 控件。
+        /// D_Url 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox D_DateTime;
+        protected global::System.Web.UI.WebControls.FileUpload D_Url;
+        
+        /// <summary>
+        /// D_Url_link 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor D_Url_link;
         
         /// <summary>
         /// Button1 控件。

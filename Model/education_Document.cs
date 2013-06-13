@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/9 21:44:51   N/A    初版
+* V0.01  2013/6/12 22:02:36   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -29,7 +29,8 @@ namespace Maticsoft.Model
 		private int _documentid;
 		private string _d_name;
 		private string _d_url;
-		private int? _d_userid;
+		private int _d_userid;
+		private DateTime _d_datetime;
 		/// <summary>
 		/// 健康知识文档ID
 		/// </summary>
@@ -57,10 +58,18 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 上传者
 		/// </summary>
-		public int? D_UserID
+		public int D_UserID
 		{
 			set{ _d_userid=value;}
 			get{return _d_userid;}
+		}
+		/// <summary>
+        /// 上传日期
+		/// </summary>
+		public DateTime D_DateTime
+		{
+			set{ _d_datetime=value;}
+			get{return _d_datetime;}
 		}
 		#endregion Model
 

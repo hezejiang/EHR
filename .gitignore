@@ -2,3 +2,6 @@
 Common/obj/Debug/Common.csproj.FileListAbsolute.txt
 DBUtility/obj/Debug/DBUtility.csproj.FileListAbsolute.txt
 FrameWork/bin/Debug/Framework.xml
+/Debug/
+Debug
+bin
