@@ -1,6 +1,0 @@
-E:\EHR\FrameWork\bin\Debug\Framework.dll
-E:\EHR\FrameWork\bin\Debug\Framework.pdb
-E:\EHR\FrameWork\obj\Debug\FrameWork.WebControls.AspNetPager.resources
-E:\EHR\FrameWork\obj\Debug\Framework.csproj.GenerateResource.Cache
-E:\EHR\FrameWork\obj\Debug\Framework.dll
-E:\EHR\FrameWork\obj\Debug\Framework.pdb

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Collections.Generic;
+
 namespace Maticsoft.IDAL
 {
 	/// <summary>
@@ -50,7 +52,7 @@ namespace Maticsoft.IDAL
 		//DataSet GetList(int PageSize,int PageIndex,string strWhere);
 		#endregion  成员方法
 		#region  MethodEx
-
+        List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID);
 		#endregion  MethodEx
 	} 
 }

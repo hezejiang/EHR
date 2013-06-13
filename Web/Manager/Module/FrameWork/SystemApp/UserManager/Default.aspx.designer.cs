@@ -67,13 +67,13 @@ namespace FrameWork.web.Module.FrameWork.UserManager {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
         
         /// <summary>
-        /// U_LoginName 控件。
+        /// U_CName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox U_LoginName;
+        protected global::System.Web.UI.WebControls.TextBox U_CName;
         
         /// <summary>
         /// U_GroupID 控件。
@@ -92,24 +92,6 @@ namespace FrameWork.web.Module.FrameWork.UserManager {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText U_GroupID_Txt;
-        
-        /// <summary>
-        /// U_CName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox U_CName;
-        
-        /// <summary>
-        /// U_UserNO 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox U_UserNO;
         
         /// <summary>
         /// U_Type 控件。

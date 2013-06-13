@@ -15,7 +15,7 @@ namespace Maticsoft.Model
 		private int _i_type;
 		private DateTime _i_date;
 		private int _i_userid;
-		private string _i_conent;
+		private string _i_content;
 		private string _i_mainproblem;
 		private string _i_note="";
 		/// <summary>
@@ -61,10 +61,10 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 寻常内容
 		/// </summary>
-		public string I_Conent
+		public string I_Content
 		{
-			set{ _i_conent=value;}
-			get{return _i_conent;}
+			set{ _i_content=value;}
+			get{return _i_content;}
 		}
 		/// <summary>
 		/// 发现的主要问题

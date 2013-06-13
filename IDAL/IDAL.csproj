@@ -162,6 +162,7 @@
     <Compile Include="Isys_User.cs" />
     <Compile Include="Isys_UserRoles.cs" />
     <Compile Include="Isys_UserInfo.cs" />
+    <Compile Include="Iextend_UserDisease.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

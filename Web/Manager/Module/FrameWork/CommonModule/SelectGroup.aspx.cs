@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Configuration;
 using System.Collections;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -19,6 +20,8 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
     public partial class SelectGroup : System.Web.UI.Page
     {
         public string TableSink = Common.TableSink;
+        private sys_UserTable currentUser = UserData.GetUserDate; //当前登录用户
+
         protected void Page_Load(object sender, EventArgs e)
         {
             OutJs();
@@ -26,14 +29,31 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
 
         private void OutJs()
         {
+            int GroupID = currentUser.U_GroupID;
+            int G_Type = 0;
             int TotalRecord = 0;
             string strLink = "";
             int intCount = 0;
+            Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+            Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(GroupID);
+            string GroupIDs = "";
+            if (UserData.Get_sys_UserTable(currentUser.UserID).U_Type == 0) //判断用户是否为超级用户
+                GroupIDs = "";
+            else
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(GroupID);
             QueryParam qp = new QueryParam();
-            qp.Where = "Where G_Delete=0";
+            if (GroupIDs != "")
+            {
+                qp.Where = string.Format("Where G_Delete={0} and G_Type={1} and GroupID in({2})", 0, G_Type, GroupIDs);
+            }
+            else
+            {
+                qp.Where = string.Format("Where G_Delete={0} and G_Type={1}", 0, G_Type);
+            }
             qp.Orderfld = "G_Level,G_ShowOrder";
             qp.OrderType = 0;
             ArrayList lst = BusinessFacade.sys_GroupList(qp, out TotalRecord);
+            
             StringBuilder strSB = new StringBuilder();
 
             strSB.Append("<script language='JavaScript'>\n");
@@ -46,11 +66,10 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
                 intCount = intCount + 1;
                 //strLink = "GroupList.aspx?GroupID=" + x.GroupID.ToString();
                 strLink = x.GroupID.ToString();
-                if (x.G_Level == 1)
+                if (x.G_Level == sys_Group_model.G_Level)
                 {
                     if (x.G_ChildCount == 0)
                     {
-
                         strSB.AppendFormat("insDoc(treeRoot,gLnk(\"mainbody\",\"{0}\",\"\",{1}))\n", Common.ReplaceJs(x.G_CName), strLink);
                     }
                     else

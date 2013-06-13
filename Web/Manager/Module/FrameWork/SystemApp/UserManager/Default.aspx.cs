@@ -60,6 +60,8 @@ namespace FrameWork.web.Module.FrameWork.UserManager
         /// <returns></returns>
         public string Get_U_GroupID(int U_GroupID)
         {
+            if (U_GroupID == 0)
+                return "";
             return BusinessFacade.sys_GroupDisp(U_GroupID).G_CName;
         }
 
@@ -97,19 +99,12 @@ namespace FrameWork.web.Module.FrameWork.UserManager
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string U_LoginName_Value = (string)Common.sink(U_LoginName.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string U_GroupID_Value = (string)Common.sink(U_GroupID.UniqueID, MethodType.Post, 255, 0, DataType.Str);
             string U_CName_Value = (string)Common.sink(U_CName.UniqueID, MethodType.Post, 20, 0, DataType.Str);
-            string U_UserNO_Value = (string)Common.sink(U_UserNO.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string U_Type_Value = (string)Common.sink(U_Type.UniqueID, MethodType.Post, 255, 0, DataType.Str);
             string U_Status_Value = (string)Common.sink(U_Status.UniqueID, MethodType.Post, 255, 0, DataType.Str);
 
             string SqlSearch = " Where U_Status<>2 ";
-
-            if (U_LoginName_Value != "")
-            {
-                SqlSearch = SqlSearch + " and U_LoginName like '%"+Common.inSQL(U_LoginName_Value)+"%'";
-            }
 
             if (U_GroupID_Value != "")
             {
@@ -119,11 +114,6 @@ namespace FrameWork.web.Module.FrameWork.UserManager
             if (U_CName_Value != "")
             {
                 SqlSearch = SqlSearch + " and U_CName like '%" + Common.inSQL(U_CName_Value) + "%'";
-            }
-
-            if (U_UserNO_Value != "")
-            {
-                SqlSearch = SqlSearch + " and U_UserNO like '%" + Common.inSQL(U_UserNO_Value) + "%'";
             }
 
             if (U_Type_Value != "")
