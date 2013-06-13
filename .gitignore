@@ -7,3 +7,4 @@ Web/Manager/Log/20130613AppErrorLog.txt
 Web/Web.csproj
 Web/bin/Framework.xml
 Web/obj/Debug/Web.csproj.FileListAbsolute.txt
+Common/obj/Debug/Common.csproj.FileListAbsolute.txt
