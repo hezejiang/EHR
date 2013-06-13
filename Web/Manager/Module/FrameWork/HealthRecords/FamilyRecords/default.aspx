@@ -14,7 +14,7 @@
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
                     <asp:HyperLinkField HeaderText="家庭ID号" DataTextField="F_FimaryCode" SortExpression="F_FimaryCode" DataNavigateUrlFields="FimaryID"
-                        DataNavigateUrlFormatString="ConsultationManager.aspx?FimaryID={0}&CMD=Edit" />
+                        DataNavigateUrlFormatString="InfoManager.aspx?FimaryID={0}&CMD=Edit" />
                     <asp:TemplateField SortExpression="F_UserID" HeaderText="户主">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("F_UserID"))).U_CName%>

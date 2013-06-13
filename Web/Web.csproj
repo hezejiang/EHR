@@ -1,0 +1,1597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B535162-10C2-4238-BC56-193B968E1834}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maticsoft.Web</RootNamespace>
+    <AssemblyName>Maticsoft.Web</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON">
+      <HintPath>..\Lib\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="LTP.Accounts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\LTP.Accounts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.UI.WebControls">
+      <HintPath>..\Lib\Microsoft.Web.UI.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LtpPageControl">
+      <HintPath>..\Lib\LtpPageControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Default.css" />
+    <Content Include="App_Themes\Green2Theme\Default.css" />
+    <Content Include="App_Themes\GreenTheme\Default.css" />
+    <Content Include="App_Themes\PurpleTheme\Default.css" />
+    <Content Include="App_Themes\RedTheme\Default.css" />
+    <Content Include="Controls\checkright.ascx" />
+    <Content Include="Controls\copyright.ascx" />
+    <Content Include="default.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Manager\about.aspx" />
+    <Content Include="Manager\Css\base.css" />
+    <Content Include="Manager\Css\extend.css" />
+    <Content Include="Manager\Css\jPaginate.css" />
+    <Content Include="Manager\Css\Menu1.css" />
+    <Content Include="Manager\Css\Site_Css.css" />
+    <Content Include="Manager\Css\statistical.css" />
+    <Content Include="Manager\Css\Table\blue\css.css" />
+    <Content Include="Manager\Css\Table\blue\images\header_bg.gif" />
+    <Content Include="Manager\Css\Table\default\css.css" />
+    <Content Include="Manager\Css\Table\Green\css.css" />
+    <Content Include="Manager\Css\Table\red\css.css" />
+    <Content Include="Manager\DataBase\Access\DBBack.mdb" />
+    <Content Include="Manager\DataBase\MsSql\FrameWork.sql" />
+    <Content Include="Manager\DataBase\MsSql\UpdateTo1.0.8.sql" />
+    <Content Include="Manager\DataBase\MsSql\存储过程.sql" />
+    <Content Include="Manager\DataBase\MsSql\数据初始化脚本.sql" />
+    <Content Include="Manager\DataBase\Oracle\Oracle.Sql" />
+    <Content Include="Manager\DataBase\Oracle\UpdateTable1.0.8.sql" />
+    <Content Include="Manager\Default.aspx" />
+    <Content Include="Manager\DownLoadFile.aspx" />
+    <Content Include="Manager\images\about.gif" />
+    <Content Include="Manager\images\allow.gif" />
+    <Content Include="Manager\images\Button_On.GIF" />
+    <Content Include="Manager\images\Button_Over.GIF" />
+    <Content Include="Manager\images\controls4.gif" />
+    <Content Include="Manager\images\disable.gif" />
+    <Content Include="Manager\images\down01.gif" />
+    <Content Include="Manager\images\Help.gif" />
+    <Content Include="Manager\images\house.gif" />
+    <Content Include="Manager\images\icon.ico" />
+    <Content Include="Manager\images\ICON\1.gif" />
+    <Content Include="Manager\images\ICON\10.gif" />
+    <Content Include="Manager\images\ICON\2.gif" />
+    <Content Include="Manager\images\ICON\3.gif" />
+    <Content Include="Manager\images\ICON\4.gif" />
+    <Content Include="Manager\images\ICON\5.gif" />
+    <Content Include="Manager\images\ICON\6.gif" />
+    <Content Include="Manager\images\ICON\7.gif" />
+    <Content Include="Manager\images\ICON\8.gif" />
+    <Content Include="Manager\images\ICON\9.gif" />
+    <Content Include="Manager\images\ICON\a.gif" />
+    <Content Include="Manager\images\ICON\applist.gif" />
+    <Content Include="Manager\images\ICON\Area.png" />
+    <Content Include="Manager\images\ICON\b.gif" />
+    <Content Include="Manager\images\ICON\back.gif" />
+    <Content Include="Manager\images\ICON\bug.gif" />
+    <Content Include="Manager\images\ICON\Colume.png" />
+    <Content Include="Manager\images\ICON\config.gif" />
+    <Content Include="Manager\images\ICON\Custom.gif" />
+    <Content Include="Manager\images\ICON\default.gif" />
+    <Content Include="Manager\images\ICON\delete.gif" />
+    <Content Include="Manager\images\ICON\doc.gif" />
+    <Content Include="Manager\images\ICON\edit.gif" />
+    <Content Include="Manager\images\ICON\FieldManager.gif" />
+    <Content Include="Manager\images\ICON\generic.gif" />
+    <Content Include="Manager\images\ICON\grouplist.gif" />
+    <Content Include="Manager\images\ICON\html2.gif" />
+    <Content Include="Manager\images\ICON\icon.gif" />
+    <Content Include="Manager\images\ICON\Line.png" />
+    <Content Include="Manager\images\ICON\list.gif" />
+    <Content Include="Manager\images\ICON\log.gif" />
+    <Content Include="Manager\images\ICON\look.gif" />
+    <Content Include="Manager\images\ICON\module.gif" />
+    <Content Include="Manager\images\ICON\move.gif" />
+    <Content Include="Manager\images\ICON\new.gif" />
+    <Content Include="Manager\images\ICON\office.gif" />
+    <Content Include="Manager\images\ICON\online.gif" />
+    <Content Include="Manager\images\ICON\orderby.gif" />
+    <Content Include="Manager\images\ICON\paperclip.gif" />
+    <Content Include="Manager\images\ICON\ppt.gif" />
+    <Content Include="Manager\images\ICON\print.gif" />
+    <Content Include="Manager\images\ICON\print_icon.gif" />
+    <Content Include="Manager\images\ICON\rule.gif" />
+    <Content Include="Manager\images\ICON\select.gif" />
+    <Content Include="Manager\images\ICON\sound.gif" />
+    <Content Include="Manager\images\ICON\status.gif" />
+    <Content Include="Manager\images\ICON\txt.gif" />
+    <Content Include="Manager\images\ICON\user.gif" />
+    <Content Include="Manager\images\ICON\xls.gif" />
+    <Content Include="Manager\images\ICON\zip.gif" />
+    <Content Include="Manager\images\Index\menu1bg.gif" />
+    <Content Include="Manager\images\Index\menubg.jpg" />
+    <Content Include="Manager\images\Index\top-2-1.gif" />
+    <Content Include="Manager\images\Index\top-2-2.gif" />
+    <Content Include="Manager\images\Index\top-b-1.gif" />
+    <Content Include="Manager\images\Index\top-b-2-1-2.gif" />
+    <Content Include="Manager\images\Index\top-b-2-2.gif" />
+    <Content Include="Manager\images\Index\top-b-2.gif" />
+    <Content Include="Manager\images\Index\top-b-3-2.gif" />
+    <Content Include="Manager\images\Index\top-b-3.gif" />
+    <Content Include="Manager\images\Index\top-b4-1.gif" />
+    <Content Include="Manager\images\Index\top-b4-2.gif" />
+    <Content Include="Manager\images\Index\top-b4-b.gif" />
+    <Content Include="Manager\images\Index\top-b4-c.gif" />
+    <Content Include="Manager\images\Index\top-b4-yellow.gif" />
+    <Content Include="Manager\images\info.gif" />
+    <Content Include="Manager\images\log.gif" />
+    <Content Include="Manager\images\logon\Logon_1.gif" />
+    <Content Include="Manager\images\logon\Logon_10.gif" />
+    <Content Include="Manager\images\logon\Logon_11.gif" />
+    <Content Include="Manager\images\logon\Logon_18.jpg" />
+    <Content Include="Manager\images\logon\Logon_2.gif" />
+    <Content Include="Manager\images\logon\Logon_3.gif" />
+    <Content Include="Manager\images\logon\Logon_4.gif" />
+    <Content Include="Manager\images\logon\Logon_5.gif" />
+    <Content Include="Manager\images\logon\Logon_6.gif" />
+    <Content Include="Manager\images\logon\Logon_7.gif" />
+    <Content Include="Manager\images\logon\Logon_7no.gif" />
+    <Content Include="Manager\images\logon\Logon_8.gif" />
+    <Content Include="Manager\images\logon\Logon_9.gif" />
+    <Content Include="Manager\images\logout.gif" />
+    <Content Include="Manager\images\Menu\arrow.gif" />
+    <Content Include="Manager\images\Menu\box_bg.gif" />
+    <Content Include="Manager\images\Menu\box_bottom.gif" />
+    <Content Include="Manager\images\Menu\box_topbg.gif" />
+    <Content Include="Manager\images\Menu\box_topleft.gif" />
+    <Content Include="Manager\images\Menu\box_topright.gif" />
+    <Content Include="Manager\images\Menu\close.gif" />
+    <Content Include="Manager\images\Menu\close_on.gif" />
+    <Content Include="Manager\images\Menu\Cshare.gif" />
+    <Content Include="Manager\images\Menu\Delphi.gif" />
+    <Content Include="Manager\images\Menu\folder_add.gif" />
+    <Content Include="Manager\images\Menu\folder_move.gif" />
+    <Content Include="Manager\images\Menu\open.gif" />
+    <Content Include="Manager\images\Menu\open_on.gif" />
+    <Content Include="Manager\images\Menu\Perl.gif" />
+    <Content Include="Manager\images\Menu\PHP.gif" />
+    <Content Include="Manager\images\Menu\tab_active_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_active_left.gif" />
+    <Content Include="Manager\images\Menu\tab_active_right.gif" />
+    <Content Include="Manager\images\Menu\tab_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_top_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_bg.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_left.gif" />
+    <Content Include="Manager\images\Menu\tab_unactive_right.gif" />
+    <Content Include="Manager\images\Menu\twist.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageAlert.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageBody.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageEnd.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageError.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageHead.gif" />
+    <Content Include="Manager\images\MessageIcon\MessageOk.gif" />
+    <Content Include="Manager\images\NotImage.gif" />
+    <Content Include="Manager\images\right.gif" />
+    <Content Include="Manager\images\sort_asc.gif" />
+    <Content Include="Manager\images\sort_desc.gif" />
+    <Content Include="Manager\images\thead_bg.gif" />
+    <Content Include="Manager\images\top-gray.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2blank.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2doc.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2folderclosed.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2folderopen.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2lastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2mlastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2mnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2node.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2plastnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2pnode.gif" />
+    <Content Include="Manager\images\TreeIcon\ftv2vertline.gif" />
+    <Content Include="Manager\images\TreeIcon\refurbish.gif" />
+    <Content Include="Manager\images\up01.gif" />
+    <Content Include="Manager\images\userset.gif" />
+    <Content Include="Manager\images\wrong.gif" />
+    <Content Include="Manager\inc\Codeimg.aspx" />
+    <Content Include="Manager\inc\FineMessBox\1.htm" />
+    <Content Include="Manager\inc\FineMessBox\css\subModal.css" />
+    <Content Include="Manager\inc\FineMessBox\Images\left-corners.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\left-right.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\maskBG.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\right-corners.png" />
+    <Content Include="Manager\inc\FineMessBox\Images\tool-sprites.gif" />
+    <Content Include="Manager\inc\FineMessBox\Images\top-bottom.png" />
+    <Content Include="Manager\inc\FineMessBox\js\common.js" />
+    <Content Include="Manager\inc\FineMessBox\js\subModal.js" />
+    <Content Include="Manager\inc\FineMessBox\loading.html" />
+    <Content Include="Manager\inc\Page_Guage.aspx" />
+    <Content Include="Manager\js\boot.js" />
+    <Content Include="Manager\js\checkform.js" />
+    <Content Include="Manager\js\core.js" />
+    <Content Include="Manager\js\date\date.js" />
+    <Content Include="Manager\js\date\dateFormat.js" />
+    <Content Include="Manager\js\jquery-1.7.1.min.js" />
+    <Content Include="Manager\js\jquery.paginate.js" />
+    <Content Include="Manager\js\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="Manager\js\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="Manager\js\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="Manager\js\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="Manager\js\highcharts\highcharts-more.js" />
+    <Content Include="Manager\js\highcharts\highcharts-more.src.js" />
+    <Content Include="Manager\js\highcharts\highcharts.js" />
+    <Content Include="Manager\js\highcharts\highcharts.src.js" />
+    <Content Include="Manager\js\highcharts\modules\annotations.js" />
+    <Content Include="Manager\js\highcharts\modules\annotations.src.js" />
+    <Content Include="Manager\js\highcharts\modules\canvas-tools.js" />
+    <Content Include="Manager\js\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Manager\js\highcharts\modules\data.js" />
+    <Content Include="Manager\js\highcharts\modules\data.src.js" />
+    <Content Include="Manager\js\highcharts\modules\exporting.js" />
+    <Content Include="Manager\js\highcharts\modules\exporting.src.js" />
+    <Content Include="Manager\js\highcharts\modules\funnel.js" />
+    <Content Include="Manager\js\highcharts\modules\funnel.src.js" />
+    <Content Include="Manager\js\highcharts\themes\dark-blue.js" />
+    <Content Include="Manager\js\highcharts\themes\dark-green.js" />
+    <Content Include="Manager\js\highcharts\themes\gray.js" />
+    <Content Include="Manager\js\highcharts\themes\grid.js" />
+    <Content Include="Manager\js\highcharts\themes\skies.js" />
+    <Content Include="Manager\js\miniui\locale\en_US.js" />
+    <Content Include="Manager\js\miniui\locale\zh_CN.js" />
+    <Content Include="Manager\js\miniui\miniui.js" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\arrowbg.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\btn-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\btn.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\icon3.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\button\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\button\disabled.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\button\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\button\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\calendar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\grid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\east.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\north.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\south.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\layout\west.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\listbox\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\menu\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\menu\menu_bg.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\menu\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\navbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\panel\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\splitter\splitter.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tabs\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tabs\tab.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\toolbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\treegrid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\treegrid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\treegrid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\collapseLine.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\expandLine.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\firstCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\firstExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\lastCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\lastExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\lastline.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\treeline.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\tree\treeNodeLine.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\images\window\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2003\skin.css" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\arrowbg.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\btn-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\btn.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\icon3.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\buttonedit\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\button\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\button\disabled.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\button\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\button\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\calendar\months.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\grid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\layout\east.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\layout\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\layout\north.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\layout\south.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\layout\west.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\listbox\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\menu\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\menu\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\menu\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\menu\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\navbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\panel\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\toolbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\treegrid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\treegrid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\treegrid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\tree\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\tree\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\tree\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\tree\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\images\window\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue2010\skin.css" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\arrow.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\arrow_down.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\arrow_up.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\btn-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\btn.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\date.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\icon1.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\buttonedit\text-bg.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\button\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\button\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\button\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\calendar\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\calendar\footer.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\calendar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\grid\footer.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\grid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\layout\east.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\layout\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\layout\north.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\layout\south.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\layout\west.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\listbox\header.png" />
+    <Content Include="Manager\js\miniui\themes\blue\images\menu\hmenu.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\menu\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\menu\menu-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\menu\menu.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\menu\pressed.png" />
+    <Content Include="Manager\js\miniui\themes\blue\images\navbar\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\navbar\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\navbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\panel\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tabs\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tabs\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tabs\tab.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\toolbar\toolbar.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tools\close.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tools\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tools\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\treegrid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\treegrid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\treegrid\file.png" />
+    <Content Include="Manager\js\miniui\themes\blue\images\treegrid\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\treegrid\header.png" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\button.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\folder-open.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\leaf.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\tree\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\images\window\header.gif" />
+    <Content Include="Manager\js\miniui\themes\blue\skin.css" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\button.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\close.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\date.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\down.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\error.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\hover.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\icon1.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\icon2.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\pressed.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\up.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\buttonedit\_icon3.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\button.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\disabled.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\hover.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\icons.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\menu_arrow.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\pressed.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\split-allow-bottom.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\button\split_arrow.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\calendar\button.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\calendar\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\calendar\months.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\calendar\next.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\calendar\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\datepicker\date.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-add.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-between.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-no.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-over.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-under.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\dragdrop\drop-yes.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_blue_down.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_blue_left.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_blue_right.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_blue_up.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_red_down.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_red_left.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_red_right.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\arrow_red_up.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\baseline-milestone.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\constraint-finish.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\constraint-start.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\finished.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\gvdp.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\header.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\header_bg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\milestone-red.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\milestone.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\ms-task.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\notes.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\offday.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\summary-top.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\summary.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\summary2.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\taskbg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\taskbg2.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\taskstatus.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\title_bg.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\gantt\warning.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\dirty.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\footer.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\icons.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\resize.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\sort_asc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\sort_desc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\layout\east.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\layout\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\layout\north.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\layout\south.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\layout\west.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\listbox\error.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\listbox\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\arrow.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\bottom-arrow.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\checked.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\hallow.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\hmenubg.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\item.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\menubg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\pressed.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\menu\top-arrow.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\messagebox\icon-error.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\messagebox\icon-info.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\messagebox\icon-question.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\messagebox\icon-warning.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\messagebox\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\mygantt\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\navbar\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\pager\reload.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\panel\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\panel\resize.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\rgantt\bg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\rgantt\cancel.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\rgantt\hdbg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\rgantt\pc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\rgantt\pc_03.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\buttons.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\mini-bottom.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\mini-left.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\mini-right.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\mini-top.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\resize.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\splitter\resize_h.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\btn.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\col-move-bottom.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\col-move-top.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_header_bg.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_row_collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_row_expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_sort_asc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_sort_desc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\datagrid_title_bg.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\dirty.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\header-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\header-pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\invalid_line.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\no.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\ok.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\rowselected.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\row_collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\row_expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\sort_asc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\sort_desc.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supergrid\title_bg.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\arrows.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\file.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\folder-open.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\supertree\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tabs\allow_left.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tabs\allow_right.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tabs\close.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tabs\hover.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\tabs\tab.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\textboxlist\close.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\textboxlist\error.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\textboxlist\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\textbox\error.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\toolbar\toolbar.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\close.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\max.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\min.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\refresh.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\restore.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tools\search.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\treegrid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\treegrid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\treegrid\file.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\treegrid\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\treegrid\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\arrows.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\button.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\collapseLine.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\expandLine.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\file.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\firstCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\firstExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\folder-open.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\hover.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\lastCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\lastExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\lastline.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\leaf.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\treeline.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\tree\treeNodeLine.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\window\footer.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\window\header.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\_pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\_pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\_pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\_pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\default\miniui.css" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\button.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\error.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\icon1.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\icon2.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\buttonedit\icon3.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\button.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\disabled.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\menu_arrow.png" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\split-allow-bottom.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\button\split_arrow.png" />
+    <Content Include="Manager\js\miniui\themes\gray\images\calendar\button.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\calendar\months.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\calendar\next.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\calendar\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\grid\list.png" />
+    <Content Include="Manager\js\miniui\themes\gray\images\grid\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\menu\arrow.png" />
+    <Content Include="Manager\js\miniui\themes\gray\images\menu\checked.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\menu\hallow.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\menu\menubg.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\images\tools\close.gif" />
+    <Content Include="Manager\js\miniui\themes\gray\skin.css" />
+    <Content Include="Manager\js\miniui\themes\icons.css" />
+    <Content Include="Manager\js\miniui\themes\icons\add.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\addfolder.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\addnew.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\cancel.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\cut.png" />
+    <Content Include="Manager\js\miniui\themes\icons\date.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\downgrade.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\download.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\edit.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\filter.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\find.png" />
+    <Content Include="Manager\js\miniui\themes\icons\folder-open.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\folder.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\goto.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\help.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\help.png" />
+    <Content Include="Manager\js\miniui\themes\icons\lock.png" />
+    <Content Include="Manager\js\miniui\themes\icons\new.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\no.png" />
+    <Content Include="Manager\js\miniui\themes\icons\node.png" />
+    <Content Include="Manager\js\miniui\themes\icons\noimage.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\nowait.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\ok.png" />
+    <Content Include="Manager\js\miniui\themes\icons\open.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\print.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\redo.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\reload.png" />
+    <Content Include="Manager\js\miniui\themes\icons\remove.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\save.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\search.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\sort.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\split.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\tip.png" />
+    <Content Include="Manager\js\miniui\themes\icons\undo.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\unlock.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\upgrade.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\upload.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\user.png" />
+    <Content Include="Manager\js\miniui\themes\icons\wait.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\warning.png" />
+    <Content Include="Manager\js\miniui\themes\icons\zoomin.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\zoomout.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\_help.png" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\arrowbg.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\arrow_down.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\arrow_up.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\arrow_up_hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\arrow_up_pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\btn-hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\btn-pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\btn.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\icon3.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\buttonedit\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\button\button.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\button\disabled.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\button\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\button\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\calendar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\grid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\east.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\north.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\south.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\layout\west.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\listbox\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\menu\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\menu\menu_bg.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\menu\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\navbar\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\navbar\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\navbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\pager\first.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\pager\last.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\pager\next.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\pager\prev.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\panel\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\splitter\splitter.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tabs\hover.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tabs\tab.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\toolbar\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\close.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\max.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\min.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\refresh.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\resume.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tools\search.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\treegrid\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\treegrid\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\treegrid\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\collapse.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\collapseLine.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\expand.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\expandLine.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\firstAndlastcollapse.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\firstAndlastexpand.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\firstCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\firstExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\lastCollapseNode.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\lastExpandNode.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\lastline.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\pressed.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\treeline.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\tree\treeNodeLine.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\images\window\header.gif" />
+    <Content Include="Manager\js\miniui\themes\olive2003\skin.css" />
+    <Content Include="Manager\js\MoveTree.js" />
+    <Content Include="Manager\js\module\personRecord.js" />
+    <Content Include="Manager\js\SelectTree.js" />
+    <Content Include="Manager\js\Tree.js" />
+    <Content Include="Manager\js\Tree\js\lTREE.js" />
+    <Content Include="Manager\js\Tree\js\lTREE.packed.js" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.checkbox.css" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.default.css" />
+    <Content Include="Manager\js\Tree\resources\css\lTREE.simple.css" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\base.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\checkbox-checked.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\checkbox.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow-end.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow-line.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\elbow.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-closed.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-last.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\folder-opened.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf-last.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf-normal.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\leaf.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\minus.gif" />
+    <Content Include="Manager\js\Tree\resources\images\default\tree\plus.gif" />
+    <Content Include="Manager\js\Tree\tree.html" />
+    <Content Include="Manager\left.aspx" />
+    <Content Include="Manager\Login.aspx" />
+    <Content Include="Manager\LoginOut.aspx" />
+    <Content Include="Manager\Log\20130422AppErrorLog.txt" />
+    <Content Include="Manager\Log\20130423AppErrorLog.txt" />
+    <Content Include="Manager\Log\20130503AppErrorLog.txt" />
+    <Content Include="Manager\Menu1.aspx" />
+    <Content Include="Manager\Menu1_Button.aspx" />
+    <Content Include="Manager\Menu1_Disp.aspx" />
+    <Content Include="Manager\Menu2.aspx" />
+    <Content Include="Manager\menu3.aspx" />
+    <Content Include="Manager\Messages.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Document\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationList.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\CommonModule\SelectGroup.aspx" />
+    <Content Include="Manager\Module\FrameWork\CommonModule\SelectUser.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx" />
+    <Content Include="Manager\mylogin.aspx" />
+    <Content Include="Manager\Public\UserPhoto\20130425095551843e.jpg" />
+    <Content Include="Manager\Public\UserPhoto\s_20130425095551843e.jpg" />
+    <Content Include="Manager\right.aspx" />
+    <Content Include="Manager\UserSet.aspx" />
+    <Content Include="Style.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CheckRight.ascx.cs">
+      <DependentUpon>checkright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckRight.ascx.designer.cs">
+      <DependentUpon>checkright.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CopyRight.ascx.cs">
+      <DependentUpon>copyright.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CopyRight.ascx.designer.cs">
+      <DependentUpon>copyright.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DownLoadFile.aspx.cs">
+      <DependentUpon>DownLoadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\DownLoadFile.aspx.designer.cs">
+      <DependentUpon>DownLoadFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\inc\Codeimg.aspx.cs">
+      <DependentUpon>Codeimg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\left.aspx.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\left.aspx.designer.cs">
+      <DependentUpon>left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\LoginOut.aspx.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\LoginOut.aspx.designer.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\MasterPage\PageTemplate.Master.cs">
+      <DependentUpon>PageTemplate.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\MasterPage\PageTemplate.Master.designer.cs">
+      <DependentUpon>PageTemplate.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1.aspx.cs">
+      <DependentUpon>Menu1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1.aspx.designer.cs">
+      <DependentUpon>Menu1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1_Button.aspx.cs">
+      <DependentUpon>Menu1_Button.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1_Button.aspx.designer.cs">
+      <DependentUpon>Menu1_Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu1_Disp.aspx.cs">
+      <DependentUpon>Menu1_Disp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu1_Disp.aspx.designer.cs">
+      <DependentUpon>Menu1_Disp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Menu2.aspx.cs">
+      <DependentUpon>Menu2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Menu2.aspx.designer.cs">
+      <DependentUpon>Menu2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\menu3.aspx.cs">
+      <DependentUpon>menu3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\menu3.aspx.designer.cs">
+      <DependentUpon>menu3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Document\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Document\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FollowUp\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FollowUp\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationList.aspx.cs">
+      <DependentUpon>ConsultationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationList.aspx.designer.cs">
+      <DependentUpon>ConsultationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationManager.aspx.cs">
+      <DependentUpon>ConsultationManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationManager.aspx.designer.cs">
+      <DependentUpon>ConsultationManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx.cs">
+      <DependentUpon>HealthCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx.designer.cs">
+      <DependentUpon>HealthCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Info\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectGroup.aspx.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectGroup.aspx.designer.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectUser.aspx.cs">
+      <DependentUpon>SelectUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectUser.aspx.designer.cs">
+      <DependentUpon>SelectUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthSupervision\Inspect\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx.cs">
+      <DependentUpon>AppManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\AppManager.aspx.designer.cs">
+      <DependentUpon>AppManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\AppManager\Orderby.aspx.designer.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx.cs">
+      <DependentUpon>EventDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\EventManager\EventDisp.aspx.designer.cs">
+      <DependentUpon>EventDisp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx.cs">
+      <DependentUpon>FieldValueBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueBox.aspx.designer.cs">
+      <DependentUpon>FieldValueBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx.cs">
+      <DependentUpon>FieldValueManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\FieldManager\FieldValueManager.aspx.designer.cs">
+      <DependentUpon>FieldValueManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx.cs">
+      <DependentUpon>CatIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\CatIndex.aspx.designer.cs">
+      <DependentUpon>CatIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx.cs">
+      <DependentUpon>Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Frame.aspx.designer.cs">
+      <DependentUpon>Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Move.aspx.designer.cs">
+      <DependentUpon>Move.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\GroupManager\Orderby.aspx.designer.cs">
+      <DependentUpon>Orderby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\ModuleList.aspx.designer.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx.cs">
+      <DependentUpon>moduleManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\ModuleManager\moduleManager.aspx.designer.cs">
+      <DependentUpon>moduleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RoleManager.aspx.designer.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx.cs">
+      <DependentUpon>RolePermissionManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\RoleManager\RolePermissionManager.aspx.designer.cs">
+      <DependentUpon>RolePermissionManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\SelectGroup.aspx.designer.cs">
+      <DependentUpon>SelectGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemApp\UserManager\UserManager.aspx.designer.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\mylogin.aspx.cs">
+      <DependentUpon>mylogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\mylogin.aspx.designer.cs">
+      <DependentUpon>mylogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\right.aspx.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\right.aspx.designer.cs">
+      <DependentUpon>right.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UserSet.aspx.cs">
+      <DependentUpon>UserSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\UserSet.aspx.designer.cs">
+      <DependentUpon>UserSet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Control.skin" />
+    <Content Include="App_Themes\Green2Theme\Control.skin" />
+    <Content Include="App_Themes\GreenTheme\Control.skin" />
+    <Content Include="App_Themes\PurpleTheme\Control.skin" />
+    <Content Include="App_Themes\RedTheme\Control.skin" />
+    <Content Include="MasterPage.master" />
+    <Content Include="Manager\DataBase\Access\FrameWork.config" />
+    <Content Include="App_Themes\Standard\GridView.skin" />
+    <Content Include="App_Themes\Standard\ListBox.skin" />
+    <Content Include="Manager\Ajax\DiseaseOther.ashx" />
+    <None Include="Manager\images\ICON\Thumbs.db" />
+    <None Include="Manager\images\Index\Thumbs.db" />
+    <None Include="Manager\images\logon\Thumbs.db" />
+    <None Include="Manager\images\Menu\Thumbs.db" />
+    <None Include="Manager\images\MessageIcon\Thumbs.db" />
+    <None Include="Manager\images\Thumbs.db" />
+    <None Include="Manager\images\TreeIcon\Thumbs.db" />
+    <None Include="Manager\inc\FineMessBox\Images\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\blue2003\images\button\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\blue2003\images\treegrid\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\blue2003\images\tree\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\blue2010\images\treegrid\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\olive2003\images\buttonedit\Thumbs.db" />
+    <None Include="Manager\js\miniui\themes\olive2003\images\tree\Thumbs.db" />
+    <None Include="Manager\js\Tree\resources\images\default\tree\Thumbs.db" />
+    <None Include="Manager\js\Tree\resources\images\default\tree\tree-icon.psd" />
+    <Content Include="Manager\MasterPage\PageTemplate.Master" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\AppManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\EventManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\FieldManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\GroupManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\ModuleManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\OnlineUserManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\RoleManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemApp\UserManager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemConfig\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemErrorLog\Web.config" />
+    <Content Include="Manager\Module\FrameWork\SystemMaintenance\SystemState\Web.config" />
+    <Content Include="Manager\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\UsualTypeStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\SexStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\PayTypeStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\NationTypeStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\DiseaseStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\CommunityFilingStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\StatisticalAnalysis\AgeStatistical\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\Web.config" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\Web.config" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\Web.config" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthEducation\Document\Web.config" />
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Info\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Manager\Module\FrameWork\HealthSupervision\Inspect\Web.config" />
+    <None Include="Manager\Public\Document\测试文档2013.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CheckRight.ascx.resx">
+      <DependentUpon>CheckRight.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CopyRight.ascx.resx">
+      <DependentUpon>CopyRight.ascx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{38D7AA58-C95B-449B-86C6-A8073A56E11F}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{E3D8759A-C5EB-402D-9F10-F5C6029A8D1A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameWork\Framework.csproj">
+      <Project>{A3D89A80-19B8-4F6A-9381-8E15D41179AC}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerDAL\SQLServerDAL.csproj">
+      <Project>{AB835BA2-FFD6-49CD-87B0-E216255BB32E}</Project>
+      <Name>SQLServerDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager\js\miniui\themes\gray\images\layout\" />
+    <Folder Include="Manager\js\miniui\themes\gray\images\panel\" />
+    <Folder Include="Manager\js\miniui\themes\gray\images\splitter\" />
+    <Folder Include="Manager\js\miniui\themes\gray\images\tabs\" />
+    <Folder Include="Manager\js\miniui\themes\gray\images\treegrid\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3448</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
