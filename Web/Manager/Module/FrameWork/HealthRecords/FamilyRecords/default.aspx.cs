@@ -35,7 +35,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             bi0.ButtonIcon = "New.gif";
             bi0.ButtonName = "新增家庭健康档案";
             bi0.ButtonPopedom = PopedomType.New;
-            bi0.ButtonUrl = string.Format("ConsultationManager.aspx?CMD=New");
+            bi0.ButtonUrl = string.Format("InfoManager.aspx?CMD=New");
             HeadMenuWebControls1.ButtonList.Add(bi0);
         }
 
