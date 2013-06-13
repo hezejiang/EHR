@@ -37,6 +37,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             int endIndex = this.AspNetPager1.CurrentPageIndex * this.AspNetPager1.PageSize;
             //需要更改
             Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
+
             //bll通过调用GetListByPage方法返回分页数据
             DataSet datas = bll.GetListByPage(SearchTerms, orderby, startIndex, endIndex);
             GridView1.DataSource = datas;
@@ -44,6 +45,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             //获取总记录数
             this.AspNetPager1.RecordCount = bll.GetRecordCount(SearchTerms);
         }
+
         /// <summary>
         /// 跳转分页时调用的方法
         /// </summary>
@@ -109,14 +111,14 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             string I_Content_Value = (string)Common.sink(I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
 
             string SqlSearch = " ";
-            if (I_FindDate_Value != "" || I_Type_Value != "" || I_ReportDate_Value != "" || I_ReportUserID_Value != "" || I_Content_Value != "")
+            if (I_FindDate_Value != "" || I_Type_Value != "0" || I_ReportDate_Value != "" || I_ReportUserID_Value != "" || I_Content_Value != "")
             {
                 if (I_FindDate_Value != "")
                 {
                     SqlSearch = SqlSearch + " I_FindDate = '" + Common.inSQL(I_FindDate_Value) + "' and ";
                 }
 
-                if (I_Type_Value != "" && I_Type_Value !="0")
+                if (I_Type_Value !="0")
                 {
                     SqlSearch = SqlSearch + " I_Type = " + Common.inSQL(I_Type_Value) + " and ";
                 }
@@ -200,20 +202,13 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
         /// </summary>
         public int OrderType
         {
-
             get
             {
-
                 if (ViewState["sortOrderType"] == null)
                     ViewState["sortOrderType"] = 1;
-
                 return (int)ViewState["sortOrderType"];
-
-
             }
-
             set { ViewState["sortOrderType"] = value; }
-
         }
         /// <summary>
         /// 排序事件

@@ -1,16 +1,14 @@
 using System;
 using System.Data;
 using System.Configuration;
-using System.Collections.Generic;
+using System.Collections;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using FrameWork;
 using FrameWork.Components;
-using FrameWork.WebControls;
 
 namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
 {
@@ -18,40 +16,33 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindButton();
             if (!Page.IsPostBack)
             {
                 BindData();
             }
         }
-
-        /// <summary>
-        /// 绑定返回按钮(直接复制)
-        /// </summary>
-        private void BindButton()
-        {
-            HeadMenuButtonItem bi0 = new HeadMenuButtonItem();
-            bi0.ButtonIcon = "New.gif";
-            bi0.ButtonName = "新增家庭健康档案";
-            bi0.ButtonPopedom = PopedomType.New;
-            bi0.ButtonUrl = string.Format("ConsultationManager.aspx?CMD=New");
-            HeadMenuWebControls1.ButtonList.Add(bi0);
-        }
-
         /// <summary>
         /// 绑定列表数据
         /// </summary>
         private void BindData()
         {
+            //排序
             string orderby = OrderType == 0 ? Orderfld + " asc" : Orderfld + " desc";
+            //这一页开始的记录索引
             int startIndex = (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize + 1;
+            //这一页结束的记录索引
             int endIndex = this.AspNetPager1.CurrentPageIndex * this.AspNetPager1.PageSize;
-            Maticsoft.BLL.record_FamilyBaseInfo bll = new Maticsoft.BLL.record_FamilyBaseInfo();
+            //需要更改
+            Maticsoft.BLL.record_DeathRegistration bll = new Maticsoft.BLL.record_DeathRegistration();
+
+            //bll通过调用GetListByPage方法返回分页数据
             DataSet datas = bll.GetListByPage(SearchTerms, orderby, startIndex, endIndex);
             GridView1.DataSource = datas;
             GridView1.DataBind();
+            //获取总记录数
             this.AspNetPager1.RecordCount = bll.GetRecordCount(SearchTerms);
         }
+
         /// <summary>
         /// 跳转分页时调用的方法
         /// </summary>
@@ -61,6 +52,8 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
         {
             BindData();
         }
+
+        
 
         /// <summary>
         /// 通过用户id得到用户信息
@@ -75,61 +68,44 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
         }
 
         /// <summary>
-        /// 通过部门id得到部门信息
-        /// </summary>
-        /// <param name="userID"></param>
-        /// <returns></returns>
-        public Maticsoft.Model.sys_Group getGroupModelById(int GroupID)
-        {
-            Maticsoft.BLL.sys_Group bll = new Maticsoft.BLL.sys_Group();
-            Maticsoft.Model.sys_Group model = bll.GetModel(GroupID);
-            return model;
-        }
-        /// <summary>
-        /// 点击查询
+        /// 点击查询（需要更改）
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string F_FimaryCode_Value = (string)Common.sink(F_FimaryCode.UniqueID, MethodType.Post, 20, 0, DataType.Str);
-            string F_UserID_Value = F_UserID.Value;
-            string F_GroupID_Value = (string)Common.sink(F_GroupID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
-            string F_FimaryTel_Value = (string)Common.sink(F_FimaryTel.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            string F_ResponsibilityUserID_Value = Convert.ToString(Common.sink(F_ResponsibilityUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
-            string F_FillingUserID_Value = Convert.ToString(Common.sink(F_FillingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
+            string D_DateTime_Value = Convert.ToString(Common.sink(D_DateTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
+            string D_RegDate_Value = Convert.ToString(Common.sink(D_RegDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
+            string D_UserID_Value = (string)Common.sink(D_UserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
+            string D_Reason_Value = (string)Common.sink(D_Reason.UniqueID, MethodType.Post, 0, 0, DataType.Str);
+            string D_Location_Value = D_Location.Text;
 
             string SqlSearch = " ";
-            if (F_FimaryCode_Value != "" || F_UserID_Value != "" || F_GroupID_Value != "" || F_FimaryTel_Value != "" || F_FillingUserID_Value != "" || F_ResponsibilityUserID_Value != "")
+            if (D_DateTime_Value != "" || D_UserID_Value != "" || D_Location_Value != "" || D_Reason_Value != "")
             {
-                if (F_FimaryCode_Value != "")
+                if (D_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_FimaryCode like '%" + Common.inSQL(F_FimaryCode_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' and ";
                 }
 
-                if (F_UserID_Value != "")
+                if (D_RegDate_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_UserID like '%" + Common.inSQL(F_UserID_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " D_RegDate = '" + Common.inSQL(D_RegDate_Value) + "' and ";
                 }
 
-                if (F_GroupID_Value != "")
+                if (D_Location_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_GroupID = " + Common.inSQL(F_GroupID_Value) + " and ";
+                    SqlSearch = SqlSearch + " D_Location like '%" + Common.inSQL(D_Location_Value) + "%'" + " and ";
                 }
 
-                if (F_FimaryTel_Value != "")
+                if (D_UserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_FimaryTel like '%" + Common.inSQL(F_FimaryTel_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " D_UserID = " + Common.inSQL(D_UserID_Value) + " and ";
                 }
 
-                if (F_ResponsibilityUserID_Value != "")
+                if (D_Reason_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_ResponsibilityUserID = " + Common.inSQL(F_ResponsibilityUserID_Value) + " and ";
-                }
-
-                if (F_FillingUserID_Value != "")
-                {
-                    SqlSearch = SqlSearch + " F_FillingUserID = " + Common.inSQL(F_FillingUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " D_Reason like '%" + Common.inSQL(D_Reason_Value) + "%'" + " and ";
                 }
                 SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
@@ -153,7 +129,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             }
             set { ViewState["SearchTerms"] = value; }
         }
-
         #region "排序"
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
@@ -181,7 +156,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             {
                 if (ViewState["sortOrderfld"] == null)
 
-                    ViewState["sortOrderfld"] = "F_FimaryCode";
+                    ViewState["sortOrderfld"] = "DeathID";
 
                 return (string)ViewState["sortOrderfld"];
             }
@@ -196,20 +171,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
         /// </summary>
         public int OrderType
         {
-
             get
             {
-
                 if (ViewState["sortOrderType"] == null)
                     ViewState["sortOrderType"] = 1;
-
                 return (int)ViewState["sortOrderType"];
-
-
-            }
-
+            } 
             set { ViewState["sortOrderType"] = value; }
-
         }
         /// <summary>
         /// 排序事件

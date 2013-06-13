@@ -47,9 +47,9 @@
                         <asp:TextBox ID="A_Form" runat="server" Columns="50" title="请输入活动形式!" CssClass="text_input"></asp:TextBox>
                     </td>
                     <td class="table_body">
-                        持续时间</td>
+                        持续时间(min)</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="A_Duration" runat="server" Columns="45" title="请输入持续时间!单位是分钟" CssClass="text_input"></asp:TextBox>&nbsp;&nbsp;min
+                        <asp:TextBox ID="A_Duration" runat="server" Columns="50" title="请输入持续时间!单位是分钟" CssClass="text_input"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

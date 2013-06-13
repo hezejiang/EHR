@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <link rel="stylesheet" type="text/css" href="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/css/subModal.css" />
 
+    <script src="<%=Page.ResolveUrl("~/") %>Manager/js/boot.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <!--通用头部 start-->
@@ -28,8 +29,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField SortExpression="I_Content" HeaderText="信息内容" DataField="I_Content"/>
-                    <asp:BoundField SortExpression="I_ReportDate" HeaderText="报告时间" DataField="I_ReportDate" DataFormatString="{0:yyyy/MM/dd}"
-                        HtmlEncode="false" />
+                    <asp:BoundField SortExpression="I_ReportDate" HeaderText="报告时间" DataField="I_ReportDate" DataFormatString="{0:yyyy/MM/dd}" HtmlEncode="false" />
                     <asp:TemplateField SortExpression="I_ReportUserID" HeaderText="报告人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("I_ReportUserID"))).U_CName%>
@@ -40,18 +40,20 @@
             <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">
             </FrameWorkWebControls:AspNetPager>
         </FrameWorkWebControls:TabOptionItem>
+
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="查询">
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
                         发现时间</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="I_FindDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox></td>
+                        <asp:TextBox ID="I_FindDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
+                    </td>
                     <td class="table_body table_body_NoWidth">
                         信息类别</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:DropDownList runat="server" ID="I_Type">
-                            <asp:ListItem Text="无" Value="0" />
+                            <asp:ListItem Text="不限" Value="0" />
                             <asp:ListItem Text="食品安全" Value="1" />
                             <asp:ListItem Text="饮用水卫生" Value="2" />
                             <asp:ListItem Text="职业病安全" Value="3" />
@@ -68,7 +70,7 @@
                     <td class="table_body table_body_NoWidth">
                         报告人</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="I_ReportUserID" id="I_ReportUserID" value=""/>
+                        <input type="hidden" runat="server" name="I_ReportUserID" id="I_ReportUserID"/>
                         <input runat="server" name="I_ReportUserID_input" id="I_ReportUserID_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择报告人" id="button3" name="buttonselect" onclick="javascript:ShowDepartID()"
                             class="cbutton"/>
@@ -99,17 +101,12 @@
     rnd.seed=rnd.today.getTime(); 
 
     function rnd() { 
-
 　　　　rnd.seed = (rnd.seed*9301+49297) % 233280; 
-
 　　　　return rnd.seed/(233280.0); 
-
     }; 
 
     function rand(number) { 
-
 　　　　return Math.ceil(rnd()*number); 
-
     }; 
     
     

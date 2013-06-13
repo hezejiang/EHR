@@ -67,94 +67,58 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
         
         /// <summary>
-        /// F_FimaryCode 控件。
+        /// D_DateTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryCode;
+        protected global::System.Web.UI.WebControls.TextBox D_DateTime;
         
         /// <summary>
-        /// F_UserID 控件。
+        /// D_RegDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_UserID;
+        protected global::System.Web.UI.WebControls.TextBox D_RegDate;
         
         /// <summary>
-        /// F_UserID_input 控件。
+        /// D_Location 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_UserID_input;
+        protected global::System.Web.UI.WebControls.TextBox D_Location;
         
         /// <summary>
-        /// F_FimaryTel 控件。
+        /// D_UserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryTel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_UserID;
         
         /// <summary>
-        /// F_GroupID 控件。
+        /// D_UserID_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_GroupID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText D_UserID_input;
         
         /// <summary>
-        /// F_GroupID_input 控件。
+        /// D_Reason 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_GroupID_input;
-        
-        /// <summary>
-        /// F_ResponsibilityUserID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_ResponsibilityUserID;
-        
-        /// <summary>
-        /// F_ResponsibilityUserID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_ResponsibilityUserID_input;
-        
-        /// <summary>
-        /// F_FillingUserID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_FillingUserID;
-        
-        /// <summary>
-        /// F_FillingUserID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_FillingUserID_input;
+        protected global::System.Web.UI.WebControls.TextBox D_Reason;
         
         /// <summary>
         /// Button1 控件。

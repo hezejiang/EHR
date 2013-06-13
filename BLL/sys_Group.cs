@@ -174,7 +174,45 @@ namespace Maticsoft.BLL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID)
+        {
+            return dal.GetLowerLevel(GroupID);
+        }
 
+        public string GetLowerLevelString(int GroupID)
+        {
+            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID);
+            string GroupIDs = "";
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    GroupIDs = GroupIDs + ((Maticsoft.Model.sys_Group)list[i]).GroupID + ",";
+                }
+                GroupIDs = GroupIDs.Substring(0, GroupIDs.Length - 1);
+            }
+            return GroupIDs;
+        }
+
+        public string GetLowerLevelString_withSelf(int GroupID)
+        {
+            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID);
+            string GroupIDs = "";
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    GroupIDs = GroupIDs + ((Maticsoft.Model.sys_Group)list[i]).GroupID + ",";
+                }
+                GroupIDs = GroupIDs.Substring(0, GroupIDs.Length - 1);
+            }
+            Maticsoft.Model.sys_Group sys_Group_model = GetModel(GroupID);
+            if (GroupIDs != "")
+                GroupIDs = GroupIDs + "," + sys_Group_model.GroupID;
+            else
+                GroupIDs = sys_Group_model.GroupID + "";
+            return GroupIDs;
+        }
 		#endregion  ExtensionMethod
 	}
 }

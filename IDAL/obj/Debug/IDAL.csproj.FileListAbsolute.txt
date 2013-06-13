@@ -1,0 +1,7 @@
+E:\EHR\IDAL\bin\Debug\Maticsoft.IDAL.dll
+E:\EHR\IDAL\bin\Debug\Maticsoft.IDAL.pdb
+E:\EHR\IDAL\bin\Debug\Maticsoft.Model.dll
+E:\EHR\IDAL\bin\Debug\Maticsoft.Model.pdb
+E:\EHR\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+E:\EHR\IDAL\obj\Debug\Maticsoft.IDAL.dll
+E:\EHR\IDAL\obj\Debug\Maticsoft.IDAL.pdb

@@ -1,0 +1,16 @@
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.SQLServerDAL.dll
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.SQLServerDAL.pdb
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.Common.dll
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.DBUtility.dll
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.IDAL.dll
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.Model.dll
+E:\EHR\SQLServerDAL\bin\Debug\OpenSmtp.dll
+E:\EHR\SQLServerDAL\bin\Debug\MySql.Data.dll
+E:\EHR\SQLServerDAL\bin\Debug\System.Data.SQLite.dll
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.Common.pdb
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.DBUtility.pdb
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.IDAL.pdb
+E:\EHR\SQLServerDAL\bin\Debug\Maticsoft.Model.pdb
+E:\EHR\SQLServerDAL\obj\Debug\SQLServerDAL.csprojResolveAssemblyReference.cache
+E:\EHR\SQLServerDAL\obj\Debug\Maticsoft.SQLServerDAL.dll
+E:\EHR\SQLServerDAL\obj\Debug\Maticsoft.SQLServerDAL.pdb

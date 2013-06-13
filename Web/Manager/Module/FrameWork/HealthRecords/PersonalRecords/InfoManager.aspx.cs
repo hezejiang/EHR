@@ -49,7 +49,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
             bi2.ButtonIcon = "back.gif";
             bi2.ButtonName = "会诊记录";
-            bi2.ButtonPopedom = PopedomType.List;
+            bi2.ButtonPopedom = PopedomType.B;
             bi2.ButtonUrl = string.Format("ConsultationList.aspx?UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi2);
 
