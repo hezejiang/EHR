@@ -40,94 +40,58 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// TopTr 控件。
+        /// D_DateTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
+        protected global::System.Web.UI.WebControls.TextBox D_DateTime;
         
         /// <summary>
-        /// I_FindDate 控件。
+        /// D_RegDate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox I_FindDate;
+        protected global::System.Web.UI.WebControls.TextBox D_RegDate;
         
         /// <summary>
-        /// Tr1 控件。
+        /// D_Location 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr1;
+        protected global::System.Web.UI.WebControls.TextBox D_Location;
         
         /// <summary>
-        /// I_Type 控件。
+        /// D_UserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList I_Type;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_UserID;
         
         /// <summary>
-        /// I_Content 控件。
+        /// D_UserID_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox I_Content;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText D_UserID_input;
         
         /// <summary>
-        /// I_ReportDate 控件。
+        /// D_Reason 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox I_ReportDate;
-        
-        /// <summary>
-        /// tr_username 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_username;
-        
-        /// <summary>
-        /// I_ReportUserID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox I_ReportUserID_input;
-        
-        /// <summary>
-        /// I_ReportUserID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden I_ReportUserID;
-        
-        /// <summary>
-        /// SubmitTr 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
+        protected global::System.Web.UI.WebControls.TextBox D_Reason;
         
         /// <summary>
         /// Button1 控件。

@@ -86,15 +86,14 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             Maticsoft.BLL.record_DeathRegistration bll = new Maticsoft.BLL.record_DeathRegistration();
             Maticsoft.Model.record_DeathRegistration model = bll.GetModel(DeathID);
 
-            //以下几行需要更改
             D_DateTime.Text = model.D_DateTime.ToShortDateString();
             D_Reason.Text = model.D_Reason;
             D_Location.Text = model.D_Location;
             D_RegDate.Text = model.D_RegDate.ToShortDateString();
             Maticsoft.BLL.sys_User user_bll = new Maticsoft.BLL.sys_User();
-            Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.I_ReportUserID);
+            Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.D_UserID);
             D_UserID.Value = user_model.UserID + "";
-            D_UserID_input.Text = user_model.U_CName;
+            D_UserID_input.Value = user_model.U_CName;
         }
 
        
