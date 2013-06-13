@@ -22,7 +22,7 @@
                         DataNavigateUrlFormatString="InfoManager.aspx?DeathID={0}&CMD=Edit" />
                         <asp:BoundField SortExpression="D_Location" HeaderText="死亡地点" DataField="D_Location" 
                         HtmlEncode="false" />
-                    <asp:BoundField SortExpression="D_Date" HeaderText="死亡时间" DataField="D_Date" DataFormatString="{0:yyyy/MM/dd}"/>
+                    <asp:BoundField SortExpression="D_DateTime" HeaderText="死亡时间" DataField="D_DateTime" DataFormatString="{0:yyyy/MM/dd}"/>
                     <asp:BoundField SortExpression="D_RegDate" HeaderText="登记日期" DataField="D_RegDate" DataFormatString="{0:yyyy/MM/dd}"/>
                     <asp:TemplateField SortExpression="D_UserID" HeaderText="登记人">
                         <ItemTemplate>
@@ -43,6 +43,11 @@
                        死亡时间</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_DateTime" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
+                    </td>
+                     <td class="table_body table_body_NoWidth">
+                       登记时间</td>
+                    <td class="table_none table_none_NoWidth">
+                        <asp:TextBox ID="D_RegDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
