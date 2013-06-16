@@ -34,7 +34,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             bi0.ButtonIcon = "New.gif";
             bi0.ButtonName = "新增健康体检记录";
             bi0.ButtonPopedom = PopedomType.New;
-            bi0.ButtonUrl = string.Format("ConsultationManager.aspx?CMD=New&UserID={0}", UserID);
+            bi0.ButtonUrl = string.Format("HealthCheckManager.aspx?CMD=New&UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi0);
         }
 
