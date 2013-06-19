@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FamilyBaseInfo.cs
+*
+* 功 能： N/A
+* 类 名： record_FamilyBaseInfo
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/20 1:08:11   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -10,12 +26,11 @@ namespace Maticsoft.Model
 		public record_FamilyBaseInfo()
 		{}
 		#region Model
-		private int _fimaryid;
-		private string _f_fimarycode;
+		private int _familyid;
+		private string _f_familycode;
 		private int _f_userid;
-		private int _f_groupid;
-		private string _f_fimarytel="";
-		private string _f_fimrayaddress="";
+		private string _f_familytel="";
+		private string _f_familyaddress="";
 		private int? _f_housetype=0;
 		private decimal? _f_housearea=0M;
 		private int? _f_ventilation=0;
@@ -34,18 +49,18 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 自增家庭ID号
 		/// </summary>
-		public int FimaryID
+		public int FamilyID
 		{
-			set{ _fimaryid=value;}
-			get{return _fimaryid;}
+			set{ _familyid=value;}
+			get{return _familyid;}
 		}
 		/// <summary>
 		/// 家庭档案编号，由12位居（村）委会行政代码+自增的FimaryID组成
 		/// </summary>
-		public string F_FimaryCode
+		public string F_FamilyCode
 		{
-			set{ _f_fimarycode=value;}
-			get{return _f_fimarycode;}
+			set{ _f_familycode=value;}
+			get{return _f_familycode;}
 		}
 		/// <summary>
 		/// 户主，与sys_User表的UserID关联
@@ -56,28 +71,20 @@ namespace Maticsoft.Model
 			get{return _f_userid;}
 		}
 		/// <summary>
-		/// 村(居)委会ID，与sys_Group表中GroupID关联
-		/// </summary>
-		public int F_GroupID
-		{
-			set{ _f_groupid=value;}
-			get{return _f_groupid;}
-		}
-		/// <summary>
 		/// 
 		/// </summary>
-		public string F_FimaryTel
+		public string F_FamilyTel
 		{
-			set{ _f_fimarytel=value;}
-			get{return _f_fimarytel;}
+			set{ _f_familytel=value;}
+			get{return _f_familytel;}
 		}
 		/// <summary>
 		/// 家庭地址
 		/// </summary>
-		public string F_FimrayAddress
+		public string F_FamilyAddress
 		{
-			set{ _f_fimrayaddress=value;}
-			get{return _f_fimrayaddress;}
+			set{ _f_familyaddress=value;}
+			get{return _f_familyaddress;}
 		}
 		/// <summary>
 		/// 房屋类型 1:砖瓦平房，2:砖瓦楼房，3:土屋，4:茅屋，5:木屋
@@ -160,7 +167,7 @@ namespace Maticsoft.Model
 			get{return _f_water;}
 		}
 		/// <summary>
-		/// 垃圾处理 1：垃圾处理，2：垃圾箱，3：其他
+		/// 垃圾处理 1：自行处理，2：垃圾箱，3：其他
 		/// </summary>
 		public int? F_WasteDisposal
 		{

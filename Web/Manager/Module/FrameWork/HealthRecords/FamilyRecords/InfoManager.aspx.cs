@@ -14,11 +14,11 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
     public partial class InfoManager : System.Web.UI.Page
     {
         //获取通过Get方式传递过来的键对应的值，可复制后改成你所负责模块的"*ID"
-        int InfoID = (int)Common.sink("InfoID", MethodType.Get, 255, 0, DataType.Int);
+        int FamilyID = (int)Common.sink("FamilyID", MethodType.Get, 255, 0, DataType.Int);
         //CMD一般有如下几个值：List,New,Edit,Delete,Order；这里直接复制，不需更改
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
-        string App_Txt = "信息"; //这里要改成模块对应的内容
+        string App_Txt = "家庭健康档案"; 
         string All_Title_Txt = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -58,23 +58,25 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             {
                 HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
                 bi2.ButtonPopedom = PopedomType.Delete;
-                bi2.ButtonName = "信息";  //需要改
+                bi2.ButtonName = "家庭健康档案";  //需要改
                 bi2.ButtonUrlType = UrlType.JavaScript;
-                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&InfoID={0}')", InfoID);
+                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&FamilyID={0}')", FamilyID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
 
                 InputData();
             }
             else if (CMD == "Delete")
             {
-                //这是操作数据库的核心代码，工作原理是：首先要明确现在所操作的模块对应着数据库中的哪张表，然后创建这个表所对应的的逻辑处理层(bll)对象，如这里操作的表是supervision_Info，则要新建所对应的Maticsoft.BLL.supervision_Info对象
-                Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
-                //这是数据库实体类对象（简单来说就对应着这个表的一条记录），因为这里操作的表是supervision_Info，则对应的model是Maticsoft.Model.supervision_Info，然后通过上一行new的bll对象去执行数据库操作（这里使用的方法是GetModel，当然还有其他的方法，根据需要使用不同的方法），返回对应实体类对象
-                Maticsoft.Model.supervision_Info model = bll.GetModel(InfoID);
+                //这是操作数据库的核心代码，工作原理是：首先要明确现在所操作的模块对应着数据库中的哪张表，然后创建这个表所对应的的逻辑处理层(bll)对象，如这里操作的表是record_FamilyBaseInfo，则要新建所对应的Maticsoft.BLL.record_FamilyBaseInfo对象
+                Maticsoft.BLL.record_FamilyBaseInfo bll = new Maticsoft.BLL.record_FamilyBaseInfo();
+                //这是数据库实体类对象（简单来说就对应着这个表的一条记录），因为这里操作的表是record_FamilyBaseInfo，则对应的model是Maticsoft.Model.record_FamilyBaseInfo，然后通过上一行new的bll对象去执行数据库操作（这里使用的方法是GetModel，当然还有其他的方法，根据需要使用不同的方法），返回对应实体类对象
+                Maticsoft.Model.record_FamilyBaseInfo model = bll.GetModel(FamilyID);
                 //bll执行删除操作，参数是这个实体类的ID值
-                bll.Delete(model.InfoID);
+                bll.Delete(model.FamilyID);
+                Maticsoft.BLL.record_FamilyProblem record_FamilyProblem_bll = new Maticsoft.BLL.record_FamilyProblem();
+                record_FamilyProblem_bll.Delete(model.FamilyID);
                 //以下方法的第4、5个参数需要更改
-                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", InfoID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", FamilyID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
             }
         }
 
@@ -83,50 +85,49 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
         /// </summary>
         private void InputData()
         {
-            //这两句和71、73作用一样
-            Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
-            Maticsoft.Model.supervision_Info model = bll.GetModel(InfoID);
-
-            //以下几行需要更改
-            /*I_FindDate.Text = model.I_FindDate.ToShortDateString();
-            I_Type.SelectedValue = model.I_Type + "";
-            I_Content.Text = model.I_Content;
-            I_ReportDate.Text = model.I_ReportDate.ToShortDateString();
+            Maticsoft.BLL.record_FamilyBaseInfo bll = new Maticsoft.BLL.record_FamilyBaseInfo();
+            Maticsoft.Model.record_FamilyBaseInfo model = bll.GetModel(FamilyID);
+            F_FamilyTel.Text = model.F_FamilyTel.ToString();
+            F_HouseType.SelectedValue = model.F_HouseType + "";
+            F_FamilyAddress.Text = model.F_FamilyAddress;
+            F_FamilyCode.Text = model.F_FamilyCode;
+            F_HouseArea.Text = model.F_HouseArea.ToString();
+            F_Ventilation.SelectedValue = model.F_Ventilation + "";
+            F_Humidity.SelectedValue = model.F_Humidity + "";
+            F_Warm.SelectedValue = model.F_Warm + "";
+            F_Lighting.SelectedValue = model.F_Lighting + "";
+            F_Sanitation.SelectedValue = model.F_Sanitation + "";
+            F_Kitchen.SelectedValue = model.F_Kitchen + "";
+            F_Fuel.SelectedValue = model.F_Fuel + "";
+            F_Water.SelectedValue = model.F_Water + "";
+            F_WasteDisposal.SelectedValue = model.F_WasteDisposal + "";
+            F_LivestockBar.SelectedValue = model.F_LivestockBar + "";
+            F_ToiletType.SelectedValue = model.F_ToiletType + "";
             Maticsoft.BLL.sys_User user_bll = new Maticsoft.BLL.sys_User();
-            Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.I_ReportUserID);
-            I_ReportUserID.Value = user_model.UserID + "";
-            I_ReportUserID_input.Text = user_model.U_CName;*/
-        }
-
-        /// <summary>
-        /// 根据信息类型返回对应的信息名称（这个方法是在有下拉框的时候需要）
-        /// </summary>
-        /// <param name="superision_type"></param>
-        /// <returns></returns>
-        public string getSuperisionNameByType(int superision_type)
-        {
-            string superision_name = "";
-            switch (superision_type)
+            Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.F_UserID);
+            F_UserID.Value = user_model.UserID + "";
+            F_UserID_input.Value = user_model.U_CName;
+            Maticsoft.Model.sys_User user_model1 = user_bll.GetModel(model.F_ResponsibilityUserID);
+            F_ResponsibilityUserID.Value = user_model1.UserID + "";
+            F_ResponsibilityUserID_input.Value = user_model1.U_CName;
+            Maticsoft.Model.sys_User user_model2 = user_bll.GetModel(model.F_FillingUserID);
+            F_FillingUserID.Value = user_model2.UserID + "";
+            F_FillingUserID_input.Value = user_model2.U_CName;
+            Maticsoft.BLL.record_FamilyProblem record_FamilyProblem_bll = new Maticsoft.BLL.record_FamilyProblem();
+            Maticsoft.Model.record_FamilyProblem record_FamilyProblem_model = record_FamilyProblem_bll.GetModel(model.FamilyID);
+            if (record_FamilyProblem_model != null)
             {
-                case 1:
-                    superision_name = "食品安全";
-                    break;
-                case 2:
-                    superision_name = "饮用水卫生";
-                    break;
-                case 3:
-                    superision_name = "职业病安全";
-                    break;
-                case 4:
-                    superision_name = "学校卫生";
-                    break;
-                case 5:
-                    superision_name = "非法行医（采供血）";
-                    break;
+                F_RecordTime.Text = record_FamilyProblem_model.F_RecordTime.ToString();
+                F_StartTime.Text = record_FamilyProblem_model.F_StartTime.ToString();
+                F_endTime.Text = record_FamilyProblem_model.F_endTime.ToString();
+                F_OverviewProblem.Text = record_FamilyProblem_model.F_OverviewProblem.ToString();
+                F_DetailProblem.Text = record_FamilyProblem_model.F_DetailProblem.ToString();
+                Maticsoft.BLL.sys_User fillinguser_bll = new Maticsoft.BLL.sys_User();
+                Maticsoft.Model.sys_User fillinguser_model = fillinguser_bll.GetModel(model.F_FillingUserID);
+                F_FillingUserID.Value = user_model.UserID + "";
+                F_FillingUserID_input.Value = user_model.U_CName;
             }
-            return superision_name;
         }
-
         /// <summary>
         /// 点击确定按钮执行的方法
         /// </summary>
@@ -134,36 +135,89 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            /*Maticsoft.BLL.supervision_Info supervision_bll = new Maticsoft.BLL.supervision_Info();
-            Maticsoft.Model.supervision_Info supervision_Info_model = supervision_bll.GetModel(InfoID);
-            if (supervision_Info_model == null)
+            Maticsoft.BLL.record_FamilyBaseInfo record_FamilyBaseInfo_bll = new Maticsoft.BLL.record_FamilyBaseInfo();
+            Maticsoft.Model.record_FamilyBaseInfo record_FamilyBaseInfo_model = record_FamilyBaseInfo_bll.GetModel(FamilyID);
+           
+            if (record_FamilyBaseInfo_model == null)
             {
-                supervision_Info_model = new Maticsoft.Model.supervision_Info();
+                record_FamilyBaseInfo_model = new Maticsoft.Model.record_FamilyBaseInfo();
             }
 
             //获取客户端通过Post方式传递过来的值的（需要更改）
-            supervision_Info_model.I_FindDate = (DateTime)Common.sink(this.I_FindDate.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
-            supervision_Info_model.I_Type = Convert.ToInt32(this.I_Type.SelectedValue);
-            supervision_Info_model.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            supervision_Info_model.I_ReportDate = (DateTime)Common.sink(this.I_ReportDate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            supervision_Info_model.I_ReportUserID = Convert.ToInt32(this.I_ReportUserID.Value);
-
+            record_FamilyBaseInfo_model.F_FamilyTel = (string)Common.sink(this.F_FamilyTel.UniqueID, MethodType.Post, 255, 0, DataType.Str);
+            record_FamilyBaseInfo_model.F_FamilyAddress = (string)Common.sink(this.F_FamilyAddress.UniqueID, MethodType.Post, 255, 0, DataType.Str);
+            record_FamilyBaseInfo_model.F_HouseArea = Convert.ToInt32(Common.sink(this.F_HouseArea.UniqueID, MethodType.Post, 255, 0, DataType.Int));
+            record_FamilyBaseInfo_model.F_HouseType = Convert.ToInt32(this.F_HouseType.SelectedValue);
+            record_FamilyBaseInfo_model.F_Ventilation = Convert.ToInt32(this.F_Ventilation.SelectedValue);
+            record_FamilyBaseInfo_model.F_Humidity = Convert.ToInt32(this.F_Humidity.SelectedValue);
+            record_FamilyBaseInfo_model.F_Warm = Convert.ToInt32(this.F_Warm.SelectedValue);
+            record_FamilyBaseInfo_model.F_Lighting = Convert.ToInt32(this.F_Lighting.SelectedValue);
+            record_FamilyBaseInfo_model.F_Sanitation = Convert.ToInt32(this.F_Sanitation.SelectedValue);
+            record_FamilyBaseInfo_model.F_Kitchen = Convert.ToInt32(this.F_Kitchen.SelectedValue);
+            record_FamilyBaseInfo_model.F_Fuel = Convert.ToInt32(this.F_Fuel.SelectedValue);
+            record_FamilyBaseInfo_model.F_Water = Convert.ToInt32(this.F_Water.SelectedValue);
+            record_FamilyBaseInfo_model.F_WasteDisposal = Convert.ToInt32(this.F_WasteDisposal.SelectedValue);
+            record_FamilyBaseInfo_model.F_LivestockBar = Convert.ToInt32(this.F_LivestockBar.SelectedValue);
+            record_FamilyBaseInfo_model.F_ToiletType = Convert.ToInt32(this.F_ToiletType.SelectedValue);
+            record_FamilyBaseInfo_model.F_ResponsibilityUserID = Convert.ToInt32(this.F_ResponsibilityUserID.Value);
+            record_FamilyBaseInfo_model.F_FillingUserID = Convert.ToInt32(this.F_FillingUserID.Value);
+            record_FamilyBaseInfo_model.F_UserID = Convert.ToInt32(this.F_UserID.Value);
+            
             switch (CMD)
             {
                 case "New":
                     CMD_Txt = "增加";
                     //如果是增加操作，就调用Add方法
-                    supervision_Info_model.InfoID = supervision_bll.Add(supervision_Info_model);
+                    record_FamilyBaseInfo_model.FamilyID = record_FamilyBaseInfo_bll.Add(record_FamilyBaseInfo_model);
+                    Maticsoft.BLL.record_UserBaseInfo record_UserBaseInfo_bll = new Maticsoft.BLL.record_UserBaseInfo();
+                    Maticsoft.Model.record_UserBaseInfo record_UserBaseInfo_model = record_UserBaseInfo_bll.GetModel(record_FamilyBaseInfo_model.F_UserID);
+                    Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+                    Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(record_UserBaseInfo_model.U_Committee);
+                    string familyCode = sys_Group_model.G_Code + record_FamilyBaseInfo_model.FamilyID + "";
+                    record_FamilyBaseInfo_model.F_FamilyCode = familyCode;
+                    record_FamilyBaseInfo_bll.Update(record_FamilyBaseInfo_model);
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
                     //如果是修改操作，就调用Update方法
-                    supervision_bll.Update(supervision_Info_model);
+                    record_FamilyBaseInfo_bll.Update(record_FamilyBaseInfo_model);
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
             //以下方法的第4个参数需要更改
-            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", supervision_Info_model.InfoID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));*/
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", record_FamilyBaseInfo_model.FamilyID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Maticsoft.BLL.record_FamilyProblem record_FamilyProblem_bll = new Maticsoft.BLL.record_FamilyProblem();
+            Maticsoft.Model.record_FamilyProblem record_FamilyProblem_model = record_FamilyProblem_bll.GetModel(FamilyID);
+            if (record_FamilyProblem_model == null)
+            {
+                record_FamilyProblem_model = new Maticsoft.Model.record_FamilyProblem();
+            }
+            record_FamilyProblem_model.F_RecordTime = (DateTime)Common.sink(this.F_RecordTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            record_FamilyProblem_model.F_StartTime = (DateTime)Common.sink(this.F_StartTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            record_FamilyProblem_model.F_endTime = (DateTime)Common.sink(this.F_endTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
+            record_FamilyProblem_model.F_OverviewProblem = (string)Common.sink(this.F_OverviewProblem.UniqueID, MethodType.Post, 255, 0, DataType.Str);
+            record_FamilyProblem_model.F_DetailProblem = (string)Common.sink(this.F_DetailProblem.UniqueID, MethodType.Post, 255, 0, DataType.Str);
+            record_FamilyProblem_model.F_FillingUserID = Convert.ToInt32(this.F_FillingUserID.Value);
+            switch (CMD)
+            {
+                case "New":
+                    CMD_Txt = "增加";
+                    //如果是增加操作，就调用Add方法
+                    record_FamilyProblem_bll.Add(record_FamilyProblem_model);
+                    break;
+                case "Edit":
+                    CMD_Txt = "修改";
+                    //如果是修改操作，就调用Update方法
+                    record_FamilyProblem_bll.Update(record_FamilyProblem_model);
+                    break;
+            }
+            All_Title_Txt = CMD_Txt + App_Txt;
+            //以下方法的第4个参数需要更改
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", record_FamilyProblem_model.F_FamilyID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
         }
     }
 }

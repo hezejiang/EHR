@@ -146,6 +146,7 @@
     <Compile Include="extend_FamilyHistory.cs" />
     <Compile Include="extend_GeneticDisease.cs" />
     <Compile Include="PubConstant.cs" />
+    <Compile Include="record_FamilyProblem.cs" />
     <Compile Include="SysManage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -161,7 +162,6 @@
     <Compile Include="record_Consultation.cs" />
     <Compile Include="record_DeathRegistration.cs" />
     <Compile Include="record_FamilyBaseInfo.cs" />
-    <Compile Include="record_FimaryProblem.cs" />
     <Compile Include="record_FollowUp.cs" />
     <Compile Include="record_HealthCheck.cs" />
     <Compile Include="record_Medication.cs" />

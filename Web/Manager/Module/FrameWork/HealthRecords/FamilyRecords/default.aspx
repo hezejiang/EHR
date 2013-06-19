@@ -13,20 +13,15 @@
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
-                    <asp:HyperLinkField HeaderText="家庭ID号" DataTextField="F_FimaryCode" SortExpression="F_FimaryCode" DataNavigateUrlFields="FimaryID"
-                        DataNavigateUrlFormatString="InfoManager.aspx?FimaryID={0}&CMD=Edit" />
+                    <asp:HyperLinkField HeaderText="家庭ID号" DataTextField="F_FamilyCode" SortExpression="F_FamilyCode" DataNavigateUrlFields="FamilyID"
+                        DataNavigateUrlFormatString="InfoManager.aspx?FamilyID={0}&CMD=Edit" />
                     <asp:TemplateField SortExpression="F_UserID" HeaderText="户主">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("F_UserID"))).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField SortExpression="F_GroupID" HeaderText="村(居)委会ID">
-                        <ItemTemplate>
-                            <%#getGroupModelById(Convert.ToInt32(Eval("F_GroupID"))).G_CName%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField SortExpression="F_FimaryTel" HeaderText="家庭电话" DataField="F_FimaryTel"/>
-                    <asp:BoundField SortExpression="F_FimrayAddress" HeaderText="家庭住址" DataField="F_FimrayAddress"/>
+                    <asp:BoundField SortExpression="F_FamilyTel" HeaderText="家庭电话" DataField="F_FamilyTel"/>
+                    <asp:BoundField SortExpression="F_FamilyAddress" HeaderText="家庭住址" DataField="F_FamilyAddress"/>
                     <asp:TemplateField SortExpression="F_ResponsibilityUserID" HeaderText="责任人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("F_ResponsibilityUserID"))).U_CName%>
@@ -48,7 +43,7 @@
                     <td class="table_body table_body_NoWidth">
                         家庭编号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryCode" runat="server" CssClass="text_input"></asp:TextBox></td>
+                        <asp:TextBox ID="F_FamilyCode" runat="server" CssClass="text_input"></asp:TextBox></td>
                     <td class="table_body table_body_NoWidth">
                         建档人</td>
                     <td class="table_none table_none_NoWidth">
@@ -63,7 +58,7 @@
                     <td class="table_body table_body_NoWidth">
                         家庭电话</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryTel" runat="server" CssClass="text_input"></asp:TextBox></td>
+                        <asp:TextBox ID="F_FamilyTel" runat="server" CssClass="text_input"></asp:TextBox></td>
                     <td class="table_body table_body_NoWidth">
                     居(村)委会</td>
                     <td class="table_none table_none_NoWidth">

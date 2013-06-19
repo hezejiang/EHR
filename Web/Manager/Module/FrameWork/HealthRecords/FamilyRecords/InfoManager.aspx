@@ -16,37 +16,52 @@
     <!--Tab选项控件 start-->
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
         <!--Tab选项控件的第一个子选项 start-->
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="信息登记">
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="家庭健康档案登记">
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr id="TopTr" runat="server">
                     <td class="table_body">
                         家庭健康档案编号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryCode" runat="server" Columns="50" title="请填写家庭健康档案编号！" CssClass="text_input"></asp:TextBox>
+                        <asp:TextBox ID="F_FamilyCode" runat="server" Columns="50" title="无需填写！" CssClass="text_input" Enabled="false" Text="新增家庭档案时会自动生成"></asp:TextBox>
                     </td>
-                    <td class="table_body">
+                     <td class="table_body">
                         户主</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_UserID" runat="server" Columns="50" title="请填写户主姓名！" CssClass="text_input"></asp:TextBox>
+                        <input type="hidden" runat="server" name="F_UserID" id="F_UserID" value=""/>
+                        <input runat="server" name="F_UserID_input" id="F_UserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
                 <tr id="Tr2" runat="server">
                     <td class="table_body">
-                        村居委会ID</td>
+                        家庭住址</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_GroupID" runat="server" Columns="50" title="请填写村居委会ID！" CssClass="text_input"></asp:TextBox>
-                    </td>
+                        <asp:TextBox ID="F_FamilyAddress" runat="server" Columns="50" title="请填家庭住址！" CssClass="text_input"></asp:TextBox>
+                    </td> 
                     <td class="table_body">
                         家庭电话</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryTel" runat="server" Columns="50" title="请填写家庭电话！" CssClass="text_input"></asp:TextBox>
+                        <asp:TextBox ID="F_FamilyTel" runat="server" Columns="50" title="请填写家庭电话！" CssClass="text_input"></asp:TextBox>
                     </td>
                 </tr>
                 <tr id="Tr1" runat="server">
-                <td class="table_body">
-                        家庭住址</td>
+                    <td class="table_body">
+                        厕所类型</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimrayAddress" runat="server" Columns="50" title="请填家庭住址！" CssClass="text_input"></asp:TextBox>
+                        <asp:DropDownList runat="server" ID="F_ToiletType">
+                            <asp:ListItem Text="家庭卫生厕所：三格式粪池式" Value="1" />
+                            <asp:ListItem Text="家庭卫生厕所：双瓮漏斗式" Value="2" />
+                            <asp:ListItem Text="家庭卫生厕所：三联沼气池式" Value="3" />
+                            <asp:ListItem Text="家庭卫生厕所：粪尿分集式" Value="4" />
+                            <asp:ListItem Text="家庭卫生厕所：完整下水道水冲式" Value="5" />
+                            <asp:ListItem Text="家庭卫生厕所：双坑交替式" Value="6" />
+                            <asp:ListItem Text="非卫生厕所：一格或两格粪池式" Value="7" />
+                            <asp:ListItem Text="非卫生厕所：马桶" Value="8" />
+                            <asp:ListItem Text="非卫生厕所：露天粪坑" Value="9" />
+                            <asp:ListItem Text="非卫生厕所：简易棚厕" Value="10" />
+                        </asp:DropDownList>
                     </td>
                     <td class="table_body">
                         房屋类型</td>
@@ -109,7 +124,7 @@
                     <td class="table_body">
                         卫生</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:DropDownList runat="server" ID="F_Sanitatio">
+                        <asp:DropDownList runat="server" ID="F_Sanitation">
                             <asp:ListItem Text="好" Value="1" />
                             <asp:ListItem Text="一般" Value="2" />
                             <asp:ListItem Text="差" Value="3" />
@@ -173,44 +188,26 @@
                         </asp:DropDownList>
                     </td>
                     <td class="table_body">
-                        厕所类型</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:DropDownList runat="server" ID="F_ToiletType">
-                            <asp:ListItem Text="家庭卫生厕所：三格式粪池式" Value="1" />
-                            <asp:ListItem Text="家庭卫生厕所：双瓮漏斗式" Value="2" />
-                            <asp:ListItem Text="家庭卫生厕所：三联沼气池式" Value="3" />
-                            <asp:ListItem Text="家庭卫生厕所：粪尿分集式" Value="4" />
-                            <asp:ListItem Text="家庭卫生厕所：完整下水道水冲式" Value="5" />
-                            <asp:ListItem Text="家庭卫生厕所：双坑交替式" Value="6" />
-                            <asp:ListItem Text="非卫生厕所：一格或两格粪池式" Value="7" />
-                            <asp:ListItem Text="非卫生厕所：马桶" Value="8" />
-                            <asp:ListItem Text="非卫生厕所：露天粪坑" Value="9" />
-                            <asp:ListItem Text="非卫生厕所：简易棚厕" Value="10" />
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table_body">
                         责任人</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="F_ResponsibilityUserID" id="F_ResponsibilityUserID" value=""/>
                         <input runat="server" name="F_ResponsibilityUserID_input" id="F_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect(3);" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
+                </tr>
+                <tr>
                     <td class="table_body">
                         建档人</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="F_FillingUserID" id="F_FillingUserID" value=""/>
                         <input runat="server" name="F_FillingUserID_input" id="F_FillingUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(3);" class="cbutton" />
                     </td>
-                </tr>
-                <tr id="SubmitTr" runat="server">
-                    <td colspan="4" align="right">
+                    <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
                         <input id="Reset1" class="button_bak" type="reset" value="重填" />&nbsp;
                     </td>
@@ -260,8 +257,8 @@
                     <td class="table_body">
                         建档医生</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="F_FillingUserID" id="Hidden2" value=""/>
-                        <input runat="server" name="F_FillingUserID_input" id="Text2" size="15" value="" class="text_input" readonly/>
+                        <input type="hidden" runat="server" id="F_FillingUserID2" value=""/>
+                        <input runat="server" id="F_FillingUserID2_input" size="15" value="" class="text_input" readonly/>
                         <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
@@ -269,7 +266,8 @@
                 </tr>
                 <tr id="Tr18" runat="server">
                     <td colspan="4" align="right">
-                        <asp:Button ID="Button2" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" CssClass="button_bak" Text="确定" 
+                            onclick="Button2_Click" />
                         <input id="Reset2" class="button_bak" type="reset" value="重填" />&nbsp;
                     </td>
                 </tr>
@@ -278,7 +276,85 @@
     </FrameWorkWebControls:TabOptionWebControls>
 
     <!--Tab选项控件 end-->
-    <script language="javascript">
+    <script type="text/javascript">
+        rnd.today=new Date(); 
+        rnd.seed=rnd.today.getTime(); 
+    
+        function rnd() { 
+　　　　    rnd.seed = (rnd.seed*9301+49297) % 233280; 
+　　　　    return rnd.seed/(233280.0); 
+        }
+
+        function rand(number) { 
+　　　　    return Math.ceil(rnd()*number); 
+        }
+    
+        var type;
+
+        function AlertMessageBox(file_name)
+        {
+	        if (file_name!=undefined){
+	            var ShValues = file_name.split('||');
+	            if (ShValues[1]!=0)
+	            {
+                    onButtonEdit(ShValues[1]);
+	            }
+	        }   
+        }
+
+        function ShowDepartID(t)
+        {
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+        }
+    
+        function ClearSelect(t)
+        {
+            if(t == 1){
+   	            document.all.<%=this.F_UserID_input.ClientID %>.value="";
+                document.all.<%=this.F_UserID.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value="";
+                document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value="";
+            }else if(t == 3){
+                document.all.<%=this.F_FillingUserID.ClientID %>.value="";
+                document.all.<%=this.F_FillingUserID_input.ClientID %>.value="";
+            }else if(t == 4){
+                document.all.<%=this.F_FillingUserID2.ClientID %>.value="";
+                document.all.<%=this.F_FillingUserID2_input.ClientID %>.value="";
+            }
+        }
+
+        mini.parse();
+
+        function onButtonEdit(id) {
+            mini.open({
+                url: "../../CommonModule/SelectUser.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") 
+                    {
+                        if(type == 1){
+   	                        document.all.<%=this.F_UserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_UserID_input.ClientID %>.value=result[2];
+                        }else if(type == 2){
+                            document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 3){
+                            document.all.<%=this.F_FillingUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_FillingUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 4){
+                            document.all.<%=this.F_FillingUserID2.ClientID %>.value=result[1];
+                            document.all.<%=this.F_FillingUserID2_input.ClientID %>.value=result[2];
+                        }
+                    }
+                }
+            });            
+        }
         
 
     </script>

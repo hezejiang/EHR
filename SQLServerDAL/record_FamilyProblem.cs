@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FamilyProblem.cs
+*
+* 功 能： N/A
+* 类 名： record_FamilyProblem
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/19 17:06:24   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -7,35 +23,57 @@ using Maticsoft.DBUtility;//Please add references
 namespace Maticsoft.SQLServerDAL
 {
 	/// <summary>
-	/// 数据访问类:record_FimaryProblem
+	/// 数据访问类:record_FamilyProblem
 	/// </summary>
-	public partial class record_FimaryProblem:Irecord_FimaryProblem
+	public partial class record_FamilyProblem:Irecord_FamilyProblem
 	{
-		public record_FimaryProblem()
+		public record_FamilyProblem()
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperSQL.GetMaxID("F_FamilyID", "record_FamilyProblem"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int F_FamilyID)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from record_FamilyProblem");
+			strSql.Append(" where F_FamilyID=@F_FamilyID ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@F_FamilyID", SqlDbType.Int,4)			};
+			parameters[0].Value = F_FamilyID;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(Maticsoft.Model.record_FimaryProblem model)
+		public bool Add(Maticsoft.Model.record_FamilyProblem model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into record_FimaryProblem(");
-			strSql.Append("F_FimaryCode,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID)");
+			strSql.Append("insert into record_FamilyProblem(");
+			strSql.Append("F_FamilyID,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID)");
 			strSql.Append(" values (");
-			strSql.Append("@F_FimaryCode,@F_RecordTime,@F_StartTime,@F_endTime,@F_OverviewProblem,@F_DetailProblem,@F_FillingUserID)");
+			strSql.Append("@F_FamilyID,@F_RecordTime,@F_StartTime,@F_endTime,@F_OverviewProblem,@F_DetailProblem,@F_FillingUserID)");
 			SqlParameter[] parameters = {
-					new SqlParameter("@F_FimaryCode", SqlDbType.VarChar,30),
+					new SqlParameter("@F_FamilyID", SqlDbType.Int,4),
 					new SqlParameter("@F_RecordTime", SqlDbType.DateTime),
 					new SqlParameter("@F_StartTime", SqlDbType.DateTime),
 					new SqlParameter("@F_endTime", SqlDbType.DateTime),
 					new SqlParameter("@F_OverviewProblem", SqlDbType.NVarChar,255),
 					new SqlParameter("@F_DetailProblem", SqlDbType.Text),
 					new SqlParameter("@F_FillingUserID", SqlDbType.Int,4)};
-			parameters[0].Value = model.F_FimaryCode;
+			parameters[0].Value = model.F_FamilyID;
 			parameters[1].Value = model.F_RecordTime;
 			parameters[2].Value = model.F_StartTime;
 			parameters[3].Value = model.F_endTime;
@@ -56,33 +94,32 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(Maticsoft.Model.record_FimaryProblem model)
+		public bool Update(Maticsoft.Model.record_FamilyProblem model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update record_FimaryProblem set ");
-			strSql.Append("F_FimaryCode=@F_FimaryCode,");
+			strSql.Append("update record_FamilyProblem set ");
 			strSql.Append("F_RecordTime=@F_RecordTime,");
 			strSql.Append("F_StartTime=@F_StartTime,");
 			strSql.Append("F_endTime=@F_endTime,");
 			strSql.Append("F_OverviewProblem=@F_OverviewProblem,");
 			strSql.Append("F_DetailProblem=@F_DetailProblem,");
 			strSql.Append("F_FillingUserID=@F_FillingUserID");
-			strSql.Append(" where ");
+			strSql.Append(" where F_FamilyID=@F_FamilyID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@F_FimaryCode", SqlDbType.VarChar,30),
 					new SqlParameter("@F_RecordTime", SqlDbType.DateTime),
 					new SqlParameter("@F_StartTime", SqlDbType.DateTime),
 					new SqlParameter("@F_endTime", SqlDbType.DateTime),
 					new SqlParameter("@F_OverviewProblem", SqlDbType.NVarChar,255),
 					new SqlParameter("@F_DetailProblem", SqlDbType.Text),
-					new SqlParameter("@F_FillingUserID", SqlDbType.Int,4)};
-			parameters[0].Value = model.F_FimaryCode;
-			parameters[1].Value = model.F_RecordTime;
-			parameters[2].Value = model.F_StartTime;
-			parameters[3].Value = model.F_endTime;
-			parameters[4].Value = model.F_OverviewProblem;
-			parameters[5].Value = model.F_DetailProblem;
-			parameters[6].Value = model.F_FillingUserID;
+					new SqlParameter("@F_FillingUserID", SqlDbType.Int,4),
+					new SqlParameter("@F_FamilyID", SqlDbType.Int,4)};
+			parameters[0].Value = model.F_RecordTime;
+			parameters[1].Value = model.F_StartTime;
+			parameters[2].Value = model.F_endTime;
+			parameters[3].Value = model.F_OverviewProblem;
+			parameters[4].Value = model.F_DetailProblem;
+			parameters[5].Value = model.F_FillingUserID;
+			parameters[6].Value = model.F_FamilyID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -98,16 +135,35 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int F_FamilyID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from record_FimaryProblem ");
-			strSql.Append(" where ");
+			strSql.Append("delete from record_FamilyProblem ");
+			strSql.Append(" where F_FamilyID=@F_FamilyID ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@F_FamilyID", SqlDbType.Int,4)			};
+			parameters[0].Value = F_FamilyID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string F_FamilyIDlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from record_FamilyProblem ");
+			strSql.Append(" where F_FamilyID in ("+F_FamilyIDlist + ")  ");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -122,16 +178,17 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.record_FimaryProblem GetModel()
+		public Maticsoft.Model.record_FamilyProblem GetModel(int F_FamilyID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 F_FimaryCode,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID from record_FimaryProblem ");
-			strSql.Append(" where ");
+			strSql.Append("select  top 1 F_FamilyID,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID from record_FamilyProblem ");
+			strSql.Append(" where F_FamilyID=@F_FamilyID ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@F_FamilyID", SqlDbType.Int,4)			};
+			parameters[0].Value = F_FamilyID;
 
-			Maticsoft.Model.record_FimaryProblem model=new Maticsoft.Model.record_FimaryProblem();
+			Maticsoft.Model.record_FamilyProblem model=new Maticsoft.Model.record_FamilyProblem();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -147,14 +204,14 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.record_FimaryProblem DataRowToModel(DataRow row)
+		public Maticsoft.Model.record_FamilyProblem DataRowToModel(DataRow row)
 		{
-			Maticsoft.Model.record_FimaryProblem model=new Maticsoft.Model.record_FimaryProblem();
+			Maticsoft.Model.record_FamilyProblem model=new Maticsoft.Model.record_FamilyProblem();
 			if (row != null)
 			{
-				if(row["F_FimaryCode"]!=null)
+				if(row["F_FamilyID"]!=null && row["F_FamilyID"].ToString()!="")
 				{
-					model.F_FimaryCode=row["F_FimaryCode"].ToString();
+					model.F_FamilyID=int.Parse(row["F_FamilyID"].ToString());
 				}
 				if(row["F_RecordTime"]!=null && row["F_RecordTime"].ToString()!="")
 				{
@@ -190,8 +247,8 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select F_FimaryCode,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID ");
-			strSql.Append(" FROM record_FimaryProblem ");
+			strSql.Append("select F_FamilyID,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID ");
+			strSql.Append(" FROM record_FamilyProblem ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -210,8 +267,8 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" F_FimaryCode,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID ");
-			strSql.Append(" FROM record_FimaryProblem ");
+			strSql.Append(" F_FamilyID,F_RecordTime,F_StartTime,F_endTime,F_OverviewProblem,F_DetailProblem,F_FillingUserID ");
+			strSql.Append(" FROM record_FamilyProblem ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -226,7 +283,7 @@ namespace Maticsoft.SQLServerDAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM record_FimaryProblem ");
+			strSql.Append("select count(1) FROM record_FamilyProblem ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -255,9 +312,9 @@ namespace Maticsoft.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.FimaryID desc");
+				strSql.Append("order by T.F_FamilyID desc");
 			}
-			strSql.Append(")AS Row, T.*  from record_FimaryProblem T ");
+			strSql.Append(")AS Row, T.*  from record_FamilyProblem T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -282,8 +339,8 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "record_FimaryProblem";
-			parameters[1].Value = "FimaryID";
+			parameters[0].Value = "record_FamilyProblem";
+			parameters[1].Value = "F_FamilyID";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;
