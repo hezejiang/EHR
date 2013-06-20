@@ -796,7 +796,9 @@
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx" />
@@ -1000,12 +1002,26 @@
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -1573,7 +1589,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3448</DevelopmentServerPort>
+          <DevelopmentServerPort>12479</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
