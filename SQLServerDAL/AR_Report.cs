@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/8 16:24:23   N/A    初版
+* V0.01  2013/6/20 21:58:53   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -63,9 +63,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into AR_Report(");
-			strSql.Append("R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status)");
+			strSql.Append("R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status,R_GroupID)");
 			strSql.Append(" values (");
-			strSql.Append("@R_Title,@R_Content,@R_DateTime,@R_ResponsibilityUserID,@R_Type,@R_Status)");
+			strSql.Append("@R_Title,@R_Content,@R_DateTime,@R_ResponsibilityUserID,@R_Type,@R_Status,@R_GroupID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@R_Title", SqlDbType.NVarChar,255),
@@ -73,13 +73,15 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@R_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@R_ResponsibilityUserID", SqlDbType.Int,4),
 					new SqlParameter("@R_Type", SqlDbType.Int,4),
-					new SqlParameter("@R_Status", SqlDbType.Int,4)};
+					new SqlParameter("@R_Status", SqlDbType.Int,4),
+					new SqlParameter("@R_GroupID", SqlDbType.Int,4)};
 			parameters[0].Value = model.R_Title;
 			parameters[1].Value = model.R_Content;
 			parameters[2].Value = model.R_DateTime;
 			parameters[3].Value = model.R_ResponsibilityUserID;
 			parameters[4].Value = model.R_Type;
 			parameters[5].Value = model.R_Status;
+			parameters[6].Value = model.R_GroupID;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -103,7 +105,8 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("R_DateTime=@R_DateTime,");
 			strSql.Append("R_ResponsibilityUserID=@R_ResponsibilityUserID,");
 			strSql.Append("R_Type=@R_Type,");
-			strSql.Append("R_Status=@R_Status");
+			strSql.Append("R_Status=@R_Status,");
+			strSql.Append("R_GroupID=@R_GroupID");
 			strSql.Append(" where ReportID=@ReportID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@R_Title", SqlDbType.NVarChar,255),
@@ -112,6 +115,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@R_ResponsibilityUserID", SqlDbType.Int,4),
 					new SqlParameter("@R_Type", SqlDbType.Int,4),
 					new SqlParameter("@R_Status", SqlDbType.Int,4),
+					new SqlParameter("@R_GroupID", SqlDbType.Int,4),
 					new SqlParameter("@ReportID", SqlDbType.Int,4)};
 			parameters[0].Value = model.R_Title;
 			parameters[1].Value = model.R_Content;
@@ -119,7 +123,8 @@ namespace Maticsoft.SQLServerDAL
 			parameters[3].Value = model.R_ResponsibilityUserID;
 			parameters[4].Value = model.R_Type;
 			parameters[5].Value = model.R_Status;
-			parameters[6].Value = model.ReportID;
+			parameters[6].Value = model.R_GroupID;
+			parameters[7].Value = model.ReportID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -183,7 +188,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status from AR_Report ");
+			strSql.Append("select  top 1 ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status,R_GroupID from AR_Report ");
 			strSql.Append(" where ReportID=@ReportID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ReportID", SqlDbType.Int,4)
@@ -239,6 +244,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.R_Status=int.Parse(row["R_Status"].ToString());
 				}
+				if(row["R_GroupID"]!=null && row["R_GroupID"].ToString()!="")
+				{
+					model.R_GroupID=int.Parse(row["R_GroupID"].ToString());
+				}
 			}
 			return model;
 		}
@@ -249,7 +258,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status ");
+			strSql.Append("select ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status,R_GroupID ");
 			strSql.Append(" FROM AR_Report ");
 			if(strWhere.Trim()!="")
 			{
@@ -269,7 +278,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status ");
+			strSql.Append(" ReportID,R_Title,R_Content,R_DateTime,R_ResponsibilityUserID,R_Type,R_Status,R_GroupID ");
 			strSql.Append(" FROM AR_Report ");
 			if(strWhere.Trim()!="")
 			{

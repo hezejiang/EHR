@@ -14,8 +14,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
 {
     public partial class _default : System.Web.UI.Page
     {
+        Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+        int groupID = UserData.GetUserDate.U_GroupID;
+        string GroupIDs = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             if (!Page.IsPostBack)
             {
                 BindData();
@@ -105,6 +110,10 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             string U_FilingUserID_Value = Convert.ToString(Common.sink(U_FilingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type != 0)//如果不是超级管理员
+            {
+                SqlSearch = string.Format(" U_Committee in ({0}) and", GroupIDs);
+            }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_Sex_Value != "-1" || U_Committee_Value != "" || U_MobileNo_Value != "" || U_FilingUserID_Value != "" || U_ResponsibilityUserID_Value != "")
             {
                 if (U_IDCard_Value != "")
@@ -158,7 +167,16 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = " ";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})",GroupIDs);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

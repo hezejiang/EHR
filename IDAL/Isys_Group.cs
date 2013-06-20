@@ -52,8 +52,8 @@ namespace Maticsoft.IDAL
 		//DataSet GetList(int PageSize,int PageIndex,string strWhere);
 		#endregion  成员方法
 		#region  MethodEx
-        List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID);
-        List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID);
+        List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID, Boolean isDriect);
+        List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID, Boolean isDriect);
 		#endregion  MethodEx
 	} 
 }
