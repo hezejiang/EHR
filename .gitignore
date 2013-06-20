@@ -8,3 +8,8 @@ Web/Manager/Log/20130614AppErrorLog.txt
 Web/Manager/Log/20130615AppErrorLog.txt
 Web/Manager/Log/20130618AppErrorLog.txt
 Web/obj/Debug/Web.csproj.FileListAbsolute.txt
+BLL/obj/Debug/build.force
+DALFactory/obj/Debug/build.force
+IDAL/obj/Debug/build.force
+SQLServerDAL/obj/Debug/build.force
+Web/obj/Debug/build.force

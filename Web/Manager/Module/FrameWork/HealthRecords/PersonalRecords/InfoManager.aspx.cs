@@ -20,7 +20,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
         public int UserID = (int)Common.sink("UserID", MethodType.Get, 255, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
-        string App_Txt = "健康档案";
+        string App_Txt = "个人健康档案";
         string All_Title_Txt = "";
         private List<Maticsoft.Model.commonDiseases> commonDiseases_list;
 

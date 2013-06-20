@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
+namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
     
     
-    public partial class _default {
+    public partial class HealthCheckManager {
         
         /// <summary>
         /// HeadMenuWebControls1 控件。
@@ -40,129 +40,165 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem1;
         
         /// <summary>
-        /// GridView1 控件。
+        /// H_UserID_Txt 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label H_UserID_Txt;
         
         /// <summary>
-        /// AspNetPager1 控件。
+        /// H_BodyTemperature 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.AspNetPager AspNetPager1;
+        protected global::System.Web.UI.WebControls.TextBox H_BodyTemperature;
         
         /// <summary>
-        /// TabOptionItem2 控件。
+        /// H_RespiratoryRate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
+        protected global::System.Web.UI.WebControls.TextBox H_RespiratoryRate;
         
         /// <summary>
-        /// F_FamilyCode 控件。
+        /// H_PulseRate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FamilyCode;
+        protected global::System.Web.UI.WebControls.TextBox H_PulseRate;
         
         /// <summary>
-        /// F_UserID 控件。
+        /// H_LeftDiastolic 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_UserID;
+        protected global::System.Web.UI.WebControls.TextBox H_LeftDiastolic;
         
         /// <summary>
-        /// F_UserID_input 控件。
+        /// H_LeftSystolic 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_UserID_input;
+        protected global::System.Web.UI.WebControls.TextBox H_LeftSystolic;
         
         /// <summary>
-        /// F_FamilyTel 控件。
+        /// H_RightDiastolic 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FamilyTel;
+        protected global::System.Web.UI.WebControls.TextBox H_RightDiastolic;
         
         /// <summary>
-        /// F_GroupID 控件。
+        /// H_RightSystolic 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_GroupID;
+        protected global::System.Web.UI.WebControls.TextBox H_RightSystolic;
         
         /// <summary>
-        /// F_GroupID_input 控件。
+        /// H_Weight 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_GroupID_input;
+        protected global::System.Web.UI.WebControls.TextBox H_Weight;
         
         /// <summary>
-        /// F_ResponsibilityUserID 控件。
+        /// H_Height 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_ResponsibilityUserID;
+        protected global::System.Web.UI.WebControls.TextBox H_Height;
         
         /// <summary>
-        /// F_ResponsibilityUserID_input 控件。
+        /// H_Result 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_ResponsibilityUserID_input;
+        protected global::System.Web.UI.WebControls.TextBox H_Result;
         
         /// <summary>
-        /// F_FillingUserID 控件。
+        /// H_Suggestion 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_FillingUserID;
+        protected global::System.Web.UI.WebControls.TextBox H_Suggestion;
         
         /// <summary>
-        /// F_FillingUserID_input 控件。
+        /// H_CheckTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_FillingUserID_input;
+        protected global::System.Web.UI.WebControls.TextBox H_CheckTime;
         
         /// <summary>
-        /// Button1 控件。
+        /// H_CheckUserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden H_CheckUserID;
+        
+        /// <summary>
+        /// H_CheckUserID_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText H_CheckUserID_input;
+        
+        /// <summary>
+        /// H_MedicalInstitutions 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden H_MedicalInstitutions;
+        
+        /// <summary>
+        /// H_MedicalInstitutions_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText H_MedicalInstitutions_input;
+        
+        /// <summary>
+        /// Button2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

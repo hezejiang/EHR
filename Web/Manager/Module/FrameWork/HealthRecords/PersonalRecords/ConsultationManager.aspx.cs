@@ -124,7 +124,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             model.C_Comments = (string)Common.sink(this.C_Comments.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             model.C_Time = (DateTime)Common.sink(this.C_Time.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
             model.C_Dortor = 1; //当前登录的医生id
-
             switch (CMD)
             {
                 case "New":

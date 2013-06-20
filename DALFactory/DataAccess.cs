@@ -187,14 +187,14 @@ namespace Maticsoft.DALFactory
 
 
 		/// <summary>
-		/// 创建record_FimaryProblem数据层接口。
+		/// 创建record_FamilyProblem数据层接口。
 		/// </summary>
-		public static Maticsoft.IDAL.Irecord_FimaryProblem Createrecord_FimaryProblem()
+        public static Maticsoft.IDAL.Irecord_FamilyProblem Createrecord_FamilyProblem()
 		{
 
-			string ClassNamespace = AssemblyPath +".record_FimaryProblem";
+			string ClassNamespace = AssemblyPath +".record_FamilyProblem";
 			object objType=CreateObject(AssemblyPath,ClassNamespace);
-			return (Maticsoft.IDAL.Irecord_FimaryProblem)objType;
+			return (Maticsoft.IDAL.Irecord_FamilyProblem)objType;
 		}
 
 

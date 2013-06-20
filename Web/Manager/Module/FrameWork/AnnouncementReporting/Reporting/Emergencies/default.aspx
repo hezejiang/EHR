@@ -7,10 +7,10 @@
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="传染病及突发事件" HeadTitleTxt="传染病及突发事件报告管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="传染病及突发事件报管理" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New" ButtonUrlType="Href" ButtonVisible="True" />
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="传染病及突发事件报告管理" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New" ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="迁入迁出档案管理">
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="传染病及突发事件管理">
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
