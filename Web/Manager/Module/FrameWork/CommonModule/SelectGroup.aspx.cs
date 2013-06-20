@@ -44,7 +44,7 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             if (UserData.Get_sys_UserTable(currentUser.UserID).U_Type == 0) //判断用户是否为超级用户
                 GroupIDs = "";
             else
-                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(GroupID);
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(GroupID, false);
             QueryParam qp = new QueryParam();
             if (GroupIDs != "")
             {
@@ -62,11 +62,10 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             strSB.Append("<script language='JavaScript'>\n");
             strSB.Append("Fold_id='';\n");
 
-            strSB.Append("treeRoot = gFld(\"mainbody\", \"部门列表\", \"0\",\"0\")\n");
-
             if (G_Type == 1) //如果是医院
             {
-                List<Maticsoft.Model.sys_Group> list_all = sys_Group_bll.GetHigherLevel_withSelf(lst);
+                strSB.Append("treeRoot = gFld(\"mainbody\", \"医院列表\", \"0\",\"0\")\n");
+                List<Maticsoft.Model.sys_Group> list_all = sys_Group_bll.GetHigherLevel_withSelf(lst, false);
                 for (int i = list_all.Count -1; i >=0; i--)
                 {
                     intCount = intCount + 1;
@@ -98,6 +97,7 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             }
             else
             {
+                strSB.Append("treeRoot = gFld(\"mainbody\", \"部门列表\", \"0\",\"0\")\n");
                 foreach (sys_GroupTable x in lst)
                 {
                     intCount = intCount + 1;

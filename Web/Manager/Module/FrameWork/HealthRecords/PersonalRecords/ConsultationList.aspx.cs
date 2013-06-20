@@ -86,31 +86,29 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             string C_Dortor_Value = (string)Common.sink(C_Dortor.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             string C_Time_Value = Convert.ToString(Common.sink(C_Time.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
 
-            string SqlSearch = "";
+            string SqlSearch = string.Format("C_UserID={0} ", UserID);
             if (C_Cause_Value != "" || C_Comments_Value != "" || C_Dortor_Value != "" || C_Time_Value != "")
             {
                 if (C_Cause_Value != "")
                 {
-                    SqlSearch = SqlSearch + " C_Cause like '%" + Common.inSQL(C_Cause_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " C_Cause like '%" + Common.inSQL(C_Cause_Value) + "%'" + " ";
                 }
 
                 if (C_Comments_Value != "")
                 {
-                    SqlSearch = SqlSearch + " C_Comments like '%" + Common.inSQL(C_Comments_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " C_Comments like '%" + Common.inSQL(C_Comments_Value) + "%'" + " ";
                 }
 
                 if (C_Dortor_Value != "")
                 {
-                    SqlSearch = SqlSearch + " C_Dortor = " + Common.inSQL(C_Dortor_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " C_Dortor = " + Common.inSQL(C_Dortor_Value) + " ";
                 }
 
                 if (C_Time_Value != "")
                 {
-                    SqlSearch = SqlSearch + " C_Time = '" + Common.inSQL(C_Time_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " C_Time = '" + Common.inSQL(C_Time_Value) + "' ";
                 }
             }
-
-            SqlSearch = SqlSearch + string.Format("C_UserID={0} ", UserID);
 
             ViewState["SearchTerms"] = SqlSearch;
             AspNetPager1.CurrentPageIndex = 1;

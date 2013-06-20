@@ -24,6 +24,11 @@
                             <%#getTypeName(Convert.ToInt32(Eval("A_Type")))%>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField SortExpression="R_GroupID" HeaderText="公告部门">
+                        <ItemTemplate>
+                            <%#getGroupModelById(Convert.ToInt32(Eval("A_GroupID"))).G_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="A_ResponsibilityUserID" HeaderText="责任人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("A_ResponsibilityUserID"))).U_CName%>

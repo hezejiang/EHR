@@ -50,7 +50,7 @@
                                         <td>
                                             <img src="images/Logon/Logon_3.gif" width="194" height="28" alt="" /></td>
                                         <td background="images/Logon/Logon_4.gif" width="237">
-                                            <asp:TextBox ID="IDCard" class="text_input" title="请输入身份证号~!" runat="server" Style="width: 138px;"></asp:TextBox></td>
+                                            <asp:TextBox ID="LoginName" class="text_input" title="请输入身份证号~!" runat="server" Style="width: 138px;"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>

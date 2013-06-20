@@ -34,7 +34,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             bi0.ButtonIcon = "New.gif";
             bi0.ButtonName = "新增健康体检记录";
             bi0.ButtonPopedom = PopedomType.New;
-            bi0.ButtonUrl = string.Format("InfoManager.aspx?CMD=New&UserID={0}", UserID);
+            bi0.ButtonUrl = string.Format("HealthCheckManager.aspx?CMD=New&UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi0);
         }
 
@@ -86,31 +86,29 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             string H_CheckUserID_Value = (string)Common.sink(H_CheckUserID.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             string H_CheckTime_Value = Convert.ToString(Common.sink(H_CheckTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
 
-            string SqlSearch = "";
+            string SqlSearch = string.Format("H_UserID={0} ", UserID);
             if (H_Result_Value != "" || H_Suggestion_Value != "" || H_CheckUserID_Value != "" || H_CheckTime_Value != "")
             {
                 if (H_Result_Value != "")
                 {
-                    SqlSearch = SqlSearch + " H_Result like '%" + Common.inSQL(H_Result_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " H_Result like '%" + Common.inSQL(H_Result_Value) + "%'" + " ";
                 }
 
                 if (H_Suggestion_Value != "")
                 {
-                    SqlSearch = SqlSearch + " H_Suggestion like '%" + Common.inSQL(H_Suggestion_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " H_Suggestion like '%" + Common.inSQL(H_Suggestion_Value) + "%'" + " ";
                 }
 
                 if (H_CheckUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " H_CheckUserID = " + Common.inSQL(H_CheckUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " H_CheckUserID = " + Common.inSQL(H_CheckUserID_Value) + " ";
                 }
 
                 if (H_CheckTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " H_CheckTime = '" + Common.inSQL(H_CheckTime_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " H_CheckTime = '" + Common.inSQL(H_CheckTime_Value) + "' ";
                 }
             }
-
-            SqlSearch = SqlSearch + string.Format("H_UserID={0} ", UserID);
 
             ViewState["SearchTerms"] = SqlSearch;
             AspNetPager1.CurrentPageIndex = 1;

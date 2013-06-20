@@ -14,9 +14,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
 {
     public partial class _default : System.Web.UI.Page
     {
+        Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+        int groupID = UserData.GetUserDate.U_GroupID;
+        string GroupIDs = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             {
                 BindData();
             }
@@ -81,33 +85,40 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             string D_Location_Value = D_Location.Text;
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
+            }
             if (D_DateTime_Value != "" || D_UserID_Value != "" || D_Location_Value != "" || D_Reason_Value != "")
             {
                 if (D_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' ";
                 }
 
                 if (D_RegDate_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_RegDate = '" + Common.inSQL(D_RegDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " D_RegDate = '" + Common.inSQL(D_RegDate_Value) + "' ";
                 }
 
                 if (D_Location_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_Location like '%" + Common.inSQL(D_Location_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " D_Location like '%" + Common.inSQL(D_Location_Value) + "%'" + " ";
                 }
 
                 if (D_UserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_UserID = " + Common.inSQL(D_UserID_Value) + " and ";
+                    SqlSearch =  SqlSearch + " and "  + " D_UserID = " + Common.inSQL(D_UserID_Value) + " ";
                 }
 
                 if (D_Reason_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_Reason like '%" + Common.inSQL(D_Reason_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " D_Reason like '%" + Common.inSQL(D_Reason_Value) + "%'" + " ";
                 }
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -124,7 +135,16 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = " ";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

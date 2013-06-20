@@ -157,42 +157,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords {
         protected global::System.Web.UI.WebControls.TextBox H_CheckTime;
         
         /// <summary>
-        /// H_CheckUserID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden H_CheckUserID;
-        
-        /// <summary>
-        /// H_CheckUserID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText H_CheckUserID_input;
-        
-        /// <summary>
-        /// H_MedicalInstitutions 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden H_MedicalInstitutions;
-        
-        /// <summary>
-        /// H_MedicalInstitutions_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText H_MedicalInstitutions_input;
-        
-        /// <summary>
         /// Button2 控件。
         /// </summary>
         /// <remarks>

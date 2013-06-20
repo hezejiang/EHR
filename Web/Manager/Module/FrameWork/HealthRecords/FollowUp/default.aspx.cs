@@ -138,6 +138,18 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp
         }
 
         /// <summary>
+        /// 通过用户id得到用户基本信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public Maticsoft.Model.record_UserBaseInfo getUserBaseModelById(int userID)
+        {
+            Maticsoft.BLL.record_UserBaseInfo bll = new Maticsoft.BLL.record_UserBaseInfo();
+            Maticsoft.Model.record_UserBaseInfo model = bll.GetModel(userID);
+            return model;
+        }
+
+        /// <summary>
         /// 通过部门id得到部门信息
         /// </summary>
         /// <param name="userID"></param>
@@ -156,41 +168,41 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string U_CName_Value = U_CName.Text;
             string F_Type_Value = F_Type.SelectedValue;
-            string U_ResponsibilityUserID_Value = U_ResponsibilityUserID.Value;
+            string F_PatientID_Value = F_PatientID.Value;
             string F_Date_Value = Convert.ToString(Common.sink(F_Date.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
             string F_Status_Value = F_Status.SelectedValue;
 
             string SqlSearch = " ";
-            if (U_CName_Value != "" || F_Type_Value != "0" || U_ResponsibilityUserID_Value != "" || F_Date_Value != "" || F_Status_Value !="0")
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
             {
-                if (U_CName_Value != "")
-                {
-                    SqlSearch = SqlSearch + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' and ";
-                }
-
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format(" F_Doctor = {0}", UserData.GetUserDate.UserID);
+            }
+            if (F_Type_Value != "0" || F_PatientID_Value != "" || F_Date_Value != "" || F_Status_Value != "0")
+            {
                 if (F_Type_Value != "0")
                 {
-                    SqlSearch = SqlSearch + " F_Type = " + Common.inSQL(F_Type_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " F_Type = " + Common.inSQL(F_Type_Value) + " ";
                 }
 
-                if (U_ResponsibilityUserID_Value != "")
+                if (F_PatientID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and " + " F_PatientID = " + Common.inSQL(F_PatientID_Value) + " ";
                 }
 
                 if (F_Date_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_Date = '" + Common.inSQL(F_Date_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " F_Date = '" + Common.inSQL(F_Date_Value) + "' ";
                 }
 
                 if (F_Status_Value != "0")
                 {
-                    SqlSearch = SqlSearch + " F_Status = " + Common.inSQL(F_Status_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " F_Status = " + Common.inSQL(F_Status_Value) + " ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -207,7 +219,19 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (ViewState["SearchTerms"] == null)
+                    {
+                        if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                        {
+                            ViewState["SearchTerms"] = " ";
+                        }
+                        else
+                        {
+                            ViewState["SearchTerms"] = string.Format(" F_Doctor = {0}", UserData.GetUserDate.UserID);
+                        }
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

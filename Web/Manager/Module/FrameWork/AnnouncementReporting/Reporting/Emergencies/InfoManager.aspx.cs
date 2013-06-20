@@ -13,10 +13,10 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
 {
     public partial class InfoManager : System.Web.UI.Page
     {
-        int AnnouncementID = (int)Common.sink("AnnouncementID", MethodType.Get, 255, 0, DataType.Int);
+        int ReportID = (int)Common.sink("ReportID", MethodType.Get, 255, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
-        string App_Txt = "公告"; 
+        string App_Txt = "报告";
         string All_Title_Txt = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -49,25 +49,25 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
         {
             if (CMD == "New")
             {
-                
+
             }
             else if (CMD == "Edit")
             {
                 HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
                 bi2.ButtonPopedom = PopedomType.Delete;
-                bi2.ButtonName = "活动"; 
+                bi2.ButtonName = "活动";
                 bi2.ButtonUrlType = UrlType.JavaScript;
-                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&AnnouncementID={0}')", AnnouncementID);
+                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&ReportID={0}')", ReportID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
 
                 InputData();
             }
             else if (CMD == "Delete")
             {
-                Maticsoft.BLL.AR_Announcement bll = new Maticsoft.BLL.AR_Announcement();
-                Maticsoft.Model.AR_Announcement model = bll.GetModel(AnnouncementID);
-                bll.Delete(model.AnnouncementID);
-                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", AnnouncementID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+                Maticsoft.BLL.AR_Report bll = new Maticsoft.BLL.AR_Report();
+                Maticsoft.Model.AR_Report model = bll.GetModel(ReportID);
+                bll.Delete(model.ReportID);
+                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", ReportID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
             }
         }
 
@@ -76,12 +76,22 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
         /// </summary>
         private void InputData()
         {
-            Maticsoft.BLL.AR_Announcement AR_Announcement_bll = new Maticsoft.BLL.AR_Announcement();
-            Maticsoft.Model.AR_Announcement AR_Announcement_model = AR_Announcement_bll.GetModel(AnnouncementID);
-            if (AR_Announcement_model != null)
+            Maticsoft.BLL.AR_Report AR_Report_bll = new Maticsoft.BLL.AR_Report();
+            Maticsoft.Model.AR_Report AR_Report_model = AR_Report_bll.GetModel(ReportID);
+            if (AR_Report_model != null)
             {
-                A_Title.Text = AR_Announcement_model.A_Title;
-                A_Content.Text = AR_Announcement_model.A_Content;
+                R_Title.Text = AR_Report_model.R_Title;
+                R_Content.Text = AR_Report_model.R_Content;
+            }
+            if (UserData.GetUserDate.UserID != AR_Report_model.ReportID)
+            {
+                Button1.Visible = false;
+                Button2.Visible = true;
+            }
+            else
+            {
+                Button1.Visible = true;
+                Button2.Visible = false;
             }
         }
 
@@ -92,35 +102,46 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
         /// <param name="e"></param>
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Maticsoft.BLL.AR_Announcement AR_Announcement_bll = new Maticsoft.BLL.AR_Announcement();
-            Maticsoft.Model.AR_Announcement AR_Announcement_model = AR_Announcement_bll.GetModel(AnnouncementID);
-            if (AR_Announcement_model == null)
+            Maticsoft.BLL.AR_Report AR_Report_bll = new Maticsoft.BLL.AR_Report();
+            Maticsoft.Model.AR_Report AR_Report_model = AR_Report_bll.GetModel(ReportID);
+            if (AR_Report_model == null)
             {
-                AR_Announcement_model = new Maticsoft.Model.AR_Announcement();
+                AR_Report_model = new Maticsoft.Model.AR_Report();
             }
 
-            AR_Announcement_model.A_Type = 2;
-            AR_Announcement_model.A_Title = A_Title.Text;
-            AR_Announcement_model.A_Content = A_Content.Text;
-            AR_Announcement_model.A_DateTime = DateTime.Now;
-            AR_Announcement_model.A_ResponsibilityUserID = UserData.GetUserDate.UserID;  //获取当前用户ID
+            AR_Report_model.R_Type = 2;
+            AR_Report_model.R_Title = R_Title.Text;
+            AR_Report_model.R_Content = R_Content.Text;
+            AR_Report_model.R_DateTime = DateTime.Now;
+            AR_Report_model.R_ResponsibilityUserID = UserData.GetUserDate.UserID;  //获取当前用户ID
 
             switch (CMD)
             {
                 case "New":
                     CMD_Txt = "增加";
                     //如果是增加操作，就调用Add方法
-                    AR_Announcement_model.AnnouncementID = AR_Announcement_bll.Add(AR_Announcement_model);
+                    AR_Report_model.ReportID = AR_Report_bll.Add(AR_Report_model);
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
                     //如果是修改操作，就调用Update方法
-                    AR_Announcement_bll.Update(AR_Announcement_model);
+                    AR_Report_bll.Update(AR_Report_model);
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
-            //以下方法的第4个参数需要更改
-            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", AR_Announcement_model.AnnouncementID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", AR_Report_model.ReportID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Maticsoft.BLL.AR_Report AR_Report_bll = new Maticsoft.BLL.AR_Report();
+            Maticsoft.Model.AR_Report AR_Report_model = AR_Report_bll.GetModel(ReportID);
+            AR_Report_model.R_ResponsibilityUserID = UserData.GetUserDate.UserID; //更改责任人
+            AR_Report_model.R_GroupID = UserData.GetUserDate.U_GroupID; //更改报告部门
+            CMD_Txt = "增加";
+            AR_Report_model.ReportID = AR_Report_bll.Add(AR_Report_model);
+            All_Title_Txt = CMD_Txt + App_Txt;
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", AR_Report_model.ReportID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
         }
     }
 }

@@ -128,6 +128,7 @@ namespace FrameWork.Web.Manager.Module.FrameWork.HealthEducation.Prescription
             education_Prescription_model.P_Content = (string)Common.sink(this.P_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             education_Prescription_model.P_Object = Convert.ToInt32(this.P_Object.Value);
             education_Prescription_model.P_Doctor = Convert.ToInt32(this.P_Doctor.Value);
+            education_Prescription_model.P_Name = P_Name.Text;
 
             switch (CMD)
             {

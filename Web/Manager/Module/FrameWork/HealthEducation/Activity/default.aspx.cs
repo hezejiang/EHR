@@ -82,29 +82,35 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity
             string A_Theme_Value = A_Theme.Text;
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1= 1";
+            }
+            else
+            {
+                SqlSearch = string.Format("A_Object={0} ", UserData.GetUserDate.U_GroupID);
+            }
             if (A_DateTime_Value != "" || A_Location_Value != "" || A_Crowd_Value != "" || A_Theme_Value !="")
             {
                 if (A_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_DateTime = '" + Common.inSQL(A_DateTime_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_DateTime = '" + Common.inSQL(A_DateTime_Value) + "' ";
                 }
 
                 if (A_Location_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_Location like '%" + Common.inSQL(A_Location_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_Location like '%" + Common.inSQL(A_Location_Value) + "%' ";
                 }
 
                 if (A_Crowd_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_Crowd like '%" + Common.inSQL(A_Crowd_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_Crowd like '%" + Common.inSQL(A_Crowd_Value) + "%' ";
                 }
 
                 if (A_Theme_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_Theme like '%" + Common.inSQL(A_Theme_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_Theme like '%" + Common.inSQL(A_Theme_Value) + "%' ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -121,7 +127,16 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Activity
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = "";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format("A_Object={0}", UserData.GetUserDate.U_GroupID);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

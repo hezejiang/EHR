@@ -361,7 +361,8 @@ namespace Maticsoft.SQLServerDAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
-        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID)
+
+        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID, Boolean isDriect)
         {
             List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();
             StringBuilder strSql = new StringBuilder();
@@ -379,12 +380,15 @@ namespace Maticsoft.SQLServerDAL
             {
                 model = (Maticsoft.Model.sys_Group)DataRowToModel(dt.Rows[i]);
                 list.Add(model);
-                list.AddRange(GetLowerLevel(model.GroupID));
+                if (!isDriect)
+                {
+                    list.AddRange(GetLowerLevel(model.GroupID, isDriect));
+                }
             }
             return list;
         }
 
-        public List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID)
+        public List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID, Boolean isDriect)
         {
             List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();
             StringBuilder strSql = new StringBuilder();
@@ -402,7 +406,10 @@ namespace Maticsoft.SQLServerDAL
             {
                 model = (Maticsoft.Model.sys_Group)DataRowToModel(dt.Rows[i]);
                 list.Add(model);
-                list.AddRange(GetHigherLevel(model.G_ParentID));
+                if (!isDriect)
+                {
+                    list.AddRange(GetHigherLevel(model.G_ParentID, isDriect));
+                }
             }
             return list;
         }

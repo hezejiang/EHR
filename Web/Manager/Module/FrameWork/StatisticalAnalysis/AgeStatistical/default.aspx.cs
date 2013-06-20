@@ -41,7 +41,7 @@ namespace FrameWork.web.Module.FrameWork.StatisticalAnalysis.AgeStatistical
             else
             {
                 title = sys_Group_bll.GetModel(groupID).G_CName + "建档年龄性别分布统计";
-                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID);
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             }
             int year = DateTime.Now.Year;
 

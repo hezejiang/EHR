@@ -16,9 +16,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
 {
     public partial class _default : System.Web.UI.Page
     {
+        Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+        int groupID = UserData.GetUserDate.U_GroupID;
+        string GroupIDs = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             BindButton();
             if (!Page.IsPostBack)
             {
@@ -100,33 +104,40 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             string F_FillingUserID_Value = Convert.ToString(Common.sink(F_FillingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1= 1";
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
+            }
             if (F_FamilyCode_Value != "" || F_UserID_Value != "" || F_FamilyTel_Value != "" || F_FillingUserID_Value != "" || F_ResponsibilityUserID_Value != "")
             {
                 if (F_FamilyCode_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_FamilyCode like '%" + Common.inSQL(F_FamilyCode_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " F_FamilyCode like '%" + Common.inSQL(F_FamilyCode_Value) + "%' ";
                 }
 
                 if (F_UserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_UserID like '%" + Common.inSQL(F_UserID_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " F_UserID like '%" + Common.inSQL(F_UserID_Value) + "%' ";
                 }
 
                 if (F_FamilyTel_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_FamilyTel like '%" + Common.inSQL(F_FamilyTel_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " F_FamilyTel like '%" + Common.inSQL(F_FamilyTel_Value) + "%'" + " ";
                 }
 
                 if (F_ResponsibilityUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_ResponsibilityUserID = " + Common.inSQL(F_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " F_ResponsibilityUserID = " + Common.inSQL(F_ResponsibilityUserID_Value) + " ";
                 }
 
                 if (F_FillingUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " F_FillingUserID = " + Common.inSQL(F_FillingUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " F_FillingUserID = " + Common.inSQL(F_FillingUserID_Value) + " ";
                 }
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -143,7 +154,16 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = " ";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

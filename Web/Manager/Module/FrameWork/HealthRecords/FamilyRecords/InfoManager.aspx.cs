@@ -174,6 +174,8 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
                     string familyCode = sys_Group_model.G_Code + record_FamilyBaseInfo_model.FamilyID + "";
                     record_FamilyBaseInfo_model.F_FamilyCode = familyCode;
                     record_FamilyBaseInfo_bll.Update(record_FamilyBaseInfo_model);
+                    record_UserBaseInfo_model.U_FamilyCode = familyCode;
+                    record_UserBaseInfo_bll.Update(record_UserBaseInfo_model); //更新户主的家庭档案号
                     break;
                 case "Edit":
                     CMD_Txt = "修改";

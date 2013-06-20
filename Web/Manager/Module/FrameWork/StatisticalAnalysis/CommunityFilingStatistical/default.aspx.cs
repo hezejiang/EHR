@@ -42,7 +42,7 @@ namespace FrameWork.web.Module.FrameWork.StatisticalAnalysis.CommunityFilingStat
             else
             {
                 title = sys_Group_bll.GetModel(groupID).G_CName + "社区建档统计";
-                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID);
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             }
 
             Maticsoft.BLL.sys_UserInfo sys_UserInfo_bll = new Maticsoft.BLL.sys_UserInfo();
