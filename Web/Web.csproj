@@ -1004,6 +1004,7 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.designer.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
@@ -1017,6 +1018,7 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.designer.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
