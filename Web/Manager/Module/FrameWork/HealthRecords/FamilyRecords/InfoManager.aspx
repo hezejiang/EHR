@@ -23,6 +23,7 @@
                         家庭健康档案编号</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="F_FamilyCode" runat="server" Columns="50" title="无需填写！" CssClass="text_input" Enabled="false" Text="新增家庭档案时会自动生成"></asp:TextBox>
+                        <asp:Label ID="F_FamilyCode_label" runat="server"></asp:Label>
                     </td>
                      <td class="table_body">
                         户主</td>

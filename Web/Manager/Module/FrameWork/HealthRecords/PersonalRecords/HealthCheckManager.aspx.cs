@@ -129,25 +129,25 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
                 model.H_UserID = UserID;
             }
 
-            model.H_BodyTemperature = (decimal)Common.sink(this.H_BodyTemperature.UniqueID, MethodType.Post, 0, 0, DataType.Double);
-            model.H_PulseRate = (int)Common.sink(this.H_PulseRate.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            model.H_RespiratoryRate = (int)Common.sink(this.H_RespiratoryRate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            model.H_LeftDiastolic = (int)Common.sink(this.H_LeftDiastolic.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            model.H_LeftSystolic = (int)Common.sink(this.H_LeftSystolic.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            model.H_RightDiastolic = (int)Common.sink(this.H_RightDiastolic.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            model.H_RightSystolic = (int)Common.sink(this.H_RightSystolic.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            model.H_Weight = (int)Common.sink(this.H_Weight.UniqueID, MethodType.Post, 0, 0, DataType.Str);
-            model.H_Height =(int) Common.sink(this.H_Height.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
+            model.H_BodyTemperature = Convert.ToDecimal(Common.sink(this.H_BodyTemperature.UniqueID, MethodType.Post, 0, 0, DataType.Double));
+            model.H_PulseRate = (int)Common.sink(this.H_PulseRate.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_RespiratoryRate = (int)Common.sink(this.H_RespiratoryRate.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_LeftDiastolic = (int)Common.sink(this.H_LeftDiastolic.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_LeftSystolic = (int)Common.sink(this.H_LeftSystolic.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_RightDiastolic = (int)Common.sink(this.H_RightDiastolic.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_RightSystolic = (int)Common.sink(this.H_RightSystolic.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_Weight = (int)Common.sink(this.H_Weight.UniqueID, MethodType.Post, 0, 0, DataType.Int);
+            model.H_Height =(int) Common.sink(this.H_Height.UniqueID, MethodType.Post, 0, 0, DataType.Int);
             model.H_Result = (string)Common.sink(this.H_Result.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             model.H_Suggestion = (string)Common.sink(this.H_Suggestion.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             model.H_CheckTime = (DateTime)Common.sink(this.H_CheckTime.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
-            model.H_CheckUserID = 1; //当前登录的医生,体检机构，体检医生没得选择
+            model.H_CheckUserID = UserData.GetUserDate.UserID;
 
             switch (CMD)
             {
                 case "New":
                     CMD_Txt = "增加";
-                    model.H_UserID = bll.Add(model);
+                    model.HealthID = bll.Add(model);
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
