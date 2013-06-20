@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Data;
+using System.Collections;
 using System.Collections.Generic;
 using Maticsoft.Common;
 using Maticsoft.Model;
 using Maticsoft.DALFactory;
 using Maticsoft.IDAL;
+using FrameWork;
+using FrameWork.Components;
+using FrameWork.WebControls;
+
 namespace Maticsoft.BLL
 {
 	/// <summary>
@@ -212,6 +217,34 @@ namespace Maticsoft.BLL
             else
                 GroupIDs = sys_Group_model.GroupID + "";
             return GroupIDs;
+        }
+
+        public List<Maticsoft.Model.sys_Group> GetHigherLevel_withSelf(ArrayList lst)
+        {
+            List<Maticsoft.Model.sys_Group> list_all = new List<Maticsoft.Model.sys_Group>();
+            foreach (sys_GroupTable x in lst)
+            {
+                Maticsoft.Model.sys_Group sys_Group_model = new Maticsoft.Model.sys_Group();
+                sys_Group_model.GroupID = x.GroupID;
+                sys_Group_model.G_CName = x.G_CName;
+                sys_Group_model.G_ParentID = x.G_ParentID;
+                sys_Group_model.G_ShowOrder = x.G_ShowOrder;
+                sys_Group_model.G_Level = x.G_Level;
+                sys_Group_model.G_ChildCount = x.G_ChildCount;
+                sys_Group_model.G_Delete = x.G_Delete;
+                sys_Group_model.G_Type = x.G_Type;
+                sys_Group_model.G_Code = x.G_Code;
+                list_all.Add(sys_Group_model);
+                List<Maticsoft.Model.sys_Group> list = dal.GetHigherLevel(x.G_ParentID);
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (!list_all.Contains(list[i]))
+                    {
+                        list_all.Add(list[i]);
+                    }
+                }
+            }
+            return list_all;
         }
 		#endregion  ExtensionMethod
 	}

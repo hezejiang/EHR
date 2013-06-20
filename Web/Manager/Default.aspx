@@ -30,16 +30,18 @@ p{
     <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
         <tr>
             <td width="100%" height="50" colspan="3" style="border-bottom: 1px solid #000000">
-                <table height="49" border="0" cellspacing="0" cellpadding="0" width="100%" class="font_size">
+                <table height="49" border="0" cellspacing="0" cellpadding="0" width="100%" class="font_size" style="margin-left:10px;">
                     <tr>
+                        <td width="50">
+                            <img src="images/logo.png" alt="Logo" />
+                        </td>
                         <td width="300">
-                            <b><%=FrameName %></b><br />
+                            <span style=" font-weight:bold; font-family:微软雅黑; font-size:20px; color:#466b95;"><%=FrameName %></span>
                             <font size="2" color="#999999" face="Verdana, Arial, Helvetica, sans-serif">
                                 <%=FrameNameVer %>
                             </font>
                         </td>
-                        <td style="background-image: url(images/top-gray.gif); background-repeat: no-repeat;
-                            background-position: right top" valign="bottom">
+                        <td style="background-repeat: no-repeat;background-position: right top" valign="bottom">
                             &nbsp;
                         </td>
                     </tr>
@@ -147,13 +149,13 @@ p{
             <td colspan="3" height="20">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" height="20">
                     <tr>
-                        <td class="down_text">
+                        <td class="down_text" style="background:#2D5064">
                             Powered By <a href="http://www.gdmc.edu.cn" target="_blank"><font color="#ffffff">GDMC 09信管</font></a></td>
-                            <td align="right" width="230" bgcolor="#000000">
+                            <td align="right" width="110" bgcolor="#2D5064">
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
-                                    <td style="cursor:pointer;border-left:1px solid #FFFFFF;" onclick="javascript: window.mainFrame.location.href='right.aspx'">&nbsp;<img src="images/house.gif" style="margin-bottom: -3px">&nbsp;<font color="#FFFFFF">回到首页</font></td>
-                                    <td style="cursor:pointer;border-left:1px solid #FFFFFF;" onclick="javascript: window.top.location.href = 'LoginOut.aspx'">&nbsp;<img src="images/logout.gif" style="margin-bottom: -3px">&nbsp;<font color="#FFFFFF">退出系统</font></td>
+                                    <td style="cursor:pointer;border-left:1px solid #FFFFFF;" onclick="javascript: window.mainFrame.location.href='right.aspx'">&nbsp;<img src="images/house.gif" style="margin-bottom: -3px">&nbsp;<font color="#FFFFFF">回到首页</font>
+                                    </td>
                                 </tr>
                             </table>
                             

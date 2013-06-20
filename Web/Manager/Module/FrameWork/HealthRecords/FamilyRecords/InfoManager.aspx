@@ -29,7 +29,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="F_UserID" id="F_UserID" value=""/>
                         <input runat="server" name="F_UserID_input" id="F_UserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
@@ -192,7 +192,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="F_ResponsibilityUserID" id="F_ResponsibilityUserID" value=""/>
                         <input runat="server" name="F_ResponsibilityUserID_input" id="F_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
@@ -203,7 +203,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="F_FillingUserID" id="F_FillingUserID" value=""/>
                         <input runat="server" name="F_FillingUserID_input" id="F_FillingUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(3);" class="cbutton" />
                     </td>
@@ -259,7 +259,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="F_FillingUserID2" value=""/>
                         <input runat="server" id="F_FillingUserID2_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4,1)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
                     </td>
@@ -302,10 +302,10 @@
 	        }   
         }
 
-        function ShowDepartID(t)
+        function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
     
         function ClearSelect(t)

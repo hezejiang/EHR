@@ -375,6 +375,8 @@ namespace FrameWork.Data
             if (!Convert.IsDBNull(dr["G_Level"])) nc.G_Level = Convert.ToInt32(dr["G_Level"]); // 当前分类所在层数
             if (!Convert.IsDBNull(dr["G_ChildCount"])) nc.G_ChildCount = Convert.ToInt32(dr["G_ChildCount"]); // 当前分类子分类数
             if (!Convert.IsDBNull(dr["G_Delete"])) nc.G_Delete = Convert.ToInt32(dr["G_Delete"]); // 是否删除1:是0:否
+            if (!Convert.IsDBNull(dr["G_Type"])) nc.G_Type = Convert.ToInt32(dr["G_Type"]); // 是否医院1:是0:否
+            if (!Convert.IsDBNull(dr["G_Code"])) nc.G_Code = Convert.ToString(dr["G_Code"]); // 行政代码
             return nc;
         }
         #endregion

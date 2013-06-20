@@ -44,7 +44,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="U_ResponsibilityUserID_Old"/>
                         <input runat="server" id="U_ResponsibilityUserID_Old_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button4" name="buttonselect" onclick="javascript:ShowDepartID(5)"
+                        <input type="button" value="选择" id="button4" name="buttonselect" onclick="javascript:ShowDepartID(5,1)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(5);" class="cbutton" />
                     </td>
@@ -53,7 +53,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="U_ResponsibilityUserID_New"/>
                         <input runat="server" id="U_ResponsibilityUserID_New_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button5" name="buttonselect" onclick="javascript:ShowDepartID(6)"
+                        <input type="button" value="选择" id="button5" name="buttonselect" onclick="javascript:ShowDepartID(6,1)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(6);" class="cbutton" />
                     </td>
@@ -83,7 +83,7 @@
                    <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="U_ResponsibilityUserID"/>
                         <input runat="server" id="U_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2,1)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
@@ -134,10 +134,10 @@
 	        }   
         }
 
-        function ShowDepartID(t)
+        function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
     
         function ClearSelect(t)

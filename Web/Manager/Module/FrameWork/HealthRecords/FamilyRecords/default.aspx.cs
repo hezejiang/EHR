@@ -95,13 +95,12 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
         {
             string F_FamilyCode_Value = (string)Common.sink(F_FamilyCode.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string F_UserID_Value = F_UserID.Value;
-            string F_GroupID_Value = (string)Common.sink(F_GroupID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string F_FamilyTel_Value = (string)Common.sink(F_FamilyTel.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             string F_ResponsibilityUserID_Value = Convert.ToString(Common.sink(F_ResponsibilityUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
             string F_FillingUserID_Value = Convert.ToString(Common.sink(F_FillingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
-            if (F_FamilyCode_Value != "" || F_UserID_Value != "" || F_GroupID_Value != "" || F_FamilyTel_Value != "" || F_FillingUserID_Value != "" || F_ResponsibilityUserID_Value != "")
+            if (F_FamilyCode_Value != "" || F_UserID_Value != "" || F_FamilyTel_Value != "" || F_FillingUserID_Value != "" || F_ResponsibilityUserID_Value != "")
             {
                 if (F_FamilyCode_Value != "")
                 {
@@ -111,11 +110,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
                 if (F_UserID_Value != "")
                 {
                     SqlSearch = SqlSearch + " F_UserID like '%" + Common.inSQL(F_UserID_Value) + "%' and ";
-                }
-
-                if (F_GroupID_Value != "")
-                {
-                    SqlSearch = SqlSearch + " F_GroupID = " + Common.inSQL(F_GroupID_Value) + " and ";
                 }
 
                 if (F_FamilyTel_Value != "")

@@ -172,6 +172,7 @@
     <Content Include="Manager\images\Index\top-b4-yellow.gif" />
     <Content Include="Manager\images\info.gif" />
     <Content Include="Manager\images\log.gif" />
+    <Content Include="Manager\images\logo.png" />
     <Content Include="Manager\images\logon\Logon_1.gif" />
     <Content Include="Manager\images\logon\Logon_10.gif" />
     <Content Include="Manager\images\logon\Logon_11.gif" />

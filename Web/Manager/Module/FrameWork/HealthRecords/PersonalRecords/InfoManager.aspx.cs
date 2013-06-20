@@ -40,14 +40,14 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
         private void BindButton()
         {
             HeadMenuButtonItem bi1 = new HeadMenuButtonItem();
-            bi1.ButtonIcon = "back.gif";
+            bi1.ButtonIcon = "list.gif";
             bi1.ButtonName = "健康体检记录";
             bi1.ButtonPopedom = PopedomType.List;
             bi1.ButtonUrl = string.Format("HealthCheckList.aspx?UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi1);
 
             HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
-            bi2.ButtonIcon = "back.gif";
+            bi2.ButtonIcon = "list.gif";
             bi2.ButtonName = "会诊记录";
             bi2.ButtonPopedom = PopedomType.B;
             bi2.ButtonUrl = string.Format("ConsultationList.aspx?UserID={0}", UserID);
@@ -488,6 +488,10 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
                     record_UserBaseInfo_model.UserID = sysUser_bll.Add(sysUser_model);
                     record_UserBaseInfo_model.U_FlingTime = DateTime.Now;
                     record_UserBaseInfo_bll.Add(record_UserBaseInfo_model);
+                    Maticsoft.BLL.sys_UserRoles sys_UserRoles_bll = new Maticsoft.BLL.sys_UserRoles();
+                    Maticsoft.Model.sys_UserRoles sys_UserRoles_model = new Maticsoft.Model.sys_UserRoles();
+                    sys_UserRoles_model.R_UserID = record_UserBaseInfo_model.UserID;
+                    sys_UserRoles_model.R_RoleID = 1; //初始为普通用户
                     break;
                 case "Edit":
                     CMD_Txt = "修改";

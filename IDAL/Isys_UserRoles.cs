@@ -31,7 +31,7 @@ namespace Maticsoft.IDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		Maticsoft.Model.sys_UserRoles GetModel(int R_UserID,int R_RoleID);
+        Maticsoft.Model.sys_UserRoles GetModel(int R_UserID, int R_RoleID);
 		Maticsoft.Model.sys_UserRoles DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

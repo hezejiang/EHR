@@ -37,6 +37,9 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
             else
                 G_ParentID_Txt.Text = BusinessFacade.sys_GroupDisp(gt.G_ParentID).G_CName;
             CatListTitle.Text = string.Format("<a href='GroupList.aspx'>部门列表</a>{0}", BusinessFacade.GetGroupTitle(GroupID));
+            this.G_Code.Text = gt.G_Code;
+            if (gt.G_Type == 1)
+                this.G_Type.Checked = true;
             //判断是否删除
             if (CMD == "Delete")
             {
@@ -97,7 +100,7 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
                 gt.G_Type = 1;
             else
                 gt.G_Type = 0;
-            gt.G_Code = (string)Common.sink(G_Code.UniqueID, MethodType.Post, 20, 1, DataType.Str);
+            gt.G_Code = G_Code.Text;
             gt.DB_Option_Action_ = "Update";
             BusinessFacade.sys_GroupInsertUpdate(gt);
             EventMessage.MessageBox(1, "操作成功", string.Format("修改部门ID({0})成功!", gt.GroupID), Icon_Type.OK, Common.GetHomeBaseUrl(string.Format("GroupList.aspx?GroupID={0}", GroupID)),Common.BuildJs);

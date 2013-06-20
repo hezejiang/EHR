@@ -69,7 +69,17 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             string U_CName_Value = Convert.ToString(Common.sink(U_CName_key.UniqueID, MethodType.Post, 20, 0, DataType.Str));
             string U_MobileNo_Value = (string)Common.sink(U_MobileNo_key.UniqueID, MethodType.Post, 20, 0, DataType.Str);
 
-            string SqlSearch = " U_GroupID=" + U_GroupID + " and ";
+            string SqlSearch = "";
+            Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+            Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
+            if (sys_Group_model.G_Type == 0)
+            {
+                SqlSearch = string.Format(" U_Committee in({0}) and ", GroupIDs);
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_GroupID={0} and ", U_GroupID);
+            }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_MobileNo_Value != "")
             {
                 if (U_IDCard_Value != "")
@@ -102,7 +112,18 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = string.Format(" U_Committee in({0})", GroupIDs);
+                {
+                    Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+                    Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
+                    if (sys_Group_model.G_Type == 0)
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_Committee in({0}) ", GroupIDs);
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_GroupID={0} ", U_GroupID);
+                    }
+                }
 
                 return (string)ViewState["SearchTerms"];
             }
