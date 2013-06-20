@@ -14,7 +14,7 @@ namespace Maticsoft.Model
 		private int _p_roleid;
 		private int _p_applicationid;
 		private string _p_pagecode;
-		private int? _p_value;
+		private int _p_value;
 		/// <summary>
 		/// 角色应用权限自动ID
 		/// </summary>
@@ -50,7 +50,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 权限值
 		/// </summary>
-		public int? P_Value
+		public int P_Value
 		{
 			set{ _p_value=value;}
 			get{return _p_value;}

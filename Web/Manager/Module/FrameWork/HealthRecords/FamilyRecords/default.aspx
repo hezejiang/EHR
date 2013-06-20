@@ -13,7 +13,7 @@
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
-                    <asp:HyperLinkField HeaderText="家庭ID号" DataTextField="F_FamilyCode" SortExpression="F_FamilyCode" DataNavigateUrlFields="FamilyID"
+                    <asp:HyperLinkField HeaderText="家庭档案编号" DataTextField="F_FamilyCode" SortExpression="F_FamilyCode" DataNavigateUrlFields="FamilyID"
                         DataNavigateUrlFormatString="InfoManager.aspx?FamilyID={0}&CMD=Edit" />
                     <asp:TemplateField SortExpression="F_UserID" HeaderText="户主">
                         <ItemTemplate>

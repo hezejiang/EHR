@@ -57,7 +57,7 @@ namespace FrameWork.WebControls
 	        <table border='0' cellpadding='0' cellspacing='0' width='100%' align='center'>
               <tr>
                 <td class='menubar_title'><img border='0' src='{0}' align='absmiddle' hspace='3' vspace='3'>&nbsp;{1}</td>
-                <td class='menubar_readme_text' valign='bottom'><img src='{2}' align='absMiddle' border='0' />&nbsp;{3}</td>
+                <!--<td class='menubar_readme_text' valign='bottom'><img src='{2}' align='absMiddle' border='0' />&nbsp;{3}</td>-->
               </tr>
               <tr>
                 <td height='27px' class='menubar_function_text'>目前操作功能：{4}</td>

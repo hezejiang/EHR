@@ -29,7 +29,7 @@ namespace Maticsoft.Model
 		private int _f_familyid;
 		private DateTime _f_recordtime;
 		private DateTime _f_starttime;
-		private DateTime? _f_endtime;
+		private DateTime _f_endtime;
 		private string _f_overviewproblem;
 		private string _f_detailproblem;
 		private int _f_fillinguserid;
@@ -60,7 +60,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 结束时间
 		/// </summary>
-		public DateTime? F_endTime
+		public DateTime F_endTime
 		{
 			set{ _f_endtime=value;}
 			get{return _f_endtime;}

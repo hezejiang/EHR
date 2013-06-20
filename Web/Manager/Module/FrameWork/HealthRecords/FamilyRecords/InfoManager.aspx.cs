@@ -67,9 +67,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             }
             else if (CMD == "Delete")
             {
-                //这是操作数据库的核心代码，工作原理是：首先要明确现在所操作的模块对应着数据库中的哪张表，然后创建这个表所对应的的逻辑处理层(bll)对象，如这里操作的表是record_FamilyBaseInfo，则要新建所对应的Maticsoft.BLL.record_FamilyBaseInfo对象
-                Maticsoft.BLL.record_FamilyBaseInfo bll = new Maticsoft.BLL.record_FamilyBaseInfo();
-                //这是数据库实体类对象（简单来说就对应着这个表的一条记录），因为这里操作的表是record_FamilyBaseInfo，则对应的model是Maticsoft.Model.record_FamilyBaseInfo，然后通过上一行new的bll对象去执行数据库操作（这里使用的方法是GetModel，当然还有其他的方法，根据需要使用不同的方法），返回对应实体类对象
+            Maticsoft.BLL.record_FamilyBaseInfo bll = new Maticsoft.BLL.record_FamilyBaseInfo();
                 Maticsoft.Model.record_FamilyBaseInfo model = bll.GetModel(FamilyID);
                 //bll执行删除操作，参数是这个实体类的ID值
                 bll.Delete(model.FamilyID);
@@ -117,15 +115,15 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             Maticsoft.Model.record_FamilyProblem record_FamilyProblem_model = record_FamilyProblem_bll.GetModel(model.FamilyID);
             if (record_FamilyProblem_model != null)
             {
-                F_RecordTime.Text = record_FamilyProblem_model.F_RecordTime.ToString();
-                F_StartTime.Text = record_FamilyProblem_model.F_StartTime.ToString();
-                F_endTime.Text = record_FamilyProblem_model.F_endTime.ToString();
+                F_RecordTime.Text = record_FamilyProblem_model.F_RecordTime.ToShortDateString();
+                F_StartTime.Text = record_FamilyProblem_model.F_StartTime.ToShortDateString();
+                F_endTime.Text = record_FamilyProblem_model.F_endTime.ToShortDateString();
                 F_OverviewProblem.Text = record_FamilyProblem_model.F_OverviewProblem.ToString();
                 F_DetailProblem.Text = record_FamilyProblem_model.F_DetailProblem.ToString();
                 Maticsoft.BLL.sys_User fillinguser_bll = new Maticsoft.BLL.sys_User();
                 Maticsoft.Model.sys_User fillinguser_model = fillinguser_bll.GetModel(model.F_FillingUserID);
-                F_FillingUserID.Value = user_model.UserID + "";
-                F_FillingUserID_input.Value = user_model.U_CName;
+                F_FillingUserID2.Value = user_model.UserID + "";
+                F_FillingUserID2_input.Value = user_model.U_CName;
             }
         }
         /// <summary>
@@ -196,24 +194,24 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             {
                 record_FamilyProblem_model = new Maticsoft.Model.record_FamilyProblem();
             }
+            
             record_FamilyProblem_model.F_RecordTime = (DateTime)Common.sink(this.F_RecordTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             record_FamilyProblem_model.F_StartTime = (DateTime)Common.sink(this.F_StartTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             record_FamilyProblem_model.F_endTime = (DateTime)Common.sink(this.F_endTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             record_FamilyProblem_model.F_OverviewProblem = (string)Common.sink(this.F_OverviewProblem.UniqueID, MethodType.Post, 255, 0, DataType.Str);
             record_FamilyProblem_model.F_DetailProblem = (string)Common.sink(this.F_DetailProblem.UniqueID, MethodType.Post, 255, 0, DataType.Str);
             record_FamilyProblem_model.F_FillingUserID = Convert.ToInt32(this.F_FillingUserID.Value);
-            switch (CMD)
+
+            if (record_FamilyProblem_model.F_FamilyID == 0)
             {
-                case "New":
-                    CMD_Txt = "增加";
-                    //如果是增加操作，就调用Add方法
-                    record_FamilyProblem_bll.Add(record_FamilyProblem_model);
-                    break;
-                case "Edit":
-                    CMD_Txt = "修改";
-                    //如果是修改操作，就调用Update方法
-                    record_FamilyProblem_bll.Update(record_FamilyProblem_model);
-                    break;
+                CMD_Txt = "增加";
+                record_FamilyProblem_model.F_FamilyID = FamilyID;
+                record_FamilyProblem_bll.Add(record_FamilyProblem_model);
+            }
+            else
+            {
+                CMD_Txt = "修改";
+                record_FamilyProblem_bll.Update(record_FamilyProblem_model);
             }
             All_Title_Txt = CMD_Txt + App_Txt;
             //以下方法的第4个参数需要更改

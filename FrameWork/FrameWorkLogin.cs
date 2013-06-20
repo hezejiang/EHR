@@ -46,7 +46,7 @@ namespace FrameWork
             bool bBool = false;
 
             QueryParam qp = new QueryParam();
-            qp.Where  = string.Format(" Where U_StatUs=0 and  U_LoginName='{0}' and U_Password='{1}'",Common.inSQL(LoginName),Common.md5(LoginPassWord,32));
+            qp.Where = string.Format(" Where U_StatUs=0 and  U_IDCard='{0}' and U_Password='{1}'", Common.inSQL(LoginName), Common.md5(LoginPassWord, 32));
             int iInt = 0;
             ArrayList lst = BusinessFacade.sys_UserList(qp, out iInt);
             if (iInt > 0)

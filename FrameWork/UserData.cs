@@ -51,12 +51,12 @@ namespace FrameWork
         /// <summary>
         /// 根据用户登陆名,获取用户资料
         /// </summary>
-        /// <param name="u_LoginName">用户名</param>
+        /// <param name="U_IDCard">用户名</param>
         /// <returns>用户实体类</returns>
-        public static sys_UserTable Get_sys_UserTable(string u_LoginName)
+        public static sys_UserTable Get_sys_UserTable(string U_IDCard)
         {
             QueryParam qp = new QueryParam();
-            qp.Where = string.Format(" Where U_LoginName='{0}' ",u_LoginName);
+            qp.Where = string.Format(" Where U_IDCard='{0}' ",U_IDCard);
             int rInt = 0;
             return BusinessFacade.sys_UserList(qp,out rInt)[0] as sys_UserTable;
         }
