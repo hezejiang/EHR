@@ -14,8 +14,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.ResponsibleDoctors
 {
     public partial class _default : System.Web.UI.Page
     {
+        Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+        int groupID = UserData.GetUserDate.U_GroupID;
+        string GroupIDs = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             if (!Page.IsPostBack)
             {
                 BindData();
@@ -101,24 +106,30 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.ResponsibleDoctors
             string U_ResponsibilityUserID_Value = Convert.ToString(Common.sink(U_ResponsibilityUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
+            }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_ResponsibilityUserID_Value != "")
             {
                 if (U_IDCard_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_IDCard like '%" + Common.inSQL(U_IDCard_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " U_IDCard like '%" + Common.inSQL(U_IDCard_Value) + "%' ";
                 }
 
                 if (U_CName_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' ";
                 }
 
                 if (U_ResponsibilityUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -135,7 +146,19 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.ResponsibleDoctors
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (ViewState["SearchTerms"] == null)
+                    {
+                        if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                        {
+                            ViewState["SearchTerms"] = " ";
+                        }
+                        else
+                        {
+                            ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                        }
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

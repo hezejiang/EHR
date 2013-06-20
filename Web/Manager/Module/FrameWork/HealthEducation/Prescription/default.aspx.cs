@@ -82,29 +82,35 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription
             string P_Doctor_Value = P_Doctor.Value;
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format("P_Doctor={0}", UserData.GetUserDate.UserID);
+            }
             if (P_Date_Value != "" || P_Name_Value != "" || P_Object_Value != "" || P_Doctor_Value != "")
             {
                 if (P_Date_Value != "")
                 {
-                    SqlSearch = SqlSearch + " P_Date = '" + Common.inSQL(P_Date_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " P_Date = '" + Common.inSQL(P_Date_Value) + "' " + " ";
                 }
 
                 if (P_Name_Value != "")
                 {
-                    SqlSearch = SqlSearch + " P_Name like '%" + Common.inSQL(P_Name_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " P_Name like '%" + Common.inSQL(P_Name_Value) + "%' " + " ";
                 }
 
                 if (P_Object_Value != "")
                 {
-                    SqlSearch = SqlSearch + " P_Object = " + Common.inSQL(P_Object_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " P_Object = " + Common.inSQL(P_Object_Value) + " ";
                 }
 
                 if (P_Doctor_Value != "")
                 {
-                    SqlSearch = SqlSearch + " P_Doctor = " + Common.inSQL(P_Doctor_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " P_Doctor = " + Common.inSQL(P_Doctor_Value) + " ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -121,7 +127,16 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Prescription
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = "";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format("P_Doctor={0}", UserData.GetUserDate.UserID);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

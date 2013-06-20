@@ -31,8 +31,8 @@ namespace Maticsoft.Model
 		private string _r_content="";
 		private DateTime _r_datetime;
 		private int _r_responsibilityuserid;
-		private int? _r_type;
-		private int? _r_status;
+		private int _r_type;
+		private int _r_status;
 		private int _r_groupid;
 		/// <summary>
 		/// 报告ID
@@ -77,7 +77,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 类型，1:迁出嵌入档案管理；2:传染病及突发事件
 		/// </summary>
-		public int? R_Type
+		public int R_Type
 		{
 			set{ _r_type=value;}
 			get{return _r_type;}
@@ -85,7 +85,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 状态，1:未处理；2:已处理
 		/// </summary>
-		public int? R_Status
+		public int R_Status
 		{
 			set{ _r_status=value;}
 			get{return _r_status;}

@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FollowUp.cs
+*
+* 功 能： N/A
+* 类 名： record_FollowUp
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/20 23:38:32   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,19 +63,21 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_FollowUp(");
-			strSql.Append("F_PatientID,F_Type,F_Date,F_Status)");
+			strSql.Append("F_PatientID,F_Type,F_Date,F_Status,F_Doctor)");
 			strSql.Append(" values (");
-			strSql.Append("@F_PatientID,@F_Type,@F_Date,@F_Status)");
+			strSql.Append("@F_PatientID,@F_Type,@F_Date,@F_Status,@F_Doctor)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@F_PatientID", SqlDbType.Int,4),
 					new SqlParameter("@F_Type", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_Date", SqlDbType.DateTime),
-					new SqlParameter("@F_Status", SqlDbType.TinyInt,1)};
+					new SqlParameter("@F_Status", SqlDbType.TinyInt,1),
+					new SqlParameter("@F_Doctor", SqlDbType.Int,4)};
 			parameters[0].Value = model.F_PatientID;
 			parameters[1].Value = model.F_Type;
 			parameters[2].Value = model.F_Date;
 			parameters[3].Value = model.F_Status;
+			parameters[4].Value = model.F_Doctor;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -81,19 +99,22 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("F_PatientID=@F_PatientID,");
 			strSql.Append("F_Type=@F_Type,");
 			strSql.Append("F_Date=@F_Date,");
-			strSql.Append("F_Status=@F_Status");
+			strSql.Append("F_Status=@F_Status,");
+			strSql.Append("F_Doctor=@F_Doctor");
 			strSql.Append(" where FollowUpID=@FollowUpID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@F_PatientID", SqlDbType.Int,4),
 					new SqlParameter("@F_Type", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_Date", SqlDbType.DateTime),
 					new SqlParameter("@F_Status", SqlDbType.TinyInt,1),
+					new SqlParameter("@F_Doctor", SqlDbType.Int,4),
 					new SqlParameter("@FollowUpID", SqlDbType.Int,4)};
 			parameters[0].Value = model.F_PatientID;
 			parameters[1].Value = model.F_Type;
 			parameters[2].Value = model.F_Date;
 			parameters[3].Value = model.F_Status;
-			parameters[4].Value = model.FollowUpID;
+			parameters[4].Value = model.F_Doctor;
+			parameters[5].Value = model.FollowUpID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -155,8 +176,9 @@ namespace Maticsoft.SQLServerDAL
 		/// </summary>
 		public Maticsoft.Model.record_FollowUp GetModel(int FollowUpID)
 		{
+			
 			StringBuilder strSql=new StringBuilder();
-            strSql.Append("select  top 1 * from record_FollowUp TT  join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
+			strSql.Append("select  top 1 FollowUpID,F_PatientID,F_Type,F_Date,F_Status,F_Doctor from record_FollowUp ");
 			strSql.Append(" where FollowUpID=@FollowUpID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@FollowUpID", SqlDbType.Int,4)
@@ -204,6 +226,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.F_Status=int.Parse(row["F_Status"].ToString());
 				}
+				if(row["F_Doctor"]!=null && row["F_Doctor"].ToString()!="")
+				{
+					model.F_Doctor=int.Parse(row["F_Doctor"].ToString());
+				}
 			}
 			return model;
 		}
@@ -214,7 +240,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select FollowUpID,F_PatientID,F_Type,F_Date,F_Status ");
+			strSql.Append("select FollowUpID,F_PatientID,F_Type,F_Date,F_Status,F_Doctor ");
 			strSql.Append(" FROM record_FollowUp ");
 			if(strWhere.Trim()!="")
 			{
@@ -234,7 +260,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" FollowUpID,F_PatientID,F_Type,F_Date,F_Status ");
+			strSql.Append(" FollowUpID,F_PatientID,F_Type,F_Date,F_Status,F_Doctor ");
 			strSql.Append(" FROM record_FollowUp ");
 			if(strWhere.Trim()!="")
 			{
@@ -250,7 +276,7 @@ namespace Maticsoft.SQLServerDAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-            strSql.Append("select count(1) FROM record_FollowUp TT join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
+			strSql.Append("select count(1) FROM record_FollowUp ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -282,16 +308,12 @@ namespace Maticsoft.SQLServerDAL
 				strSql.Append("order by T.FollowUpID desc");
 			}
 			strSql.Append(")AS Row, T.*  from record_FollowUp T ");
-            strSql.Append(" ) TT join record_UserBaseInfo TTT on TT.F_PatientID=TTT.UserID join sys_User TTTT on TT.F_PatientID=TTTT.UserID ");
-            if (!string.IsNullOrEmpty(strWhere.Trim()))
-            {
-                strSql.Append(" WHERE " + strWhere);
-                strSql.AppendFormat(" and TT.Row between {0} and {1}", startIndex, endIndex);
-            }
-            else
-            {
-                strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-            }
+			if (!string.IsNullOrEmpty(strWhere.Trim()))
+			{
+				strSql.Append(" WHERE " + strWhere);
+			}
+			strSql.Append(" ) TT");
+			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

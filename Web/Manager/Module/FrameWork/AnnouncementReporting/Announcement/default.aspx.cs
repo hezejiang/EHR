@@ -110,40 +110,38 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
             string SqlSearch = " ";
             if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
             {
-                SqlSearch = "";
+                SqlSearch = " 1=1 ";
             }
             else
             {
-                SqlSearch = string.Format("((A_Type={0} and A_GroupID in ({1})) or (A_Type={2} and A_GroupID in ({3}))) and ", 1, Direct_GroupIDs, 2, GroupIDs);
+                SqlSearch = string.Format("((A_Type={0} and A_GroupID in ({1})) or (A_Type={2} and A_GroupID in ({3}))) ", 1, Direct_GroupIDs, 2, GroupIDs);
             }
             if (A_Title_Value != "" || A_Content_Value != "" || A_ResponsibilityUserID_Value != "" || A_DateTime_Value != "" || A_Type_Value != "0")
             {
                 if (A_Title_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_Title like '%" + Common.inSQL(A_Title_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_Title like '%" + Common.inSQL(A_Title_Value) + "%' ";
                 }
 
                 if (A_Content_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_Content like '%" + Common.inSQL(A_Content_Value) + "%' and ";
+                    SqlSearch =  SqlSearch + " and "  + " A_Content like '%" + Common.inSQL(A_Content_Value) + "%' ";
                 }
 
                 if (A_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_DateTime = '" + Common.inSQL(A_DateTime_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " A_DateTime = '" + Common.inSQL(A_DateTime_Value) + "' ";
                 }
 
                 if (A_Type_Value != "0")
                 {
-                    SqlSearch = SqlSearch + " A_Type = " + Common.inSQL(A_Type_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " A_Type = " + Common.inSQL(A_Type_Value) + " ";
                 }
 
                 if (A_ResponsibilityUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " A_ResponsibilityUserID = " + Common.inSQL(A_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " A_ResponsibilityUserID = " + Common.inSQL(A_ResponsibilityUserID_Value) + " ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;

@@ -110,47 +110,50 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             string U_FilingUserID_Value = Convert.ToString(Common.sink(U_FilingUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str));
 
             string SqlSearch = " ";
-            if (UserData.GetUserDate.U_Type != 0)//如果不是超级管理员
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
             {
-                SqlSearch = string.Format(" U_Committee in ({0}) and", GroupIDs);
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
             }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_Sex_Value != "-1" || U_Committee_Value != "" || U_MobileNo_Value != "" || U_FilingUserID_Value != "" || U_ResponsibilityUserID_Value != "")
             {
                 if (U_IDCard_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_IDCard like '%" + Common.inSQL(U_IDCard_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " U_IDCard like '%" + Common.inSQL(U_IDCard_Value) + "%' ";
                 }
 
                 if (U_CName_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " U_CName like '%" + Common.inSQL(U_CName_Value) + "%' ";
                 }
 
                 if (U_Sex_Value != "" && U_Sex_Value != "-1")
                 {
-                    SqlSearch = SqlSearch + " U_Sex = " + Common.inSQL(U_Sex_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " U_Sex = " + Common.inSQL(U_Sex_Value) + " ";
                 }
 
                 if (U_Committee_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_Committee = " + Common.inSQL(U_Committee_Value) + " and ";
+                    SqlSearch =  SqlSearch + " and "  + " U_Committee = " + Common.inSQL(U_Committee_Value) + " ";
                 }
 
                 if (U_MobileNo_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_MobileNo like '%" + Common.inSQL(U_MobileNo_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " U_MobileNo like '%" + Common.inSQL(U_MobileNo_Value) + "%'" + " ";
                 }
 
                 if (U_ResponsibilityUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " U_ResponsibilityUserID = " + Common.inSQL(U_ResponsibilityUserID_Value) + " ";
                 }
 
                 if (U_FilingUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " U_FilingUserID = " + Common.inSQL(U_FilingUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " U_FilingUserID = " + Common.inSQL(U_FilingUserID_Value) + " ";
                 }
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;

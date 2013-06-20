@@ -46,7 +46,7 @@
                         <asp:TextBox ID="C_Time" runat="server" Columns="50" title="请选择会诊日期!" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox>
                     </td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td class="table_body">
                         是否需要用药</td>
                     <td class="table_none">
@@ -61,7 +61,7 @@
                             
                         </div>
                     </td>
-                </tr>
+                </tr>-->
                 <tr id="SubmitTr" runat="server">
                     <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />

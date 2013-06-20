@@ -67,15 +67,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
         
         /// <summary>
-        /// U_CName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox U_CName;
-        
-        /// <summary>
         /// F_Type 控件。
         /// </summary>
         /// <remarks>
@@ -85,22 +76,22 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp {
         protected global::System.Web.UI.WebControls.DropDownList F_Type;
         
         /// <summary>
-        /// U_ResponsibilityUserID 控件。
+        /// F_PatientID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_ResponsibilityUserID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_PatientID;
         
         /// <summary>
-        /// U_ResponsibilityUserID_input 控件。
+        /// F_PatientID_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText U_ResponsibilityUserID_input;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText F_PatientID_input;
         
         /// <summary>
         /// F_Date 控件。

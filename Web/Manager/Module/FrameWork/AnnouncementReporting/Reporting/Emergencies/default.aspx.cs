@@ -83,46 +83,39 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
             string R_Title_Value = R_Title.Text;
             string R_Content_Value = R_Content.Text;
             string R_DateTime_Value = Convert.ToString(Common.sink(R_DateTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
-            string R_Type_Value = 2 + "";
+            //string R_Type_Value = 2 + "";
             string R_ResponsibilityUserID_Value = R_ResponsibilityUserID.Value;
 
             string SqlSearch = "";
             if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
             {
-                ViewState["SearchTerms"] = string.Format("R_Type={0} and", 2);
+                SqlSearch = string.Format("R_Type={0}", 2);
             }
             else
             {
-                ViewState["SearchTerms"] = string.Format("R_Type={0} and R_GroupID in ({1}) and", 2, GroupIDs);
+                SqlSearch = string.Format("R_Type={0} and R_GroupID in ({1})", 2, GroupIDs);
             }
-            if (R_Title_Value != "" || R_Content_Value != "" || R_ResponsibilityUserID_Value != "" || R_DateTime_Value != "" || R_Type_Value != "0")
+            if (R_Title_Value != "" || R_Content_Value != "" || R_ResponsibilityUserID_Value != "" || R_DateTime_Value != "")
             {
                 if (R_Title_Value != "")
                 {
-                    SqlSearch = SqlSearch + " R_Title like '%" + Common.inSQL(R_Title_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " R_Title like '%" + Common.inSQL(R_Title_Value) + "%' ";
                 }
 
                 if (R_Content_Value != "")
                 {
-                    SqlSearch = SqlSearch + " R_Content like '%" + Common.inSQL(R_Content_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " R_Content like '%" + Common.inSQL(R_Content_Value) + "%' ";
                 }
 
                 if (R_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " R_DateTime = '" + Common.inSQL(R_DateTime_Value) + "' and ";
-                }
-
-                if (R_Type_Value != "0")
-                {
-                    SqlSearch = SqlSearch + " R_Type = " + Common.inSQL(R_Type_Value) + " and ";
+                    SqlSearch =  SqlSearch + " and "  + " R_DateTime = '" + Common.inSQL(R_DateTime_Value) + "' ";
                 }
 
                 if (R_ResponsibilityUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " R_ResponsibilityUserID = " + Common.inSQL(R_ResponsibilityUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " R_ResponsibilityUserID = " + Common.inSQL(R_ResponsibilityUserID_Value) + " ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
