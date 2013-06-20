@@ -51,17 +51,16 @@
                 <td class="table_body table_body_NoWidth">
                     用户角色</td>
                 <td class="table_none table_none_NoWidth" colspan="3">
-                    <FrameWorkWebControls:MultiListBox ID="MultiListBox1" runat="server" DataTextField="R_RoleName" DataValueField="RoleID" SelectionMode="Multiple">
-                        <FirstListBox><StyleSheet Width="140px" Height="160px" /></FirstListBox>
-                        <SecondListBox><StyleSheet Width="140px" Height="160px" /></SecondListBox>
-                    </FrameWorkWebControls:MultiListBox>
+                    <asp:DropDownList runat="server" ID="dropDownList" DataTextField="R_RoleName" DataValueField="RoleID">
+                        
+                    </asp:DropDownList>
                     <asp:Label ID="Roles_Value" runat="server" Text=""></asp:Label>
                     (超级用户不受用户角色权限限制,默认所有权限.)
                     </td>
             </tr>
             <tr id="U_GroupID_tr">
                 <td class="table_body table_body_NoWidth">
-                    管理部门</td>
+                    管理(所在)部门</td>
                     <td class="table_none table_none_NoWidth" colspan="3">
                         <span id="U_GroupID_Span" runat="server">
                         <input type="hidden" runat="server" name="U_GroupID" id="U_GroupID"><input runat=server name="U_GroupID_Txt" id="U_GroupID_Txt" class="text_input" readonly/>

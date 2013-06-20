@@ -4,17 +4,28 @@
 <head>
     <title>无标题页</title>
     <link rel="stylesheet" href="css/Site_Css.css" type="text/css" />
+    <style type="text/css">
+        a.logout{cursor:pointer; padding-right:20px; padding-bottom:6px; display:block;color:White; text-decoration:none; font-family:'微软雅黑'; font-size:14px;}
+        a.logout:hover{color:red;}
+    </style>
 </head>
 
-<body topmargin="0" leftmargin="0">
+<body topmargin="0" leftmargin="0" style="margin-right:0">
 <center>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr>
     <td height="28" background="images/Index/top-b-3-2.gif">
     <img border="0" src="images/Index/top-b-2-1-2.gif" align="left" hspace="0">
-     <table border="0" cellpadding="0" cellspacing="0" height="28">
+     <table border="0" cellpadding="0" cellspacing="0" height="28" style="float:left;">
       <tr><%=sb_TopHTMLSrc.ToString() %></tr>
       <tr><%=sb_TopHTMLSrc2.ToString() %></tr>
+     </table>
+     <table border="0" cellpadding="0" cellspacing="0" height="28" style="float:right;">
+        <tr>
+            <td>
+                <a href="javascript:void(0);" onclick="javascript: window.top.location.href = 'LoginOut.aspx'" class="logout" >退出</a>
+            </td>
+        </tr>
      </table>
     </td>
   </tr>

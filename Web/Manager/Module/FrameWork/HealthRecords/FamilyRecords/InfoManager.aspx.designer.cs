@@ -49,13 +49,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow TopTr;
         
         /// <summary>
-        /// F_FimaryCode 控件。
+        /// F_FamilyCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryCode;
+        protected global::System.Web.UI.WebControls.TextBox F_FamilyCode;
         
         /// <summary>
         /// F_UserID 控件。
@@ -64,7 +64,16 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_UserID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_UserID;
+        
+        /// <summary>
+        /// F_UserID_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText F_UserID_input;
         
         /// <summary>
         /// Tr2 控件。
@@ -76,22 +85,22 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr2;
         
         /// <summary>
-        /// F_GroupID 控件。
+        /// F_FamilyAddress 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_GroupID;
+        protected global::System.Web.UI.WebControls.TextBox F_FamilyAddress;
         
         /// <summary>
-        /// F_FimaryTel 控件。
+        /// F_FamilyTel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryTel;
+        protected global::System.Web.UI.WebControls.TextBox F_FamilyTel;
         
         /// <summary>
         /// Tr1 控件。
@@ -103,13 +112,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.HtmlControls.HtmlTableRow Tr1;
         
         /// <summary>
-        /// F_FimrayAddress 控件。
+        /// F_ToiletType 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimrayAddress;
+        protected global::System.Web.UI.WebControls.DropDownList F_ToiletType;
         
         /// <summary>
         /// F_HouseType 控件。
@@ -193,13 +202,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.WebControls.DropDownList F_Lighting;
         
         /// <summary>
-        /// F_Sanitatio 控件。
+        /// F_Sanitation 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList F_Sanitatio;
+        protected global::System.Web.UI.WebControls.DropDownList F_Sanitation;
         
         /// <summary>
         /// Tr6 控件。
@@ -274,15 +283,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.WebControls.DropDownList F_LivestockBar;
         
         /// <summary>
-        /// F_ToiletType 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList F_ToiletType;
-        
-        /// <summary>
         /// F_ResponsibilityUserID 控件。
         /// </summary>
         /// <remarks>
@@ -317,15 +317,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText F_FillingUserID_input;
-        
-        /// <summary>
-        /// SubmitTr 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow SubmitTr;
         
         /// <summary>
         /// Button1 控件。
@@ -418,22 +409,22 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.WebControls.TextBox F_DetailProblem;
         
         /// <summary>
-        /// Hidden2 控件。
+        /// F_FillingUserID2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_FillingUserID2;
         
         /// <summary>
-        /// Text2 控件。
+        /// F_FillingUserID2_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText F_FillingUserID2_input;
         
         /// <summary>
         /// Tr18 控件。

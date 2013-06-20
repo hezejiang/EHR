@@ -6,6 +6,10 @@ using Maticsoft.IDAL;
 using Maticsoft.DBUtility;//Please add references
 using System.Collections.Generic;
 
+using FrameWork;
+using FrameWork.Components;
+using FrameWork.WebControls;
+
 namespace Maticsoft.SQLServerDAL
 {
 	/// <summary>
@@ -376,6 +380,29 @@ namespace Maticsoft.SQLServerDAL
                 model = (Maticsoft.Model.sys_Group)DataRowToModel(dt.Rows[i]);
                 list.Add(model);
                 list.AddRange(GetLowerLevel(model.GroupID));
+            }
+            return list;
+        }
+
+        public List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID)
+        {
+            List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from sys_Group");
+            strSql.Append(" where GroupID=@GroupID");
+            SqlParameter[] parameters = {
+					new SqlParameter("@GroupID", SqlDbType.Int,4)
+			};
+            parameters[0].Value = G_ParentID;
+
+            Maticsoft.Model.sys_Group model = new Maticsoft.Model.sys_Group();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            DataTable dt = ds.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                model = (Maticsoft.Model.sys_Group)DataRowToModel(dt.Rows[i]);
+                list.Add(model);
+                list.AddRange(GetHigherLevel(model.G_ParentID));
             }
             return list;
         }

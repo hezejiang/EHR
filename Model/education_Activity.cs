@@ -16,11 +16,11 @@ namespace Maticsoft.Model
 		private string _a_form;
 		private int _a_object;
 		private string _a_crowd;
-		private int? _a_duration=0;
+		private int _a_duration=0;
 		private string _a_organizers;
 		private string _a_partners="";
 		private string _a_missionary="";
-		private int? _a_number=0;
+		private int _a_number=0;
 		private string _a_theme;
 		/// <summary>
 		/// 健康教育活动ID
@@ -73,7 +73,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 持续时间（min）
 		/// </summary>
-		public int? A_Duration
+		public int A_Duration
 		{
 			set{ _a_duration=value;}
 			get{return _a_duration;}
@@ -105,7 +105,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 参与人数
 		/// </summary>
-		public int? A_Number
+		public int A_Number
 		{
 			set{ _a_number=value;}
 			get{return _a_number;}

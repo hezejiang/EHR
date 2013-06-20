@@ -34,7 +34,7 @@
         <tr>
             <td colspan="3">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
-                    <form name="login" method="post" runat="server" defaultfocus="LoginName" onsubmit="javascript:return checkForm(this)">
+                    <form name="login" method="post" runat="server" defaultfocus="IDCard" onsubmit="javascript:return checkForm(this)">
                         <tr>
                             <td>
                                 <table width="431" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -50,7 +50,7 @@
                                         <td>
                                             <img src="images/Logon/Logon_3.gif" width="194" height="28" alt="" /></td>
                                         <td background="images/Logon/Logon_4.gif" width="237">
-                                            <asp:TextBox ID="LoginName" class="text_input" title="请输入帐号~!" runat="server" Style="width: 138px;"></asp:TextBox></td>
+                                            <asp:TextBox ID="IDCard" class="text_input" title="请输入身份证号~!" runat="server" Style="width: 138px;"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -111,17 +111,6 @@
                             </td>
                         </tr>
                     </form>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" height="20">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" height="20">
-                    <tr>
-                        <td class="down_text">
-                            Powered By <a href="http://www.supesoft.com" target="_blank"><font color="#ffffff">Supesoft.com</font></a>
-                            Information Technology Logistics Inc.</td>
-                    </tr>
                 </table>
             </td>
         </tr>

@@ -5939,7 +5939,7 @@ end
             <summary>
             根据用户登陆名,获取用户资料
             </summary>
-            <param name="u_LoginName">用户名</param>
+            <param name="U_IDCard">用户名</param>
             <returns>用户实体类</returns>
         </member>
         <member name="M:FrameWork.UserData.MoveUserCache(System.Int32)">

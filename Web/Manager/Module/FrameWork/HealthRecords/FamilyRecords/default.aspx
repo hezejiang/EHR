@@ -13,20 +13,15 @@
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
-                    <asp:HyperLinkField HeaderText="家庭ID号" DataTextField="F_FimaryCode" SortExpression="F_FimaryCode" DataNavigateUrlFields="FimaryID"
-                        DataNavigateUrlFormatString="InfoManager.aspx?FimaryID={0}&CMD=Edit" />
+                    <asp:HyperLinkField HeaderText="家庭档案编号" DataTextField="F_FamilyCode" SortExpression="F_FamilyCode" DataNavigateUrlFields="FamilyID"
+                        DataNavigateUrlFormatString="InfoManager.aspx?FamilyID={0}&CMD=Edit" />
                     <asp:TemplateField SortExpression="F_UserID" HeaderText="户主">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("F_UserID"))).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField SortExpression="F_GroupID" HeaderText="村(居)委会ID">
-                        <ItemTemplate>
-                            <%#getGroupModelById(Convert.ToInt32(Eval("F_GroupID"))).G_CName%>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField SortExpression="F_FimaryTel" HeaderText="家庭电话" DataField="F_FimaryTel"/>
-                    <asp:BoundField SortExpression="F_FimrayAddress" HeaderText="家庭住址" DataField="F_FimrayAddress"/>
+                    <asp:BoundField SortExpression="F_FamilyTel" HeaderText="家庭电话" DataField="F_FamilyTel"/>
+                    <asp:BoundField SortExpression="F_FamilyAddress" HeaderText="家庭住址" DataField="F_FamilyAddress"/>
                     <asp:TemplateField SortExpression="F_ResponsibilityUserID" HeaderText="责任人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("F_ResponsibilityUserID"))).U_CName%>
@@ -46,57 +41,45 @@
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
-                        家庭编号</td>
+                        家庭档案编号</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryCode" runat="server" CssClass="text_input"></asp:TextBox></td>
+                        <asp:TextBox ID="F_FamilyCode" runat="server" CssClass="text_input"></asp:TextBox></td>
                     <td class="table_body table_body_NoWidth">
-                        建档人</td>
+                        户主</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="F_UserID" value=""/>
                         <input runat="server" id="F_UserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button4" name="buttonselect" onclick="javascript:ShowDepartID(4)"
-                            class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table_body table_body_NoWidth">
-                        家庭电话</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="F_FimaryTel" runat="server" CssClass="text_input"></asp:TextBox></td>
-                    <td class="table_body table_body_NoWidth">
-                    居(村)委会</td>
-                    <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" id="F_GroupID"/>
-                        <input runat="server" id="F_GroupID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
+                        <input type="button" value="选择" id="button4" name="buttonselect" onclick="javascript:ShowDepartID(1,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
                 <tr>
-                   <td class="table_body table_body_NoWidth">
+                    <td class="table_body table_body_NoWidth">
                         责任人</td>
                    <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="F_ResponsibilityUserID"/>
                         <input runat="server" id="F_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
                     <td class="table_body table_body_NoWidth">
-                        建档人</td>
+                        家庭电话</td>
+                    <td class="table_none table_none_NoWidth">
+                        <asp:TextBox ID="F_FamilyTel" runat="server" CssClass="text_input"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td class="table_body table_body_NoWidth">
+                        户主</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="F_FillingUserID" value=""/>
                         <input runat="server" id="F_FillingUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(4,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
                     </td>
-                </tr>
-                <tr>
-
-                    <td colspan="4" align="right">
+                    <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
                 </tr>
             </table>
@@ -126,10 +109,9 @@
 	            var ShValues = file_name.split('||');
 	            if (ShValues[1]!=0)
 	            {
-                    if(type == 1){ //选择居委会
-                        document.all.<%=this.F_GroupID.ClientID %>.value=ShValues[1];
-                        document.all.<%=this.F_GroupID_input.ClientID %>.value=ShValues[0];
-                    }else if(type == 2){ //选择责任医生
+                    if(type == 1){ //选择户主
+                        onButtonEdit(ShValues[1]);
+                    }else if(type == 2){ //选择责任人
                         onButtonEdit(ShValues[1]);
                     }else if(type == 3){ //选择建档单位
                         
@@ -140,17 +122,17 @@
 	        }   
         }
 
-        function ShowDepartID(t)
+        function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
     
         function ClearSelect(t)
         {
             if(t == 1){
-   	            document.all.<%=this.F_GroupID_input.ClientID %>.value="";
-                document.all.<%=this.F_GroupID.ClientID %>.value="";
+   	            document.all.<%=this.F_UserID.ClientID %>.value="";
+                document.all.<%=this.F_UserID_input.ClientID %>.value="";
             }else if(t == 2){
                 document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value="";
                 document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value="";
@@ -174,7 +156,10 @@
                     //if (action == "close") return false;
                     var result = action.split("||");
                     if (result[0] == "ok") {
-                        if(type == 2){
+                        if(type == 1){
+                            document.all.<%=this.F_FillingUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_FillingUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 2){
                             document.all.<%=this.F_ResponsibilityUserID.ClientID %>.value=result[1];
                             document.all.<%=this.F_ResponsibilityUserID_input.ClientID %>.value=result[2];
                         }else if(type == 4){

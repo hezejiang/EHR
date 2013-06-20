@@ -21,16 +21,20 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
     {
         public string TableSink = Common.TableSink;
         private sys_UserTable currentUser = UserData.GetUserDate; //当前登录用户
+        private int G_Type;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["G_Type"] != null)
+            {
+                G_Type = Convert.ToInt32(Request["G_Type"]);
+            }
             OutJs();
         }
 
         private void OutJs()
         {
             int GroupID = currentUser.U_GroupID;
-            int G_Type = 0;
             int TotalRecord = 0;
             string strLink = "";
             int intCount = 0;
@@ -53,7 +57,6 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             qp.Orderfld = "G_Level,G_ShowOrder";
             qp.OrderType = 0;
             ArrayList lst = BusinessFacade.sys_GroupList(qp, out TotalRecord);
-            
             StringBuilder strSB = new StringBuilder();
 
             strSB.Append("<script language='JavaScript'>\n");
@@ -61,36 +64,70 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
 
             strSB.Append("treeRoot = gFld(\"mainbody\", \"部门列表\", \"0\",\"0\")\n");
 
-            foreach (sys_GroupTable x in lst)
+            if (G_Type == 1) //如果是医院
             {
-                intCount = intCount + 1;
-                //strLink = "GroupList.aspx?GroupID=" + x.GroupID.ToString();
-                strLink = x.GroupID.ToString();
-                if (x.G_Level == sys_Group_model.G_Level)
+                List<Maticsoft.Model.sys_Group> list_all = sys_Group_bll.GetHigherLevel_withSelf(lst);
+                for (int i = list_all.Count -1; i >=0; i--)
                 {
-                    if (x.G_ChildCount == 0)
+                    intCount = intCount + 1;
+                    //strLink = "GroupList.aspx?GroupID=" + x.GroupID.ToString();
+                    strLink = list_all[i].GroupID.ToString();
+                    if (list_all[i].G_Level == 1)
                     {
-                        strSB.AppendFormat("insDoc(treeRoot,gLnk(\"mainbody\",\"{0}\",\"\",{1}))\n", Common.ReplaceJs(x.G_CName), strLink);
+                        if (list_all[i].G_ChildCount == 0)
+                        {
+                            strSB.AppendFormat("insDoc(treeRoot,gLnk(\"mainbody\",\"{0}\",\"\",{1}))\n", Common.ReplaceJs(list_all[i].G_CName), strLink);
+                        }
+                        else
+                        {
+                            strSB.AppendFormat("N{0}=insFld(treeRoot,gFld(\"mainbody\",\"{1}\",\"\",{2}))\n", list_all[i].GroupID, Common.ReplaceJs(list_all[i].G_CName), strLink);
+                        }
                     }
                     else
                     {
-                        strSB.AppendFormat("N{0}=insFld(treeRoot,gFld(\"mainbody\",\"{1}\",\"\",{2}))\n", x.GroupID, Common.ReplaceJs(x.G_CName), strLink);
+                        if (list_all[i].G_ChildCount == 0)
+                        {
+                            strSB.AppendFormat("insDoc(N{0},gLnk(\"mainbody\",\"{1}\",\"\",{2}))\n", list_all[i].G_ParentID, Common.ReplaceJs(list_all[i].G_CName), strLink);
+                        }
+                        else
+                        {
+                            strSB.AppendFormat("N{0}=insFld(N{1},gFld(\"mainbody\",\"{2}\",\"\",{3}))\n", list_all[i].GroupID, list_all[i].G_ParentID, Common.ReplaceJs(list_all[i].G_CName), strLink);
+                        }
                     }
                 }
-                else
-                {
-                    if (x.G_ChildCount == 0)
-                    {
-                        strSB.AppendFormat("insDoc(N{0},gLnk(\"mainbody\",\"{1}\",\"\",{2}))\n", x.G_ParentID, Common.ReplaceJs(x.G_CName), strLink);
-                    }
-                    else
-                    {
-                        strSB.AppendFormat("N{0}=insFld(N{1},gFld(\"mainbody\",\"{2}\",\"\",{3}))\n", x.GroupID, x.G_ParentID, Common.ReplaceJs(x.G_CName), strLink);
-                    }
-                }
-
             }
-
+            else
+            {
+                foreach (sys_GroupTable x in lst)
+                {
+                    intCount = intCount + 1;
+                    //strLink = "GroupList.aspx?GroupID=" + x.GroupID.ToString();
+                    strLink = x.GroupID.ToString();
+                    if (x.G_Level == sys_Group_model.G_Level)
+                    {
+                        if (x.G_ChildCount == 0)
+                        {
+                            strSB.AppendFormat("insDoc(treeRoot,gLnk(\"mainbody\",\"{0}\",\"\",{1}))\n", Common.ReplaceJs(x.G_CName), strLink);
+                        }
+                        else
+                        {
+                            strSB.AppendFormat("N{0}=insFld(treeRoot,gFld(\"mainbody\",\"{1}\",\"\",{2}))\n", x.GroupID, Common.ReplaceJs(x.G_CName), strLink);
+                        }
+                    }
+                    else
+                    {
+                        if (x.G_ChildCount == 0)
+                        {
+                            strSB.AppendFormat("insDoc(N{0},gLnk(\"mainbody\",\"{1}\",\"\",{2}))\n", x.G_ParentID, Common.ReplaceJs(x.G_CName), strLink);
+                        }
+                        else
+                        {
+                            strSB.AppendFormat("N{0}=insFld(N{1},gFld(\"mainbody\",\"{2}\",\"\",{3}))\n", x.GroupID, x.G_ParentID, Common.ReplaceJs(x.G_CName), strLink);
+                        }
+                    }
+                }
+            }
+            
             strSB.Append("	initializeDocument();\n");
             strSB.Append("</script>\n");
             ShowScript.Text = strSB.ToString();

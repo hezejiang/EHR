@@ -14,7 +14,7 @@ namespace Maticsoft.Model
 		private string _a_appname;
 		private string _a_appdescription;
 		private string _a_appurl;
-		private int? _a_order;
+		private int _a_order;
 		/// <summary>
 		/// 自动ID 1:为系统管理应用
 		/// </summary>
@@ -50,7 +50,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 应用排序
 		/// </summary>
-		public int? A_Order
+		public int A_Order
 		{
 			set{ _a_order=value;}
 			get{return _a_order;}

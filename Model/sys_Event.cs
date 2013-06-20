@@ -12,9 +12,9 @@ namespace Maticsoft.Model
 		#region Model
 		private int _eventid;
 		private string _e_u_loginname;
-		private int? _e_userid;
+		private int _e_userid;
 		private DateTime _e_datetime= DateTime.Now;
-		private int? _e_applicationid;
+		private int _e_applicationid;
 		private string _e_a_appname;
 		private string _e_m_name;
 		private string _e_m_pagecode;
@@ -41,7 +41,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 操作时用户ID与sys_Users中UserID
 		/// </summary>
-		public int? E_UserID
+		public int E_UserID
 		{
 			set{ _e_userid=value;}
 			get{return _e_userid;}
@@ -57,7 +57,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 所属应用程序ID与sys_Applicatio
 		/// </summary>
-		public int? E_ApplicationID
+		public int E_ApplicationID
 		{
 			set{ _e_applicationid=value;}
 			get{return _e_applicationid;}

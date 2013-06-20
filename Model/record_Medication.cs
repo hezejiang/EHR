@@ -13,7 +13,7 @@ namespace Maticsoft.Model
 		private int _medicationid=0;
 		private int _m_consultationid;
 		private DateTime _m_startdate;
-		private int? _m_status;
+		private int _m_status;
 		/// <summary>
 		/// 用药ID
 		/// </summary>
@@ -41,7 +41,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 用药状态，1：正在服用，2：已服用完（病人服用完药之后将该提醒取消并同步就说明服用完毕）
 		/// </summary>
-		public int? M_Status
+		public int M_Status
 		{
 			set{ _m_status=value;}
 			get{return _m_status;}

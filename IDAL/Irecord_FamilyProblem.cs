@@ -1,12 +1,12 @@
 ﻿/**  版本信息模板在安装目录下，可自行修改。
-* record_FamilyBaseInfo.cs
+* record_FamilyProblem.cs
 *
 * 功 能： N/A
-* 类 名： record_FamilyBaseInfo
+* 类 名： record_FamilyProblem
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/19 17:06:23   N/A    初版
+* V0.01  2013/6/19 17:06:24   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -19,9 +19,9 @@ using System.Data;
 namespace Maticsoft.IDAL
 {
 	/// <summary>
-	/// 接口层record_FamilyBaseInfo
+	/// 接口层record_FamilyProblem
 	/// </summary>
-	public interface Irecord_FamilyBaseInfo
+	public interface Irecord_FamilyProblem
 	{
 		#region  成员方法
 		/// <summary>
@@ -31,25 +31,25 @@ namespace Maticsoft.IDAL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		bool Exists(int FamilyID);
+		bool Exists(int F_FamilyID);
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		int Add(Maticsoft.Model.record_FamilyBaseInfo model);
+		bool Add(Maticsoft.Model.record_FamilyProblem model);
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		bool Update(Maticsoft.Model.record_FamilyBaseInfo model);
+		bool Update(Maticsoft.Model.record_FamilyProblem model);
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		bool Delete(int FamilyID);
-		bool DeleteList(string FamilyIDlist );
+		bool Delete(int F_FamilyID);
+		bool DeleteList(string F_FamilyIDlist );
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		Maticsoft.Model.record_FamilyBaseInfo GetModel(int FamilyID);
-		Maticsoft.Model.record_FamilyBaseInfo DataRowToModel(DataRow row);
+		Maticsoft.Model.record_FamilyProblem GetModel(int F_FamilyID);
+		Maticsoft.Model.record_FamilyProblem DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

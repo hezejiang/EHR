@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.GroupManager.Edit"  %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/jquery-1.7.1.min.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="修改部门资料" HeadTitleTxt="部门资料管理">
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
@@ -29,10 +31,10 @@
                 <td class="table_body" style="height: 25px">
                     是否医院</td>
                 <td class="table_none" style="height: 25px">
-                    <asp:CheckBox ID="G_Type" title="如果是医院部门，请打钩!" Text="是" runat="server" CssClass="text_input"></asp:CheckBox>
+                    <input type="checkbox"  ID="G_Type" title="如果是医院部门，请打钩!" runat="server" class="G_Type" />是
                 </td>
             </tr>
-            <tr id="Tr4" runat="server">
+            <tr class="G_Code_tr" runat="server">
                 <td class="table_body" style="height: 25px">
                     行政代码</td>
                 <td class="table_none" style="height: 25px">
@@ -47,4 +49,19 @@
 		</table>        
         </FrameWorkWebControls:TabOptionItem>
     </FrameWorkWebControls:TabOptionWebControls>
+    <script type="text/javascript">
+        function type() {
+            var isCheck = $(".G_Type").attr("checked");
+            if (isCheck) {
+                $(".G_Code_tr").hide();
+            } else {
+                $(".G_Code_tr").show();
+            }
+        }
+        type();
+
+        $(".G_Type").click(function () {
+            type();
+        });
+    </script>
 </asp:Content>

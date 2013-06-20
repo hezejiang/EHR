@@ -53,6 +53,7 @@ namespace Maticsoft.IDAL
 		#endregion  成员方法
 		#region  MethodEx
         List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID);
+        List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID);
 		#endregion  MethodEx
 	} 
 }

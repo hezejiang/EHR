@@ -118,7 +118,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="U_Committee" id="U_Committee" value=""/>
                         <input runat="server" name="U_Committee_input" id="U_Committee_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(1,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
@@ -225,7 +225,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="U_ResponsibilityUserID" id="U_ResponsibilityUserID" value=""/>
                         <input runat="server" name="U_ResponsibilityUserID_input" id="U_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2,1)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
@@ -244,7 +244,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="U_FilingUnits" id="U_FilingUnits" value=""/>
                         <input runat="server" name="U_FilingUnits_input" id="U_FilingUnits_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(3,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(3);" class="cbutton" />
                     </td>
@@ -253,7 +253,7 @@
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" name="U_FilingUserID" id="U_FilingUserID" value=""/>
                         <input runat="server" name="U_FilingUserID_input" id="U_FilingUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4)"
+                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(4,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(4);" class="cbutton" />
                     </td>
@@ -608,10 +608,10 @@
 	        }   
         }
 
-        function ShowDepartID(t)
+        function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
     
         function ClearSelect(t)

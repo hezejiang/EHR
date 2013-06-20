@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FamilyBaseInfo.cs
+*
+* 功 能： N/A
+* 类 名： record_FamilyBaseInfo
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/20 1:08:11   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -20,21 +36,21 @@ namespace Maticsoft.SQLServerDAL
 		/// </summary>
 		public int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("FimaryID", "record_FamilyBaseInfo"); 
+		return DbHelperSQL.GetMaxID("FamilyID", "record_FamilyBaseInfo"); 
 		}
 
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int FimaryID)
+		public bool Exists(int FamilyID)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from record_FamilyBaseInfo");
-			strSql.Append(" where FimaryID=@FimaryID");
+			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@FimaryID", SqlDbType.Int,4)
+					new SqlParameter("@FamilyID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = FimaryID;
+			parameters[0].Value = FamilyID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -47,16 +63,15 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_FamilyBaseInfo(");
-			strSql.Append("F_FimaryCode,F_UserID,F_GroupID,F_FimaryTel,F_FimrayAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID)");
+			strSql.Append("F_FamilyCode,F_UserID,F_FamilyTel,F_FamilyAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID)");
 			strSql.Append(" values (");
-			strSql.Append("@F_FimaryCode,@F_UserID,@F_GroupID,@F_FimaryTel,@F_FimrayAddress,@F_HouseType,@F_HouseArea,@F_Ventilation,@F_Humidity,@F_Warm,@F_Lighting,@F_Sanitation,@F_Kitchen,@F_Fuel,@F_Water,@F_WasteDisposal,@F_LivestockBar,@F_ToiletType,@F_ResponsibilityUserID,@F_FillingUserID)");
+			strSql.Append("@F_FamilyCode,@F_UserID,@F_FamilyTel,@F_FamilyAddress,@F_HouseType,@F_HouseArea,@F_Ventilation,@F_Humidity,@F_Warm,@F_Lighting,@F_Sanitation,@F_Kitchen,@F_Fuel,@F_Water,@F_WasteDisposal,@F_LivestockBar,@F_ToiletType,@F_ResponsibilityUserID,@F_FillingUserID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@F_FimaryCode", SqlDbType.VarChar,30),
+					new SqlParameter("@F_FamilyCode", SqlDbType.VarChar,30),
 					new SqlParameter("@F_UserID", SqlDbType.Int,4),
-					new SqlParameter("@F_GroupID", SqlDbType.Int,4),
-					new SqlParameter("@F_FimaryTel", SqlDbType.VarChar,20),
-					new SqlParameter("@F_FimrayAddress", SqlDbType.NVarChar,100),
+					new SqlParameter("@F_FamilyTel", SqlDbType.VarChar,20),
+					new SqlParameter("@F_FamilyAddress", SqlDbType.NVarChar,100),
 					new SqlParameter("@F_HouseType", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_HouseArea", SqlDbType.Float,8),
 					new SqlParameter("@F_Ventilation", SqlDbType.TinyInt,1),
@@ -72,26 +87,25 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@F_ToiletType", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_ResponsibilityUserID", SqlDbType.Int,4),
 					new SqlParameter("@F_FillingUserID", SqlDbType.Int,4)};
-			parameters[0].Value = model.F_FimaryCode;
+			parameters[0].Value = model.F_FamilyCode;
 			parameters[1].Value = model.F_UserID;
-			parameters[2].Value = model.F_GroupID;
-			parameters[3].Value = model.F_FimaryTel;
-			parameters[4].Value = model.F_FimrayAddress;
-			parameters[5].Value = model.F_HouseType;
-			parameters[6].Value = model.F_HouseArea;
-			parameters[7].Value = model.F_Ventilation;
-			parameters[8].Value = model.F_Humidity;
-			parameters[9].Value = model.F_Warm;
-			parameters[10].Value = model.F_Lighting;
-			parameters[11].Value = model.F_Sanitation;
-			parameters[12].Value = model.F_Kitchen;
-			parameters[13].Value = model.F_Fuel;
-			parameters[14].Value = model.F_Water;
-			parameters[15].Value = model.F_WasteDisposal;
-			parameters[16].Value = model.F_LivestockBar;
-			parameters[17].Value = model.F_ToiletType;
-			parameters[18].Value = model.F_ResponsibilityUserID;
-			parameters[19].Value = model.F_FillingUserID;
+			parameters[2].Value = model.F_FamilyTel;
+			parameters[3].Value = model.F_FamilyAddress;
+			parameters[4].Value = model.F_HouseType;
+			parameters[5].Value = model.F_HouseArea;
+			parameters[6].Value = model.F_Ventilation;
+			parameters[7].Value = model.F_Humidity;
+			parameters[8].Value = model.F_Warm;
+			parameters[9].Value = model.F_Lighting;
+			parameters[10].Value = model.F_Sanitation;
+			parameters[11].Value = model.F_Kitchen;
+			parameters[12].Value = model.F_Fuel;
+			parameters[13].Value = model.F_Water;
+			parameters[14].Value = model.F_WasteDisposal;
+			parameters[15].Value = model.F_LivestockBar;
+			parameters[16].Value = model.F_ToiletType;
+			parameters[17].Value = model.F_ResponsibilityUserID;
+			parameters[18].Value = model.F_FillingUserID;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -110,11 +124,10 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update record_FamilyBaseInfo set ");
-			strSql.Append("F_FimaryCode=@F_FimaryCode,");
+			strSql.Append("F_FamilyCode=@F_FamilyCode,");
 			strSql.Append("F_UserID=@F_UserID,");
-			strSql.Append("F_GroupID=@F_GroupID,");
-			strSql.Append("F_FimaryTel=@F_FimaryTel,");
-			strSql.Append("F_FimrayAddress=@F_FimrayAddress,");
+			strSql.Append("F_FamilyTel=@F_FamilyTel,");
+			strSql.Append("F_FamilyAddress=@F_FamilyAddress,");
 			strSql.Append("F_HouseType=@F_HouseType,");
 			strSql.Append("F_HouseArea=@F_HouseArea,");
 			strSql.Append("F_Ventilation=@F_Ventilation,");
@@ -130,13 +143,12 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("F_ToiletType=@F_ToiletType,");
 			strSql.Append("F_ResponsibilityUserID=@F_ResponsibilityUserID,");
 			strSql.Append("F_FillingUserID=@F_FillingUserID");
-			strSql.Append(" where FimaryID=@FimaryID");
+			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@F_FimaryCode", SqlDbType.VarChar,30),
+					new SqlParameter("@F_FamilyCode", SqlDbType.VarChar,30),
 					new SqlParameter("@F_UserID", SqlDbType.Int,4),
-					new SqlParameter("@F_GroupID", SqlDbType.Int,4),
-					new SqlParameter("@F_FimaryTel", SqlDbType.VarChar,20),
-					new SqlParameter("@F_FimrayAddress", SqlDbType.NVarChar,100),
+					new SqlParameter("@F_FamilyTel", SqlDbType.VarChar,20),
+					new SqlParameter("@F_FamilyAddress", SqlDbType.NVarChar,100),
 					new SqlParameter("@F_HouseType", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_HouseArea", SqlDbType.Float,8),
 					new SqlParameter("@F_Ventilation", SqlDbType.TinyInt,1),
@@ -152,28 +164,27 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@F_ToiletType", SqlDbType.TinyInt,1),
 					new SqlParameter("@F_ResponsibilityUserID", SqlDbType.Int,4),
 					new SqlParameter("@F_FillingUserID", SqlDbType.Int,4),
-					new SqlParameter("@FimaryID", SqlDbType.Int,4)};
-			parameters[0].Value = model.F_FimaryCode;
+					new SqlParameter("@FamilyID", SqlDbType.Int,4)};
+			parameters[0].Value = model.F_FamilyCode;
 			parameters[1].Value = model.F_UserID;
-			parameters[2].Value = model.F_GroupID;
-			parameters[3].Value = model.F_FimaryTel;
-			parameters[4].Value = model.F_FimrayAddress;
-			parameters[5].Value = model.F_HouseType;
-			parameters[6].Value = model.F_HouseArea;
-			parameters[7].Value = model.F_Ventilation;
-			parameters[8].Value = model.F_Humidity;
-			parameters[9].Value = model.F_Warm;
-			parameters[10].Value = model.F_Lighting;
-			parameters[11].Value = model.F_Sanitation;
-			parameters[12].Value = model.F_Kitchen;
-			parameters[13].Value = model.F_Fuel;
-			parameters[14].Value = model.F_Water;
-			parameters[15].Value = model.F_WasteDisposal;
-			parameters[16].Value = model.F_LivestockBar;
-			parameters[17].Value = model.F_ToiletType;
-			parameters[18].Value = model.F_ResponsibilityUserID;
-			parameters[19].Value = model.F_FillingUserID;
-			parameters[20].Value = model.FimaryID;
+			parameters[2].Value = model.F_FamilyTel;
+			parameters[3].Value = model.F_FamilyAddress;
+			parameters[4].Value = model.F_HouseType;
+			parameters[5].Value = model.F_HouseArea;
+			parameters[6].Value = model.F_Ventilation;
+			parameters[7].Value = model.F_Humidity;
+			parameters[8].Value = model.F_Warm;
+			parameters[9].Value = model.F_Lighting;
+			parameters[10].Value = model.F_Sanitation;
+			parameters[11].Value = model.F_Kitchen;
+			parameters[12].Value = model.F_Fuel;
+			parameters[13].Value = model.F_Water;
+			parameters[14].Value = model.F_WasteDisposal;
+			parameters[15].Value = model.F_LivestockBar;
+			parameters[16].Value = model.F_ToiletType;
+			parameters[17].Value = model.F_ResponsibilityUserID;
+			parameters[18].Value = model.F_FillingUserID;
+			parameters[19].Value = model.FamilyID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -189,16 +200,16 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int FimaryID)
+		public bool Delete(int FamilyID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from record_FamilyBaseInfo ");
-			strSql.Append(" where FimaryID=@FimaryID");
+			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@FimaryID", SqlDbType.Int,4)
+					new SqlParameter("@FamilyID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = FimaryID;
+			parameters[0].Value = FamilyID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -213,11 +224,11 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 批量删除数据
 		/// </summary>
-		public bool DeleteList(string FimaryIDlist )
+		public bool DeleteList(string FamilyIDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from record_FamilyBaseInfo ");
-			strSql.Append(" where FimaryID in ("+FimaryIDlist + ")  ");
+			strSql.Append(" where FamilyID in ("+FamilyIDlist + ")  ");
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
@@ -233,16 +244,16 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.record_FamilyBaseInfo GetModel(int FimaryID)
+		public Maticsoft.Model.record_FamilyBaseInfo GetModel(int FamilyID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 FimaryID,F_FimaryCode,F_UserID,F_GroupID,F_FimaryTel,F_FimrayAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID from record_FamilyBaseInfo ");
-			strSql.Append(" where FimaryID=@FimaryID");
+			strSql.Append("select  top 1 FamilyID,F_FamilyCode,F_UserID,F_FamilyTel,F_FamilyAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID from record_FamilyBaseInfo ");
+			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@FimaryID", SqlDbType.Int,4)
+					new SqlParameter("@FamilyID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = FimaryID;
+			parameters[0].Value = FamilyID;
 
 			Maticsoft.Model.record_FamilyBaseInfo model=new Maticsoft.Model.record_FamilyBaseInfo();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -265,29 +276,25 @@ namespace Maticsoft.SQLServerDAL
 			Maticsoft.Model.record_FamilyBaseInfo model=new Maticsoft.Model.record_FamilyBaseInfo();
 			if (row != null)
 			{
-				if(row["FimaryID"]!=null && row["FimaryID"].ToString()!="")
+				if(row["FamilyID"]!=null && row["FamilyID"].ToString()!="")
 				{
-					model.FimaryID=int.Parse(row["FimaryID"].ToString());
+					model.FamilyID=int.Parse(row["FamilyID"].ToString());
 				}
-				if(row["F_FimaryCode"]!=null)
+				if(row["F_FamilyCode"]!=null)
 				{
-					model.F_FimaryCode=row["F_FimaryCode"].ToString();
+					model.F_FamilyCode=row["F_FamilyCode"].ToString();
 				}
 				if(row["F_UserID"]!=null && row["F_UserID"].ToString()!="")
 				{
 					model.F_UserID=int.Parse(row["F_UserID"].ToString());
 				}
-				if(row["F_GroupID"]!=null && row["F_GroupID"].ToString()!="")
+				if(row["F_FamilyTel"]!=null)
 				{
-					model.F_GroupID=int.Parse(row["F_GroupID"].ToString());
+					model.F_FamilyTel=row["F_FamilyTel"].ToString();
 				}
-				if(row["F_FimaryTel"]!=null)
+				if(row["F_FamilyAddress"]!=null)
 				{
-					model.F_FimaryTel=row["F_FimaryTel"].ToString();
-				}
-				if(row["F_FimrayAddress"]!=null)
-				{
-					model.F_FimrayAddress=row["F_FimrayAddress"].ToString();
+					model.F_FamilyAddress=row["F_FamilyAddress"].ToString();
 				}
 				if(row["F_HouseType"]!=null && row["F_HouseType"].ToString()!="")
 				{
@@ -359,7 +366,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select FimaryID,F_FimaryCode,F_UserID,F_GroupID,F_FimaryTel,F_FimrayAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID ");
+			strSql.Append("select FamilyID,F_FamilyCode,F_UserID,F_FamilyTel,F_FamilyAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID ");
 			strSql.Append(" FROM record_FamilyBaseInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -379,7 +386,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" FimaryID,F_FimaryCode,F_UserID,F_GroupID,F_FimaryTel,F_FimrayAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID ");
+			strSql.Append(" FamilyID,F_FamilyCode,F_UserID,F_FamilyTel,F_FamilyAddress,F_HouseType,F_HouseArea,F_Ventilation,F_Humidity,F_Warm,F_Lighting,F_Sanitation,F_Kitchen,F_Fuel,F_Water,F_WasteDisposal,F_LivestockBar,F_ToiletType,F_ResponsibilityUserID,F_FillingUserID ");
 			strSql.Append(" FROM record_FamilyBaseInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -424,7 +431,7 @@ namespace Maticsoft.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.FimaryID desc");
+				strSql.Append("order by T.FamilyID desc");
 			}
 			strSql.Append(")AS Row, T.*  from record_FamilyBaseInfo T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -452,7 +459,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "record_FamilyBaseInfo";
-			parameters[1].Value = "FimaryID";
+			parameters[1].Value = "FamilyID";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

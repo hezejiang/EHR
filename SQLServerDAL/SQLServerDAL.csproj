@@ -124,6 +124,10 @@
       <Project>{0988C62E-247F-471F-A183-DB509C7A3839}</Project>
       <Name>DBUtility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FrameWork\Framework.csproj">
+      <Project>{A3D89A80-19B8-4F6A-9381-8E15D41179AC}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">
       <Project>{B0706FA2-977C-4523-B093-F57804756498}</Project>
       <Name>IDAL</Name>
@@ -146,6 +150,7 @@
     <Compile Include="extend_FamilyHistory.cs" />
     <Compile Include="extend_GeneticDisease.cs" />
     <Compile Include="PubConstant.cs" />
+    <Compile Include="record_FamilyProblem.cs" />
     <Compile Include="SysManage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -161,7 +166,6 @@
     <Compile Include="record_Consultation.cs" />
     <Compile Include="record_DeathRegistration.cs" />
     <Compile Include="record_FamilyBaseInfo.cs" />
-    <Compile Include="record_FimaryProblem.cs" />
     <Compile Include="record_FollowUp.cs" />
     <Compile Include="record_HealthCheck.cs" />
     <Compile Include="record_Medication.cs" />
