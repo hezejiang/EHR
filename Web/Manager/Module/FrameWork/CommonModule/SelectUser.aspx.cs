@@ -36,7 +36,7 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
         {
             Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
             Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
-            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(U_GroupID);
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(U_GroupID, false);
 
             string orderby = OrderType == 0 ? Orderfld + " asc" : Orderfld + " desc";
             int startIndex = (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize + 1;

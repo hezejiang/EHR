@@ -17,20 +17,22 @@
                     <td class="table_body">
                         报告标题</td>
                     <td class="table_none">
-                        <asp:TextBox ID="A_Title" runat="server" Columns="50" CssClass="text_input"></asp:TextBox>
+                        <asp:TextBox ID="R_Title" runat="server" Columns="50" CssClass="text_input"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="table_body">
                         报告内容</td>
                     <td class="table_none">
-                        <asp:TextBox ID="A_Content" runat="server" Columns="50" title="请输入报告内容!"
+                        <asp:TextBox ID="R_Content" runat="server" Columns="50" title="请输入报告内容!"
                             CssClass="text_input" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" CssClass="button_bak" Text="向上级报告" 
+                            onclick="Button2_Click" />
                         <input id="Reset1" class="button_bak" type="reset" value="重填" />&nbsp;
                     </td>
                 </tr>

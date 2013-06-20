@@ -19,6 +19,11 @@
                     <asp:BoundField HeaderText="报告标题" DataField="R_Title"/>
                     <asp:BoundField HeaderText="报告内容" DataField="R_Content"/>
                     <asp:BoundField SortExpression="R_DateTime" HeaderText="报告时间" DataField="R_DateTime" DataFormatString="{0:yyyy-MM-dd}"/>
+                    <asp:TemplateField SortExpression="R_GroupID" HeaderText="报告部门">
+                        <ItemTemplate>
+                            <%#getGroupModelById(Convert.ToInt32(Eval("R_GroupID"))).G_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="R_ResponsibilityUserID" HeaderText="责任人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("R_ResponsibilityUserID"))).U_CName%>

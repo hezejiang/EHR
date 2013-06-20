@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* AR_Announcement.cs
+*
+* 功 能： N/A
+* 类 名： AR_Announcement
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/20 22:01:01   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,21 +63,23 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into AR_Announcement(");
-			strSql.Append("A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type)");
+			strSql.Append("A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type,A_GroupID)");
 			strSql.Append(" values (");
-			strSql.Append("@A_Title,@A_Content,@A_DateTime,@A_ResponsibilityUserID,@A_Type)");
+			strSql.Append("@A_Title,@A_Content,@A_DateTime,@A_ResponsibilityUserID,@A_Type,@A_GroupID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@A_Title", SqlDbType.NVarChar,255),
 					new SqlParameter("@A_Content", SqlDbType.Text),
 					new SqlParameter("@A_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@A_ResponsibilityUserID", SqlDbType.Int,4),
-					new SqlParameter("@A_Type", SqlDbType.TinyInt,1)};
+					new SqlParameter("@A_Type", SqlDbType.TinyInt,1),
+					new SqlParameter("@A_GroupID", SqlDbType.Int,4)};
 			parameters[0].Value = model.A_Title;
 			parameters[1].Value = model.A_Content;
 			parameters[2].Value = model.A_DateTime;
 			parameters[3].Value = model.A_ResponsibilityUserID;
 			parameters[4].Value = model.A_Type;
+			parameters[5].Value = model.A_GroupID;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -84,7 +102,8 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("A_Content=@A_Content,");
 			strSql.Append("A_DateTime=@A_DateTime,");
 			strSql.Append("A_ResponsibilityUserID=@A_ResponsibilityUserID,");
-			strSql.Append("A_Type=@A_Type");
+			strSql.Append("A_Type=@A_Type,");
+			strSql.Append("A_GroupID=@A_GroupID");
 			strSql.Append(" where AnnouncementID=@AnnouncementID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@A_Title", SqlDbType.NVarChar,255),
@@ -92,13 +111,15 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@A_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@A_ResponsibilityUserID", SqlDbType.Int,4),
 					new SqlParameter("@A_Type", SqlDbType.TinyInt,1),
+					new SqlParameter("@A_GroupID", SqlDbType.Int,4),
 					new SqlParameter("@AnnouncementID", SqlDbType.Int,4)};
 			parameters[0].Value = model.A_Title;
 			parameters[1].Value = model.A_Content;
 			parameters[2].Value = model.A_DateTime;
 			parameters[3].Value = model.A_ResponsibilityUserID;
 			parameters[4].Value = model.A_Type;
-			parameters[5].Value = model.AnnouncementID;
+			parameters[5].Value = model.A_GroupID;
+			parameters[6].Value = model.AnnouncementID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -162,7 +183,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type from AR_Announcement ");
+			strSql.Append("select  top 1 AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type,A_GroupID from AR_Announcement ");
 			strSql.Append(" where AnnouncementID=@AnnouncementID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@AnnouncementID", SqlDbType.Int,4)
@@ -214,6 +235,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.A_Type=int.Parse(row["A_Type"].ToString());
 				}
+				if(row["A_GroupID"]!=null && row["A_GroupID"].ToString()!="")
+				{
+					model.A_GroupID=int.Parse(row["A_GroupID"].ToString());
+				}
 			}
 			return model;
 		}
@@ -224,7 +249,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type ");
+			strSql.Append("select AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type,A_GroupID ");
 			strSql.Append(" FROM AR_Announcement ");
 			if(strWhere.Trim()!="")
 			{
@@ -244,7 +269,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type ");
+			strSql.Append(" AnnouncementID,A_Title,A_Content,A_DateTime,A_ResponsibilityUserID,A_Type,A_GroupID ");
 			strSql.Append(" FROM AR_Announcement ");
 			if(strWhere.Trim()!="")
 			{

@@ -40,7 +40,7 @@ namespace FrameWork.web.Module.FrameWork.StatisticalAnalysis.UsualTypeStatistica
             else
             {
                 title = sys_Group_bll.GetModel(groupID).G_CName + "建档常住类型统计";
-                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID);
+                GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(groupID, false);
             }
 
             Maticsoft.BLL.sys_UserInfo sys_UserInfo_bll = new Maticsoft.BLL.sys_UserInfo();

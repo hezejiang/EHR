@@ -13,13 +13,13 @@ namespace FrameWork.web {
     public partial class Login {
         
         /// <summary>
-        /// IDCard 控件。
+        /// LoginName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IDCard;
+        protected global::System.Web.UI.WebControls.TextBox LoginName;
         
         /// <summary>
         /// LoginPass 控件。

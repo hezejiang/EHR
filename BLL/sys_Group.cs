@@ -179,14 +179,14 @@ namespace Maticsoft.BLL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
-        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID)
+        public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID, Boolean isDriect)
         {
-            return dal.GetLowerLevel(GroupID);
+            return dal.GetLowerLevel(GroupID, isDriect);
         }
 
-        public string GetLowerLevelString(int GroupID)
+        public string GetLowerLevelString(int GroupID, Boolean isDriect)
         {
-            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID);
+            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID, isDriect);
             string GroupIDs = "";
             if (list.Count > 0)
             {
@@ -199,9 +199,9 @@ namespace Maticsoft.BLL
             return GroupIDs;
         }
 
-        public string GetLowerLevelString_withSelf(int GroupID)
+        public string GetLowerLevelString_withSelf(int GroupID, Boolean isDriect)
         {
-            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID);
+            List<Maticsoft.Model.sys_Group> list = GetLowerLevel(GroupID, isDriect);
             string GroupIDs = "";
             if (list.Count > 0)
             {
@@ -219,7 +219,27 @@ namespace Maticsoft.BLL
             return GroupIDs;
         }
 
-        public List<Maticsoft.Model.sys_Group> GetHigherLevel_withSelf(ArrayList lst)
+        public string GetHigherLevelString_withSelf(int GroupID, Boolean isDriect)
+        {
+            List<Maticsoft.Model.sys_Group> list = dal.GetHigherLevel(GroupID, isDriect);
+            string GroupIDs = "";
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    GroupIDs = GroupIDs + ((Maticsoft.Model.sys_Group)list[i]).GroupID + ",";
+                }
+                GroupIDs = GroupIDs.Substring(0, GroupIDs.Length - 1);
+            }
+            Maticsoft.Model.sys_Group sys_Group_model = GetModel(GroupID);
+            if (GroupIDs != "")
+                GroupIDs = GroupIDs + "," + sys_Group_model.GroupID;
+            else
+                GroupIDs = sys_Group_model.GroupID + "";
+            return GroupIDs;
+        }
+
+        public List<Maticsoft.Model.sys_Group> GetHigherLevel_withSelf(ArrayList lst, Boolean isDriect)
         {
             List<Maticsoft.Model.sys_Group> list_all = new List<Maticsoft.Model.sys_Group>();
             foreach (sys_GroupTable x in lst)
@@ -235,7 +255,7 @@ namespace Maticsoft.BLL
                 sys_Group_model.G_Type = x.G_Type;
                 sys_Group_model.G_Code = x.G_Code;
                 list_all.Add(sys_Group_model);
-                List<Maticsoft.Model.sys_Group> list = dal.GetHigherLevel(x.G_ParentID);
+                List<Maticsoft.Model.sys_Group> list = dal.GetHigherLevel(x.G_ParentID, isDriect);
                 for (int i = 0; i < list.Count; i++)
                 {
                     if (!list_all.Contains(list[i]))

@@ -11,8 +11,15 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
 {
     public partial class _default : System.Web.UI.Page
     {
+        Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+        int groupID = UserData.GetUserDate.U_GroupID;
+        string GroupIDs = "", Direct_GroupIDs = "";
+       
         protected void Page_Load(object sender, EventArgs e)
         {
+            GroupIDs = sys_Group_bll.GetHigherLevelString_withSelf(groupID, false);
+            Direct_GroupIDs = sys_Group_bll.GetHigherLevelString_withSelf(groupID, true);
+            
             if (!Page.IsPostBack)
             {
                 BindData();
@@ -101,6 +108,14 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
             string A_ResponsibilityUserID_Value = A_ResponsibilityUserID.Value;
             
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = "";
+            }
+            else
+            {
+                SqlSearch = string.Format("((A_Type={0} and A_GroupID in ({1})) or (A_Type={2} and A_GroupID in ({3}))) and ", 1, Direct_GroupIDs, 2, GroupIDs);
+            }
             if (A_Title_Value != "" || A_Content_Value != "" || A_ResponsibilityUserID_Value != "" || A_DateTime_Value != "" || A_Type_Value != "0")
             {
                 if (A_Title_Value != "")
@@ -145,7 +160,16 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = "";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format("(A_Type={0} and A_GroupID in ({1})) or (A_Type={2} and A_GroupID in ({3}))", 1, Direct_GroupIDs, 2, GroupIDs);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }
