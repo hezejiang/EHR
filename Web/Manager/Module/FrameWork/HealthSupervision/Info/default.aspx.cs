@@ -35,7 +35,6 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             int startIndex = (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize + 1;
             //这一页结束的记录索引
             int endIndex = this.AspNetPager1.CurrentPageIndex * this.AspNetPager1.PageSize;
-            //需要更改
             Maticsoft.BLL.supervision_Info bll = new Maticsoft.BLL.supervision_Info();
 
             //bll通过调用GetListByPage方法返回分页数据

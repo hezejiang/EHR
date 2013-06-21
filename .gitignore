@@ -1,3 +1,4 @@
+<<<<<<< .merge_file_a08832
 数据库/~$数据库说明.doc
 Common/obj/Debug/Common.csproj.FileListAbsolute.txt
 DBUtility/obj/Debug/DBUtility.csproj.FileListAbsolute.txt
@@ -6,3 +7,6 @@ FrameWork/bin/Debug/Framework.xml
 Debug
 bin
 Web/Manager/Log/20130613AppErrorLog.txt
+=======
+Web/Manager/Log/20130612AppErrorLog.txt
+>>>>>>> .merge_file_a08840
