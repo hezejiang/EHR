@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FamilyBaseInfo.cs
+*
+* 功 能： N/A
+* 类 名： record_FamilyBaseInfo
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/20 1:08:11   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -10,42 +26,41 @@ namespace Maticsoft.Model
 		public record_FamilyBaseInfo()
 		{}
 		#region Model
-		private int _fimaryid;
-		private string _f_fimarycode;
+		private int _familyid;
+		private string _f_familycode;
 		private int _f_userid;
-		private int _f_groupid;
-		private string _f_fimarytel="";
-		private string _f_fimrayaddress="";
-		private int? _f_housetype=0;
-		private decimal? _f_housearea=0M;
-		private int? _f_ventilation=0;
-		private int? _f_humidity=0;
-		private int? _f_warm=0;
-		private int? _f_lighting=0;
-		private int? _f_sanitation=0;
-		private int? _f_kitchen=0;
-		private int? _f_fuel=0;
-		private int? _f_water=0;
-		private int? _f_wastedisposal=0;
-		private int? _f_livestockbar=0;
-		private int? _f_toilettype=0;
+		private string _f_familytel="";
+		private string _f_familyaddress="";
+		private int _f_housetype=0;
+		private decimal _f_housearea=0M;
+		private int _f_ventilation=0;
+		private int _f_humidity=0;
+		private int _f_warm=0;
+		private int _f_lighting=0;
+		private int _f_sanitation=0;
+		private int _f_kitchen=0;
+		private int _f_fuel=0;
+		private int _f_water=0;
+		private int _f_wastedisposal=0;
+		private int _f_livestockbar=0;
+		private int _f_toilettype=0;
 		private int _f_responsibilityuserid;
 		private int _f_fillinguserid;
 		/// <summary>
 		/// 自增家庭ID号
 		/// </summary>
-		public int FimaryID
+		public int FamilyID
 		{
-			set{ _fimaryid=value;}
-			get{return _fimaryid;}
+			set{ _familyid=value;}
+			get{return _familyid;}
 		}
 		/// <summary>
 		/// 家庭档案编号，由12位居（村）委会行政代码+自增的FimaryID组成
 		/// </summary>
-		public string F_FimaryCode
+		public string F_FamilyCode
 		{
-			set{ _f_fimarycode=value;}
-			get{return _f_fimarycode;}
+			set{ _f_familycode=value;}
+			get{return _f_familycode;}
 		}
 		/// <summary>
 		/// 户主，与sys_User表的UserID关联
@@ -56,33 +71,25 @@ namespace Maticsoft.Model
 			get{return _f_userid;}
 		}
 		/// <summary>
-		/// 村(居)委会ID，与sys_Group表中GroupID关联
-		/// </summary>
-		public int F_GroupID
-		{
-			set{ _f_groupid=value;}
-			get{return _f_groupid;}
-		}
-		/// <summary>
 		/// 
 		/// </summary>
-		public string F_FimaryTel
+		public string F_FamilyTel
 		{
-			set{ _f_fimarytel=value;}
-			get{return _f_fimarytel;}
+			set{ _f_familytel=value;}
+			get{return _f_familytel;}
 		}
 		/// <summary>
 		/// 家庭地址
 		/// </summary>
-		public string F_FimrayAddress
+		public string F_FamilyAddress
 		{
-			set{ _f_fimrayaddress=value;}
-			get{return _f_fimrayaddress;}
+			set{ _f_familyaddress=value;}
+			get{return _f_familyaddress;}
 		}
 		/// <summary>
 		/// 房屋类型 1:砖瓦平房，2:砖瓦楼房，3:土屋，4:茅屋，5:木屋
 		/// </summary>
-		public int? F_HouseType
+		public int F_HouseType
 		{
 			set{ _f_housetype=value;}
 			get{return _f_housetype;}
@@ -90,7 +97,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 居住面积
 		/// </summary>
-		public decimal? F_HouseArea
+		public decimal F_HouseArea
 		{
 			set{ _f_housearea=value;}
 			get{return _f_housearea;}
@@ -98,7 +105,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 通风 1:好，2:一般，3:差
 		/// </summary>
-		public int? F_Ventilation
+		public int F_Ventilation
 		{
 			set{ _f_ventilation=value;}
 			get{return _f_ventilation;}
@@ -106,7 +113,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 湿度 1:潮湿，2:干燥，3:一般
 		/// </summary>
-		public int? F_Humidity
+		public int F_Humidity
 		{
 			set{ _f_humidity=value;}
 			get{return _f_humidity;}
@@ -114,7 +121,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 保暖 1:好，2:一般，3:差
 		/// </summary>
-		public int? F_Warm
+		public int F_Warm
 		{
 			set{ _f_warm=value;}
 			get{return _f_warm;}
@@ -122,7 +129,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 采光 1:好，2:一般，3:差
 		/// </summary>
-		public int? F_Lighting
+		public int F_Lighting
 		{
 			set{ _f_lighting=value;}
 			get{return _f_lighting;}
@@ -130,7 +137,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 卫生 1:清洁，2:一般，3:较脏，4:差
 		/// </summary>
-		public int? F_Sanitation
+		public int F_Sanitation
 		{
 			set{ _f_sanitation=value;}
 			get{return _f_sanitation;}
@@ -138,7 +145,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 厨房 1:合用，2:独用，3:无
 		/// </summary>
-		public int? F_Kitchen
+		public int F_Kitchen
 		{
 			set{ _f_kitchen=value;}
 			get{return _f_kitchen;}
@@ -146,7 +153,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 使用燃料 1：液化气，2：煤气，3:天然气，4:沼气，5:柴火，6:其他
 		/// </summary>
-		public int? F_Fuel
+		public int F_Fuel
 		{
 			set{ _f_fuel=value;}
 			get{return _f_fuel;}
@@ -154,15 +161,15 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 饮水来源 1：自来水，2：经净化过滤的水，3：井水，4：河湖水，5：塘水口，6：桶装水，7：其他
 		/// </summary>
-		public int? F_Water
+		public int F_Water
 		{
 			set{ _f_water=value;}
 			get{return _f_water;}
 		}
 		/// <summary>
-		/// 垃圾处理 1：垃圾处理，2：垃圾箱，3：其他
+		/// 垃圾处理 1：自行处理，2：垃圾箱，3：其他
 		/// </summary>
-		public int? F_WasteDisposal
+		public int F_WasteDisposal
 		{
 			set{ _f_wastedisposal=value;}
 			get{return _f_wastedisposal;}
@@ -170,7 +177,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 禽畜栏 1：单设，2：室内，3：室外
 		/// </summary>
-		public int? F_LivestockBar
+		public int F_LivestockBar
 		{
 			set{ _f_livestockbar=value;}
 			get{return _f_livestockbar;}
@@ -178,7 +185,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 厕所类型 1：家庭卫生厕所：三格式粪池式，2：家庭卫生厕所：双瓮漏斗式，3：家庭卫生厕所：三联沼气池式，4：家庭卫生厕所：粪尿分集式，5：家庭卫生厕所：完整下水道水冲式，6：家庭卫生厕所：双坑交替式，7：非卫生厕所：一格或两格粪池式，8：非卫生厕所：马桶，9：非卫生厕所：露天粪坑，10：非卫生厕所：简易棚厕
 		/// </summary>
-		public int? F_ToiletType
+		public int F_ToiletType
 		{
 			set{ _f_toilettype=value;}
 			get{return _f_toilettype;}

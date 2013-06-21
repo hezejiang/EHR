@@ -20,6 +20,8 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
     {
         public string TableSink = Common.TableSink;
         int U_GroupID = (int)Common.sink("GroupID", MethodType.Get, 255, 0, DataType.Int);
+        string GroupIDs;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -32,10 +34,14 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
         /// </summary>
         private void BindData()
         {
+            Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+            Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
+            GroupIDs = sys_Group_bll.GetLowerLevelString_withSelf(U_GroupID, false);
+
             string orderby = OrderType == 0 ? Orderfld + " asc" : Orderfld + " desc";
             int startIndex = (this.AspNetPager1.CurrentPageIndex - 1) * this.AspNetPager1.PageSize + 1;
             int endIndex = this.AspNetPager1.CurrentPageIndex * this.AspNetPager1.PageSize;
-            Maticsoft.BLL.sys_User bll = new Maticsoft.BLL.sys_User();
+            Maticsoft.BLL.sys_UserInfo bll = new Maticsoft.BLL.sys_UserInfo();
             DataSet datas = bll.GetListByPage(SearchTerms, orderby, startIndex, endIndex);
             GridView1.DataSource = datas;
             GridView1.DataBind();
@@ -63,7 +69,17 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             string U_CName_Value = Convert.ToString(Common.sink(U_CName_key.UniqueID, MethodType.Post, 20, 0, DataType.Str));
             string U_MobileNo_Value = (string)Common.sink(U_MobileNo_key.UniqueID, MethodType.Post, 20, 0, DataType.Str);
 
-            string SqlSearch = " U_GroupID=" + U_GroupID + " and ";
+            string SqlSearch = "";
+            Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+            Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
+            if (sys_Group_model.G_Type == 0)
+            {
+                SqlSearch = string.Format(" U_Committee in({0}) and ", GroupIDs);
+            }
+            else
+            {
+                SqlSearch = string.Format(" U_GroupID={0} and ", U_GroupID);
+            }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_MobileNo_Value != "")
             {
                 if (U_IDCard_Value != "")
@@ -96,7 +112,19 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = " U_GroupID =" + U_GroupID;
+                {
+                    Maticsoft.BLL.sys_Group sys_Group_bll = new Maticsoft.BLL.sys_Group();
+                    Maticsoft.Model.sys_Group sys_Group_model = sys_Group_bll.GetModel(U_GroupID);
+                    if (sys_Group_model.G_Type == 0)
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_Committee in({0}) ", GroupIDs);
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format(" U_GroupID={0} ", U_GroupID);
+                    }
+                }
+
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

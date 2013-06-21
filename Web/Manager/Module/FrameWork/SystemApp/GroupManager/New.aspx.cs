@@ -66,7 +66,7 @@ namespace FrameWork.web.Module.FrameWork.GroupManager
                 gt.G_Type = 1;
             else
                 gt.G_Type = 0;
-            gt.G_Code = (string)Common.sink(G_Code.UniqueID, MethodType.Post, 20, 1, DataType.Str);
+            gt.G_Code = G_Code.Text;
             if (gt.GroupID == 0)
             {
                 gt.G_Level = 1;

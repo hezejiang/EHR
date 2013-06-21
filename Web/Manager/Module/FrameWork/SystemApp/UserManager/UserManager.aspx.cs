@@ -21,7 +21,8 @@ namespace FrameWork.web.Module.FrameWork.UserManager
         public string MaxImgUrl = "";
         int UserID = (int)Common.sink("UserID", MethodType.Get, 50, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
-        
+        private sys_UserTable currentUser = UserData.GetUserDate; //当前登录用户
+
         protected void Page_Load(object sender, EventArgs e)
         {
             FrameWorkPermission.CheckPagePermission(CMD);
@@ -148,7 +149,7 @@ namespace FrameWork.web.Module.FrameWork.UserManager
             U_Type.Visible = false;
             U_Status.Visible = false;
             U_GroupID_Span.Visible = false;
-            MultiListBox1.Visible = false;
+            dropDownList.Visible = false;
         }
 
         /// <summary>
@@ -210,28 +211,34 @@ namespace FrameWork.web.Module.FrameWork.UserManager
         {
             QueryParam qp = new QueryParam();
             int RecordCount = 0;
+            int RoleID = 0;
             //ArrayList lst = BusinessFacade.sys_RolesList(qp, out RecordCount);
-            ArrayList lst = BusinessFacade.sys_RolesListUser(qp, out RecordCount);
-            
-            MultiListBox1.FirstListBox.DataSource = lst;
-            MultiListBox1.DataBind();
-
-            lst = BusinessFacade.sys_UserRolesDisp(UserID);
+            ArrayList lst = BusinessFacade.sys_UserRolesDisp(UserID);
             if (lst.Count != 0)
             {
                 foreach (sys_UserRolesTable var in lst)
                 {
-
-                    ListItem li = new ListItem();
-                    li = MultiListBox1.FirstListBox.Items.FindByValue(var.R_RoleID.ToString());
-                    if (li != null)
-                    {
-                        MultiListBox1.FirstListBox.Items.Remove(li);
-                        MultiListBox1.SecondListBox.Items.Add(li);
-                    }
                     Roles_Value.Text = Roles_Value.Text + BusinessFacade.sys_RolesDisp(var.R_RoleID).R_RoleName + "<br>";
+                    RoleID = var.R_RoleID;
                 }
             }
+
+            if (RoleID == 0)
+                RoleID = 1;
+
+            if (currentUser.U_Type == 0) //判断用户是否为超级用户
+            {
+            }
+            else
+            {
+                qp.Where = string.Format("Where RoleID <= {0}", RoleID);
+            }
+            
+            lst = BusinessFacade.sys_RolesListUser(qp, out RecordCount);
+
+            dropDownList.DataSource = lst;
+            dropDownList.DataBind();
+            dropDownList.SelectedValue = RoleID.ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -329,30 +336,21 @@ namespace FrameWork.web.Module.FrameWork.UserManager
         /// </summary>
         private void SaveRoles(int UserID)
         {
-            
-
             UserData.Move_UserPermissionCache(UserID);
-            ArrayList lst = BusinessFacade.sys_UserRolesDisp(UserID);
-            foreach (sys_UserRolesTable var in lst)
-            {
-                if (BusinessFacade.sys_Roles_CheckUser(var.R_RoleID))
-                {
-                    var.DB_Option_Action_ = "Delete";
-                    BusinessFacade.sys_UserRolesInsertUpdate(var);
-                }
-            }
 
             sys_UserRolesTable urt = new sys_UserRolesTable();
-            urt.DB_Option_Action_ = "Insert";
-            urt.R_UserID = UserID;
-            foreach (ListItem var in MultiListBox1.SecondListBox.Items)
+            ArrayList lst = BusinessFacade.sys_UserRolesDisp(UserID);
+            if (lst.Count == 0)
             {
-                urt.R_RoleID = Convert.ToInt32(var.Value);
-                if (BusinessFacade.sys_Roles_CheckUser(urt.R_RoleID))
-                {                   
-                    BusinessFacade.sys_UserRolesInsertUpdate(urt);
-                }
+                urt.DB_Option_Action_ = "Insert";
             }
+            else
+            {
+                urt.DB_Option_Action_ = "Update";
+            }
+            urt.R_UserID = UserID;
+            urt.R_RoleID = Convert.ToInt32(dropDownList.SelectedValue);
+            BusinessFacade.sys_UserRolesInsertUpdate(urt);
         }
     }
 }

@@ -112,7 +112,6 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document
             {
                 case "New":
                     CMD_Txt = "增加";
-                    FrameSystemInfo.GetSystemInfoTable.S_SystemConfigData.C_UploadFileExt = "doc,docx,pdf,ppt,pptx,xls,xlsx,txt,rar,zip";
                     FileUpLoadCommon fc = new FileUpLoadCommon(Common.UpLoadDir + "Document/", false);
                     bool flag = fc.SaveFile(D_Url, false);
                     if (flag)

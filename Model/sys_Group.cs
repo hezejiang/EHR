@@ -14,10 +14,10 @@ namespace Maticsoft.Model
 		private string _g_cname;
 		private int _g_parentid=0;
 		private int _g_showorder=0;
-		private int? _g_level;
-		private int? _g_childcount;
-		private int? _g_delete;
-		private int? _g_type=0;
+		private int _g_level;
+		private int _g_childcount;
+		private int _g_delete;
+		private int _g_type=0;
 		private string _g_code="";
 		/// <summary>
 		/// 分类ID号
@@ -54,15 +54,15 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 当前分类所在层数
 		/// </summary>
-		public int? G_Level
+		public int G_Level
 		{
 			set{ _g_level=value;}
 			get{return _g_level;}
 		}
 		/// <summary>
-		/// 当???分类子分类数
+		/// 当分类子分类数
 		/// </summary>
-		public int? G_ChildCount
+		public int G_ChildCount
 		{
 			set{ _g_childcount=value;}
 			get{return _g_childcount;}
@@ -70,7 +70,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 是否删除1:是0:否
 		/// </summary>
-		public int? G_Delete
+		public int G_Delete
 		{
 			set{ _g_delete=value;}
 			get{return _g_delete;}
@@ -78,7 +78,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 部门类型，0表示非医院部门，1表示医院部门
 		/// </summary>
-		public int? G_Type
+		public int G_Type
 		{
 			set{ _g_type=value;}
 			get{return _g_type;}

@@ -11,15 +11,15 @@ namespace Maticsoft.Model
 		{}
 		#region Model
 		private int _healthid;
-		private decimal? _h_bodytemperature=0M;
-		private int? _h_pulserate=0;
-		private int? _h_respiratoryrate=0;
-		private int? _h_leftdiastolic=0;
-		private int? _h_leftsystolic=0;
-		private int? _h_rightdiastolic=0;
-		private int? _h_rightsystolic=0;
-		private int? _h_height=0;
-		private int? _h_weight=0;
+		private decimal _h_bodytemperature=0M;
+		private int _h_pulserate=0;
+		private int _h_respiratoryrate=0;
+		private int _h_leftdiastolic=0;
+		private int _h_leftsystolic=0;
+		private int _h_rightdiastolic=0;
+		private int _h_rightsystolic=0;
+		private int _h_height=0;
+		private int _h_weight=0;
 		private string _h_result="";
 		private string _h_suggestion="";
 		private DateTime _h_checktime;
@@ -37,7 +37,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 体温
 		/// </summary>
-		public decimal? H_BodyTemperature
+		public decimal H_BodyTemperature
 		{
 			set{ _h_bodytemperature=value;}
 			get{return _h_bodytemperature;}
@@ -45,7 +45,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 脉率（次/min）
 		/// </summary>
-		public int? H_PulseRate
+		public int H_PulseRate
 		{
 			set{ _h_pulserate=value;}
 			get{return _h_pulserate;}
@@ -53,7 +53,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 呼吸频率（次/min）
 		/// </summary>
-		public int? H_RespiratoryRate
+		public int H_RespiratoryRate
 		{
 			set{ _h_respiratoryrate=value;}
 			get{return _h_respiratoryrate;}
@@ -61,7 +61,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 左侧舒张压(mmHg)
 		/// </summary>
-		public int? H_LeftDiastolic
+		public int H_LeftDiastolic
 		{
 			set{ _h_leftdiastolic=value;}
 			get{return _h_leftdiastolic;}
@@ -69,7 +69,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 左侧收缩压(mmHg)
 		/// </summary>
-		public int? H_LeftSystolic
+		public int H_LeftSystolic
 		{
 			set{ _h_leftsystolic=value;}
 			get{return _h_leftsystolic;}
@@ -77,7 +77,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 右侧舒张压(mmHg)
 		/// </summary>
-		public int? H_RightDiastolic
+		public int H_RightDiastolic
 		{
 			set{ _h_rightdiastolic=value;}
 			get{return _h_rightdiastolic;}
@@ -85,7 +85,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 右侧收缩压(mmHg)
 		/// </summary>
-		public int? H_RightSystolic
+		public int H_RightSystolic
 		{
 			set{ _h_rightsystolic=value;}
 			get{return _h_rightsystolic;}
@@ -93,7 +93,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 身高（cm）
 		/// </summary>
-		public int? H_Height
+		public int H_Height
 		{
 			set{ _h_height=value;}
 			get{return _h_height;}
@@ -101,7 +101,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 体重（kg）
 		/// </summary>
-		public int? H_Weight
+		public int H_Weight
 		{
 			set{ _h_weight=value;}
 			get{return _h_weight;}

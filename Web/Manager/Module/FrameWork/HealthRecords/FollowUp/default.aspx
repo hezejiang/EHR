@@ -16,7 +16,11 @@
                 <Columns>
                     <asp:HyperLinkField HeaderText="工作计划编号" DataTextField="FollowUpID" SortExpression="FollowUpID" DataNavigateUrlFields="FollowUpID"
                         DataNavigateUrlFormatString="InfoManager.aspx?FollowUpID={0}&CMD=Edit" />
-                    <asp:BoundField SortExpression="U_CName" HeaderText="姓名" DataField="U_CName"/>
+                    <asp:TemplateField SortExpression="F_PatientID" HeaderText="姓名">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("F_PatientID"))).U_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="F_Type" HeaderText="随访类型">
                         <ItemTemplate>
                             <%#getTypeName(Convert.ToInt32(Eval("F_Type")))%>
@@ -24,18 +28,22 @@
                     </asp:TemplateField>
                     <asp:TemplateField SortExpression="U_Sex" HeaderText="性别">
                         <ItemTemplate>
-                            <%#getSexName(Convert.ToInt32(Eval("U_Sex")))%>
+                            <%#getSexName(getUserModelById(Convert.ToInt32(Eval("F_PatientID"))).U_Sex)%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="电话" DataField="U_MobileNo"/>
+                    <asp:TemplateField HeaderText="电话">
+                        <ItemTemplate>
+                            <%#getUserModelById(Convert.ToInt32(Eval("F_PatientID"))).U_MobileNo%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="U_Committee" HeaderText="村委会">
                         <ItemTemplate>
-                            <%#getGroupModelById(Convert.ToInt32(Eval("U_Committee"))).G_CName%>
+                            <%#getGroupModelById(getUserBaseModelById(Convert.ToInt32(Eval("F_PatientID"))).U_Committee).G_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField SortExpression="U_ResponsibilityUserID" HeaderText="责任医生">
                         <ItemTemplate>
-                            <%#getUserModelById(Convert.ToInt32(Eval("U_ResponsibilityUserID"))).U_CName%>
+                            <%#getUserModelById(getUserBaseModelById(Convert.ToInt32(Eval("F_PatientID"))).U_ResponsibilityUserID).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField SortExpression="F_Date" HeaderText="随访日期" DataField="F_Date" DataFormatString="{0:yyyy-MM-dd}"/>
@@ -53,10 +61,6 @@
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
-                        姓名</td>
-                    <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="U_CName" runat="server" CssClass="text_input"></asp:TextBox></td>
-                    <td class="table_body table_body_NoWidth">
                         随访类型</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:DropDownList runat="server" ID="F_Type">
@@ -67,23 +71,21 @@
                             <asp:ListItem Text="老年人保健" Value="4" />
                         </asp:DropDownList>    
                     </td>
-                </tr>
-                <tr>
                     <td class="table_body table_body_NoWidth">
-                        责任医生</td>
+                        病人</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" id="U_ResponsibilityUserID"/>
-                        <input runat="server" id="U_ResponsibilityUserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="hidden" runat="server" id="F_PatientID"/>
+                        <input runat="server" id="F_PatientID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(2,0)"
                             class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
+                </tr>
+                <tr>
                     <td class="table_body table_body_NoWidth">
                         下次到访日期</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="F_Date" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);"></asp:TextBox></td>
-                </tr>
-                <tr>
                     <td class="table_body table_body_NoWidth">
                         状态</td>
                     <td class="table_none table_none_NoWidth">
@@ -94,6 +96,8 @@
                             <asp:ListItem Text="已到期" Value="3" />
                         </asp:DropDownList>    
                     </td>
+                </tr>
+                <tr>
                     <td colspan="4" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
                 </tr>
@@ -135,10 +139,10 @@
 	        }   
         }
 
-        function ShowDepartID(t)
+       function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
     
         function ClearSelect(t)
@@ -146,8 +150,8 @@
             if(t == 1){
    	            
             }else if(t == 2){
-                document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value="";
-                document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value="";
+                document.all.<%=this.F_PatientID.ClientID %>.value="";
+                document.all.<%=this.F_PatientID_input.ClientID %>.value="";
             }else if(t == 3){
                
             }else if(t == 4){
@@ -168,8 +172,8 @@
                     var result = action.split("||");
                     if (result[0] == "ok") {
                         if(type == 2){
-                            document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value=result[1];
-                            document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value=result[2];
+                            document.all.<%=this.F_PatientID.ClientID %>.value=result[1];
+                            document.all.<%=this.F_PatientID_input.ClientID %>.value=result[2];
                         }else if(type == 4){
                             
                         }

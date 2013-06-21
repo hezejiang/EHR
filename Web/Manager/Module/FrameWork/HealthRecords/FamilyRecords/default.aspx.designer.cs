@@ -67,13 +67,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
         
         /// <summary>
-        /// F_FimaryCode 控件。
+        /// F_FamilyCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryCode;
+        protected global::System.Web.UI.WebControls.TextBox F_FamilyCode;
         
         /// <summary>
         /// F_UserID 控件。
@@ -94,33 +94,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         protected global::System.Web.UI.HtmlControls.HtmlInputText F_UserID_input;
         
         /// <summary>
-        /// F_FimaryTel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox F_FimaryTel;
-        
-        /// <summary>
-        /// F_GroupID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden F_GroupID;
-        
-        /// <summary>
-        /// F_GroupID_input 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText F_GroupID_input;
-        
-        /// <summary>
         /// F_ResponsibilityUserID 控件。
         /// </summary>
         /// <remarks>
@@ -137,6 +110,15 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText F_ResponsibilityUserID_input;
+        
+        /// <summary>
+        /// F_FamilyTel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox F_FamilyTel;
         
         /// <summary>
         /// F_FillingUserID 控件。

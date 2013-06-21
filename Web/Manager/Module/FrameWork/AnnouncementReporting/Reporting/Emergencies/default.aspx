@@ -7,10 +7,10 @@
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/common.js"></script>
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="传染病及突发事件" HeadTitleTxt="传染病及突发事件报告管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="传染病及突发事件报管理" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New" ButtonUrlType="Href" ButtonVisible="True" />
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="传染病及突发事件报告管理" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New" ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
-        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="迁入迁出档案管理">
+        <FrameWorkWebControls:TabOptionItem ID="TabOptionItem1" runat="server" Tab_Name="传染病及突发事件管理">
             <asp:GridView ID="GridView1" runat="server" OnSorting="GridView1_Sorting" 
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
@@ -19,6 +19,11 @@
                     <asp:BoundField HeaderText="报告标题" DataField="R_Title"/>
                     <asp:BoundField HeaderText="报告内容" DataField="R_Content"/>
                     <asp:BoundField SortExpression="R_DateTime" HeaderText="报告时间" DataField="R_DateTime" DataFormatString="{0:yyyy-MM-dd}"/>
+                    <asp:TemplateField SortExpression="R_GroupID" HeaderText="报告部门">
+                        <ItemTemplate>
+                            <%#getGroupModelById(Convert.ToInt32(Eval("R_GroupID"))).G_CName%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="R_ResponsibilityUserID" HeaderText="责任人">
                         <ItemTemplate>
                             <%#getUserModelById(Convert.ToInt32(Eval("R_ResponsibilityUserID"))).U_CName%>

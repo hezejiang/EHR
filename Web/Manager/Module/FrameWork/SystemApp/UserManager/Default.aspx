@@ -22,7 +22,7 @@
                     <asp:HyperLinkField SortExpression="U_IDCard" HeaderText="个人健康档案编号" DataTextField="U_IDCard" DataNavigateUrlFields="UserID"
                         DataNavigateUrlFormatString="UserManager.aspx?UserID={0}&CMD=List"/>
                     <asp:BoundField SortExpression="U_CName" HeaderText="姓名" DataField="U_CName" />
-                    <asp:TemplateField SortExpression="U_GroupID" HeaderText="管理部门">
+                    <asp:TemplateField SortExpression="U_GroupID" HeaderText="管理(所在)部门">
                         <ItemTemplate>
                             <%#Get_U_GroupID((int)Eval("U_GroupID")) %>
                         </ItemTemplate>

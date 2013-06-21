@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Manager/MasterPage/PageTemplate.Master" AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="FrameWork.web.Module.FrameWork.GroupManager.New"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/js/jquery-1.7.1.min.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadTitleTxt="部门资料管理" HeadOPTxt="新增部门">
     </FrameWorkWebControls:HeadMenuWebControls>
@@ -22,14 +23,14 @@
                 <td class="table_none" style="height: 25px">
                     <asp:TextBox ID="G_CName" title="请输入部门名称~50:!" runat="server" CssClass="text_input"></asp:TextBox></td>
             </tr>
-            <tr id="Tr1" runat="server">
+            <tr id="Tr3" runat="server">
                 <td class="table_body" style="height: 25px">
                     是否医院</td>
                 <td class="table_none" style="height: 25px">
-                    <asp:CheckBox ID="G_Type" title="如果是医院部门，请打钩!" Text="是" runat="server" CssClass="text_input"></asp:CheckBox>
+                    <input type="checkbox"  ID="G_Type" title="如果是医院部门，请打钩!" runat="server" class="G_Type" />是
                 </td>
             </tr>
-            <tr id="Tr2" runat="server">
+            <tr id="Tr1" class="G_Code_tr" runat="server">
                 <td class="table_body" style="height: 25px">
                     行政代码</td>
                 <td class="table_none" style="height: 25px">
@@ -48,4 +49,19 @@
 		</table>
         </FrameWorkWebControls:TabOptionItem>
     </FrameWorkWebControls:TabOptionWebControls>
+        <script type="text/javascript">
+            function type() {
+                var isCheck = $(".G_Type").attr("checked");
+                if (isCheck) {
+                    $(".G_Code_tr").hide();
+                } else {
+                    $(".G_Code_tr").show();
+                }
+            }
+            type();
+
+            $(".G_Type").click(function () {
+                type();
+            });
+    </script>
 </asp:Content>

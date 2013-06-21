@@ -17,8 +17,8 @@ namespace Maticsoft.Model
 		private string _m_cname;
 		private string _m_directory;
 		private string _m_orderlevel;
-		private int? _m_issystem;
-		private int? _m_close;
+		private int _m_issystem;
+		private int _m_close;
 		private string _m_icon;
 		private string _m_info;
 		/// <summary>
@@ -62,7 +62,7 @@ namespace Maticsoft.Model
 			get{return _m_cname;}
 		}
 		/// <summary>
-		/// 模块/栏目???录名
+		/// 模块/栏目录名
 		/// </summary>
 		public string M_Directory
 		{
@@ -80,7 +80,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 是否为系统模块1:是0:否如为系统则无法修改
 		/// </summary>
-		public int? M_IsSystem
+		public int M_IsSystem
 		{
 			set{ _m_issystem=value;}
 			get{return _m_issystem;}
@@ -88,7 +88,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 是否关闭1:是0:否
 		/// </summary>
-		public int? M_Close
+		public int M_Close
 		{
 			set{ _m_close=value;}
 			get{return _m_close;}

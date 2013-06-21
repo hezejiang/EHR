@@ -172,6 +172,7 @@
     <Content Include="Manager\images\Index\top-b4-yellow.gif" />
     <Content Include="Manager\images\info.gif" />
     <Content Include="Manager\images\log.gif" />
+    <Content Include="Manager\images\logo.png" />
     <Content Include="Manager\images\logon\Logon_1.gif" />
     <Content Include="Manager\images\logon\Logon_10.gif" />
     <Content Include="Manager\images\logon\Logon_11.gif" />
@@ -796,7 +797,9 @@
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\default.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Announcement\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx" />
+    <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx" />
@@ -805,6 +808,7 @@
     <Content Include="Manager\Module\FrameWork\HealthEducation\Prescription\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FollowUp\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\ConsultationList.aspx" />
@@ -812,6 +816,7 @@
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx" />
+    <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthRecords\ResponsibleDoctors\InfoManager.aspx" />
@@ -1000,12 +1005,26 @@
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -1063,6 +1082,13 @@
     <Compile Include="Manager\Module\FrameWork\HealthRecords\DeathRegistration\InfoManager.aspx.designer.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\FamilyRecords\InfoManager.aspx.designer.cs">
+      <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\FollowUp\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1111,6 +1137,13 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckList.aspx.designer.cs">
       <DependentUpon>HealthCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckManager.aspx.cs">
+      <DependentUpon>HealthCheckManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\HealthCheckManager.aspx.designer.cs">
+      <DependentUpon>HealthCheckManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthRecords\PersonalRecords\InfoManager.aspx.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
@@ -1573,7 +1606,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3448</DevelopmentServerPort>
+          <DevelopmentServerPort>12479</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

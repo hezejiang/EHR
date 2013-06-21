@@ -127,6 +127,7 @@
     <Compile Include="Iextend_Environment.cs" />
     <Compile Include="Iextend_FamilyHistory.cs" />
     <Compile Include="Iextend_GeneticDisease.cs" />
+    <Compile Include="Irecord_FamilyProblem.cs" />
     <Compile Include="ISysManage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -139,7 +140,6 @@
     <Compile Include="Irecord_Consultation.cs" />
     <Compile Include="Irecord_DeathRegistration.cs" />
     <Compile Include="Irecord_FamilyBaseInfo.cs" />
-    <Compile Include="Irecord_FimaryProblem.cs" />
     <Compile Include="Irecord_FollowUp.cs" />
     <Compile Include="Irecord_HealthCheck.cs" />
     <Compile Include="Irecord_Medication.cs" />

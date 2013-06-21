@@ -114,7 +114,17 @@ namespace FrameWork
             foreach (sys_ApplicationsTable var in lst)
             {
                 List<sys_ModuleTable> mod = new List<sys_ModuleTable>();
-                Sys_moduletopCache.Add(var.ApplicationID, mod); //bug
+                try
+                {
+                    if (!Sys_moduletopCache.ContainsKey(var.ApplicationID))
+                    {
+                        Sys_moduletopCache.Add(var.ApplicationID, mod); //bug
+                    }
+                }
+                catch (Exception)
+                {
+                    
+                }
             }
 
         }
@@ -125,8 +135,21 @@ namespace FrameWork
         /// <param name="m">设置模块</param>
         static void setModuleCache(sys_ModuleTable m)
         {
-            Sys_moduleCache.Add(m.ModuleID, m); //初始化模块缓存,bug
-            Sys_moduleTreeCache.Add(m.ModuleID, new List<sys_ModuleTable>()); //初始化树状模块缓存
+            try
+            {
+                if (!Sys_moduleCache.ContainsKey(m.ModuleID))
+                {
+                    Sys_moduleCache.Add(m.ModuleID, m); //初始化模块缓存,bug
+                }
+                if (!Sys_moduleTreeCache.ContainsKey(m.ModuleID))
+                {
+                    Sys_moduleTreeCache.Add(m.ModuleID, new List<sys_ModuleTable>()); //初始化树状模块缓存
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
 
         /// <summary>

@@ -110,33 +110,40 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             string I_Content_Value = (string)Common.sink(I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format("I_ReportUserID={0} ", UserData.GetUserDate.UserID);
+            }
             if (I_FindDate_Value != "" || I_Type_Value != "0" || I_ReportDate_Value != "" || I_ReportUserID_Value != "" || I_Content_Value != "")
             {
                 if (I_FindDate_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_FindDate = '" + Common.inSQL(I_FindDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " I_FindDate = '" + Common.inSQL(I_FindDate_Value) + "' ";
                 }
 
                 if (I_Type_Value !="0")
                 {
-                    SqlSearch = SqlSearch + " I_Type = " + Common.inSQL(I_Type_Value) + " and ";
+                    SqlSearch = SqlSearch + " and " + " I_Type = " + Common.inSQL(I_Type_Value) + " ";
                 }
 
                 if (I_ReportDate_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_ReportDate = '" + Common.inSQL(I_ReportDate_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " I_ReportDate = '" + Common.inSQL(I_ReportDate_Value) + "' ";
                 }
 
                 if (I_ReportUserID_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_ReportUserID = " + Common.inSQL(I_ReportUserID_Value) + " and ";
+                    SqlSearch = SqlSearch + " and "  + " I_ReportUserID = " + Common.inSQL(I_ReportUserID_Value) +" ";
                 }
 
                 if (I_Content_Value != "")
                 {
-                    SqlSearch = SqlSearch + " I_Content like '%" + Common.inSQL(I_Content_Value) + "%'" + " and ";
+                    SqlSearch = SqlSearch + " and "  + " I_Content like '%" + Common.inSQL(I_Content_Value) + "%' ";
                 }
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -153,7 +160,16 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = "";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format("I_ReportUserID={0} ", UserData.GetUserDate.UserID);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

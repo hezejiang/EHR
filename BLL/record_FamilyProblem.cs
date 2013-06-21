@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* record_FamilyProblem.cs
+*
+* 功 能： N/A
+* 类 名： record_FamilyProblem
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/19 17:06:24   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Collections.Generic;
 using Maticsoft.Common;
@@ -8,19 +24,35 @@ using Maticsoft.IDAL;
 namespace Maticsoft.BLL
 {
 	/// <summary>
-	/// record_FimaryProblem
+	/// record_FamilyProblem
 	/// </summary>
-	public partial class record_FimaryProblem
+	public partial class record_FamilyProblem
 	{
-		private readonly Irecord_FimaryProblem dal=DataAccess.Createrecord_FimaryProblem();
-		public record_FimaryProblem()
+		private readonly Irecord_FamilyProblem dal=DataAccess.Createrecord_FamilyProblem();
+		public record_FamilyProblem()
 		{}
 		#region  BasicMethod
 
 		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+			return dal.GetMaxId();
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int F_FamilyID)
+		{
+			return dal.Exists(F_FamilyID);
+		}
+
+		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(Maticsoft.Model.record_FimaryProblem model)
+		public bool Add(Maticsoft.Model.record_FamilyProblem model)
 		{
 			return dal.Add(model);
 		}
@@ -28,7 +60,7 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(Maticsoft.Model.record_FimaryProblem model)
+		public bool Update(Maticsoft.Model.record_FamilyProblem model)
 		{
 			return dal.Update(model);
 		}
@@ -36,34 +68,41 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int F_FamilyID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.Delete();
+			
+			return dal.Delete(F_FamilyID);
+		}
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public bool DeleteList(string F_FamilyIDlist )
+		{
+			return dal.DeleteList(F_FamilyIDlist );
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.record_FimaryProblem GetModel()
+		public Maticsoft.Model.record_FamilyProblem GetModel(int F_FamilyID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.GetModel();
+			
+			return dal.GetModel(F_FamilyID);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		public Maticsoft.Model.record_FimaryProblem GetModelByCache()
+		public Maticsoft.Model.record_FamilyProblem GetModelByCache(int F_FamilyID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			string CacheKey = "record_FimaryProblemModel-" ;
+			
+			string CacheKey = "record_FamilyProblemModel-" + F_FamilyID;
 			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)
 			{
 				try
 				{
-					objModel = dal.GetModel();
+					objModel = dal.GetModel(F_FamilyID);
 					if (objModel != null)
 					{
 						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
@@ -72,7 +111,7 @@ namespace Maticsoft.BLL
 				}
 				catch{}
 			}
-			return (Maticsoft.Model.record_FimaryProblem)objModel;
+			return (Maticsoft.Model.record_FamilyProblem)objModel;
 		}
 
 		/// <summary>
@@ -92,7 +131,7 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Maticsoft.Model.record_FimaryProblem> GetModelList(string strWhere)
+		public List<Maticsoft.Model.record_FamilyProblem> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -100,13 +139,13 @@ namespace Maticsoft.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Maticsoft.Model.record_FimaryProblem> DataTableToList(DataTable dt)
+		public List<Maticsoft.Model.record_FamilyProblem> DataTableToList(DataTable dt)
 		{
-			List<Maticsoft.Model.record_FimaryProblem> modelList = new List<Maticsoft.Model.record_FimaryProblem>();
+			List<Maticsoft.Model.record_FamilyProblem> modelList = new List<Maticsoft.Model.record_FamilyProblem>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				Maticsoft.Model.record_FimaryProblem model;
+				Maticsoft.Model.record_FamilyProblem model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);

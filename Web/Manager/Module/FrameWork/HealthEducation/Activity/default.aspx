@@ -18,7 +18,11 @@
                         DataNavigateUrlFormatString="InfoManager.aspx?ActivityID={0}&CMD=Edit" />
                     <asp:BoundField SortExpression="A_DateTime" HeaderText="活动日期" DataField="A_DateTime" DataFormatString="{0:yyyy/MM/dd}"/>
                     <asp:BoundField SortExpression="A_Location" HeaderText="活动地点" DataField="A_Location"/>
-                    <asp:BoundField HeaderText="活动对象" DataField="A_Object"/>
+                    <asp:TemplateField SortExpression="A_Object" HeaderText="活动对象">
+                        <ItemTemplate>
+                            <%#getGroupModelById(Convert.ToInt32(Eval("A_Object"))).G_CName%>民众
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField HeaderText="参与人群" DataField="A_Crowd"/>
                     <asp:BoundField HeaderText="活动主题" DataField="A_Theme"/>
                 </Columns>

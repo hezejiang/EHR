@@ -107,6 +107,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FollowUp
             record_FollowUp_model.F_Type = Convert.ToInt32(F_Type.SelectedValue);
             record_FollowUp_model.F_Date = (DateTime)Common.sink(this.F_Date.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             record_FollowUp_model.F_Status = Convert.ToInt32(F_Status.SelectedValue);
+            record_FollowUp_model.F_Doctor = UserData.GetUserDate.UserID;
 
             switch (CMD)
             {

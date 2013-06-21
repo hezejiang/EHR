@@ -1,12 +1,15 @@
-<<<<<<< .merge_file_a08832
-数据库/~$数据库说明.doc
+Web/Manager/Log/20130612AppErrorLog.txt
 Common/obj/Debug/Common.csproj.FileListAbsolute.txt
 DBUtility/obj/Debug/DBUtility.csproj.FileListAbsolute.txt
-FrameWork/bin/Debug/Framework.xml
-/Debug/
-Debug
-bin
+FrameWork/obj/Debug/Framework.csproj.FileListAbsolute.txt
+Model/obj/Debug/Model.csproj.FileListAbsolute.txt
 Web/Manager/Log/20130613AppErrorLog.txt
-=======
-Web/Manager/Log/20130612AppErrorLog.txt
->>>>>>> .merge_file_a08840
+Web/Manager/Log/20130614AppErrorLog.txt
+Web/Manager/Log/20130615AppErrorLog.txt
+Web/Manager/Log/20130618AppErrorLog.txt
+Web/obj/Debug/Web.csproj.FileListAbsolute.txt
+BLL/obj/Debug/build.force
+DALFactory/obj/Debug/build.force
+IDAL/obj/Debug/build.force
+SQLServerDAL/obj/Debug/build.force
+Web/obj/Debug/build.force

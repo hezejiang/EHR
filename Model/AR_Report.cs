@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/8 16:24:23   N/A    初版
+* V0.01  2013/6/20 21:58:53   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -29,10 +29,11 @@ namespace Maticsoft.Model
 		private int _reportid;
 		private string _r_title;
 		private string _r_content="";
-		private DateTime? _r_datetime;
-		private int? _r_responsibilityuserid;
-		private int? _r_type;
-		private int? _r_status;
+		private DateTime _r_datetime;
+		private int _r_responsibilityuserid;
+		private int _r_type;
+		private int _r_status;
+		private int _r_groupid;
 		/// <summary>
 		/// 报告ID
 		/// </summary>
@@ -60,7 +61,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 报告时间
 		/// </summary>
-		public DateTime? R_DateTime
+		public DateTime R_DateTime
 		{
 			set{ _r_datetime=value;}
 			get{return _r_datetime;}
@@ -68,7 +69,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 责任人
 		/// </summary>
-		public int? R_ResponsibilityUserID
+		public int R_ResponsibilityUserID
 		{
 			set{ _r_responsibilityuserid=value;}
 			get{return _r_responsibilityuserid;}
@@ -76,7 +77,7 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 类型，1:迁出嵌入档案管理；2:传染病及突发事件
 		/// </summary>
-		public int? R_Type
+		public int R_Type
 		{
 			set{ _r_type=value;}
 			get{return _r_type;}
@@ -84,10 +85,18 @@ namespace Maticsoft.Model
 		/// <summary>
 		/// 状态，1:未处理；2:已处理
 		/// </summary>
-		public int? R_Status
+		public int R_Status
 		{
 			set{ _r_status=value;}
 			get{return _r_status;}
+		}
+		/// <summary>
+		/// 报告部门
+		/// </summary>
+		public int R_GroupID
+		{
+			set{ _r_groupid=value;}
+			get{return _r_groupid;}
 		}
 		#endregion Model
 

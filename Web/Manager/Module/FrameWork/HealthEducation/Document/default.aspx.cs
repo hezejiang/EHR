@@ -80,19 +80,25 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document
             string D_Name_Value = D_Name.Text;
 
             string SqlSearch = " ";
+            if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+            {
+                SqlSearch = " 1=1 ";
+            }
+            else
+            {
+                SqlSearch = string.Format(" D_UserID={0} ", UserData.GetUserDate.UserID);
+            }
             if (D_DateTime_Value != "" || D_Name_Value != "")
             {
                 if (D_DateTime_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' and ";
+                    SqlSearch = SqlSearch + " and "  + " D_DateTime = '" + Common.inSQL(D_DateTime_Value) + "' ";
                 }
 
                 if (D_Name_Value != "")
                 {
-                    SqlSearch = SqlSearch + " D_Name like '%" + Common.inSQL(D_Name_Value) + "%' and ";
+                    SqlSearch = SqlSearch + " and "  + " D_Name like '%" + Common.inSQL(D_Name_Value) + "%' ";
                 }
-
-                SqlSearch = SqlSearch.Substring(0, SqlSearch.Length - 4);
             }
 
             ViewState["SearchTerms"] = SqlSearch;
@@ -109,7 +115,16 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document
             get
             {
                 if (ViewState["SearchTerms"] == null)
-                    ViewState["SearchTerms"] = "";
+                {
+                    if (UserData.GetUserDate.U_Type == 0)//如果是超级管理员
+                    {
+                        ViewState["SearchTerms"] = "";
+                    }
+                    else
+                    {
+                        ViewState["SearchTerms"] = string.Format("D_UserID={0}", UserData.GetUserDate.UserID);
+                    }
+                }
                 return (string)ViewState["SearchTerms"];
             }
             set { ViewState["SearchTerms"] = value; }

@@ -56,7 +56,7 @@ namespace FrameWork.web
                 else
                 {
                     QueryParam qp = new QueryParam();
-                    qp.Where = string.Format(" Where U_StatUs=0 and  U_LoginName='{0}' and U_Password='{1}'", Common.inSQL(U_LoginName), Common.inSQL(Common.md5(U_Password,32)));
+                    qp.Where = string.Format(" Where U_StatUs=0 and  U_LoginName='{0}' and U_Password='{1}'", Common.inSQL(U_LoginName), Common.inSQL(Common.md5(U_Password, 32)));
                     int iInt = 0;
                     ArrayList lst = BusinessFacade.sys_UserList(qp, out iInt);
                     if (iInt > 0)
@@ -75,7 +75,7 @@ namespace FrameWork.web
                     }
                     else
                     {
-                        MBx.M_Body = "强制下线失败.用户名/密码无效！";
+                        MBx.M_Body = "强制下线失败.身份证号/密码无效！";
                         MBx.M_ButtonList.Add(new sys_NavigationUrl("返回", "login.aspx", "", UrlType.Href, true));
                     }
 
@@ -116,7 +116,7 @@ namespace FrameWork.web
         /// <summary>
         /// 进行登陆操作
         /// </summary>
-        /// <param name="sLoginName">用户名</param>
+        /// <param name="sLoginName">身份证号</param>
         /// <param name="sLoginPass">密码</param>
         /// <param name="sCode_op">验证码</param>
         /// <param name="UserKey">用户key</param>
@@ -152,7 +152,7 @@ namespace FrameWork.web
             }
             else
             {
-                MBx.M_Body = string.Format("用户名/密码({0}/{1})错误！", sLoginName, sLoginPass);
+                MBx.M_Body = string.Format("身份证号/密码({0}/{1})错误！", sLoginName, sLoginPass);
                 MBx.M_ButtonList.Add(new sys_NavigationUrl("返回", "login.aspx", "点击按钮重新输入！", UrlType.Href, true));
             }
             Session["CheckCode"] = Common.RndNum(4);
