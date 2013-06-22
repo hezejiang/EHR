@@ -8,7 +8,7 @@
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="死亡登记" HeadTitleTxt="死亡登记管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="List" ButtonUrl="Default.aspx"
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="死亡" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
@@ -20,32 +20,41 @@
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_DateTime" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
                     </td>
-                     <td class="table_body table_body_NoWidth">
-                       登记时间</td>
+                    <td class="table_body table_body_NoWidth">
+                        死亡用户</td>
                     <td class="table_none table_none_NoWidth">
-                        <asp:TextBox ID="D_RegDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
+                        <input type="hidden" runat="server" name="D_UserID" id="D_UserID" value=""/>
+                        <input runat="server" name="D_UserID_input" id="D_UserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(1,0)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
                 <tr>
                     <td class="table_body table_body_NoWidth">
+                       登记时间</td>
+                    <td class="table_none table_none_NoWidth">
+                        <asp:TextBox ID="D_RegDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
+                    </td>
+                    <td class="table_body table_body_NoWidth">
                         死亡地点</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_Location" runat="server" CssClass="text_input" ></asp:TextBox></td>
-                    <td class="table_body table_body_NoWidth">
-                        登记人</td>
-                    <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="D_UserID" id="D_UserID" value=""/>
-                        <input runat="server" name="D_UserID_input" id="D_UserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择登记人" id="button3" name="buttonselect" onclick="javascript:ShowDepartID()"
-                            class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
-                    </td>
                 </tr>
                 <tr>
                     <td class="table_body table_body_NoWidth">
                         死亡原因</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_Reason" runat="server" CssClass="text_input"></asp:TextBox></td>
+                    <td class="table_body table_body_NoWidth">
+                        登记人</td>
+                    <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" name="D_RegUserID" id="D_RegUserID" value=""/>
+                        <input runat="server" name="D_RegUserID_input" id="D_RegUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(2,0)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="4" align="right">
@@ -68,7 +77,8 @@
 　　　　    return Math.ceil(rnd()*number); 
         }; 
     
-    
+        
+        var type;
         function AlertMessageBox(file_name)
         {
 
@@ -81,15 +91,21 @@
 	        }   
         }
 
-        function ShowDepartID()
+        function ShowDepartID(t, G_type)
         {
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
-       
-        function ClearSelect()
+
+        function ClearSelect(t)
         {
-   	        document.all.<%=this.D_UserID_input.ClientID %>.value="";
-            document.all.<%=this.D_UserID.ClientID %>.value="";
+            if(t == 1){
+   	            document.all.<%=this.D_UserID_input.ClientID %>.value="";
+                document.all.<%=this.D_UserID.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.D_RegUserID_input.ClientID %>.value="";
+                document.all.<%=this.D_RegUserID.ClientID %>.value="";
+            }
         }
 
         mini.parse();
@@ -104,8 +120,13 @@
                     //if (action == "close") return false;
                     var result = action.split("||");
                     if (result[0] == "ok") {
-                        document.all.<%=this.D_UserID.ClientID %>.value=result[1];
-                        document.all.<%=this.D_UserID_input.ClientID %>.value=result[2];
+                        if(type == 1){
+                            document.all.<%=this.D_UserID.ClientID %>.value=result[1];
+                            document.all.<%=this.D_UserID_input.ClientID %>.value=result[2];
+                        }else if(type == 2){
+                            document.all.<%=this.D_RegUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.D_RegUserID_input.ClientID %>.value=result[2];
+                        }
                     }
                 }
             });            

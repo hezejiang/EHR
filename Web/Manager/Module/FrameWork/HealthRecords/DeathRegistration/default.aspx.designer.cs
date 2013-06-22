@@ -67,6 +67,24 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
         protected global::FrameWork.WebControls.TabOptionItem TabOptionItem2;
         
         /// <summary>
+        /// D_UserID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_UserID;
+        
+        /// <summary>
+        /// D_UserID_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText D_UserID_input;
+        
+        /// <summary>
         /// D_DateTime 控件。
         /// </summary>
         /// <remarks>
@@ -94,22 +112,22 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration {
         protected global::System.Web.UI.WebControls.TextBox D_Location;
         
         /// <summary>
-        /// D_UserID 控件。
+        /// D_RegUserID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_UserID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden D_RegUserID;
         
         /// <summary>
-        /// D_UserID_input 控件。
+        /// D_RegUserID_input 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText D_UserID_input;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText D_RegUserID_input;
         
         /// <summary>
         /// D_Reason 控件。

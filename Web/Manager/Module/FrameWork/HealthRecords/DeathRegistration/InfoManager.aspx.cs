@@ -82,7 +82,6 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
         /// </summary>
         private void InputData()
         {
-            //这两句和71、73作用一样
             Maticsoft.BLL.record_DeathRegistration bll = new Maticsoft.BLL.record_DeathRegistration();
             Maticsoft.Model.record_DeathRegistration model = bll.GetModel(DeathID);
 
@@ -94,6 +93,9 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             Maticsoft.Model.sys_User user_model = user_bll.GetModel(model.D_UserID);
             D_UserID.Value = user_model.UserID + "";
             D_UserID_input.Value = user_model.U_CName;
+            user_model = user_bll.GetModel(model.D_RegUserID);
+            D_RegUserID.Value = user_model.UserID + "";
+            D_RegUserID_input.Value = user_model.U_CName;
         }
 
        
@@ -111,12 +113,13 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
                 record_DeathRegistration_model = new Maticsoft.Model.record_DeathRegistration();
             }
 
-            //获取客户端通过Post方式传递过来的值的（需要更改）
+            //获取客户端通过Post方式传递过来的值的
             record_DeathRegistration_model.D_DateTime = (DateTime)Common.sink(this.D_DateTime.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             record_DeathRegistration_model.D_Reason = (string)Common.sink(this.D_Reason.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             record_DeathRegistration_model.D_Location = (string)Common.sink(this.D_Location.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             record_DeathRegistration_model.D_RegDate = (DateTime)Common.sink(this.D_RegDate.UniqueID, MethodType.Post, 0, 0, DataType.Dat);
             record_DeathRegistration_model.D_UserID = Convert.ToInt32(this.D_UserID.Value);
+            record_DeathRegistration_model.D_RegUserID = Convert.ToInt32(this.D_RegUserID.Value);
 
             switch (CMD)
             {

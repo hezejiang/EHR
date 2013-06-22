@@ -15,14 +15,13 @@
     <table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
         <tr>
             <td width="100%" height="50" colspan="3" style="border-bottom: 1px solid #000000">
-                <table height="49" border="0" cellspacing="0" cellpadding="0" width="100%" class="font_size">
+                <table height="49" border="0" cellspacing="0" cellpadding="0" width="100%" class="font_size" style="margin-left:10px;">
                     <tr>
-                        <td style="background-image: url(images/top-gray.gif); background-repeat: no-repeat;
-                            background-position: right top">
-                            <b>
-                                <%=FrameName %>
-                            </b>
-                            <br />
+                        <td width="50">
+                            <img src="images/logo.png" alt="Logo" />
+                        </td>
+                        <td>
+                            <span style=" font-weight:bold; font-family:微软雅黑; font-size:20px; color:#466b95;"><%=FrameName %></span>
                             <font size="2" color="#999999" face="Verdana, Arial, Helvetica, sans-serif">
                                 <%=FrameNameVer %>
                             </font>

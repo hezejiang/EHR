@@ -210,6 +210,7 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
             this.U_SocialNO.Text = record_UserBaseInfo_model.U_SocialNO;
             this.U_MedicalNO.Text = record_UserBaseInfo_model.U_MedicalNO;
             this.U_FamilyCode.Value= record_UserBaseInfo_model.U_FamilyCode;
+            this.U_FamilyCode_input.Value = record_UserBaseInfo_model.U_FamilyCode;
             this.U_RelationShip.SelectedValue = record_UserBaseInfo_model.U_RelationShip + "";
             this.U_AuditStatus.SelectedValue = record_UserBaseInfo_model.U_RelationShip + "";
 

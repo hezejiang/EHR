@@ -800,6 +800,7 @@
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\Emergencies\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\default.aspx" />
     <Content Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx" />
+    <Content Include="Manager\Module\FrameWork\CommonModule\SelectFamilyCode.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Activity\InfoManager.aspx" />
     <Content Include="Manager\Module\FrameWork\HealthEducation\Document\default.aspx" />
@@ -1025,6 +1026,13 @@
     </Compile>
     <Compile Include="Manager\Module\FrameWork\AnnouncementReporting\Reporting\MoveRecords\InfoManager.aspx.designer.cs">
       <DependentUpon>InfoManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectFamilyCode.aspx.cs">
+      <DependentUpon>SelectFamilyCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Module\FrameWork\CommonModule\SelectFamilyCode.aspx.designer.cs">
+      <DependentUpon>SelectFamilyCode.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manager\Module\FrameWork\HealthEducation\Activity\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

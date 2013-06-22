@@ -20,13 +20,23 @@
                 <Columns>
                     <asp:HyperLinkField HeaderText="死亡编号" DataTextField="DeathID" SortExpression="DeathID" DataNavigateUrlFields="DeathID"
                         DataNavigateUrlFormatString="InfoManager.aspx?DeathID={0}&CMD=Edit" />
+                        <asp:TemplateField HeaderText="个人健康档案号">
+                            <ItemTemplate>
+                                <%#getUserModelById(Convert.ToInt32(Eval("D_UserID"))).U_IDCard%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="姓名">
+                            <ItemTemplate>
+                                <%#getUserModelById(Convert.ToInt32(Eval("D_UserID"))).U_CName%>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField SortExpression="D_Location" HeaderText="死亡地点" DataField="D_Location" 
                         HtmlEncode="false" />
                     <asp:BoundField SortExpression="D_DateTime" HeaderText="死亡时间" DataField="D_DateTime" DataFormatString="{0:yyyy/MM/dd}"/>
                     <asp:BoundField SortExpression="D_RegDate" HeaderText="登记日期" DataField="D_RegDate" DataFormatString="{0:yyyy/MM/dd}"/>
-                    <asp:TemplateField SortExpression="D_UserID" HeaderText="登记人">
+                    <asp:TemplateField SortExpression="D_RegUserID" HeaderText="登记人">
                         <ItemTemplate>
-                            <%#getUserModelById(Convert.ToInt32(Eval("D_UserID"))).U_CName%>
+                            <%#getUserModelById(Convert.ToInt32(Eval("D_RegUserID"))).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField SortExpression="D_Reason" HeaderText="死亡原因" DataField="D_Reason"/>
@@ -40,32 +50,41 @@
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                 <tr>
                     <td class="table_body table_body_NoWidth">
+                        死亡用户</td>
+                    <td class="table_none table_none_NoWidth">
+                        <input type="hidden" runat="server" id="D_UserID" value=""/>
+                        <input runat="server" id="D_UserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button2" name="buttonselect" onclick="javascript:ShowDepartID(1,0)"
+                            class="cbutton"/>
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
+                    </td>
+                    <td class="table_body table_body_NoWidth">
                        死亡时间</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_DateTime" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
                     </td>
-                     <td class="table_body table_body_NoWidth">
+                </tr>
+                <tr>
+                    <td class="table_body table_body_NoWidth">
                        登记时间</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_RegDate" runat="server" CssClass="text_input" onfocus="javascript:HS_setDate(this);" readonly></asp:TextBox>
                     </td>
-                </tr>
-                <tr>
                     <td class="table_body table_body_NoWidth">
                         死亡地点</td>
                     <td class="table_none table_none_NoWidth">
                         <asp:TextBox ID="D_Location" runat="server" CssClass="text_input" ></asp:TextBox></td>
+                </tr>
+                <tr>
                     <td class="table_body table_body_NoWidth">
                         登记人</td>
                     <td class="table_none table_none_NoWidth">
-                        <input type="hidden" runat="server" name="D_UserID" id="D_UserID" value=""/>
-                        <input runat="server" name="D_UserID_input" id="D_UserID_input" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择登记人" id="button3" name="buttonselect" onclick="javascript:ShowDepartID()"
+                        <input type="hidden" runat="server" id="D_RegUserID" value=""/>
+                        <input runat="server" id="D_RegUserID_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button" value="选择" id="button3" name="buttonselect" onclick="javascript:ShowDepartID(2,0)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
-                </tr>
-                <tr>
                     <td class="table_body table_body_NoWidth">
                         死亡原因</td>
                     <td class="table_none table_none_NoWidth">
@@ -97,7 +116,8 @@
 　　　　    return Math.ceil(rnd()*number); 
         }; 
     
-    
+        var type;
+
         function AlertMessageBox(file_name)
         {
 
@@ -110,15 +130,21 @@
 	        }   
         }
 
-        function ShowDepartID()
+        function ShowDepartID(t, G_type)
         {
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            type = t;
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
        
-        function ClearSelect()
+        function ClearSelect(t)
         {
-   	        document.all.<%=this.D_UserID_input.ClientID %>.value="";
-            document.all.<%=this.D_UserID.ClientID %>.value="";
+            if(t == 1){
+   	            document.all.<%=this.D_UserID_input.ClientID %>.value="";
+                document.all.<%=this.D_UserID.ClientID %>.value="";
+            }else if(t == 2){
+                document.all.<%=this.D_RegUserID_input.ClientID %>.value="";
+                document.all.<%=this.D_RegUserID.ClientID %>.value="";
+            }
         }
 
         mini.parse();
@@ -133,8 +159,13 @@
                     //if (action == "close") return false;
                     var result = action.split("||");
                     if (result[0] == "ok") {
-                        document.all.<%=this.D_UserID.ClientID %>.value=result[1];
-                        document.all.<%=this.D_UserID_input.ClientID %>.value=result[2];
+                        if(type == 1){
+                            document.all.<%=this.D_UserID.ClientID %>.value=result[1];
+                            document.all.<%=this.D_UserID_input.ClientID %>.value=result[2];
+                        }else if(type == 2){
+                            document.all.<%=this.D_RegUserID.ClientID %>.value=result[1];
+                            document.all.<%=this.D_RegUserID_input.ClientID %>.value=result[2];
+                        }
                     }
                 }
             });            

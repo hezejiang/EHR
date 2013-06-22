@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td class="table_body table_body_NoWidth">
-                        户主</td>
+                        建档人</td>
                     <td class="table_none table_none_NoWidth">
                         <input type="hidden" runat="server" id="F_FillingUserID" value=""/>
                         <input runat="server" id="F_FillingUserID_input" size="15" value="" class="text_input" readonly/>
