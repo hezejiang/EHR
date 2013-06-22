@@ -13,3 +13,7 @@ DALFactory/obj/Debug/build.force
 IDAL/obj/Debug/build.force
 SQLServerDAL/obj/Debug/build.force
 Web/obj/Debug/build.force
+Web/Manager/Log/20130622AppErrorLog.txt
+FrameWork/bin/Debug/Framework.xml
+BLL/bin/Debug/Framework.xml
+SQLServerDAL/bin/Debug/Framework.xml
