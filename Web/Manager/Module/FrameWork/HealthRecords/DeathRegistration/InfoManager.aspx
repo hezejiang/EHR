@@ -8,7 +8,7 @@
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server"
         HeadOPTxt="死亡登记" HeadTitleTxt="死亡登记管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="信息" ButtonPopedom="List" ButtonUrl="Default.aspx"
+        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="死亡" ButtonPopedom="List" ButtonUrl="Default.aspx"
             ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <FrameWorkWebControls:TabOptionWebControls ID="TabOptionWebControls1" runat="server">
