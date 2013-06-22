@@ -81,6 +81,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             string D_DateTime_Value = Convert.ToString(Common.sink(D_DateTime.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
             string D_RegDate_Value = Convert.ToString(Common.sink(D_RegDate.UniqueID, MethodType.Post, 20, 0, DataType.Dat));
             string D_UserID_Value = (string)Common.sink(D_UserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
+            string D_RegUserID_Value = (string)Common.sink(D_RegUserID.UniqueID, MethodType.Post, 20, 0, DataType.Str);
             string D_Reason_Value = (string)Common.sink(D_Reason.UniqueID, MethodType.Post, 0, 0, DataType.Str);
             string D_Location_Value = D_Location.Text;
 
@@ -93,7 +94,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             {
                 SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
             }
-            if (D_DateTime_Value != "" || D_UserID_Value != "" || D_Location_Value != "" || D_Reason_Value != "")
+            if (D_DateTime_Value != "" || D_UserID_Value != "" || D_Location_Value != "" || D_Reason_Value != "" || D_RegUserID_Value !="")
             {
                 if (D_DateTime_Value != "")
                 {
@@ -113,6 +114,11 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
                 if (D_UserID_Value != "")
                 {
                     SqlSearch =  SqlSearch + " and "  + " D_UserID = " + Common.inSQL(D_UserID_Value) + " ";
+                }
+
+                if (D_RegUserID_Value != "")
+                {
+                    SqlSearch = SqlSearch + " and " + " D_RegUserID = " + Common.inSQL(D_RegUserID_Value) + " ";
                 }
 
                 if (D_Reason_Value != "")
