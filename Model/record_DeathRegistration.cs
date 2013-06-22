@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/9 15:49:00   N/A    初版
+* V0.01  2013/6/22 2:26:58   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -32,6 +32,7 @@ namespace Maticsoft.Model
 		private string _d_reason="";
 		private int _d_userid=0;
 		private DateTime _d_regdate;
+		private int _d_reguserid;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -65,7 +66,7 @@ namespace Maticsoft.Model
 			get{return _d_reason;}
 		}
 		/// <summary>
-		/// 登记人,与sys_User表的UserID关联
+		/// 死者Userid
 		/// </summary>
 		public int D_UserID
 		{
@@ -79,6 +80,14 @@ namespace Maticsoft.Model
 		{
 			set{ _d_regdate=value;}
 			get{return _d_regdate;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public int D_RegUserID
+		{
+			set{ _d_reguserid=value;}
+			get{return _d_reguserid;}
 		}
 		#endregion Model
 

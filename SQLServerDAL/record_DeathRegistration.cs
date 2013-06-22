@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/9 15:49:00   N/A    初版
+* V0.01  2013/6/22 2:26:58   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -46,10 +46,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from record_DeathRegistration");
-			strSql.Append(" where DeathID=@DeathID");
+			strSql.Append(" where DeathID=@DeathID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@DeathID", SqlDbType.Int,4)
-			};
+					new SqlParameter("@DeathID", SqlDbType.Int,4)			};
 			parameters[0].Value = DeathID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -63,21 +62,23 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into record_DeathRegistration(");
-			strSql.Append("D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate)");
+			strSql.Append("DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate)");
 			strSql.Append(" values (");
-			strSql.Append("@D_DateTime,@D_Location,@D_Reason,@D_UserID,@D_RegDate)");
+			strSql.Append("@DeathID,@D_DateTime,@D_Location,@D_Reason,@D_UserID,@D_RegDate)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
+					new SqlParameter("@DeathID", SqlDbType.Int,4),
 					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@D_Location", SqlDbType.NVarChar,50),
 					new SqlParameter("@D_Reason", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
 					new SqlParameter("@D_RegDate", SqlDbType.DateTime)};
-			parameters[0].Value = model.D_DateTime;
-			parameters[1].Value = model.D_Location;
-			parameters[2].Value = model.D_Reason;
-			parameters[3].Value = model.D_UserID;
-			parameters[4].Value = model.D_RegDate;
+			parameters[0].Value = model.DeathID;
+			parameters[1].Value = model.D_DateTime;
+			parameters[2].Value = model.D_Location;
+			parameters[3].Value = model.D_Reason;
+			parameters[4].Value = model.D_UserID;
+			parameters[5].Value = model.D_RegDate;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -101,20 +102,22 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("D_Reason=@D_Reason,");
 			strSql.Append("D_UserID=@D_UserID,");
 			strSql.Append("D_RegDate=@D_RegDate");
-			strSql.Append(" where DeathID=@DeathID");
+			strSql.Append(" where D_RegUserID=@D_RegUserID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
 					new SqlParameter("@D_Location", SqlDbType.NVarChar,50),
 					new SqlParameter("@D_Reason", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
 					new SqlParameter("@D_RegDate", SqlDbType.DateTime),
-					new SqlParameter("@DeathID", SqlDbType.Int,4)};
+					new SqlParameter("@DeathID", SqlDbType.Int,4),
+					new SqlParameter("@D_RegUserID", SqlDbType.Int,4)};
 			parameters[0].Value = model.D_DateTime;
 			parameters[1].Value = model.D_Location;
 			parameters[2].Value = model.D_Reason;
 			parameters[3].Value = model.D_UserID;
 			parameters[4].Value = model.D_RegDate;
 			parameters[5].Value = model.DeathID;
+			parameters[6].Value = model.D_RegUserID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -135,10 +138,9 @@ namespace Maticsoft.SQLServerDAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from record_DeathRegistration ");
-			strSql.Append(" where DeathID=@DeathID");
+			strSql.Append(" where DeathID=@DeathID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@DeathID", SqlDbType.Int,4)
-			};
+					new SqlParameter("@DeathID", SqlDbType.Int,4)			};
 			parameters[0].Value = DeathID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -154,11 +156,11 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 批量删除数据
 		/// </summary>
-		public bool DeleteList(string DeathIDlist )
+		public bool DeleteList(string D_RegUserIDlist )
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from record_DeathRegistration ");
-			strSql.Append(" where DeathID in ("+DeathIDlist + ")  ");
+			strSql.Append(" where D_RegUserID in ("+D_RegUserIDlist + ")  ");
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
@@ -174,16 +176,16 @@ namespace Maticsoft.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Maticsoft.Model.record_DeathRegistration GetModel(int DeathID)
+		public Maticsoft.Model.record_DeathRegistration GetModel(int D_RegUserID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate from record_DeathRegistration ");
-			strSql.Append(" where DeathID=@DeathID");
+			strSql.Append("select  top 1 DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate,D_RegUserID from record_DeathRegistration ");
+			strSql.Append(" where D_RegUserID=@D_RegUserID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@DeathID", SqlDbType.Int,4)
+					new SqlParameter("@D_RegUserID", SqlDbType.Int,4)
 			};
-			parameters[0].Value = DeathID;
+			parameters[0].Value = D_RegUserID;
 
 			Maticsoft.Model.record_DeathRegistration model=new Maticsoft.Model.record_DeathRegistration();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -230,6 +232,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.D_RegDate=DateTime.Parse(row["D_RegDate"].ToString());
 				}
+				if(row["D_RegUserID"]!=null && row["D_RegUserID"].ToString()!="")
+				{
+					model.D_RegUserID=int.Parse(row["D_RegUserID"].ToString());
+				}
 			}
 			return model;
 		}
@@ -240,7 +246,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate ");
+			strSql.Append("select DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate,D_RegUserID ");
 			strSql.Append(" FROM record_DeathRegistration ");
 			if(strWhere.Trim()!="")
 			{
@@ -260,7 +266,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate ");
+			strSql.Append(" DeathID,D_DateTime,D_Location,D_Reason,D_UserID,D_RegDate,D_RegUserID ");
 			strSql.Append(" FROM record_DeathRegistration ");
 			if(strWhere.Trim()!="")
 			{
@@ -305,7 +311,7 @@ namespace Maticsoft.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.DeathID desc");
+				strSql.Append("order by T.D_RegUserID desc");
 			}
 			strSql.Append(")AS Row, T.*  from record_DeathRegistration T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -333,7 +339,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "record_DeathRegistration";
-			parameters[1].Value = "DeathID";
+			parameters[1].Value = "D_RegUserID";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;
