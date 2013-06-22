@@ -78,7 +78,7 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
             }
             else
             {
-                SqlSearch = string.Format(" U_GroupID={0} and ", U_GroupID);
+                SqlSearch = string.Format(" U_Committee={0} and ", U_GroupID);
             }
             if (U_IDCard_Value != "" || U_CName_Value != "" || U_MobileNo_Value != "")
             {
@@ -121,7 +121,7 @@ namespace FrameWork.web.Module.FrameWork.CommonModule
                     }
                     else
                     {
-                        ViewState["SearchTerms"] = string.Format(" U_GroupID={0} ", U_GroupID);
+                        ViewState["SearchTerms"] = string.Format(" U_Committee={0} ", U_GroupID);
                     }
                 }
 

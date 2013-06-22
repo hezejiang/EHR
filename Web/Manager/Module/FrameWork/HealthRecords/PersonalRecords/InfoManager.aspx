@@ -200,10 +200,11 @@
                     <td class="table_body">
                         家庭编号</td>
                     <td class="table_none table_none_NoWidth">
-                        <input runat="server" id="U_FamilyCode" size="15" value="" class="text_input" readonly/>
-                        <input type="button" value="选择" name="buttonselect" onclick="javascript:ShowDepartID(2)"
+                        <input type="hidden" runat="server" id="U_FamilyCode"/>
+                        <input runat="server" id="U_FamilyCode_input" size="15" value="" class="text_input" readonly/>
+                        <input type="button"  value="选择" name="buttonselect" onclick="javascript:ShowDepartID(5,0)"
                             class="cbutton"/>
-                        <input type="button" value="清除" onclick="javascript:ClearSelect();" class="cbutton" />
+                        <input type="button" value="清除" onclick="javascript:ClearSelect(5);" class="cbutton" />
                     </td>
                     <td class="table_body">
                         与户主关系</td>
@@ -603,6 +604,8 @@
                         document.all.<%=this.U_FilingUnits_input.ClientID %>.value=ShValues[0];
                     }else if(type == 4){ //选择建档人
                         onButtonEdit(ShValues[1]);
+                    }else if(type == 5){ //选择家庭编号
+                        onButtonEdit2(ShValues[1]);
                     }
 	            }
 	        }   
@@ -628,6 +631,9 @@
             }else if(t == 4){
                 document.all.<%=this.U_FilingUserID.ClientID %>.value="";
                 document.all.<%=this.U_FilingUserID_input.ClientID %>.value="";
+            }else if(t == 5){
+                document.all.<%=this.U_FamilyCode.ClientID %>.value="";
+                document.all.<%=this.U_FamilyCode_input.ClientID %>.value="";
             }
         }
 
@@ -649,6 +655,28 @@
                         }else if(type == 4){
                             document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
                             document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
+                        }else if(type == 5){
+                            document.all.<%=this.U_FamilyCode.ClientID %>.value=result[1];
+                            document.all.<%=this.U_FamilyCode_input.ClientID %>.value=result[2];
+                        }
+                    }
+                }
+            });            
+        }
+
+        function onButtonEdit2(id) {
+            mini.open({
+                url: "../../CommonModule/SelectFamilyCode.aspx?"+rand(10000000)+"&GroupID="+id,
+                title: "选择列表",
+                width: 800,
+                height: 380,
+                ondestroy: function (action) {
+                    //if (action == "close") return false;
+                    var result = action.split("||");
+                    if (result[0] == "ok") {
+                        if(type == 5){
+                            document.all.<%=this.U_FamilyCode.ClientID %>.value=result[2];
+                            document.all.<%=this.U_FamilyCode_input.ClientID %>.value=result[2];
                         }
                     }
                 }

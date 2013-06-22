@@ -110,7 +110,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
             }
             else
             {
-                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
+                SqlSearch = string.Format(" F_Committee in ({0})", GroupIDs);
             }
             if (F_FamilyCode_Value != "" || F_UserID_Value != "" || F_FamilyTel_Value != "" || F_FillingUserID_Value != "" || F_ResponsibilityUserID_Value != "")
             {
@@ -161,7 +161,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.FamilyRecords
                     }
                     else
                     {
-                        ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                        ViewState["SearchTerms"] = string.Format(" F_Committee in ({0})", GroupIDs);
                     }
                 }
                 return (string)ViewState["SearchTerms"];

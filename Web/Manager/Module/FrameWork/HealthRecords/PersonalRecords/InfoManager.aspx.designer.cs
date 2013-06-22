@@ -262,7 +262,16 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText U_FamilyCode;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden U_FamilyCode;
+        
+        /// <summary>
+        /// U_FamilyCode_input 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText U_FamilyCode_input;
         
         /// <summary>
         /// U_RelationShip 控件。
