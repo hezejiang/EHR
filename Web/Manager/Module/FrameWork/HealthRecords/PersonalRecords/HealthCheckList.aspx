@@ -14,7 +14,7 @@
                 OnRowCreated="GridView1_RowCreated">
                 <Columns>
                     <asp:HyperLinkField HeaderText="健康体检ID" DataTextField="HealthID" SortExpression="HealthID" DataNavigateUrlFields="HealthID"
-                        DataNavigateUrlFormatString="ConsultationManager.aspx?ConsultationID={0}&CMD=Edit" />
+                        DataNavigateUrlFormatString="HealthCheckManager.aspx?HealthID={0}&CMD=Edit" />
                     <asp:BoundField SortExpression="H_BodyTemperature" HeaderText="体温" DataField="H_BodyTemperature"/>
                     <asp:BoundField SortExpression="H_PulseRate" HeaderText="脉率（次/min）" DataField="H_PulseRate"/>
                     <asp:BoundField SortExpression="H_RespiratoryRate" HeaderText="呼吸频率（次/min）" DataField="H_RespiratoryRate"/>    

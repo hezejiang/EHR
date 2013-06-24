@@ -39,7 +39,8 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             bi0.ButtonIcon = "back.gif";
             bi0.ButtonName = "返回";
             bi0.ButtonPopedom = PopedomType.List;
-            if(UserID == 0 && ConsultationID != 0){
+            if(UserID == 0 && ConsultationID != 0)
+            {
                 Maticsoft.BLL.record_Consultation bll = new Maticsoft.BLL.record_Consultation();
                 Maticsoft.Model.record_Consultation model = bll.GetModel(ConsultationID);
                 UserID = model.C_UserID;
@@ -128,7 +129,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             {
                 case "New":
                     CMD_Txt = "增加";
-                    model.C_UserID = bll.Add(model);
+                    model.ConsultationID = bll.Add(model);
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
@@ -136,7 +137,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
-            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", ConsultationID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("ConsultationList.aspx?UserID=" + model.C_UserID));
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", model.ConsultationID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("ConsultationList.aspx?UserID=" + model.C_UserID));
         }
     }
 }
