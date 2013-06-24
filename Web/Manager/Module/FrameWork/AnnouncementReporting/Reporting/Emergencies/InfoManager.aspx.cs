@@ -49,7 +49,8 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
         {
             if (CMD == "New")
             {
-
+                Button1.Visible = true;
+                Button2.Visible = false;
             }
             else if (CMD == "Edit")
             {
@@ -114,7 +115,7 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.Emergen
             AR_Report_model.R_Content = R_Content.Text;
             AR_Report_model.R_DateTime = DateTime.Now;
             AR_Report_model.R_ResponsibilityUserID = UserData.GetUserDate.UserID;  //获取当前用户ID
-
+            AR_Report_model.R_GroupID = UserData.GetUserDate.U_GroupID;
             switch (CMD)
             {
                 case "New":

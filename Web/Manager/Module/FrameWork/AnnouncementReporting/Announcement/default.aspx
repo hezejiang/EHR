@@ -19,12 +19,12 @@
                     <asp:BoundField HeaderText="公告标题" DataField="A_Title"/>
                     <asp:BoundField HeaderText="公告内容" DataField="A_Content"/>
                     <asp:BoundField SortExpression="A_DateTime" HeaderText="公告时间" DataField="A_DateTime" DataFormatString="{0:yyyy-MM-dd}"/>
-                    <asp:TemplateField SortExpression="A_Type" HeaderText="公告类型">
+                    <asp:TemplateField HeaderText="公告类型">
                         <ItemTemplate>
                             <%#getTypeName(Convert.ToInt32(Eval("A_Type")))%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField SortExpression="R_GroupID" HeaderText="公告部门">
+                    <asp:TemplateField HeaderText="公告部门">
                         <ItemTemplate>
                             <%#getGroupModelById(Convert.ToInt32(Eval("A_GroupID"))).G_CName%>
                         </ItemTemplate>

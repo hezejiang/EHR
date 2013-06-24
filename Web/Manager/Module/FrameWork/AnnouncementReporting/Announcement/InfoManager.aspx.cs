@@ -105,7 +105,7 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Announcement
             AR_Announcement_model.A_Content = A_Content.Text;
             AR_Announcement_model.A_DateTime = DateTime.Now;
             AR_Announcement_model.A_ResponsibilityUserID = UserData.GetUserDate.UserID;  //获取当前用户ID
-
+            AR_Announcement_model.A_GroupID = UserData.GetUserDate.U_GroupID;
             switch (CMD)
             {
                 case "New":

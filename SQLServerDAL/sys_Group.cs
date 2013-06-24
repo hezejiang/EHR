@@ -362,6 +362,12 @@ namespace Maticsoft.SQLServerDAL
 		#endregion  BasicMethod
 		#region  ExtensionMethod
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="GroupID">部门ID</param>
+        /// <param name="isDriect">是否直接下级机构</param>
+        /// <returns></returns>
         public List<Maticsoft.Model.sys_Group> GetLowerLevel(int GroupID, Boolean isDriect)
         {
             List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();
@@ -388,6 +394,12 @@ namespace Maticsoft.SQLServerDAL
             return list;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="GroupID">部门ID</param>
+        /// <param name="isDriect">是否直接上级机构</param>
+        /// <returns></returns>
         public List<Maticsoft.Model.sys_Group> GetHigherLevel(int G_ParentID, Boolean isDriect)
         {
             List<Maticsoft.Model.sys_Group> list = new List<Maticsoft.Model.sys_Group>();

@@ -112,7 +112,7 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("H_Suggestion=@H_Suggestion,");
 			strSql.Append("H_CheckTime=@H_CheckTime,");
 			strSql.Append("H_MedicalInstitutions=@H_MedicalInstitutions,");
-			strSql.Append("H_CheckUserID=@H_CheckUserID");
+			strSql.Append("H_CheckUserID=@H_CheckUserID,");
             strSql.Append("H_UserID=@H_UserID");
 			strSql.Append(" where HealthID=@HealthID");
 			SqlParameter[] parameters = {
