@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <td colspan="4" align="right">
-                        <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="查询" OnClick="Button1_Click" /></td>
+                        <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" /></td>
                 </tr>
             </table>
         </FrameWorkWebControls:TabOptionItem>

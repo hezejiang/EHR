@@ -32,8 +32,8 @@
                             <%#getUserModelById(Convert.ToInt32(Eval("I_UserID"))).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField SortExpression="I_Content" HeaderText="巡查内容" DataField="I_Content"/>
-                    <asp:BoundField SortExpression="I_MainProblem" HeaderText="发现主要问题" DataField="I_MainProblem"/>
+                    <asp:BoundField HeaderText="巡查内容" DataField="I_Content"/>
+                    <asp:BoundField HeaderText="发现主要问题" DataField="I_MainProblem"/>
                 </Columns>
             </asp:GridView>
             <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">

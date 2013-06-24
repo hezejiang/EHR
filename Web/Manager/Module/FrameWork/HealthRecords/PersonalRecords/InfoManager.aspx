@@ -386,11 +386,11 @@
                <fieldset>
                     <legend class="small_title">残疾情况</legend>
                    <asp:CheckBoxList runat="server" ID="DisabilityList" RepeatDirection="Horizontal" CellPadding="10" CssClass="table_check_wrap float_left">
-                       <asp:ListItem Text="无残疾" Value="0" />
-                       <asp:ListItem Text="视力残疾" Value="1" />
+                       <asp:ListItem Text="上肢残疾" Value="0" />
+                       <asp:ListItem Text="下肢残疾" Value="1" />
                        <asp:ListItem Text="听力残疾" Value="2" />
                        <asp:ListItem Text="言语残疾" Value="3" />
-                       <asp:ListItem Text="体残疾" Value="4" />
+                       <asp:ListItem Text="视力残疾" Value="4" />
                        <asp:ListItem Text="智力残疾" Value="5" />
                        <asp:ListItem Text="精神残疾" Value="6" />
                        <asp:ListItem Text="其他" Value="7" />

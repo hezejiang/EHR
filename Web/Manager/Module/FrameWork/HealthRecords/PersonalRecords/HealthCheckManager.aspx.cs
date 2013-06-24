@@ -13,7 +13,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
 {
     public partial class HealthCheckManager : System.Web.UI.Page
     {
-        int HealthID = (int)Common.sink("ConsultationID", MethodType.Get, 255, 0, DataType.Int);
+        int HealthID = (int)Common.sink("HealthID", MethodType.Get, 255, 0, DataType.Int);
         int UserID = (int)Common.sink("UserID", MethodType.Get, 255, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
@@ -40,9 +40,9 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             bi0.ButtonName = "返回";
             bi0.ButtonPopedom = PopedomType.List;
             if(UserID == 0 && HealthID != 0){
-                Maticsoft.BLL.record_Consultation bll = new Maticsoft.BLL.record_Consultation();
-                Maticsoft.Model.record_Consultation model = bll.GetModel(HealthID);
-                UserID = model.C_UserID;
+                Maticsoft.BLL.record_HealthCheck bll = new Maticsoft.BLL.record_HealthCheck();
+                Maticsoft.Model.record_HealthCheck model = bll.GetModel(HealthID);
+                UserID = model.H_UserID;
             }
             bi0.ButtonUrl = string.Format("HealthCheckList.aspx?UserID={0}", UserID);
             HeadMenuWebControls1.ButtonList.Add(bi0);
@@ -62,9 +62,9 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
             {
                 HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
                 bi2.ButtonPopedom = PopedomType.Delete;
-                bi2.ButtonName = "会诊记录"; 
+                bi2.ButtonName = "体检记录"; 
                 bi2.ButtonUrlType = UrlType.JavaScript;
-                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&ConsultationID={0}')", HealthID);
+                bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&HealthID={0}')", HealthID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
 
                 InputData();
@@ -74,7 +74,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
                 Maticsoft.BLL.record_HealthCheck bll = new Maticsoft.BLL.record_HealthCheck();
                 Maticsoft.Model.record_HealthCheck model = bll.GetModel(HealthID);
                 bll.Delete(model.HealthID);
-                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", HealthID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("ConsultationList.aspx?UserID=" + UserID));
+                EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", HealthID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("HealthCheckList.aspx?UserID=" + UserID));
             }
         }
 
@@ -155,7 +155,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.PersonalRecords
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
-            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", HealthID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("HealthCheckList.aspx?UserID=" + model.H_UserID));
+            EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", model.HealthID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("HealthCheckList.aspx?UserID=" + model.H_UserID));
         }
     }
 }

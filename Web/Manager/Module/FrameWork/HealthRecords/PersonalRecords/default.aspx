@@ -47,7 +47,7 @@
                 </Columns>
             </asp:GridView>
             <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">
-            </FrameWorkWebControls:AspNetPager>
+            </FrameWorkWebControls:AspNetPager><!-- 页码数的控制 -->
         </FrameWorkWebControls:TabOptionItem>
         <FrameWorkWebControls:TabOptionItem ID="TabOptionItem2" runat="server" Tab_Name="查询">
             <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
@@ -187,7 +187,8 @@
                         if(type == 2){
                             document.all.<%=this.U_ResponsibilityUserID.ClientID %>.value=result[1];
                             document.all.<%=this.U_ResponsibilityUserID_input.ClientID %>.value=result[2];
-                        }else if(type == 4){
+                        }
+                        else if(type == 4){
                             document.all.<%=this.U_FilingUserID.ClientID %>.value=result[1];
                             document.all.<%=this.U_FilingUserID_input.ClientID %>.value=result[2];
                         }

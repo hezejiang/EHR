@@ -28,7 +28,7 @@
                             <%#getSuperisionNameByType(Convert.ToInt32(Eval("I_Type")))%>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField SortExpression="I_Content" HeaderText="信息内容" DataField="I_Content"/>
+                    <asp:BoundField HeaderText="信息内容" DataField="I_Content"/>
                     <asp:BoundField SortExpression="I_ReportDate" HeaderText="报告时间" DataField="I_ReportDate" DataFormatString="{0:yyyy/MM/dd}" HtmlEncode="false" />
                     <asp:TemplateField SortExpression="I_ReportUserID" HeaderText="报告人">
                         <ItemTemplate>
