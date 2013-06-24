@@ -49,7 +49,8 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.MoveRec
         {
             if (CMD == "New")
             {
-
+                Button1.Visible = true;
+                Button2.Visible = false;
             }
             else if (CMD == "Edit")
             {
@@ -109,11 +110,12 @@ namespace FrameWork.web.Module.FrameWork.AnnouncementReporting.Reporting.MoveRec
                 AR_Report_model = new Maticsoft.Model.AR_Report();
             }
 
-            AR_Report_model.R_Type = 2;
+            AR_Report_model.R_Type = 1;
             AR_Report_model.R_Title = R_Title.Text;
             AR_Report_model.R_Content = R_Content.Text;
             AR_Report_model.R_DateTime = DateTime.Now;
             AR_Report_model.R_ResponsibilityUserID = UserData.GetUserDate.UserID;  //获取当前用户ID
+            AR_Report_model.R_GroupID = UserData.GetUserDate.U_GroupID;
 
             switch (CMD)
             {
