@@ -236,6 +236,7 @@
                         <asp:DropDownList runat="server" ID="U_AuditStatus" title="请选择档案状态">
                             <asp:ListItem Text="正常" Value="1" />
                             <asp:ListItem Text="审核中" Value="2" />
+                            <asp:ListItem Text="已死亡" Value="3" />
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -493,7 +494,7 @@
                         <td class="w10 border_right">厨房排风设施</td>
                             <td class="w90">
                                 <asp:CheckBoxList ID="E_Kind1" runat="server" RepeatDirection="Horizontal" CellPadding="10">
-                                   <asp:ListItem Text="无" Value="1" />
+                                   <asp:ListItem Text="排风机" Value="1" />
                                    <asp:ListItem Text="油烟机" Value="2" />
                                    <asp:ListItem Text="换气扇" Value="3" />
                                    <asp:ListItem Text="烟囱" Value="4" />

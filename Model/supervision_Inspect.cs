@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* supervision_Inspect.cs
+*
+* 功 能： N/A
+* 类 名： supervision_Inspect
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/24 2:40:44   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -18,6 +34,7 @@ namespace Maticsoft.Model
 		private string _i_content;
 		private string _i_mainproblem;
 		private string _i_note="";
+		private int? _i_infoid;
 		/// <summary>
 		/// 卫生监管巡查ID
 		/// </summary>
@@ -81,6 +98,14 @@ namespace Maticsoft.Model
 		{
 			set{ _i_note=value;}
 			get{return _i_note;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public int? I_InfoID
+		{
+			set{ _i_infoid=value;}
+			get{return _i_infoid;}
 		}
 		#endregion Model
 

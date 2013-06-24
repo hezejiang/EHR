@@ -1,5 +1,5 @@
 ﻿/**
-* jQuery MiniUI v2.0
+* jQuery MiniUI v3.0
 * 
 * Web Site : http://www.miniui.com
 *
@@ -10,7 +10,7 @@
 */
 
 
-mini.locale = "en-US";
+mini.locale = "zh_CN";
 
 
 /* Date
@@ -70,13 +70,15 @@ if (mini.Calendar) {
 }
 
 
-/* required
+/* required | loadingMsg
 -----------------------------------------------------------------------------*/
 for (var id in mini) {
     var clazz = mini[id];
     if (clazz && clazz.prototype && clazz.prototype.isControl) {
         clazz.prototype.requiredErrorText = "不能为空";
+        clazz.prototype.loadingMsg = "Loading...";
     }
+
 }
 /* VTypes
 -----------------------------------------------------------------------------*/

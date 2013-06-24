@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* supervision_Info.cs
+*
+* 功 能： N/A
+* 类 名： supervision_Info
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/24 2:40:42   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,21 +63,23 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into supervision_Info(");
-			strSql.Append("I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID)");
+			strSql.Append("I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID,I_Status)");
 			strSql.Append(" values (");
-			strSql.Append("@I_FindDate,@I_Type,@I_Content,@I_ReportDate,@I_ReportUserID)");
+			strSql.Append("@I_FindDate,@I_Type,@I_Content,@I_ReportDate,@I_ReportUserID,@I_Status)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@I_FindDate", SqlDbType.DateTime),
 					new SqlParameter("@I_Type", SqlDbType.TinyInt,1),
 					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_ReportDate", SqlDbType.DateTime),
-					new SqlParameter("@I_ReportUserID", SqlDbType.Int,4)};
+					new SqlParameter("@I_ReportUserID", SqlDbType.Int,4),
+					new SqlParameter("@I_Status", SqlDbType.Int,4)};
 			parameters[0].Value = model.I_FindDate;
 			parameters[1].Value = model.I_Type;
 			parameters[2].Value = model.I_Content;
 			parameters[3].Value = model.I_ReportDate;
 			parameters[4].Value = model.I_ReportUserID;
+			parameters[5].Value = model.I_Status;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -84,7 +102,8 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("I_Type=@I_Type,");
 			strSql.Append("I_Content=@I_Content,");
 			strSql.Append("I_ReportDate=@I_ReportDate,");
-			strSql.Append("I_ReportUserID=@I_ReportUserID");
+			strSql.Append("I_ReportUserID=@I_ReportUserID,");
+			strSql.Append("I_Status=@I_Status");
 			strSql.Append(" where InfoID=@InfoID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@I_FindDate", SqlDbType.DateTime),
@@ -92,13 +111,15 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_ReportDate", SqlDbType.DateTime),
 					new SqlParameter("@I_ReportUserID", SqlDbType.Int,4),
+					new SqlParameter("@I_Status", SqlDbType.Int,4),
 					new SqlParameter("@InfoID", SqlDbType.Int,4)};
 			parameters[0].Value = model.I_FindDate;
 			parameters[1].Value = model.I_Type;
 			parameters[2].Value = model.I_Content;
 			parameters[3].Value = model.I_ReportDate;
 			parameters[4].Value = model.I_ReportUserID;
-			parameters[5].Value = model.InfoID;
+			parameters[5].Value = model.I_Status;
+			parameters[6].Value = model.InfoID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -162,7 +183,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID from supervision_Info ");
+			strSql.Append("select  top 1 InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID,I_Status from supervision_Info ");
 			strSql.Append(" where InfoID=@InfoID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@InfoID", SqlDbType.Int,4)
@@ -214,6 +235,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.I_ReportUserID=int.Parse(row["I_ReportUserID"].ToString());
 				}
+				if(row["I_Status"]!=null && row["I_Status"].ToString()!="")
+				{
+					model.I_Status=int.Parse(row["I_Status"].ToString());
+				}
 			}
 			return model;
 		}
@@ -224,7 +249,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID ");
+			strSql.Append("select InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID,I_Status ");
 			strSql.Append(" FROM supervision_Info ");
 			if(strWhere.Trim()!="")
 			{
@@ -244,7 +269,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID ");
+			strSql.Append(" InfoID,I_FindDate,I_Type,I_Content,I_ReportDate,I_ReportUserID,I_Status ");
 			strSql.Append(" FROM supervision_Info ");
 			if(strWhere.Trim()!="")
 			{

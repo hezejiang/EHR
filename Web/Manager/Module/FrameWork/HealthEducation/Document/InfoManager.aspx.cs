@@ -107,6 +107,7 @@ namespace FrameWork.web.Module.FrameWork.HealthEducation.Document
             education_Document_model.D_Name = D_Name.Text;
             education_Document_model.D_UserID = UserData.GetUserDate.UserID;
             education_Document_model.D_DateTime = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            education_Document_model.D_Committee = UserData.GetUserDate.U_GroupID;
 
             switch (CMD)
             {

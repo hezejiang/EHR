@@ -32,6 +32,11 @@
                             <%#FrameWork.BusinessFacade.sys_UserType((int)Eval("U_Type"))%>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField SortExpression="UserID" HeaderText="用户角色">
+                        <ItemTemplate>
+                            <%#getUserRoleById((int)Eval("UserID"))%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField SortExpression="U_Status" HeaderText="用户状态">
                         <ItemTemplate>
                             <%#GetStat((int)Eval("U_Status"))%>

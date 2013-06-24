@@ -8,8 +8,6 @@
     <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>Manager/inc/FineMessBox/js/subModal.js"></script>
     <!--通用头部 start-->
     <FrameWorkWebControls:HeadMenuWebControls ID="HeadMenuWebControls1" runat="server" HeadOPTxt="巡查登记列表" HeadTitleTxt="巡查登记列表管理">
-        <FrameWorkWebControls:HeadMenuButtonItem ButtonName="巡查" ButtonPopedom="New" ButtonUrl="InfoManager.aspx?CMD=New"
-            ButtonUrlType="Href" ButtonVisible="True" />
     </FrameWorkWebControls:HeadMenuWebControls>
     <!--通用头部 end-->
     <!--Tab选项控件 start-->

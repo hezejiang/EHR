@@ -33,7 +33,7 @@
                         <asp:TextBox ID="P_Object_input" runat="server" Columns="50" title="请点击选择处方对象!"
                             CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="P_Object" runat="server" />
-                        <input type=button value="选择处方对象" name="buttonselect" onClick="javascript:ShowDepartID(1)" class="cbutton">
+                        <input type=button value="选择处方对象" name="buttonselect" onClick="javascript:ShowDepartID(1,0)" class="cbutton">
                         <input type="button" value="清除" onclick="javascript:ClearSelect(1);" class="cbutton" />
                     </td>
                 </tr>
@@ -58,11 +58,10 @@
                         <asp:TextBox ID="P_Doctor_input" runat="server" Columns="50" title="请点击选择处方医生!"
                             CssClass="text_input" ReadOnly></asp:TextBox>
                         <input type="hidden" id="P_Doctor" runat="server" />
-                        <input type=button value="选择处方医生" name="buttonselect" onClick="javascript:ShowDepartID(2)" class="cbutton"/>
+                        <input type=button value="选择处方医生" name="buttonselect" onClick="javascript:ShowDepartID(2,1)" class="cbutton"/>
                         <input type="button" value="清除" onclick="javascript:ClearSelect(2);" class="cbutton" />
                     </td>
                 </tr>
-
                 <tr id="SubmitTr" runat="server">
                     <td colspan="2" align="right">
                         <asp:Button ID="Button1" runat="server" CssClass="button_bak" Text="确定" OnClick="Button1_Click" />
@@ -97,15 +96,15 @@
 	            var ShValues = file_name.split('||');
 	            if (ShValues[1]!=0)
 	            {
-                    onButtonEdit(ShValues[1]);
+                      onButtonEdit(ShValues[1]);
 	            }
-	        }   
+	        }
         }
 
-        function ShowDepartID(t)
+        function ShowDepartID(t, G_type)
         {
             type = t;
-            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000), 215, 255, AlertMessageBox,true,true);
+            showPopWin('选择部门','../../CommonModule/SelectGroup.aspx?'+rand(10000000)+"&G_type="+G_type, 215, 255, AlertMessageBox,true,true);
         }
        
         function ClearSelect(t)
@@ -141,7 +140,7 @@
                         }
                     }
                 }
-            });            
+            });  
         }
     </script>
 </asp:Content>

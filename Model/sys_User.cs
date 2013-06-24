@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* sys_User.cs
+*
+* 功 能： N/A
+* 类 名： sys_User
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/22 16:58:57   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -40,6 +56,7 @@ namespace Maticsoft.Model
 		private string _u_extendfield;
 		private string _u_logintype;
 		private int _u_hospitalgroupid=0;
+		private string _u_accesstoken="";
 		/// <summary>
 		/// 用户ID号
 		/// </summary>
@@ -81,7 +98,7 @@ namespace Maticsoft.Model
 			get{return _u_ename;}
 		}
 		/// <summary>
-		/// 部门ID号与sys_Group表中GroupID关联，这里是选择所在居委会
+		/// 部门ID号与sys_Group表中GroupID关联，管理员管理的部门
 		/// </summary>
 		public int U_GroupID
 		{
@@ -279,6 +296,14 @@ namespace Maticsoft.Model
 		{
 			set{ _u_hospitalgroupid=value;}
 			get{return _u_hospitalgroupid;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string U_AccessToken
+		{
+			set{ _u_accesstoken=value;}
+			get{return _u_accesstoken;}
 		}
 		#endregion Model
 

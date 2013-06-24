@@ -13,18 +13,14 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        //获取通过Get方式传递过来的键对应的值，可复制后改成你所负责模块的"*ID"
         int DeathID = (int)Common.sink("DeathID", MethodType.Get, 255, 0, DataType.Int);
-        //CMD一般有如下几个值：List,New,Edit,Delete,Order；这里直接复制，不需更改
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
-        string App_Txt = "信息"; //这里要改成模块对应的内容
+        string App_Txt = "死亡信息"; 
         string All_Title_Txt = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //检查权限，直接复制即可
             FrameWorkPermission.CheckPagePermission(CMD);
-            //绑定返回按钮，直接复制即可
             BindButton();
             if (!Page.IsPostBack)
             {
@@ -57,7 +53,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             {
                 HeadMenuButtonItem bi2 = new HeadMenuButtonItem();
                 bi2.ButtonPopedom = PopedomType.Delete;
-                bi2.ButtonName = "信息";  //需要改
+                bi2.ButtonName = "死亡信息"; 
                 bi2.ButtonUrlType = UrlType.JavaScript;
                 bi2.ButtonUrl = string.Format("DelData('?CMD=Delete&DeathID={0}')", DeathID);
                 HeadMenuWebControls1.ButtonList.Add(bi2);
@@ -66,13 +62,9 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             }
             else if (CMD == "Delete")
             {
-                //这是操作数据库的核心代码，工作原理是：首先要明确现在所操作的模块对应着数据库中的哪张表，然后创建这个表所对应的的逻辑处理层(bll)对象，如这里操作的表是supervision_Info，则要新建所对应的Maticsoft.BLL.supervision_Info对象
                 Maticsoft.BLL.record_DeathRegistration bll = new Maticsoft.BLL.record_DeathRegistration();
-                //这是数据库实体类对象（简单来说就对应着这个表的一条记录），因为这里操作的表是supervision_Info，则对应的model是Maticsoft.Model.supervision_Info，然后通过上一行new的bll对象去执行数据库操作（这里使用的方法是GetModel，当然还有其他的方法，根据需要使用不同的方法），返回对应实体类对象
                 Maticsoft.Model.record_DeathRegistration model = bll.GetModel(DeathID);
-                //bll执行删除操作，参数是这个实体类的ID值
                 bll.Delete(model.DeathID);
-                //以下方法的第4、5个参数需要更改
                 EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", DeathID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
             }
         }
@@ -125,17 +117,23 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             {
                 case "New":
                     CMD_Txt = "增加";
-                    //如果是增加操作，就调用Add方法
+                    //增加操作调用Add方法
                     record_DeathRegistration_model.DeathID = supervision_bll.Add(record_DeathRegistration_model);
+                    if(record_DeathRegistration_model.DeathID > 0)
+                    {
+                        Maticsoft.BLL.record_UserBaseInfo record_UserBaseInfo_bll = new Maticsoft.BLL.record_UserBaseInfo();
+                        Maticsoft.Model.record_UserBaseInfo record_UserBaseInfo_model = record_UserBaseInfo_bll.GetModel(record_DeathRegistration_model.D_UserID);
+                        record_UserBaseInfo_model.U_AuditStatus = 3;
+                        record_UserBaseInfo_bll.Update(record_UserBaseInfo_model);
+                    }
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
-                    //如果是修改操作，就调用Update方法
+                    //修改操作调用Update方法
                     supervision_bll.Update(record_DeathRegistration_model);
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
-            //以下方法的第4个参数需要更改
             EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", record_DeathRegistration_model.DeathID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
         }
     }

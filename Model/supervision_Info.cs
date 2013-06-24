@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* supervision_Info.cs
+*
+* 功 能： N/A
+* 类 名： supervision_Info
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/24 2:40:42   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 namespace Maticsoft.Model
 {
 	/// <summary>
@@ -16,6 +32,7 @@ namespace Maticsoft.Model
 		private string _i_content="";
 		private DateTime _i_reportdate;
 		private int _i_reportuserid;
+		private int? _i_status;
 		/// <summary>
 		/// 卫生监督信息ID
 		/// </summary>
@@ -63,6 +80,14 @@ namespace Maticsoft.Model
 		{
 			set{ _i_reportuserid=value;}
 			get{return _i_reportuserid;}
+		}
+		/// <summary>
+		/// 状态，1未巡查，2已巡查
+		/// </summary>
+		public int? I_Status
+		{
+			set{ _i_status=value;}
+			get{return _i_status;}
 		}
 		#endregion Model
 

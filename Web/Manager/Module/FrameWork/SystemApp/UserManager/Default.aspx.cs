@@ -52,6 +52,25 @@ namespace FrameWork.web.Module.FrameWork.UserManager
             BindData();
         }
 
+        /// <summary>
+        /// 通过用户id得到用户信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        public string getUserRoleById(int userID)
+        {
+            string role = "";
+            ArrayList lst = BusinessFacade.sys_UserRolesDisp(userID);
+            if (lst.Count != 0)
+            {
+                foreach (sys_UserRolesTable var in lst)
+                {
+                    role = BusinessFacade.sys_RolesDisp(var.R_RoleID).R_RoleName;
+                }
+            }
+            return role;
+        }
+
         #region "绑定数据"
         /// <summary>
         /// 部门资料

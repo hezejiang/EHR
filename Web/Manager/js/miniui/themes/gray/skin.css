@@ -252,19 +252,17 @@ body .mini-buttonedit-focus .mini-buttonedit-border
 /*------------------- treegrid --------------------*/
 .mini-treegrid-border
 {
-    border:1px solid #9f9f9f;
+    border-color:#9f9f9f;
 }
 
 .mini-treegrid-header
 {
-    border-bottom:solid 1px #a0a0a0;
+    border-bottom:none;
 }
 .mini-treegrid-headerInner
 {
     background:#dcdcdc;
 }
-
-
 .mini-treegrid-selectedNode
 {
 	background:#a5a5a5;
@@ -416,7 +414,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
 
 /*---------------------- tree -----------------------------*/
 
-.mini-tree-hottrack .mini-tree-node-hover
+.mini-tree-node-hover .mini-tree-nodeshow
 {
     border:1px solid #888888;
     background:#f2f2f2;
@@ -435,7 +433,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
     border-right:#9f9f9f 1px solid;
     border-bottom:#9f9f9f 1px solid;
 }
-.mini-grid-footer
+.mini-grid-footer, .mini-grid-pager
 {
     background:#f2f2f2;
 }

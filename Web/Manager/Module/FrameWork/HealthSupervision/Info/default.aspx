@@ -35,6 +35,11 @@
                             <%#getUserModelById(Convert.ToInt32(Eval("I_ReportUserID"))).U_CName%>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="状态">
+                        <ItemTemplate>
+                            <%#checkStatus(Convert.ToInt32(Eval("InfoID")), Convert.ToInt32(Eval("I_Status")))%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <FrameWorkWebControls:AspNetPager ID="AspNetPager1" runat="server" OnPageChanged="AspNetPager1_PageChanged">

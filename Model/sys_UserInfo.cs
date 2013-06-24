@@ -41,6 +41,7 @@ namespace Maticsoft.Model
 		private string _u_extendfield;
 		private string _u_logintype;
 		private int _u_hospitalgroupid=0;
+        private string _u_accesstoken;
         //record_UserBaseInfo表
         private string _u_hometown;
         private string _u_currentaddress;
@@ -304,6 +305,15 @@ namespace Maticsoft.Model
 			set{ _u_hospitalgroupid=value;}
 			get{return _u_hospitalgroupid;}
 		}
+
+        /// <summary>
+        /// U_AccessToken
+        /// </summary>
+        public string U_AccessToken
+        {
+            set { _u_accesstoken = value; }
+            get { return _u_accesstoken; }
+        }
 
         /// <summary>
         /// 户籍地址

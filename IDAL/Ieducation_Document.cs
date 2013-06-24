@@ -33,6 +33,7 @@ namespace Maticsoft.IDAL
 		/// 得到一个对象实体
 		/// </summary>
 		Maticsoft.Model.education_Document GetModel(int DocumentID);
+        Maticsoft.Model.education_Document GetModel(string strWhere);
 		Maticsoft.Model.education_Document DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

@@ -96,8 +96,22 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Info
             return model;
         }
 
+        public string checkStatus(int InfoID,int status)
+        {
+            string result = "";
+            if (status == 2)
+            {
+                result = "已巡查";
+            }
+            else
+            {
+                result = "<a href='../Inspect/InfoManager.aspx?CMD=New&InfoID="+InfoID+"'>未巡查</a>";
+            }
+            return result;
+        }
+
         /// <summary>
-        /// 点击查询（需要更改）
+        /// 点击查询
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -475,24 +475,31 @@ namespace FrameWork.web.Module.FrameWork.PersonalRecords
                 case "New":
                     CMD_Txt = "增加";
                     //如果是增加操作，就调用Add方法
-                    sysUser_model.U_Password = Common.md5(sysUser_model.U_IDCard, 32);  //初始密码为身份证号
-                    string year=sysUser_model.U_IDCard.Substring(6,4);
-                    string month=sysUser_model.U_IDCard.Substring(10,2);
-                    string date=sysUser_model.U_IDCard.Substring(12,2);
-                    string result = year + "-" + month + "-" + date;
-                    sysUser_model.U_LoginName = sysUser_model.U_IDCard;
-                    sysUser_model.U_BirthDay = Convert.ToDateTime(result);
-                    sysUser_model.U_DateTime = sysUser_model.U_LastDateTime = sysUser_model.U_WorkStartDate = sysUser_model.U_WorkEndDate = DateTime.Now;
-                    sysUser_model.U_LastIP = Common.GetIPAddress();
-                    sysUser_model.U_Type = 1;
-                    sysUser_model.U_Status = 0;
-                    record_UserBaseInfo_model.UserID = sysUser_bll.Add(sysUser_model);
-                    record_UserBaseInfo_model.U_FlingTime = DateTime.Now;
-                    record_UserBaseInfo_bll.Add(record_UserBaseInfo_model);
-                    Maticsoft.BLL.sys_UserRoles sys_UserRoles_bll = new Maticsoft.BLL.sys_UserRoles();
-                    Maticsoft.Model.sys_UserRoles sys_UserRoles_model = new Maticsoft.Model.sys_UserRoles();
-                    sys_UserRoles_model.R_UserID = record_UserBaseInfo_model.UserID;
-                    sys_UserRoles_model.R_RoleID = 1; //初始为普通用户
+                    if (!sysUser_bll.isExist(sysUser_model))
+                    {
+                        sysUser_model.U_Password = Common.md5(sysUser_model.U_IDCard, 32);  //初始密码为身份证号
+                        string year = sysUser_model.U_IDCard.Substring(6, 4);
+                        string month = sysUser_model.U_IDCard.Substring(10, 2);
+                        string date = sysUser_model.U_IDCard.Substring(12, 2);
+                        string result = year + "-" + month + "-" + date;
+                        sysUser_model.U_LoginName = sysUser_model.U_IDCard;
+                        sysUser_model.U_BirthDay = Convert.ToDateTime(result);
+                        sysUser_model.U_DateTime = sysUser_model.U_LastDateTime = sysUser_model.U_WorkStartDate = sysUser_model.U_WorkEndDate = DateTime.Now;
+                        sysUser_model.U_LastIP = Common.GetIPAddress();
+                        sysUser_model.U_Type = 1;
+                        sysUser_model.U_Status = 0;
+                        record_UserBaseInfo_model.UserID = sysUser_bll.Add(sysUser_model);
+                        record_UserBaseInfo_model.U_FlingTime = DateTime.Now;
+                        record_UserBaseInfo_bll.Add(record_UserBaseInfo_model);
+                        Maticsoft.BLL.sys_UserRoles sys_UserRoles_bll = new Maticsoft.BLL.sys_UserRoles();
+                        Maticsoft.Model.sys_UserRoles sys_UserRoles_model = new Maticsoft.Model.sys_UserRoles();
+                        sys_UserRoles_model.R_UserID = record_UserBaseInfo_model.UserID;
+                        sys_UserRoles_model.R_RoleID = 1; //初始为普通用户
+                    }
+                    else
+                    {
+                        EventMessage.MessageBox(1, "操作失败", string.Format("个人健康档案号{0}已存在!", sysUser_model.U_IDCard), Icon_Type.Alert, Common.GetHomeBaseUrl("InfoManager.aspx?CMD=New"));
+                    }
                     break;
                 case "Edit":
                     CMD_Txt = "修改";

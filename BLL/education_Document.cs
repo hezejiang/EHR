@@ -74,6 +74,11 @@ namespace Maticsoft.BLL
 			return dal.GetModel(DocumentID);
 		}
 
+        public Maticsoft.Model.education_Document getModel(string strWhere)
+        {
+            return dal.GetModel(strWhere);
+        }
+
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
@@ -174,7 +179,7 @@ namespace Maticsoft.BLL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
-
+        
 		#endregion  ExtensionMethod
 	}
 }

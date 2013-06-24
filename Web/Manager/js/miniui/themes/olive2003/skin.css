@@ -392,12 +392,12 @@ a:hover.mini-calendar-menu-year
 /*------------------- treegrid --------------------*/
 .mini-treegrid-border
 {
-    border:1px solid #608058;
+    border-color:#608058;
 }
 
 .mini-treegrid-header
 {
-    border-bottom:solid 1px #608058;
+    border-color:#608058;
 }
 .mini-treegrid-headerInner
 {
@@ -405,12 +405,11 @@ a:hover.mini-calendar-menu-year
 }
 .mini-treegrid td
 {
-    border-right:solid 1px #a4b26d;
-    border-bottom:solid 1px #a4b26d;        
+    border-color:#a4b26d;    
 }
 .mini-treegrid-header td
 {
-    border-right:solid 1px #e3f0bb;
+    border-color:#e3f0bb;
 }
 
 .mini-treegrid-selectedNode
@@ -543,7 +542,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
 
 /*---------------------- tree -----------------------------*/
 
-.mini-tree-hottrack .mini-tree-node-hover
+.mini-tree-node-hover .mini-tree-nodeshow
 {	    
 	background:#ffeec2;
 	border:solid 1px #758d5e;		
@@ -618,9 +617,9 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
     border-right:#A5ACB5 1px solid;
     border-bottom:#A5ACB5 1px solid;
 }
-.mini-grid-footer
+.mini-grid-footer, .mini-grid-pager
 {
-    background:#E7EAEE url(images/grid/footer.png) repeat-x 0 0;
+    background:#cfd9a3;
 }
 .mini-grid-detailCell
 {    
@@ -639,10 +638,6 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
 {
     border-right:#a4b26d 1px solid;
     border-bottom:#a4b26d 1px solid;    
-}
-.mini-grid-footer
-{
-    background:#cfd9a3;
 }
 .mini-grid-filterRow .mini-grid-table, .mini-grid-summaryRow .mini-grid-table {
     background: none repeat scroll 0 0 #eff4da;

@@ -175,6 +175,40 @@ namespace Maticsoft.BLL
 		#endregion  BasicMethod
 		#region  ExtensionMethod
 
+        /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="pwd"></param>
+        /// <returns>登陆成功返回accessToken；登陆失败返回空字符串</returns>
+        public string Login(String userName, String pwd)
+        {
+            string accessToken = "";
+            Maticsoft.Model.sys_User sys_User_model = dal.GetModel(string.Format("U_LoginName = '{0}' and U_Password='{1}'",userName,pwd));
+            if (sys_User_model != null)
+            {
+                accessToken = sys_User_model.U_AccessToken;
+                if (accessToken == "")
+                {
+                    sys_User_model.U_AccessToken = accessToken = Common.AccessToken.GenerateRandomCode(30);
+                    dal.Update(sys_User_model);
+                }
+            }
+            return accessToken;
+        }
+
+        public Boolean isExist(Maticsoft.Model.sys_User model)
+        {
+            Maticsoft.Model.sys_User sys_User_model = dal.GetModel("U_IDCard="+model.U_IDCard);
+            if (sys_User_model != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 		#endregion  ExtensionMethod
 	}
 }

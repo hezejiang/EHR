@@ -48,7 +48,7 @@ namespace FrameWork.web.Module.FrameWork.StatisticalAnalysis.NationTypeStatistic
             {
                 strWhere = "U_NationID={0} and U_Committee in ({1})";
                 han = sys_UserInfo_bll.GetRecordCount(string.Format(strWhere, 1, GroupIDs));
-                other = sys_UserInfo_bll.GetRecordCount(string.Format("U_NationID<>{0} and U_Committee in ({1})", GroupIDs));
+                other = sys_UserInfo_bll.GetRecordCount(string.Format("U_NationID<>{0} and U_Committee in ({1})", 1,GroupIDs));
             }
             else
             {

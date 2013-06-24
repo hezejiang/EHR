@@ -92,7 +92,7 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
             }
             else
             {
-                SqlSearch = string.Format(" U_Committee in ({0})", GroupIDs);
+                SqlSearch = string.Format(" 1=1 ");
             }
             if (D_DateTime_Value != "" || D_UserID_Value != "" || D_Location_Value != "" || D_Reason_Value != "" || D_RegUserID_Value !="")
             {
@@ -148,7 +148,8 @@ namespace FrameWork.web.Module.FrameWork.HealthRecords.DeathRegistration
                     }
                     else
                     {
-                        ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                        //ViewState["SearchTerms"] = string.Format(" U_Committee in ({0})", GroupIDs);
+                        ViewState["SearchTerms"] = " ";
                     }
                 }
                 return (string)ViewState["SearchTerms"];

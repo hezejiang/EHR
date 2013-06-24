@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* sys_User.cs
+*
+* 功 能： N/A
+* 类 名： sys_User
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/22 16:58:58   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,9 +63,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into sys_User(");
-			strSql.Append("U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID)");
+			strSql.Append("U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID,U_AccessToken)");
 			strSql.Append(" values (");
-			strSql.Append("@U_LoginName,@U_Password,@U_CName,@U_EName,@U_GroupID,@U_Email,@U_Type,@U_Status,@U_Licence,@U_Mac,@U_Remark,@U_IDCard,@U_Sex,@U_BirthDay,@U_MobileNo,@U_UserNO,@U_WorkStartDate,@U_WorkEndDate,@U_CompanyMail,@U_Title,@U_Extension,@U_HomeTel,@U_PhotoUrl,@U_DateTime,@U_LastIP,@U_LastDateTime,@U_ExtendField,@U_LoginType,@U_HospitalGroupID)");
+			strSql.Append("@U_LoginName,@U_Password,@U_CName,@U_EName,@U_GroupID,@U_Email,@U_Type,@U_Status,@U_Licence,@U_Mac,@U_Remark,@U_IDCard,@U_Sex,@U_BirthDay,@U_MobileNo,@U_UserNO,@U_WorkStartDate,@U_WorkEndDate,@U_CompanyMail,@U_Title,@U_Extension,@U_HomeTel,@U_PhotoUrl,@U_DateTime,@U_LastIP,@U_LastDateTime,@U_ExtendField,@U_LoginType,@U_HospitalGroupID,@U_AccessToken)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@U_LoginName", SqlDbType.NVarChar,20),
@@ -80,7 +96,8 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@U_LastDateTime", SqlDbType.DateTime),
 					new SqlParameter("@U_ExtendField", SqlDbType.NText),
 					new SqlParameter("@U_LoginType", SqlDbType.VarChar,255),
-					new SqlParameter("@U_HospitalGroupID", SqlDbType.Int,4)};
+					new SqlParameter("@U_HospitalGroupID", SqlDbType.Int,4),
+					new SqlParameter("@U_AccessToken", SqlDbType.VarChar,30)};
 			parameters[0].Value = model.U_LoginName;
 			parameters[1].Value = model.U_Password;
 			parameters[2].Value = model.U_CName;
@@ -110,6 +127,7 @@ namespace Maticsoft.SQLServerDAL
 			parameters[26].Value = model.U_ExtendField;
 			parameters[27].Value = model.U_LoginType;
 			parameters[28].Value = model.U_HospitalGroupID;
+			parameters[29].Value = model.U_AccessToken;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -156,7 +174,8 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("U_LastDateTime=@U_LastDateTime,");
 			strSql.Append("U_ExtendField=@U_ExtendField,");
 			strSql.Append("U_LoginType=@U_LoginType,");
-			strSql.Append("U_HospitalGroupID=@U_HospitalGroupID");
+			strSql.Append("U_HospitalGroupID=@U_HospitalGroupID,");
+			strSql.Append("U_AccessToken=@U_AccessToken");
 			strSql.Append(" where UserID=@UserID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@U_LoginName", SqlDbType.NVarChar,20),
@@ -188,6 +207,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@U_ExtendField", SqlDbType.NText),
 					new SqlParameter("@U_LoginType", SqlDbType.VarChar,255),
 					new SqlParameter("@U_HospitalGroupID", SqlDbType.Int,4),
+					new SqlParameter("@U_AccessToken", SqlDbType.VarChar,30),
 					new SqlParameter("@UserID", SqlDbType.Int,4)};
 			parameters[0].Value = model.U_LoginName;
 			parameters[1].Value = model.U_Password;
@@ -218,7 +238,8 @@ namespace Maticsoft.SQLServerDAL
 			parameters[26].Value = model.U_ExtendField;
 			parameters[27].Value = model.U_LoginType;
 			parameters[28].Value = model.U_HospitalGroupID;
-			parameters[29].Value = model.UserID;
+			parameters[29].Value = model.U_AccessToken;
+			parameters[30].Value = model.UserID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -282,7 +303,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID from sys_User ");
+			strSql.Append("select  top 1 UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID,U_AccessToken from sys_User ");
 			strSql.Append(" where UserID=@UserID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@UserID", SqlDbType.Int,4)
@@ -300,6 +321,22 @@ namespace Maticsoft.SQLServerDAL
 				return null;
 			}
 		}
+
+        /// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+        public Maticsoft.Model.sys_User GetModel(string strWhere)
+        {
+            DataSet ds = GetList(strWhere);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
 		/// <summary>
@@ -430,6 +467,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.U_HospitalGroupID=int.Parse(row["U_HospitalGroupID"].ToString());
 				}
+				if(row["U_AccessToken"]!=null)
+				{
+					model.U_AccessToken=row["U_AccessToken"].ToString();
+				}
 			}
 			return model;
 		}
@@ -440,7 +481,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID ");
+			strSql.Append("select UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID,U_AccessToken ");
 			strSql.Append(" FROM sys_User ");
 			if(strWhere.Trim()!="")
 			{
@@ -460,7 +501,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID ");
+			strSql.Append(" UserID,U_LoginName,U_Password,U_CName,U_EName,U_GroupID,U_Email,U_Type,U_Status,U_Licence,U_Mac,U_Remark,U_IDCard,U_Sex,U_BirthDay,U_MobileNo,U_UserNO,U_WorkStartDate,U_WorkEndDate,U_CompanyMail,U_Title,U_Extension,U_HomeTel,U_PhotoUrl,U_DateTime,U_LastIP,U_LastDateTime,U_ExtendField,U_LoginType,U_HospitalGroupID,U_AccessToken ");
 			strSql.Append(" FROM sys_User ");
 			if(strWhere.Trim()!="")
 			{

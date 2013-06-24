@@ -21,7 +21,7 @@ namespace Maticsoft.SQLServerDAL
         public Maticsoft.Model.sys_UserInfo GetModel(int UserID)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 from sys_User join record_UserBaseInfo on sys_User.UserID=record_UserBaseInfo.UserID ");
+            strSql.Append("select  top 1 * from sys_User join record_UserBaseInfo on sys_User.UserID=record_UserBaseInfo.UserID ");
             strSql.Append(" where UserID=@UserID");
             SqlParameter[] parameters = {
 					new SqlParameter("@UserID", SqlDbType.Int,4)
@@ -168,6 +168,10 @@ namespace Maticsoft.SQLServerDAL
                 if (row["U_HospitalGroupID"] != null && row["U_HospitalGroupID"].ToString() != "")
                 {
                     model.U_HospitalGroupID = int.Parse(row["U_HospitalGroupID"].ToString());
+                }
+                if (row["U_AccessToken"] != null && row["U_AccessToken"].ToString() != "")
+                {
+                    model.U_AccessToken = row["U_AccessToken"].ToString();
                 }
                 
                 if (row["U_Hometown"] != null)

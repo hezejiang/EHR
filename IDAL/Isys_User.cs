@@ -33,6 +33,7 @@ namespace Maticsoft.IDAL
 		/// 得到一个对象实体
 		/// </summary>
 		Maticsoft.Model.sys_User GetModel(int UserID);
+        Maticsoft.Model.sys_User GetModel(string strWhere);
 		Maticsoft.Model.sys_User DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

@@ -151,11 +151,12 @@ p{
                     <tr>
                         <td class="down_text" style="background:#2D5064">
                             Powered By <a href="http://www.gdmc.edu.cn" target="_blank"><font color="#ffffff">GDMC 09信管</font></a></td>
-                            <td align="right" width="110" bgcolor="#2D5064">
+                            <td align="right" width="220" bgcolor="#2D5064">
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td style="cursor:pointer;border-left:1px solid #FFFFFF;" onclick="javascript: window.mainFrame.location.href='right.aspx'">&nbsp;<img src="images/house.gif" style="margin-bottom: -3px">&nbsp;<font color="#FFFFFF">回到首页</font>
                                     </td>
+                                    <td style="cursor:pointer;border-left:1px solid #FFFFFF;" onclick="javascript:showPopWin('个人设定','UserSet.aspx?rand'+rand(100000000),400, 255, AlertMessageBox,true)">&nbsp;<img src="images/userset.gif" style="margin-bottom: -3px">&nbsp;<font color="#FFFFFF">个人设定</font></td>
                                 </tr>
                             </table>
                             

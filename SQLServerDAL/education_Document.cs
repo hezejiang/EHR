@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/6/12 22:02:36   N/A    初版
+* V0.01  2013/6/23 11:23:34   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -63,19 +63,21 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into education_Document(");
-			strSql.Append("D_Name,D_Url,D_UserID,D_DateTime)");
+			strSql.Append("D_Name,D_Url,D_UserID,D_DateTime,D_Committee)");
 			strSql.Append(" values (");
-			strSql.Append("@D_Name,@D_Url,@D_UserID,@D_DateTime)");
+			strSql.Append("@D_Name,@D_Url,@D_UserID,@D_DateTime,@D_Committee)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@D_Name", SqlDbType.NVarChar,100),
 					new SqlParameter("@D_Url", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
-					new SqlParameter("@D_DateTime", SqlDbType.DateTime)};
+					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
+					new SqlParameter("@D_Committee", SqlDbType.Int,4)};
 			parameters[0].Value = model.D_Name;
 			parameters[1].Value = model.D_Url;
 			parameters[2].Value = model.D_UserID;
 			parameters[3].Value = model.D_DateTime;
+			parameters[4].Value = model.D_Committee;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -97,19 +99,22 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("D_Name=@D_Name,");
 			strSql.Append("D_Url=@D_Url,");
 			strSql.Append("D_UserID=@D_UserID,");
-			strSql.Append("D_DateTime=@D_DateTime");
+			strSql.Append("D_DateTime=@D_DateTime,");
+			strSql.Append("D_Committee=@D_Committee");
 			strSql.Append(" where DocumentID=@DocumentID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@D_Name", SqlDbType.NVarChar,100),
 					new SqlParameter("@D_Url", SqlDbType.Text),
 					new SqlParameter("@D_UserID", SqlDbType.Int,4),
 					new SqlParameter("@D_DateTime", SqlDbType.DateTime),
+					new SqlParameter("@D_Committee", SqlDbType.Int,4),
 					new SqlParameter("@DocumentID", SqlDbType.Int,4)};
 			parameters[0].Value = model.D_Name;
 			parameters[1].Value = model.D_Url;
 			parameters[2].Value = model.D_UserID;
 			parameters[3].Value = model.D_DateTime;
-			parameters[4].Value = model.DocumentID;
+			parameters[4].Value = model.D_Committee;
+			parameters[5].Value = model.DocumentID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -173,7 +178,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 DocumentID,D_Name,D_Url,D_UserID,D_DateTime from education_Document ");
+			strSql.Append("select  top 1 DocumentID,D_Name,D_Url,D_UserID,D_DateTime,D_Committee from education_Document ");
 			strSql.Append(" where DocumentID=@DocumentID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@DocumentID", SqlDbType.Int,4)
@@ -192,6 +197,21 @@ namespace Maticsoft.SQLServerDAL
 			}
 		}
 
+        /// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+        public Maticsoft.Model.education_Document GetModel(string strWhere)
+        {
+            DataSet ds = GetList(strWhere);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -221,6 +241,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.D_DateTime=DateTime.Parse(row["D_DateTime"].ToString());
 				}
+				if(row["D_Committee"]!=null && row["D_Committee"].ToString()!="")
+				{
+					model.D_Committee=int.Parse(row["D_Committee"].ToString());
+				}
 			}
 			return model;
 		}
@@ -231,7 +255,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select DocumentID,D_Name,D_Url,D_UserID,D_DateTime ");
+			strSql.Append("select DocumentID,D_Name,D_Url,D_UserID,D_DateTime,D_Committee ");
 			strSql.Append(" FROM education_Document ");
 			if(strWhere.Trim()!="")
 			{
@@ -251,7 +275,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" DocumentID,D_Name,D_Url,D_UserID,D_DateTime ");
+			strSql.Append(" DocumentID,D_Name,D_Url,D_UserID,D_DateTime,D_Committee ");
 			strSql.Append(" FROM education_Document ");
 			if(strWhere.Trim()!="")
 			{

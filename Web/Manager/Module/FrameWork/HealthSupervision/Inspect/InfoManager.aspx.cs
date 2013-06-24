@@ -14,9 +14,8 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
 {
     public partial class InspectManager : System.Web.UI.Page
     {
-        //获取通过Get方式传递过来的键对应的值，可复制后改成你所负责模块的"*ID"
         int InspectID = (int)Common.sink("InspectID", MethodType.Get, 255, 0, DataType.Int);
-        //CMD一般有如下几个值：List,New,Edit,Delete,Order；这里直接复制，不需更改
+        int InfoID = (int)Common.sink("InfoID", MethodType.Get, 255, 0, DataType.Int);
         string CMD = (string)Common.sink("CMD", MethodType.Get, 50, 0, DataType.Str);
         string CMD_Txt = "查看";
         string App_Txt = "信息"; //这里要改成模块对应的内容
@@ -67,13 +66,9 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
             }
             else if (CMD == "Delete")
             {
-                //这是操作数据库的核心代码，工作原理是：首先要明确现在所操作的模块对应着数据库中的哪张表，然后创建这个表所对应的的逻辑处理层(bll)对象，如这里操作的表是supervision_Info，则要新建所对应的Maticsoft.BLL.supervision_Info对象
                 Maticsoft.BLL.supervision_Inspect bll = new Maticsoft.BLL.supervision_Inspect();
-                //这是数据库实体类对象（简单来说就对应着这个表的一条记录），因为这里操作的表是supervision_Info，则对应的model是Maticsoft.Model.supervision_Info，然后通过上一行new的bll对象去执行数据库操作（这里使用的方法是GetModel，当然还有其他的方法，根据需要使用不同的方法），返回对应实体类对象
                 Maticsoft.Model.supervision_Inspect model = bll.GetModel(InspectID);
-                //bll执行删除操作，参数是这个实体类的ID值
                 bll.Delete(model.InspectID);
-                //以下方法的第4、5个参数需要更改
                 EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", InspectID, "删除信息"), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
             }
         }
@@ -83,11 +78,8 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
         /// </summary>
         private void InputData()
         {
-            //这两句和71、73作用一样
             Maticsoft.BLL.supervision_Inspect bll = new Maticsoft.BLL.supervision_Inspect();
             Maticsoft.Model.supervision_Inspect model = bll.GetModel(InspectID);
-
-            //以下几行需要更改
             I_Date.Text = model.I_Date.ToShortDateString();
             I_Type.SelectedValue = model.I_Type+"";
             I_Content.Text = model.I_Content;
@@ -98,7 +90,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
         }
 
         /// <summary>
-        /// 根据信息类型返回对应的信息名称（这个方法是在有下拉框的时候需要）
+        /// 根据信息类型返回对应的信息名称
         /// </summary>
         /// <param name="superision_type"></param>
         /// <returns></returns>
@@ -139,7 +131,7 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
                 supervision_Inspect_model = new Maticsoft.Model.supervision_Inspect();
             }
 
-            //获取客户端通过Post方式传递过来的值的（需要更改）
+            //获取客户端通过Post方式传递过来的值的
             supervision_Inspect_model.I_Date = (DateTime)Common.sink(this.I_Date.UniqueID, MethodType.Post, 255, 0, DataType.Dat);
             supervision_Inspect_model.I_Type = Convert.ToInt32(this.I_Type.SelectedValue);
             supervision_Inspect_model.I_Content = (string)Common.sink(this.I_Content.UniqueID, MethodType.Post, 0, 0, DataType.Str);
@@ -151,8 +143,16 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
             {
                 case "New":
                     CMD_Txt = "增加";
+                    supervision_Inspect_model.I_InfoID = InfoID;
                     //如果是增加操作，就调用Add方法
                     supervision_Inspect_model.InspectID = supervision_bll.Add(supervision_Inspect_model);
+                    if (supervision_Inspect_model.InspectID > 0)
+                    {
+                        Maticsoft.BLL.supervision_Info supervision_Info_bll = new Maticsoft.BLL.supervision_Info();
+                        Maticsoft.Model.supervision_Info supervision_Info_model = supervision_Info_bll.GetModel(InfoID);
+                        supervision_Info_model.I_Status = 2;
+                        supervision_Info_bll.Update(supervision_Info_model);
+                    }
                     break;
                 case "Edit":
                     CMD_Txt = "修改";
@@ -161,7 +161,6 @@ namespace FrameWork.web.Module.FrameWork.HealthSupervision.Inspect
                     break;
             }
             All_Title_Txt = CMD_Txt + App_Txt;
-            //以下方法的第4个参数需要更改
             EventMessage.MessageBox(1, "操作成功", string.Format("{1}ID({0})成功!", supervision_Inspect_model.InspectID, All_Title_Txt), Icon_Type.OK, Common.GetHomeBaseUrl("default.aspx"));
          }
        }

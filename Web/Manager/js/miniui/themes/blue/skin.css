@@ -400,7 +400,7 @@ body .mini-buttonedit-focus .mini-buttonedit-border
 /*------------------- treegrid --------------------*/
 .mini-treegrid-border
 {
-    border:1px solid #98c0f4;
+    border-color:#98c0f4;
 }
 
 .mini-treegrid-header
@@ -413,12 +413,11 @@ body .mini-buttonedit-focus .mini-buttonedit-border
 }
 .mini-treegrid td
 {
-    border-right:solid 1px #d0d0d0;
-    border-bottom:solid 1px #d0d0d0;        
+    border-color:#d0d0d0;    
 }
 .mini-treegrid-header td
 {
-    border-right:solid 1px #d0d0d0;
+    border-color:#d0d0d0;
 }
 
 .mini-treegrid-selectedNode
@@ -598,7 +597,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
 /*---------------------- tree -----------------------------*/
 
 
-.mini-tree-hottrack .mini-tree-node-hover
+.mini-tree-node-hover .mini-tree-nodeshow
 {
     background:url(images/tree/button.gif) repeat-x 0px 50%;
 	border:solid 1px #b5afaf;		  

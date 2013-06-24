@@ -284,7 +284,7 @@
     <Content Include="Manager\js\highcharts\themes\skies.js" />
     <Content Include="Manager\js\miniui\locale\en_US.js" />
     <Content Include="Manager\js\miniui\locale\zh_CN.js" />
-    <Content Include="Manager\js\miniui\miniui.js" />
+    <Content Include="Manager\js\miniui\miniui_v3.js" />
     <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\arrowbg.gif" />
     <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\btn-hover.gif" />
     <Content Include="Manager\js\miniui\themes\blue2003\images\buttonedit\btn-pressed.gif" />
@@ -491,6 +491,8 @@
     <Content Include="Manager\js\miniui\themes\default\images\gantt\taskstatus.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\gantt\title_bg.png" />
     <Content Include="Manager\js\miniui\themes\default\images\gantt\warning.png" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\col-move-bottom.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\col-move-top.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\collapse.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\dirty.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\expand.gif" />
@@ -498,6 +500,8 @@
     <Content Include="Manager\js\miniui\themes\default\images\grid\header.png" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\icons.png" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\loading.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\no.gif" />
+    <Content Include="Manager\js\miniui\themes\default\images\grid\ok.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\resize.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\sort_asc.gif" />
     <Content Include="Manager\js\miniui\themes\default\images\grid\sort_desc.gif" />
@@ -653,11 +657,13 @@
     <Content Include="Manager\js\miniui\themes\icons\addfolder.gif" />
     <Content Include="Manager\js\miniui\themes\icons\addnew.gif" />
     <Content Include="Manager\js\miniui\themes\icons\cancel.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\collapse.gif" />
     <Content Include="Manager\js\miniui\themes\icons\cut.png" />
     <Content Include="Manager\js\miniui\themes\icons\date.gif" />
     <Content Include="Manager\js\miniui\themes\icons\downgrade.gif" />
     <Content Include="Manager\js\miniui\themes\icons\download.gif" />
     <Content Include="Manager\js\miniui\themes\icons\edit.gif" />
+    <Content Include="Manager\js\miniui\themes\icons\expand.gif" />
     <Content Include="Manager\js\miniui\themes\icons\filter.gif" />
     <Content Include="Manager\js\miniui\themes\icons\find.png" />
     <Content Include="Manager\js\miniui\themes\icons\folder-open.gif" />
@@ -873,6 +879,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Announcement.ashx.cs">
+      <DependentUpon>Announcement.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\Document.ashx.cs">
+      <DependentUpon>Document.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\Education.ashx.cs">
+      <DependentUpon>Education.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\UserData.ashx.cs">
+      <DependentUpon>UserData.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CheckRight.ascx.cs">
       <DependentUpon>checkright.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1502,6 +1523,11 @@
     <Content Include="App_Themes\Standard\GridView.skin" />
     <Content Include="App_Themes\Standard\ListBox.skin" />
     <Content Include="Manager\Ajax\DiseaseOther.ashx" />
+    <Content Include="Api\Login.ashx" />
+    <Content Include="Api\UserData.ashx" />
+    <Content Include="Api\Document.ashx" />
+    <Content Include="Api\Announcement.ashx" />
+    <Content Include="Api\Education.ashx" />
     <None Include="Manager\images\ICON\Thumbs.db" />
     <None Include="Manager\images\Index\Thumbs.db" />
     <None Include="Manager\images\logon\Thumbs.db" />

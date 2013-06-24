@@ -1,4 +1,20 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* supervision_Inspect.cs
+*
+* 功 能： N/A
+* 类 名： supervision_Inspect
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2013/6/24 2:40:44   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -47,9 +63,9 @@ namespace Maticsoft.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into supervision_Inspect(");
-			strSql.Append("I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note)");
+			strSql.Append("I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note,I_InfoID)");
 			strSql.Append(" values (");
-			strSql.Append("@I_Location,@I_Type,@I_Date,@I_UserID,@I_Content,@I_MainProblem,@I_Note)");
+			strSql.Append("@I_Location,@I_Type,@I_Date,@I_UserID,@I_Content,@I_MainProblem,@I_Note,@I_InfoID)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@I_Location", SqlDbType.NVarChar,100),
@@ -58,7 +74,8 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@I_UserID", SqlDbType.Int,4),
 					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_MainProblem", SqlDbType.Text),
-					new SqlParameter("@I_Note", SqlDbType.Text)};
+					new SqlParameter("@I_Note", SqlDbType.Text),
+					new SqlParameter("@I_InfoID", SqlDbType.Int,4)};
 			parameters[0].Value = model.I_Location;
 			parameters[1].Value = model.I_Type;
 			parameters[2].Value = model.I_Date;
@@ -66,6 +83,7 @@ namespace Maticsoft.SQLServerDAL
 			parameters[4].Value = model.I_Content;
 			parameters[5].Value = model.I_MainProblem;
 			parameters[6].Value = model.I_Note;
+			parameters[7].Value = model.I_InfoID;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -90,7 +108,8 @@ namespace Maticsoft.SQLServerDAL
 			strSql.Append("I_UserID=@I_UserID,");
 			strSql.Append("I_Content=@I_Content,");
 			strSql.Append("I_MainProblem=@I_MainProblem,");
-			strSql.Append("I_Note=@I_Note");
+			strSql.Append("I_Note=@I_Note,");
+			strSql.Append("I_InfoID=@I_InfoID");
 			strSql.Append(" where InspectID=@InspectID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@I_Location", SqlDbType.NVarChar,100),
@@ -100,6 +119,7 @@ namespace Maticsoft.SQLServerDAL
 					new SqlParameter("@I_Content", SqlDbType.Text),
 					new SqlParameter("@I_MainProblem", SqlDbType.Text),
 					new SqlParameter("@I_Note", SqlDbType.Text),
+					new SqlParameter("@I_InfoID", SqlDbType.Int,4),
 					new SqlParameter("@InspectID", SqlDbType.Int,4)};
 			parameters[0].Value = model.I_Location;
 			parameters[1].Value = model.I_Type;
@@ -108,7 +128,8 @@ namespace Maticsoft.SQLServerDAL
 			parameters[4].Value = model.I_Content;
 			parameters[5].Value = model.I_MainProblem;
 			parameters[6].Value = model.I_Note;
-			parameters[7].Value = model.InspectID;
+			parameters[7].Value = model.I_InfoID;
+			parameters[8].Value = model.InspectID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -172,7 +193,7 @@ namespace Maticsoft.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note from supervision_Inspect ");
+			strSql.Append("select  top 1 InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note,I_InfoID from supervision_Inspect ");
 			strSql.Append(" where InspectID=@InspectID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@InspectID", SqlDbType.Int,4)
@@ -232,6 +253,10 @@ namespace Maticsoft.SQLServerDAL
 				{
 					model.I_Note=row["I_Note"].ToString();
 				}
+				if(row["I_InfoID"]!=null && row["I_InfoID"].ToString()!="")
+				{
+					model.I_InfoID=int.Parse(row["I_InfoID"].ToString());
+				}
 			}
 			return model;
 		}
@@ -242,7 +267,7 @@ namespace Maticsoft.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note ");
+			strSql.Append("select InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note,I_InfoID ");
 			strSql.Append(" FROM supervision_Inspect ");
 			if(strWhere.Trim()!="")
 			{
@@ -262,7 +287,7 @@ namespace Maticsoft.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note ");
+			strSql.Append(" InspectID,I_Location,I_Type,I_Date,I_UserID,I_Content,I_MainProblem,I_Note,I_InfoID ");
 			strSql.Append(" FROM supervision_Inspect ");
 			if(strWhere.Trim()!="")
 			{
